@@ -38,25 +38,22 @@ export default function Mobilite() {
 
   return (
     <>
-      <Hero titre="Mobilité vélo"
-            texte="Historique des stations de vélos en libre-service depuis novembre 2024 (archive CityBikes), complété en direct toutes les 3 minutes. Chaque collecte arrive directement dans ClickHouse."
-            enDirect={v ? `Dernière collecte ${heure(v.heure_collecte)}` : null} />
+      <Hero titre="Mobilité vélo" puces={["CityBikes", "Nov. 2024 → aujourd'hui", "Direct · 3 min"]} />
       <div className="contenu">
         <div className="carte" style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 20px" }}>
           <span style={{ color: "#4a5a78" }}>Ville</span>
           <ChoixVille valeur={ville} onChange={setVille} villes={villes.length ? villes : undefined} />
-          <span className="note" style={{ margin: 0 }}>Bike-share data by CityBikes contributors, <a href="https://data.citybik.es" target="_blank" rel="noreferrer">data.citybik.es</a> (ODbL). Marseille et Nice ne publient pas le nombre de vélos : elles n'apparaissent pas.</span>
         </div>
 
         <div className="grille g4">
-          <Kpi icone={Icones.velo} label="Vélos disponibles" valeur={fmt(v?.velos)} detail={`sur ${fmt(v?.capacite)} points d'attache`} />
+          <Kpi icone={Icones.velo} label="Vélos disponibles" valeur={fmt(v?.velos)} detail={`${fmt(v?.capacite)} places`} />
           <Kpi icone={Icones.jauge} label="Taux de remplissage" valeur={v ? fmt((v.velos / v.capacite) * 100) : "–"} unite="%" detail={`${fmt(v?.stations)} stations`} />
-          <Kpi icone={Icones.alerte} label="Stations vides / pleines" valeur={v ? `${fmt(v.stations_vides)} / ${fmt(v.stations_pleines)}` : "–"} detail="Impossible d'y prendre / d'y rendre un vélo" />
-          <Kpi icone={Icones.station} label="Heures de pointe" valeur={pic ? `${Math.min(pic.heure_de_pointe, pic.second_pic ?? 99)} h · ${Math.max(pic.heure_de_pointe, pic.second_pic ?? 0)} h` : "–"} detail={`${fmt(crit.length)} stations à rééquilibrer, ${fmt(nbZones)} zones sous-équipées`} />
+          <Kpi icone={Icones.alerte} label="Stations vides / pleines" valeur={v ? `${fmt(v.stations_vides)} / ${fmt(v.stations_pleines)}` : "–"} detail="En ce moment" />
+          <Kpi icone={Icones.station} label="Heures de pointe" valeur={pic ? `${Math.min(pic.heure_de_pointe, pic.second_pic ?? 99)} h · ${Math.max(pic.heure_de_pointe, pic.second_pic ?? 0)} h` : "–"} detail={`${fmt(crit.length)} stations à rééquilibrer`} />
         </div>
 
         <div className="grille g2">
-          <Carte titre={`Stations de ${ville}, en ce moment`} sousTitre="Chaque point est une station. Survoler pour voir le détail.">
+          <Carte titre={`Stations · ${ville} · direct`}>
             {stations?.length ? (
               <>
                 <div className="carte-map">
@@ -76,7 +73,7 @@ export default function Mobilite() {
             ) : <Vide>Pas encore de collecte pour cette ville.</Vide>}
           </Carte>
 
-          <Carte titre="Vélos disponibles, dernières 24 heures" sousTitre="Quand la courbe baisse, des vélos sont en circulation.">
+          <Carte titre="Vélos disponibles · 24 h">
             {evolution?.length ? (
               <ResponsiveContainer width="100%" height={380}>
                 <AreaChart data={evolution} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
@@ -97,7 +94,7 @@ export default function Mobilite() {
           </Carte>
         </div>
 
-        <Carte titre={`Usage des vélos à ${ville}, jour par jour`} sousTitre="Nombre de vélos pris ou rendus chaque jour sur toute la période (archive CityBikes puis collecte en direct).">
+        <Carte titre={`Usage quotidien · ${ville}`} sousTitre="Vélos pris ou rendus par jour">
           {journalier?.length ? (
             <ResponsiveContainer width="100%" height={260}>
               <AreaChart data={journalier} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
@@ -118,7 +115,7 @@ export default function Mobilite() {
         </Carte>
 
         <div className="grille g2">
-          <Carte titre="Q3 · Pics d'utilisation dans la journée" sousTitre="Part des mouvements de vélos (prises et retours) selon l'heure.">
+          <Carte titre="Q3 · Pics d'utilisation" sousTitre="Part des mouvements par heure">
             {profilVille.length ? (
               <ResponsiveContainer width="100%" height={240}>
                 <LineChart data={profilVille} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
@@ -132,7 +129,7 @@ export default function Mobilite() {
             ) : <Vide>Il faut plusieurs heures de collecte pour ce graphique.</Vide>}
           </Carte>
 
-          <Carte titre="Q4 · Remplissage selon la distance au centre" sousTitre="Part moyenne des places occupées par un vélo. Un écart fort signale un déséquilibre centre / périphérie.">
+          <Carte titre="Q4 · Déséquilibres géographiques" sousTitre="Remplissage selon la distance au centre">
             {bandes.length ? (
               <ResponsiveContainer width="100%" height={240}>
                 <BarChart data={bandes} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
@@ -148,7 +145,7 @@ export default function Mobilite() {
         </div>
 
         <div className="grille g2">
-          <Carte titre="Q1 · Stations les plus utilisées" sousTitre="Rotations par jour : nombre de mouvements divisé par le nombre de places.">
+          <Carte titre="Q1 · Stations les plus utilisées" sousTitre="Rotations par place et par jour">
             {top?.length ? (
               <div className="defile">
                 <table className="tableau">
@@ -164,7 +161,7 @@ export default function Mobilite() {
             ) : <Vide />}
           </Carte>
 
-          <Carte titre="Q5 · Stations à rééquilibrer" sousTitre={`Stations de ${ville} trop souvent vides (à remplir) ou pleines (à vider).`}>
+          <Carte titre="Q5 · Stations à rééquilibrer" sousTitre="30 derniers jours">
             {crit.length ? (
               <div className="defile">
                 <table className="tableau">

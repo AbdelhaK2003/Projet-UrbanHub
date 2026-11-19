@@ -7,15 +7,15 @@ export default function DataLake() {
 
   return (
     <>
-      <Hero titre="Data Lake" texte="Le chemin des données, des sources jusqu'à cette interface, et le contenu actuel de chaque couche." />
+      <Hero titre="Data Lake" puces={["Silo · bronze / silver / gold", "ClickHouse"]} />
       <div className="contenu">
-        <Carte titre="Architecture" sousTitre="Chaque donnée passe par ces étapes.">
+        <Carte titre="Architecture">
           <div className="flux">
-            <div className="etape"><b>Sources</b>Open-Meteo (5 ans), CityBikes (toutes les 3 min), OpenAQ (3 ans + toutes les 15 min)</div>
-            <div className="etape"><b>Bronze</b>Données brutes, telles que reçues (JSON, CSV), dans MinIO</div>
-            <div className="etape"><b>Silver</b>Données nettoyées et typées, en Parquet</div>
-            <div className="etape"><b>Gold</b>Tableaux d'indicateurs prêts à afficher, en Parquet</div>
-            <div className="etape"><b>ClickHouse → API → React</b>Requêtes SQL rapides, affichées ici et rafraîchies automatiquement</div>
+            <div className="etape"><b>Sources</b>Open-Meteo · CityBikes · OpenAQ</div>
+            <div className="etape"><b>Bronze</b>Données brutes</div>
+            <div className="etape"><b>Silver</b>Données nettoyées</div>
+            <div className="etape"><b>Gold</b>Indicateurs</div>
+            <div className="etape"><b>ClickHouse → API → React</b>Interface temps réel</div>
           </div>
         </Carte>
 
@@ -23,11 +23,11 @@ export default function DataLake() {
           {["bronze", "silver", "gold"].map((b) => (
             <Kpi key={b} icone={Icones.lac} label={`Bucket ${b}`} valeur={fmt(total(b).f)} unite="fichiers" detail={`${fmt(total(b).t)} Mo`} />
           ))}
-          <Kpi icone={Icones.jauge} label="Tables gold dans ClickHouse" valeur={fmt(etat?.tables_gold)} detail="Une table par indicateur" />
+          <Kpi icone={Icones.jauge} label="Tables gold dans ClickHouse" valeur={fmt(etat?.tables_gold)} detail="Indicateurs" />
         </div>
 
         <div className="grille g2">
-          <Carte titre="Contenu de MinIO" sousTitre="Nombre de fichiers et taille par dossier.">
+          <Carte titre="Contenu du Data Lake">
             {lac?.length ? (
               <div className="defile" style={{ maxHeight: 520 }}>
                 <table className="tableau">
@@ -42,7 +42,7 @@ export default function DataLake() {
               </div>
             ) : <Vide>MinIO ne répond pas.</Vide>}
           </Carte>
-          <Carte titre="Tables détaillées dans ClickHouse" sousTitre="Les vélos et la pollution reçoivent chaque nouvelle collecte en direct.">
+          <Carte titre="Tables ClickHouse">
             {etat ? (
               <table className="tableau">
                 <thead><tr><th>Table</th><th className="nb">Lignes</th><th>Donnée la plus récente</th></tr></thead>

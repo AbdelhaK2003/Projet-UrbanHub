@@ -48,18 +48,16 @@ export default function Air() {
 
   return (
     <>
-      <Hero titre="Qualité de l'air"
-            texte="Capteurs OpenAQ autour des 11 villes : trois ans d'historique heure par heure, puis une nouvelle mesure toutes les 15 minutes. Les niveaux sont comparés aux valeurs guides de l'OMS (2021)."
-            enDirect={k?.pollution?.derniere_mesure ? `Dernière mesure ${dateHeure(k.pollution.derniere_mesure)}` : null} />
+      <Hero titre="Qualité de l'air" puces={["OpenAQ", "Nov. 2023 → aujourd'hui", "Direct · 15 min"]} />
       <div className="contenu">
         <div className="grille g4">
-          <Kpi icone={Icones.air} label="PM2.5 (24 h)" valeur={fmt(k?.pollution?.pm25, 1)} unite="µg/m³" detail="Valeur guide OMS : 15" />
-          <Kpi icone={Icones.air} label="NO2 (24 h)" valeur={fmt(k?.pollution?.no2, 1)} unite="µg/m³" detail="Valeur guide OMS : 25 (trafic routier)" />
-          <Kpi icone={Icones.meteo} label="Ozone O3 (24 h)" valeur={fmt(k?.pollution?.o3, 1)} unite="µg/m³" detail="Valeur guide OMS : 100 (sur 8 h)" />
-          <Kpi icone={Icones.alerte} label="Épisodes de pollution" valeur={fmt(k?.pollution?.episodes_30j)} detail="Sur les 30 derniers jours, toutes villes" />
+          <Kpi icone={Icones.air} label="PM2.5 (24 h)" valeur={fmt(k?.pollution?.pm25, 1)} unite="µg/m³" detail="OMS : 15" />
+          <Kpi icone={Icones.air} label="NO2 (24 h)" valeur={fmt(k?.pollution?.no2, 1)} unite="µg/m³" detail="OMS : 25" />
+          <Kpi icone={Icones.meteo} label="Ozone O3 (24 h)" valeur={fmt(k?.pollution?.o3, 1)} unite="µg/m³" detail="OMS : 100" />
+          <Kpi icone={Icones.alerte} label="Épisodes de pollution" valeur={fmt(k?.pollution?.episodes_30j)} detail="30 derniers jours" />
         </div>
 
-        <Carte titre="En ce moment, ville par ville" sousTitre="Moyenne des dernières 24 heures, comparée à la valeur guide de l'OMS.">
+        <Carte titre="Par ville · 24 h">
           {tableauLive.length ? (
             <div style={{ overflowX: "auto" }}>
               <table className="tableau">
@@ -87,7 +85,7 @@ export default function Air() {
         </div>
 
         <div className="grille g3">
-          <Carte className="large" titre={`${NOMS_POLLUANTS[pol]} à ${ville} sur trois ans`} sousTitre="Moyenne mensuelle. La ligne rouge est la valeur guide de l'OMS.">
+          <Carte className="large" titre={`Tendance ${NOMS_POLLUANTS[pol]} · ${ville}`} sousTitre="Moyenne mensuelle · ligne rouge = OMS">
             {tendance.length ? (
               <ResponsiveContainer width="100%" height={260}>
                 <LineChart data={tendance} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
@@ -101,7 +99,7 @@ export default function Air() {
               </ResponsiveContainer>
             ) : <Vide>Pas de capteur de {NOMS_POLLUANTS[pol]} à {ville}.</Vide>}
           </Carte>
-          <Carte titre="Jours au-dessus de la valeur OMS" sousTitre={`${NOMS_POLLUANTS[pol]} à ${ville}, par année.`}>
+          <Carte titre="Jours au-dessus de l'OMS">
             {dep.length ? (
               <table className="tableau">
                 <thead><tr><th>Année</th><th className="nb">Jours</th><th>Part</th></tr></thead>
@@ -117,7 +115,7 @@ export default function Air() {
         </div>
 
         <div className="grille g2">
-          <Carte titre="Q1 · Zones les plus polluées" sousTitre={`Les 10 stations de mesure où le ${NOMS_POLLUANTS[pol]} moyen est le plus élevé.`}>
+          <Carte titre="Q1 · Zones les plus polluées" sousTitre={`Top 10 · ${NOMS_POLLUANTS[pol]}`}>
             {topZones.length ? (
               <div className="defile">
                 <table className="tableau">
@@ -133,7 +131,7 @@ export default function Air() {
             ) : <Vide />}
           </Carte>
 
-          <Carte titre="Q2 · La pollution au fil de la journée" sousTitre="Profil moyen (100 = moyenne de la journée). Le NO2 suit les heures de pointe, l'ozone le soleil de l'après-midi.">
+          <Carte titre="Q2 · Variation journalière" sousTitre="100 = moyenne de la journée">
             {profilLarge.length ? (
               <>
                 <ResponsiveContainer width="100%" height={230}>
@@ -153,7 +151,7 @@ export default function Air() {
         </div>
 
         <div className="grille g2">
-          <Carte titre="Q3 · Polluant dominant par ville" sousTitre={`Niveau moyen rapporté à la valeur OMS (1 = la limite). Barres : ${NOMS_POLLUANTS[pol]}.`}>
+          <Carte titre="Q3 · Polluants dominants" sousTitre="Niveau moyen / valeur OMS">
             {ratiosVilles.length ? (
               <ResponsiveContainer width="100%" height={260}>
                 <BarChart data={ratiosVilles} layout="vertical" margin={{ left: 10, right: 16 }}>
@@ -173,7 +171,7 @@ export default function Air() {
             )}
           </Carte>
 
-          <Carte titre="Q4 · Derniers épisodes de pollution" sousTitre="Au moins 6 heures au-dessus de la valeur OMS ou à un niveau exceptionnel pour la ville.">
+          <Carte titre="Q4 · Épisodes de pollution" sousTitre="Les plus récents">
             {derniers.length ? (
               <div className="defile">
                 <table className="tableau">

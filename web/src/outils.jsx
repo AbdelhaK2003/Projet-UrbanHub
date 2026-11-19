@@ -72,19 +72,12 @@ export function Vide({ children }) {
   return <div className="vide">{children || "Pas encore de données. Lancer le pipeline : python -m urbanhub.pipeline"}</div>;
 }
 
-export function Hero({ titre, texte, enDirect }) {
+export function Hero({ titre, puces = [] }) {
   return (
     <div className="hero">
       <div className="hero-haut">
-        <div>
-          <h1>{titre}</h1>
-          <p>{texte}</p>
-        </div>
-        {enDirect && (
-          <span className="direct">
-            <span className="point" /> {enDirect}
-          </span>
-        )}
+        <h1>{titre}</h1>
+        <div className="puces">{puces.filter(Boolean).map((p) => <span key={p} className="puce">{p}</span>)}</div>
       </div>
     </div>
   );

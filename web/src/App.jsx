@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Icones, useApi, dateHeure } from "./outils.jsx";
+import { Icones, useApi, heure } from "./outils.jsx";
 import Accueil from "./pages/Accueil.jsx";
 import Meteo from "./pages/Meteo.jsx";
 import Mobilite from "./pages/Mobilite.jsx";
@@ -10,7 +10,7 @@ import DataLake from "./pages/DataLake.jsx";
 const PAGES = [
   ["accueil", "Vue d'ensemble", Icones.accueil, Accueil],
   ["meteo", "Météo", Icones.meteo, Meteo],
-  ["mobilite", "Mobilité vélo", Icones.velo, Mobilite],
+  ["mobilite", "Mobilité", Icones.velo, Mobilite],
   ["air", "Qualité de l'air", Icones.air, Air],
   ["croisement", "Analyse croisée", Icones.croisement, Croisement],
   ["lac", "Data Lake", Icones.lac, DataLake],
@@ -24,30 +24,31 @@ export default function App() {
 
   return (
     <div className="app">
-      <aside className="sidebar">
-        <div className="logo">
-          <div className="logo-text">Urban<span>Hub</span></div>
-        </div>
-        <nav className="nav">
-          {PAGES.map(([id, nom, icone]) => (
-            <button key={id} className={page === id ? "actif" : ""} onClick={() => setPage(id)}>
-              {icone} {nom}
-            </button>
-          ))}
-        </nav>
-        <div className="sidebar-bas">
-          Jumeau numérique des grandes villes françaises
-          {etat?.velos && <div style={{ marginTop: 8 }}>Dernière collecte vélos : {dateHeure(etat.velos.derniere)}</div>}
-          <div className="sources">
-            Sources : vélos <a href="https://citybik.es" target="_blank" rel="noreferrer">CityBikes</a>,
-            météo <a href="https://open-meteo.com" target="_blank" rel="noreferrer">Open-Meteo</a>,
-            air <a href="https://openaq.org" target="_blank" rel="noreferrer">OpenAQ</a>
+      <header className="barre-haut">
+        <div className="barre-interieur">
+          <button className="marque" onClick={() => setPage("accueil")}>Urban<span>Hub</span></button>
+          <nav className="nav">
+            {PAGES.map(([id, nom, icone]) => (
+              <button key={id} className={page === id ? "actif" : ""} onClick={() => setPage(id)}>
+                {icone}<span>{nom}</span>
+              </button>
+            ))}
+          </nav>
+          <div className="statut">
+            <span className="point" />
+            {etat?.velos ? `Direct · ${heure(etat.velos.derniere)}` : "Connexion…"}
           </div>
         </div>
-      </aside>
+      </header>
       <main className="main">
         <Page aller={setPage} />
       </main>
+      <footer className="pied">
+        Sources : <a href="https://open-meteo.com" target="_blank" rel="noreferrer">Open-Meteo</a> ·{" "}
+        <a href="https://citybik.es" target="_blank" rel="noreferrer">CityBikes</a> (bike-share data by CityBikes contributors,{" "}
+        <a href="https://data.citybik.es" target="_blank" rel="noreferrer">data.citybik.es</a>, ODbL) ·{" "}
+        <a href="https://openaq.org" target="_blank" rel="noreferrer">OpenAQ</a>
+      </footer>
     </div>
   );
 }

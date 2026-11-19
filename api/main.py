@@ -165,13 +165,19 @@ def velos_live():
 @app.get("/api/velos/evolution")
 def velos_evolution(city: str | None = None, heures: int = 24):
     filtre = "AND city = {city:String}" if city else ""
-    return json(requete(f"""
-        SELECT collected_at, sum(bikes_available) AS velos, avg(fill_rate) AS remplissage,
-               countIf(bikes_available = 0) AS stations_vides
+    d = requete(f"""
+        SELECT collected_at, network_id, sum(bikes_available) AS velos, countIf(bikes_available = 0) AS stations_vides
         FROM {B}.velos FINAL
         WHERE collected_at >= (SELECT max(collected_at) FROM {B}.velos) - INTERVAL {int(heures)} HOUR {filtre}
           AND city IN (SELECT city FROM {B}.velos GROUP BY city HAVING max(bikes_available) > 0)
-        GROUP BY collected_at ORDER BY collected_at""", city=city))
+        GROUP BY collected_at, network_id""", city=city)
+    if d.empty:
+        return json(d)
+    # si un reseau manque a une collecte (API en panne), on garde sa derniere valeur connue
+    # au lieu de faire chuter le total
+    large = d.pivot_table(index="collected_at", columns="network_id", values=["velos", "stations_vides"]).ffill()
+    res = pd.DataFrame({"velos": large["velos"].sum(axis=1), "stations_vides": large["stations_vides"].sum(axis=1)})
+    return json(res.reset_index())
 
 
 @app.get("/api/velos/stations")

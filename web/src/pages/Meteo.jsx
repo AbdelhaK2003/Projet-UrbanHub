@@ -54,17 +54,17 @@ export default function Meteo() {
 
   return (
     <>
-      <Hero titre="Météo" texte="Cinq ans de météo heure par heure (Open-Meteo), de novembre 2021 à aujourd'hui, pour les 11 grandes villes." />
+      <Hero titre="Météo" puces={["Open-Meteo", "Nov. 2021 → aujourd'hui", "Horaire"]} />
       <div className="contenu">
         <div className="grille g4">
-          <Kpi icone={Icones.thermo} label="Vagues de chaleur" valeur={fmt(compte("vague de chaleur"))} detail="Au moins 3 jours nettement plus chauds que la normale" />
-          <Kpi icone={Icones.meteo} label="Vagues de froid" valeur={fmt(compte("vague de froid"))} detail="Au moins 3 jours nettement plus froids" />
-          <Kpi icone={Icones.alerte} label="Jours-ville extrêmes" valeur={fmt((parVille || []).reduce((s, d) => s + d.nb_jours, 0))} detail="Chaleur, gel, tempête, forte pluie ou brouillard" />
-          <Kpi icone={Icones.jauge} label="Plus fort écart été / hiver" valeur={fmt(max?.ecart, 1)} unite="°C" detail={max ? `${max.city} : ${fmt(max.hiver, 1)} °C en hiver, ${fmt(max.ete, 1)} °C en été` : ""} />
+          <Kpi icone={Icones.thermo} label="Vagues de chaleur" valeur={fmt(compte("vague de chaleur"))} detail="≥ 3 jours au-dessus de la normale" />
+          <Kpi icone={Icones.meteo} label="Vagues de froid" valeur={fmt(compte("vague de froid"))} detail="≥ 3 jours sous la normale" />
+          <Kpi icone={Icones.alerte} label="Jours-ville extrêmes" valeur={fmt((parVille || []).reduce((s, d) => s + d.nb_jours, 0))} detail="Chaleur, gel, tempête, pluie, brouillard" />
+          <Kpi icone={Icones.jauge} label="Plus fort écart été / hiver" valeur={fmt(max?.ecart, 1)} unite="°C" detail={max?.city} />
         </div>
 
-        <Carte titre="Q1 · Écart de température à la normale de saison"
-               sousTitre="Moyenne France, par semaine. Orange : plus chaud que la normale ; bleu : plus froid. Les longues séries de barres hautes sont les périodes anormales.">
+        <Carte titre="Q1 · Anomalies de température"
+               sousTitre="Écart à la normale de saison, par semaine">
           {semaines.length ? (
             <ResponsiveContainer width="100%" height={260}>
               <BarChart data={semaines} margin={{ top: 8, right: 8, left: 0, bottom: 0 }} barCategoryGap={1}>
@@ -82,7 +82,7 @@ export default function Meteo() {
         </Carte>
 
         <div className="grille g2">
-          <Carte titre="Q1 · Dernières périodes anormales" sousTitre="Détectées sur toute la France (au moins 3 jours d'affilée).">
+          <Carte titre="Q1 · Périodes anormales">
             {periodes?.length ? (
               <div className="defile">
                 <table className="tableau">
@@ -102,8 +102,8 @@ export default function Meteo() {
             ) : <Vide />}
           </Carte>
 
-          <Carte titre="Q2 · Qu'est-ce qui réduit la visibilité ?"
-                 sousTitre="Part des heures où la visibilité tombe sous 10 km, selon les conditions. Plus l'air est humide, plus la vue se bouche."
+          <Carte titre="Q2 · Météo et visibilité"
+                 sousTitre="Part des heures sous 10 km de visibilité"
                  droite={<Filtres options={[["humidite (%)", "Humidité"], ["pluie (mm/h)", "Pluie"], ["nuages (%)", "Nuages"]]} valeur={facteur} onChange={setFacteur} />}>
             {visi?.length ? (
               <ResponsiveContainer width="100%" height={220}>
@@ -123,12 +123,11 @@ export default function Meteo() {
                 ))}
               </div>
             )}
-            <p className="note">Les nombres sont les corrélations avec la visibilité (−1 à +1).</p>
           </Carte>
         </div>
 
-        <Carte titre="Q3 · Évolution saisonnière de la température"
-               sousTitre="Température moyenne mensuelle de la ville choisie, comparée à la moyenne des 11 villes."
+        <Carte titre="Q3 · Évolution saisonnière"
+               sousTitre="Température mensuelle"
                droite={<ChoixVille valeur={ville} onChange={setVille} />}>
           {courbe.length ? (
             <>
@@ -152,7 +151,7 @@ export default function Meteo() {
         </Carte>
 
         <div className="grille g2">
-          <Carte titre="Q4 · Jours extrêmes par ville" sousTitre="Nombre de jours sur 5 ans, par type d'événement.">
+          <Carte titre="Q4 · Jours extrêmes par ville">
             {extremesVilles.length ? (
               <>
                 <ResponsiveContainer width="100%" height={300}>
@@ -169,7 +168,7 @@ export default function Meteo() {
             ) : <Vide />}
           </Carte>
 
-          <Carte titre="Q4 · Les journées les plus extrêmes" sousTitre="Jours où le plus de villes ont connu un événement extrême en même temps.">
+          <Carte titre="Q4 · Journées les plus extrêmes">
             {extremes?.length ? (
               <div className="defile">
                 <table className="tableau">

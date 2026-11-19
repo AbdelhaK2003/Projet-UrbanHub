@@ -30,16 +30,16 @@ export default function Croisement() {
 
   return (
     <>
-      <Hero titre="Analyse croisée" texte="Météo, pollution et vélos réunis heure par heure et ville par ville, pour comprendre comment ils s'influencent." />
+      <Hero titre="Analyse croisée" puces={["Météo × Pollution × Vélos", "Ville × heure"]} />
       <div className="contenu">
         <div className="grille g4">
-          <Kpi icone={Icones.vent} label="Vent et NO2" valeur={fmt(val("wind_speed", "no2"), 2)} detail="Négatif : le vent disperse la pollution" />
-          <Kpi icone={Icones.thermo} label="Température et ozone" valeur={fmt(val("temperature", "o3"), 2)} detail="Positif : le soleil et la chaleur forment l'ozone" />
-          <Kpi icone={Icones.meteo} label="Humidité et PM2.5" valeur={fmt(val("humidity", "pm25"), 2)} detail="Corrélation de rang (Spearman)" />
-          <Kpi icone={Icones.velo} label="Heures ville analysées" valeur={fmt((usage || []).filter((u) => u.facteur === "pluie").reduce((s, u) => s + u.nb_heures, 0))} detail="Heures où l'on connaît à la fois la météo et l'usage des vélos" />
+          <Kpi icone={Icones.vent} label="Vent et NO2" valeur={fmt(val("wind_speed", "no2"), 2)} detail="Corrélation" />
+          <Kpi icone={Icones.thermo} label="Température et ozone" valeur={fmt(val("temperature", "o3"), 2)} detail="Corrélation" />
+          <Kpi icone={Icones.meteo} label="Humidité et PM2.5" valeur={fmt(val("humidity", "pm25"), 2)} detail="Corrélation" />
+          <Kpi icone={Icones.velo} label="Heures ville analysées" valeur={fmt((usage || []).filter((u) => u.facteur === "pluie").reduce((s, u) => s + u.nb_heures, 0))} detail="Météo + vélos" />
         </div>
 
-        <Carte titre="Q1 · Lien entre météo et pollution" sousTitre="Chaque case va de −1 à +1. Bleu : quand la météo augmente, la pollution baisse. Orange : elles montent ensemble.">
+        <Carte titre="Q1 · Météo et pollution" sousTitre="Corrélation de −1 (bleu) à +1 (orange)">
           {polsPresents.length ? (
             <div className="heat" style={{ gridTemplateColumns: `140px repeat(${polsPresents.length}, minmax(60px, 1fr))` }}>
               <div />
@@ -58,7 +58,7 @@ export default function Croisement() {
         </Carte>
 
         <div className="grille g2">
-          <Carte titre="Q1 · Pollution selon la force du vent" sousTitre="Moyenne horaire en µg/m³. Plus le vent souffle, plus l'air est propre.">
+          <Carte titre="Pollution selon le vent" sousTitre="µg/m³">
             {vent?.length ? (
               <>
                 <ResponsiveContainer width="100%" height={240}>
@@ -74,7 +74,7 @@ export default function Croisement() {
               </>
             ) : <Vide />}
           </Carte>
-          <Carte titre="Q1 · Ozone selon la température" sousTitre="L'ozone se forme sous l'effet du soleil et de la chaleur.">
+          <Carte titre="Ozone selon la température" sousTitre="µg/m³">
             {temp?.length ? (
               <ResponsiveContainer width="100%" height={262}>
                 <BarChart data={temp} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
@@ -90,7 +90,7 @@ export default function Croisement() {
         </div>
 
         <div className="grille g2">
-          <Carte titre="Q2 · Usage des vélos selon la météo" sousTitre="Indice d'usage : 1 = utilisation habituelle à cette heure-là ; 1,2 = 20 % de plus.">
+          <Carte titre="Q2 · Météo et usage des vélos" sousTitre="Indice d'usage (1 = habituel)">
             {usage?.length ? (
               <ResponsiveContainer width="100%" height={260}>
                 <BarChart data={[...usage].sort((a, b) => a.facteur.localeCompare(b.facteur) || a.ordre - b.ordre).map((u) => ({ ...u, nom: `${u.facteur === "temperature (C)" ? "" : u.facteur + " "}${u.classe}${u.facteur === "temperature (C)" ? " °C" : ""}` }))} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
@@ -104,7 +104,7 @@ export default function Croisement() {
               </ResponsiveContainer>
             ) : <Vide>Disponible après au moins 24 heures de collecte vélo (idéalement une semaine). Les collecteurs tournent : revenir plus tard.</Vide>}
           </Carte>
-          <Carte titre="Q3 · Conditions favorables au vélo" sousTitre="Combinaisons température, pluie et vent où l'on roule le plus.">
+          <Carte titre="Q3 · Conditions favorables au vélo">
             {favorables?.length ? (
               <div className="defile">
                 <table className="tableau">
@@ -120,7 +120,7 @@ export default function Croisement() {
           </Carte>
         </div>
 
-        <Carte titre="Q4 · Jours d'interaction forte" sousTitre={`${fmt(interactions?.length)} jours où l'usage des vélos, la pollution et la météo s'écartent tous fortement de la normale en même temps. Les 30 plus récents :`}>
+        <Carte titre="Q4 · Interactions fortes" sousTitre={`${fmt(interactions?.length)} jours détectés · les plus récents`}>
           {interactions?.length ? (
             <div className="defile"><table className="tableau">
               <thead><tr><th>Date</th><th>Ville</th><th className="nb">Usage vélo</th><th className="nb">Pollution</th><th className="nb">Température</th><th className="nb">Pluie</th></tr></thead>
