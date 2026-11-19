@@ -3,7 +3,7 @@
 On construit une table "une ligne = une ville x une heure" qui rassemble :
 - la meteo de la ville (Open-Meteo, silver/meteo)
 - la pollution (moyenne des capteurs OpenAQ de la ville, silver/pollution)
-- l'usage des velos (mouvements par collecte, silver/velos)
+- l'usage des velos (mouvements par station, silver/velos_ville_heure)
 
 Pour comparer l'usage des velos d'une heure a l'autre, on enleve l'effet de
 l'heure de la journee : un "indice d'usage" de 1.2 veut dire "20 % de plus que
@@ -23,7 +23,6 @@ import pandas as pd
 
 from urbanhub import datalake
 from urbanhub.gold import sauver_table, titre
-from urbanhub.velos.analyser import charger as charger_velos
 
 P = "croisement"
 METEO = ["temperature", "humidity", "wind_speed", "precipitation", "pressure", "visibility"]
@@ -51,20 +50,17 @@ def pollution_horaire():
 
 
 def velos_horaire():
-    d = charger_velos()
-    if d.empty:
-        return d
-    d["timestamp"] = d["collected_at"].dt.floor("h")
-    h = d.groupby(["city", "timestamp"], observed=True).agg(
-        mouvements=("mouvements", "sum"), collectes=("collected_at", "nunique"),
-        remplissage=("fill_rate", "mean")).reset_index()
-    h = h[h["collectes"] >= 10]  # heure trop incomplete : ignoree
-    h["mouv_par_collecte"] = h["mouvements"] / h["collectes"]
+    """Usage des velos par ville et par heure (table preparee par l'analyse velos)."""
+    if not datalake.existe("silver", "velos_ville_heure/velos_ville_heure.parquet"):
+        return pd.DataFrame()
+    h = datalake.get_parquet("silver", "velos_ville_heure/velos_ville_heure.parquet").rename(columns={"heure": "timestamp"})
+    h["mouv_par_station"] = h["mouvements"] / h["stations"].where(h["stations"] > 0)
     local = h["timestamp"].dt.tz_convert("Europe/Paris")
-    h["heure"], h["we"] = local.dt.hour, local.dt.day_of_week >= 5
-    habituel = h.groupby(["city", "heure", "we"], observed=True)["mouv_par_collecte"].transform("mean")
-    h["indice_usage"] = h["mouv_par_collecte"] / habituel.where(habituel > 0)
-    return meme_format(h[["city", "timestamp", "mouv_par_collecte", "indice_usage", "remplissage"]])
+    h["h_locale"], h["we"] = local.dt.hour, local.dt.day_of_week >= 5
+    # on enleve l'effet de l'heure de la journee et du week-end : 1 = usage habituel
+    habituel = h.groupby(["city", "h_locale", "we"])["mouv_par_station"].transform("mean")
+    h["indice_usage"] = h["mouv_par_station"] / habituel.where(habituel > 0)
+    return meme_format(h[["city", "timestamp", "mouv_par_station", "indice_usage", "remplissage"]])
 
 
 def construire_table():
@@ -117,10 +113,14 @@ def q2_meteo_velos(t):
     print("Correlation avec l'indice d'usage :", corr.round(2).to_dict())
     sauver_table(corr.rename_axis("meteo").reset_index(name="correlation"), P, "q2_correlation_meteo_velos")
     lignes = []
+    ordres = {"classe_temp": ["< 5", "5-10", "10-15", "15-20", "20-25", "> 25"], "pluie": ["sec", "pluie"],
+              "classe_vent": ["calme", "modere", "fort"]}
     for col, facteur in [("classe_temp", "temperature (C)"), ("pluie", "pluie"), ("classe_vent", "vent")]:
         g = d.groupby(col)["indice_usage"].agg(["mean", "count"])
         for classe, r in g.iterrows():
-            lignes.append({"facteur": facteur, "classe": classe, "indice_usage": r["mean"], "nb_heures": r["count"]})
+            ordre = ordres[col].index(classe) if classe in ordres[col] else 99
+            lignes.append({"facteur": facteur, "classe": classe, "ordre": ordre,
+                           "indice_usage": r["mean"], "nb_heures": r["count"]})
     sauver_table(pd.DataFrame(lignes), P, "q2_usage_selon_meteo")
     return d
 
@@ -138,9 +138,10 @@ def q4_interactions(t):
     titre("Q4 - Periodes d'interaction forte")
     pol = "no2" if "no2" in t else "pm25"
     t = t.assign(date=t["timestamp"].dt.tz_convert("Europe/Paris").dt.tz_localize(None).dt.normalize())
-    jour = t.groupby(["city", "date"]).agg(usage=("indice_usage", "mean"), pollution=(pol, "mean"),
-                                           temperature=("temperature", "mean"), pluie=("precipitation", "sum"),
-                                           vent=("wind_speed", "mean")).dropna()
+    jour = t.groupby(["city", "date"]).agg(usage=("indice_usage", "mean"), heures_velos=("indice_usage", "count"),
+                                           pollution=(pol, "mean"), temperature=("temperature", "mean"),
+                                           pluie=("precipitation", "sum"), vent=("wind_speed", "mean")).dropna()
+    jour = jour[jour.pop("heures_velos") >= 20]  # journee incomplete (ex : aujourd'hui) : ignoree
     if len(jour) < 5:
         print("Pas assez de jours en commun pour l'instant (laisser tourner la collecte)")
         return
@@ -148,7 +149,7 @@ def q4_interactions(t):
     z["meteo"] = z[["temperature", "pluie", "vent"]].abs().max(axis=1)
     sauver_table(z.reset_index(), P, "q4_ecarts_journaliers")
     forts = z[(z["usage"].abs() > 1) & (z["pollution"].abs() > 1) & (z["meteo"] > 1)]
-    res = jour.loc[forts.index].join(forts[["usage", "pollution", "meteo"]], rsuffix="_z").reset_index()
+    res = jour.loc[forts.index].join(forts[["usage", "pollution", "meteo"]].add_suffix("_z")).reset_index()
     sauver_table(res, P, "q4_jours_interaction_forte")
     print(f"{len(res)} jours ou les trois s'ecartent fortement de la normale en meme temps (polluant : {pol})")
 

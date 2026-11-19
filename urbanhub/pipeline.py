@@ -4,7 +4,7 @@
 
 Etapes :
   1. meteo     : mise a jour Open-Meteo jusqu'a aujourd'hui, nettoyage, analyses
-  2. velos     : nettoyage des collectes, analyses
+  2. velos     : nouveaux mois de l'historique CityBikes, nettoyage, analyses
   3. pollution : nettoyage (historique + flux), analyses
   4. croisement
   5. chargement de silver et gold dans ClickHouse
@@ -26,6 +26,7 @@ ETAPES = [
     "urbanhub.meteo.telecharger",
     "urbanhub.meteo.nettoyer",
     "urbanhub.meteo.analyser",
+    "urbanhub.velos.historique",
     "urbanhub.velos.nettoyer",
     "urbanhub.velos.analyser",
     "urbanhub.pollution.nettoyer",

@@ -36,7 +36,7 @@ export default function Croisement() {
           <Kpi icone={Icones.vent} label="Vent et NO2" valeur={fmt(val("wind_speed", "no2"), 2)} detail="Négatif : le vent disperse la pollution" />
           <Kpi icone={Icones.thermo} label="Température et ozone" valeur={fmt(val("temperature", "o3"), 2)} detail="Positif : le soleil et la chaleur forment l'ozone" />
           <Kpi icone={Icones.meteo} label="Humidité et PM2.5" valeur={fmt(val("humidity", "pm25"), 2)} detail="Corrélation de rang (Spearman)" />
-          <Kpi icone={Icones.velo} label="Heures vélo analysées" valeur={fmt((usage || []).filter((u) => u.facteur === "pluie").reduce((s, u) => s + u.nb_heures, 0))} detail="Q2 à Q4 demandent au moins 24 h de collecte vélo" />
+          <Kpi icone={Icones.velo} label="Heures ville analysées" valeur={fmt((usage || []).filter((u) => u.facteur === "pluie").reduce((s, u) => s + u.nb_heures, 0))} detail="Heures où l'on connaît à la fois la météo et l'usage des vélos" />
         </div>
 
         <Carte titre="Q1 · Lien entre météo et pollution" sousTitre="Chaque case va de −1 à +1. Bleu : quand la météo augmente, la pollution baisse. Orange : elles montent ensemble.">
@@ -93,7 +93,7 @@ export default function Croisement() {
           <Carte titre="Q2 · Usage des vélos selon la météo" sousTitre="Indice d'usage : 1 = utilisation habituelle à cette heure-là ; 1,2 = 20 % de plus.">
             {usage?.length ? (
               <ResponsiveContainer width="100%" height={260}>
-                <BarChart data={usage.map((u) => ({ ...u, nom: `${u.facteur === "temperature (C)" ? "" : u.facteur + " "}${u.classe}${u.facteur === "temperature (C)" ? " °C" : ""}` }))} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
+                <BarChart data={[...usage].sort((a, b) => a.facteur.localeCompare(b.facteur) || a.ordre - b.ordre).map((u) => ({ ...u, nom: `${u.facteur === "temperature (C)" ? "" : u.facteur + " "}${u.classe}${u.facteur === "temperature (C)" ? " °C" : ""}` }))} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
                   <CartesianGrid stroke={GRILLE} vertical={false} />
                   <XAxis dataKey="nom" tick={{ ...AXE, fontSize: 11 }} axisLine={false} tickLine={false} interval={0} angle={-30} textAnchor="end" height={60} />
                   <YAxis tick={AXE} axisLine={false} tickLine={false} width={40} />
@@ -120,17 +120,17 @@ export default function Croisement() {
           </Carte>
         </div>
 
-        <Carte titre="Q4 · Jours d'interaction forte" sousTitre="Jours où l'usage des vélos, la pollution et la météo s'écartent tous fortement de la normale en même temps.">
+        <Carte titre="Q4 · Jours d'interaction forte" sousTitre={`${fmt(interactions?.length)} jours où l'usage des vélos, la pollution et la météo s'écartent tous fortement de la normale en même temps. Les 30 plus récents :`}>
           {interactions?.length ? (
-            <table className="tableau">
+            <div className="defile"><table className="tableau">
               <thead><tr><th>Date</th><th>Ville</th><th className="nb">Usage vélo</th><th className="nb">Pollution</th><th className="nb">Température</th><th className="nb">Pluie</th></tr></thead>
               <tbody>
-                {interactions.map((d, i) => (
+                {[...interactions].sort((a, b) => String(b.date).localeCompare(String(a.date))).slice(0, 30).map((d, i) => (
                   <tr key={i}><td>{date(d.date)}</td><td>{d.city}</td><td className="nb">{fmt(d.usage, 2)}</td><td className="nb">{fmt(d.pollution, 1)}</td>
                     <td className="nb">{fmt(d.temperature, 1)} °C</td><td className="nb">{fmt(d.pluie, 1)} mm</td></tr>
                 ))}
               </tbody>
-            </table>
+            </table></div>
           ) : <Vide>Aucun jour détecté pour l'instant : il faut plusieurs jours de collecte vélo.</Vide>}
         </Carte>
       </div>

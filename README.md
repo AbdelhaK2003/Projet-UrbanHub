@@ -38,7 +38,7 @@ Le sujet demande trois flux de donnees :
 | Flux | Source | Historique | Ensuite |
 |---|---|---|---|
 | Batch | Open-Meteo | 5 ans, heure par heure (depuis novembre 2021) | mise a jour a chaque passage du pipeline |
-| Streaming | CityBikes | aucun (voir plus bas) | une photo de toutes les stations toutes les 3 min |
+| Streaming | CityBikes | depuis novembre 2024 (archive CityBikes, environ 2 ans) | une photo de toutes les stations toutes les 3 min |
 | IoT | OpenAQ | 3 ans, heure par heure (depuis novembre 2023) | la derniere mesure de chaque capteur toutes les 15 min |
 
 Les trois flux suivent le meme chemin :
@@ -115,6 +115,7 @@ Projet UrbanHub/
       analyser.py             silver -> gold (4 questions)
 
     velos/                    PARTIE 2
+      historique.py           telechargement parallele de l'archive CityBikes -> bronze
       collecter.py            collecte CityBikes toutes les 3 min -> bronze + ClickHouse
       nettoyer.py             bronze -> silver
       analyser.py             silver -> gold (5 questions)
@@ -203,11 +204,12 @@ Avant le tout premier lancement, il faut recuperer l'historique (terminal 1 ci-d
 
 **A la main**, il faut 4 terminaux (tous avec `.venv\Scripts\activate`).
 
-**Terminal 1 : l'historique (une seule fois, environ 20 minutes)**
+**Terminal 1 : l'historique (une seule fois, environ 30 minutes)**
 
 ```
 python -m urbanhub.meteo.telecharger
 python -m urbanhub.pollution.collecter --historique 3
+python -m urbanhub.velos.historique
 ```
 
 **Terminal 2 : le collecteur velos (a laisser tourner)**
@@ -239,7 +241,7 @@ python -m urbanhub.pipeline --boucle 3600
 
 Ce que fait le pipeline ([urbanhub/pipeline.py](urbanhub/pipeline.py)), dans l'ordre :
 1. met a jour la meteo jusqu'a aujourd'hui, la nettoie, l'analyse
-2. nettoie et analyse les velos
+2. recupere les nouveaux mois de l'historique velos, nettoie et analyse les velos
 3. nettoie et analyse la pollution
 4. fait l'analyse croisee
 5. charge silver et gold dans ClickHouse
@@ -342,11 +344,26 @@ Plus `meteo_journaliere` (une ligne par ville et par jour). Tout est dans `gold/
 
 ## 7. Partie 2 - Velos (flux streaming)
 
-Source : l'API CityBikes, qui regroupe les reseaux de velos en libre-service (Velib, Velo'v, ...).
+Source : CityBikes, qui regroupe les reseaux de velos en libre-service (Velib, Velo'v, ...). Deux services :
+- **l'API**, qui ne donne que l'etat actuel des stations (aucune date ne peut etre demandee) : c'est le flux streaming
+- **l'archive** https://data.citybik.es, un fichier Parquet par reseau et par mois, ou chaque ligne est un changement d'etat d'une station. Elle commence en **novembre 2024** : c'est tout l'historique qui existe, on ne peut pas remonter a 3 ans.
 
-**Important : CityBikes ne donne aucun historique.** L'API ne renvoie que l'etat actuel des stations. Il n'existe pas de moyen de recuperer les 3 dernieres annees par cette API : l'historique se construit uniquement en laissant tourner le collecteur. Plus il tourne longtemps, plus les analyses velos et croisees sont fiables.
+Licence de l'archive : ODbL. Mention obligatoire, reprise dans l'interface : "Bike-share data by CityBikes contributors and available from https://data.citybik.es".
 
-### Etape 2.1 : collecter en continu
+### Etape 2.1 : recuperer l'historique (une fois, puis chaque mois)
+
+```
+python -m urbanhub.velos.historique
+```
+
+Code : [urbanhub/velos/historique.py](urbanhub/velos/historique.py)
+
+- liste les fichiers de l'archive pour nos 12 reseaux (`RESEAUX`) depuis 3 ans
+- les telecharge **en parallele** (4 a la fois), environ 1,4 Go pour 240 fichiers
+- les depose dans bronze : `bronze/velos/citybikes_historique/network=velib/year=2025/month=03.parquet`
+- les mois deja recuperes ne sont pas repris ; le pipeline relance ce script et ajoute chaque nouveau mois publie
+
+### Etape 2.2 : collecter en continu
 
 ```
 python -m urbanhub.velos.collecter
@@ -361,21 +378,19 @@ Code : [urbanhub/velos/collecter.py](urbanhub/velos/collecter.py)
 - La meme photo, nettoyee (`nettoyer_snapshots`), est aussitot inseree dans la table ClickHouse `velos`. C'est le temps reel.
 - CityBikes autorise 300 requetes par heure. Si on depasse, l'API repond "429" avec un delai d'attente ; le collecteur fait une pause de ce delai puis reprend tout seul.
 
-### Etape 2.2 : nettoyer
+### Etape 2.3 : nettoyer
 
 ```
 python -m urbanhub.velos.nettoyer
 ```
 
-Code : [urbanhub/velos/nettoyer.py](urbanhub/velos/nettoyer.py)
+Code : [urbanhub/velos/nettoyer.py](urbanhub/velos/nettoyer.py). Deux tables sont produites dans silver :
 
-- une ligne par station et par collecte : station_id, station_name, latitude, longitude, collected_at, bikes_available, free_slots, city
-- capacite = velos + places libres, taux de remplissage = velos / capacite
-- lignes sans identifiant ou sans position enlevees, valeurs negatives effacees, doublons enleves
+1. `silver/velos/date=2026-11-19/velos.parquet` : les photos du collecteur, une ligne par station et par collecte (station_id, station_name, latitude, longitude, collected_at, bikes_available, free_slots, capacity, fill_rate). Lignes sans identifiant ou sans position enlevees, valeurs negatives effacees, doublons enleves. Sert au temps reel.
 
-Resultat : un Parquet par jour, `silver/velos/date=2026-11-19/velos.parquet`.
+2. `silver/velos_horaire/month=2025-03/network=velib.parquet` : **une ligne par station et par heure**, historique et collecte reunis (fonction `vers_horaire`). Pour chaque station on reconstitue l'etat tous les quarts d'heure (dernier etat connu), puis on calcule pour chaque heure : velos et places moyens, taux de remplissage, part du temps ou la station est vide ou pleine, et les **mouvements** (variations du nombre de velos = velos pris ou rendus). Le calcul se fait en tableaux numpy (temps x stations) : un mois de Velib, soit 3 millions de changements d'etat, prend environ 20 secondes. Quand l'archive et la collecte couvrent le meme mois, l'archive est prioritaire.
 
-### Etape 2.3 : analyser
+### Etape 2.4 : analyser
 
 ```
 python -m urbanhub.velos.analyser
@@ -383,7 +398,7 @@ python -m urbanhub.velos.analyser
 
 Code : [urbanhub/velos/analyser.py](urbanhub/velos/analyser.py)
 
-Idee centrale : entre deux photos, si le nombre de velos d'une station change, des velos ont ete pris ou deposes. Ce sont les "mouvements", notre mesure de l'utilisation. Les villes dont l'API donne toujours 0 velo (Marseille) sont ignorees.
+La table horaire fait des dizaines de millions de lignes : l'analyse la lit fichier par fichier (un reseau x un mois) et ne garde en memoire que des totaux (fonction `accumuler`). Les "mouvements" sont notre mesure de l'utilisation. Les reseaux qui ne publient pas le nombre de velos (toujours 0) sont ignores.
 
 | Question | Fonction | Tableaux gold |
 |---|---|---|
@@ -391,7 +406,8 @@ Idee centrale : entre deux photos, si le nombre de velos d'une station change, d
 | Q2 offre insuffisante | `q2_offre_insuffisante` (carres de 500 m vides plus de 25 % du temps) | `q2_zones_insuffisantes` |
 | Q3 pics dans la journee | `q3_pics` | `q3_profil_horaire`, `q3_heure_de_pointe`, `q3_semaine_weekend` |
 | Q4 desequilibres geographiques | `q4_desequilibres` (remplissage selon la distance au centre, matin contre soir) | `q4_remplissage_par_distance`, `q4_matin_soir` |
-| Q5 stations a reequilibrer | `q5_critiques` (souvent vides : a remplir ; souvent pleines : a vider) | `q5_stations_critiques` |
+| Q5 stations a reequilibrer | `q5_critiques` (vides ou pleines plus de 30 % du temps sur les 30 derniers jours) | `q5_stations_critiques` |
+| tendance | `usage_journalier` | `velos_journalier` (mouvements par ville et par jour) |
 
 
 ---
@@ -484,7 +500,7 @@ Pour l'usage des velos, on calcule un "indice d'usage" : 1,2 veut dire "20 % de 
 | Q3 conditions favorables au velo | `q3_favorables` | `q3_conditions_favorables` |
 | Q4 interactions fortes | `q4_interactions` | `q4_ecarts_journaliers`, `q4_jours_interaction_forte` |
 
-Q2, Q3 et Q4 ont besoin d'au moins 24 heures de collecte velos (idealement une semaine). Avant, le script l'indique et ne produit que Q1.
+Grace a l'archive CityBikes, les velos couvrent environ 2 ans : Q2, Q3 et Q4 portent sur toute cette periode.
 
 
 ---
@@ -499,6 +515,7 @@ python -m urbanhub.charger_clickhouse
 
 Code : [urbanhub/charger_clickhouse.py](urbanhub/charger_clickhouse.py). ClickHouse lit directement les Parquet dans Silo avec la fonction `s3()` :
 - `silver/meteo`, `silver/velos`, `silver/pollution` deviennent les tables `urbanhub.meteo`, `urbanhub.velos`, `urbanhub.pollution`
+- `silver/velos_horaire` devient la table `urbanhub.velos_horaire` (l'historique velos station x heure)
 - chaque tableau gold devient une table : `gold/meteo/q1_periodes_anormales.parquet` donne `urbanhub.gold_meteo_q1_periodes_anormales`
 
 Il y a 33 tables gold. Pour les voir : `SHOW TABLES FROM urbanhub` dans http://localhost:8123/play. Des exemples de requetes sont dans [sql/requetes.sql](sql/requetes.sql).
@@ -572,9 +589,17 @@ Pour voir le temps reel en action : laisser l'interface ouverte sur "Mobilite ve
 
 **Q4 jours extremes.** 1 075 jours-ville extremes en 5 ans. La chaleur arrive en tete (386), devant le brouillard (320), les tempetes (185), les fortes pluies (127) et le gel (57). Le 13 aout 2026 est le jour le plus extreme : 9 villes sur 11 au-dessus de 35 C.
 
-### Partie 2 - Velos
+### Partie 2 - Velos (novembre 2024 a novembre 2026, 3 830 stations)
 
-Les premiers resultats portent sur quelques heures de collecte seulement : ils montrent que le calcul fonctionne mais ne sont pas encore representatifs. A ce stade, Paris montre un fort desequilibre (stations du centre pleines a plus de 70 % contre 30 % a 2-6 km) et plusieurs centaines de stations a reequilibrer. Ces chiffres deviennent fiables apres une semaine de collecte.
+**Q1 stations les plus utilisees.** Lyon et Toulouse ont les velos les plus sollicites (6,4 et 5,6 rotations par place et par jour en moyenne), devant Paris (3,7). Strasbourg et Montpellier tournent beaucoup moins (moins de 1). Les stations les plus actives sont pres des noeuds de transport et des centres : Part-Dieu et Guillotiere a Lyon, Palais de Justice a Toulouse, Cours Julien a Marseille.
+
+**Q2 offre insuffisante.** 175 zones de 500 m ont des stations vides plus d'un quart du temps, surtout a Paris (47), Toulouse (39) et Lille (35). Ce sont les endroits ou il manque des velos ou des stations.
+
+**Q3 pics.** Deux pics nets en semaine : le matin vers 8-9 h et surtout le soir vers 17-18 h (trajets domicile-travail). Le week-end, l'usage est plus etale sur l'apres-midi.
+
+**Q4 desequilibres.** A Paris, les stations du centre (0-2 km) sont remplies a 52 % en moyenne contre 32 % entre 2 et 6 km : les velos s'accumulent au centre. A Lyon c'est l'inverse, la peripherie est plus pleine. Strasbourg a des stations tres remplies partout (velos peu utilises).
+
+**Q5 a reequilibrer.** Sur les 30 derniers jours, plusieurs centaines de stations sont vides ou pleines plus de 30 % du temps, dont 257 a Paris. Le tableau de l'interface donne la liste, avec l'action (remplir ou vider).
 
 ### Partie 3 - Pollution (novembre 2023 a novembre 2026)
 
@@ -590,14 +615,18 @@ Les premiers resultats portent sur quelques heures de collecte seulement : ils m
 
 **Q1 meteo et pollution (3 ans, 11 villes).** Le vent est le meilleur "nettoyeur" de l'air : correlation -0,43 avec le NO2 et -0,32 avec les PM2.5. Par vent faible, le NO2 moyen est environ 3 fois plus eleve que par vent fort. La temperature favorise l'ozone (+0,59) : il passe de 20 microgrammes par m3 sous 0 C a 114 au-dessus de 30 C. L'air humide va avec peu d'ozone (-0,63).
 
-**Q2 a Q4.** Elles se remplissent toutes seules quand le collecteur velos a tourne au moins 24 heures. L'interface les affiche des qu'elles existent.
+**Q2 meteo et velos.** La temperature est le facteur le plus fort (+0,34). L'usage passe de 0,74 (moins de 5 C) a 1,21 (20 a 25 C), soit 60 % de velos en plus. La pluie fait chuter l'usage de 30 % (indice 0,72) et le vent fort de 20 % (0,80).
+
+**Q3 conditions favorables.** Le meilleur temps pour le velo : 20 a 25 C, sec et sans vent (24 % d'usage en plus que d'habitude), puis 15 a 20 C sec et calme. Au-dela de 25 C, l'usage baisse un peu.
+
+**Q4 interactions fortes.** 419 jours-ville ou l'usage des velos, le NO2 et la meteo s'ecartent tous fortement de la normale en meme temps. Le cas le plus frequent (182 jours) : un jour froid (4 C en moyenne), sec et sans vent, ou les velos sortent peu et ou le NO2 grimpe, car l'air froid et immobile garde la pollution au sol (episode hivernal). A l'oppose, 99 jours pluvieux et venteux combinent peu de velos et un air propre.
 
 
 ---
 
 ## 13. Limites
 
-- **CityBikes n'a pas d'historique.** Les 3 ans demandes ne sont pas recuperables pour les velos : l'historique commence au lancement du collecteur.
+- **Velos : environ 2 ans au lieu de 3.** L'API CityBikes ne donne que l'etat actuel ; leur archive commence en novembre 2024 et il n'existe rien avant. Quelques mois manquent selon les reseaux, et le dernier mois n'est publie qu'au debut du mois suivant (la collecte en direct comble ce trou).
 - Marseille renvoie toujours 0 velo et Nice n'a pas de station dans CityBikes : ces deux villes sont absentes des analyses velos.
 - La meteo Open-Meteo est une reanalyse (modele recale sur les mesures), pas la mesure d'une station. Elle est tres fiable pour les tendances, un peu lissee pour les extremes locaux. La visibilite vient d'un modele de prevision et plafonne a 24 km.
 - Les capteurs OpenAQ ne sont pas les memes partout : certaines villes n'ont pas de mesure de CO ou d'ozone.

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { CircleMarker, MapContainer, TileLayer, Tooltip as InfoCarte, useMap } from "react-leaflet";
 import { Area, AreaChart, Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import { AXE, BLEU, Bulle, Carte, ChoixVille, GRILLE, Hero, Icones, Kpi, Legende, Vide, dateHeure, fmt, heure, pct, useApi } from "../outils.jsx";
+import { AXE, BLEU, Bulle, Carte, ChoixVille, GRILLE, Hero, Icones, Kpi, Legende, Vide, date, dateHeure, fmt, heure, mois, pct, useApi } from "../outils.jsx";
 
 const ETAT = { vide: "#d13b3b", pleine: "#eda100", normale: "#2a78d6" };
 
@@ -25,6 +25,7 @@ export default function Mobilite() {
   const { data: distance } = useApi("/api/gold/velos_q4_remplissage_par_distance", 300);
   const { data: critiques } = useApi("/api/gold/velos_q5_stations_critiques", 300);
   const { data: zones } = useApi("/api/gold/velos_q2_zones_insuffisantes", 300);
+  const { data: journalier } = useApi(`/api/gold/velos_velos_journalier?city=${encodeURIComponent(ville)}`, 600);
 
   const villes = (live || []).map((d) => d.city);
   const v = live?.find((d) => d.city === ville);
@@ -38,20 +39,20 @@ export default function Mobilite() {
   return (
     <>
       <Hero titre="Mobilité vélo"
-            texte="Les stations de vélos en libre-service, interrogées toutes les 3 minutes (CityBikes). Chaque collecte arrive directement dans ClickHouse."
+            texte="Historique des stations de vélos en libre-service depuis novembre 2024 (archive CityBikes), complété en direct toutes les 3 minutes. Chaque collecte arrive directement dans ClickHouse."
             enDirect={v ? `Dernière collecte ${heure(v.heure_collecte)}` : null} />
       <div className="contenu">
         <div className="carte" style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 20px" }}>
           <span style={{ color: "#4a5a78" }}>Ville</span>
           <ChoixVille valeur={ville} onChange={setVille} villes={villes.length ? villes : undefined} />
-          <span className="note" style={{ margin: 0 }}>Données <a href="https://citybik.es" target="_blank" rel="noreferrer">CityBikes</a>. Marseille et Nice ne publient pas le nombre de vélos : elles n'apparaissent pas.</span>
+          <span className="note" style={{ margin: 0 }}>Bike-share data by CityBikes contributors, <a href="https://data.citybik.es" target="_blank" rel="noreferrer">data.citybik.es</a> (ODbL). Marseille et Nice ne publient pas le nombre de vélos : elles n'apparaissent pas.</span>
         </div>
 
         <div className="grille g4">
           <Kpi icone={Icones.velo} label="Vélos disponibles" valeur={fmt(v?.velos)} detail={`sur ${fmt(v?.capacite)} points d'attache`} />
           <Kpi icone={Icones.jauge} label="Taux de remplissage" valeur={v ? fmt((v.velos / v.capacite) * 100) : "–"} unite="%" detail={`${fmt(v?.stations)} stations`} />
           <Kpi icone={Icones.alerte} label="Stations vides / pleines" valeur={v ? `${fmt(v.stations_vides)} / ${fmt(v.stations_pleines)}` : "–"} detail="Impossible d'y prendre / d'y rendre un vélo" />
-          <Kpi icone={Icones.station} label="Heure de pointe" valeur={pic ? `${pic.heure_de_pointe} h` : "–"} detail={`${fmt(crit.length)} stations à rééquilibrer, ${fmt(nbZones)} zones sous-équipées`} />
+          <Kpi icone={Icones.station} label="Heures de pointe" valeur={pic ? `${Math.min(pic.heure_de_pointe, pic.second_pic ?? 99)} h · ${Math.max(pic.heure_de_pointe, pic.second_pic ?? 0)} h` : "–"} detail={`${fmt(crit.length)} stations à rééquilibrer, ${fmt(nbZones)} zones sous-équipées`} />
         </div>
 
         <div className="grille g2">
@@ -95,6 +96,26 @@ export default function Mobilite() {
             ) : <Vide />}
           </Carte>
         </div>
+
+        <Carte titre={`Usage des vélos à ${ville}, jour par jour`} sousTitre="Nombre de vélos pris ou rendus chaque jour sur toute la période (archive CityBikes puis collecte en direct).">
+          {journalier?.length ? (
+            <ResponsiveContainer width="100%" height={260}>
+              <AreaChart data={journalier} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
+                <defs>
+                  <linearGradient id="degradeJour" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor={BLEU} stopOpacity={0.3} />
+                    <stop offset="100%" stopColor={BLEU} stopOpacity={0.02} />
+                  </linearGradient>
+                </defs>
+                <CartesianGrid stroke={GRILLE} vertical={false} />
+                <XAxis dataKey="date" tickFormatter={mois} tick={AXE} axisLine={false} tickLine={false} minTickGap={50} />
+                <YAxis tick={AXE} axisLine={false} tickLine={false} width={64} tickFormatter={(x) => fmt(x)} />
+                <Tooltip content={<Bulle formatLabel={date} formatValeur={(x) => fmt(x)} />} />
+                <Area isAnimationActive={false} type="monotone" dataKey="mouvements" name="Mouvements" stroke={BLEU} strokeWidth={1.5} fill="url(#degradeJour)" />
+              </AreaChart>
+            </ResponsiveContainer>
+          ) : <Vide />}
+        </Carte>
 
         <div className="grille g2">
           <Carte titre="Q3 · Pics d'utilisation dans la journée" sousTitre="Part des mouvements de vélos (prises et retours) selon l'heure.">

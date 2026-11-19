@@ -3,6 +3,7 @@
 ClickHouse lit directement les fichiers Parquet dans MinIO avec la fonction s3().
 
 - silver/meteo, silver/velos, silver/pollution  -> tables urbanhub.meteo / velos / pollution
+- silver/velos_horaire (historique velos station x heure) -> table urbanhub.velos_horaire
 - chaque tableau de gold (gold/<partie>/<nom>.parquet) -> table urbanhub.gold_<partie>_<nom>
   ex : gold/meteo/q1_periodes_anormales.parquet -> urbanhub.gold_meteo_q1_periodes_anormales
 
@@ -39,6 +40,16 @@ def charger_silver(ch):
         print(f"  {table} : {ch.command(f'SELECT count() FROM {olap.BASE}.{table}'):,} lignes")
 
 
+def charger_velos_horaire(ch):
+    """Historique velos station x heure (des dizaines de millions de lignes, ClickHouse les lit en parallele)."""
+    try:
+        ch.command(f"CREATE OR REPLACE TABLE {olap.BASE}.velos_horaire ENGINE = MergeTree ORDER BY (city, heure) "
+                   f"SETTINGS allow_nullable_key = 1 AS SELECT * FROM {source('silver/velos_horaire/month=*/network=*.parquet')}")
+        print(f"  velos_horaire : {ch.command(f'SELECT count() FROM {olap.BASE}.velos_horaire'):,} lignes")
+    except Exception as e:
+        print(f"  velos_horaire : pas chargee ({str(e)[:150]})")
+
+
 def charger_gold(ch):
     cles = [k for k in datalake.lister("gold") if k.endswith(".parquet")]
     attendues = set()
@@ -60,6 +71,7 @@ def main(silver=True, gold=True):
     if silver:
         print("Tables detaillees (silver)")
         charger_silver(ch)
+        charger_velos_horaire(ch)
     if gold:
         print("Indicateurs (gold)")
         charger_gold(ch)
