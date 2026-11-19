@@ -1,0 +1,21 @@
+city,station_name,capacity,mouvements,rotations_par_jour
+Lille,Brule Maison,18.0,7.0,9.33
+Paris,Hôpital - Campo-Formio,11.0,4.0,8.73
+Bordeaux,Parc Riviere,12.0,4.0,8.0
+Toulouse,EGLISE BONNEFOY,19.0,5.0,6.32
+Toulouse,NARBONNE - SAHUQUE,16.0,4.0,6.0
+Toulouse,PLACE ESQUIROL,39.0,9.0,5.54
+Toulouse,PLACE ROQUELAINE,23.0,5.0,5.22
+Paris,Strasbourg - Saint-Denis,14.0,3.0,5.14
+Paris,Montgallet - Reuilly,15.0,3.0,4.8
+Toulouse,PALAIS DE JUSTICE  MÉTRO,10.0,2.0,4.8
+Toulouse,COMPANS CAFFARELLI MÉTRO,22.0,4.0,4.36
+Toulouse,RIEUX - LEYGUE,17.0,3.0,4.24
+Toulouse,ST-CYPRIEN - MÉTRO VIÉ,12.0,2.0,4.0
+Toulouse,DEODAT - ARCS ST-CYPRIEN,12.0,2.0,4.0
+Toulouse,VITARELLES - FRONDE,12.0,2.0,4.0
+Toulouse,JOLIMONT MÉTRO,12.0,2.0,4.0
+Paris,Place de l'Hôtel de Ville,12.0,2.0,4.0
+Toulouse,RTE DE SEYSSES - BELLEFONTAINE,13.0,2.0,3.69
+Toulouse,TASSIGNY - MOMBIOLA,13.0,2.0,3.69
+Toulouse,DASSAULT - B. DES MOULINAIS,13.0,2.0,3.69

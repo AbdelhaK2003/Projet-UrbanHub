@@ -1,0 +1,39 @@
+# Infrastructure UrbanHub
+# - MinIO      : le Data Lake (buckets bronze / silver / gold)
+# - ClickHouse : base OLAP pour interroger les donnees en SQL
+services:
+  minio:
+    # l'image officielle minio/minio n'est plus publiee, on utilise la version pgsty (identique)
+    image: pgsty/minio:latest
+    container_name: urbanhub-minio
+    command: server /data --console-address ":9001"
+    ports:
+      # ports 9010/9011 pour ne pas gener un autre MinIO (ex : celui des TP) deja sur 9000/9001
+      - "9010:9000"   # API S3
+      - "9011:9001"   # console web : http://localhost:9011
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-urbanhub}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-urbanhub123}
+    volumes:
+      # volume Docker (et non un dossier) : le projet est dans OneDrive,
+      # on evite ainsi de synchroniser plusieurs Go de donnees
+      - minio_data:/data
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:latest
+    container_name: urbanhub-clickhouse
+    ports:
+      - "8123:8123"   # HTTP
+      - "9002:9000"   # protocole natif (9000 deja pris par MinIO)
+    environment:
+      CLICKHOUSE_USER: ${CLICKHOUSE_USER:-urbanhub}
+      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD:-urbanhub123}
+      CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: 1
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse
+    depends_on:
+      - minio
+
+volumes:
+  minio_data:
+  clickhouse_data:

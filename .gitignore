@@ -1,0 +1,5 @@
+.env
+.venv/
+__pycache__/
+minio_data/
+clickhouse_data/

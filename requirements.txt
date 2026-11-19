@@ -1,0 +1,10 @@
+boto3>=1.34
+pandas>=2.2.3
+numpy>=1.26
+pyarrow>=17.0
+requests>=2.31
+python-dotenv>=1.0
+tqdm>=4.66
+matplotlib>=3.9
+streamlit>=1.38
+clickhouse-connect>=0.8
