@@ -38,6 +38,11 @@ export default function App() {
         <div className="sidebar-bas">
           Jumeau numérique des grandes villes françaises
           {etat?.velos && <div style={{ marginTop: 8 }}>Dernière collecte vélos : {dateHeure(etat.velos.derniere)}</div>}
+          <div className="sources">
+            Sources : vélos <a href="https://citybik.es" target="_blank" rel="noreferrer">CityBikes</a>,
+            météo <a href="https://open-meteo.com" target="_blank" rel="noreferrer">Open-Meteo</a>,
+            air <a href="https://openaq.org" target="_blank" rel="noreferrer">OpenAQ</a>
+          </div>
         </div>
       </aside>
       <main className="main">

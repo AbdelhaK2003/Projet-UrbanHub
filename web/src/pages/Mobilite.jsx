@@ -44,7 +44,7 @@ export default function Mobilite() {
         <div className="carte" style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 20px" }}>
           <span style={{ color: "#4a5a78" }}>Ville</span>
           <ChoixVille valeur={ville} onChange={setVille} villes={villes.length ? villes : undefined} />
-          <span className="note" style={{ margin: 0 }}>Marseille et Nice ne publient pas le nombre de vélos : elles n'apparaissent pas.</span>
+          <span className="note" style={{ margin: 0 }}>Données <a href="https://citybik.es" target="_blank" rel="noreferrer">CityBikes</a>. Marseille et Nice ne publient pas le nombre de vélos : elles n'apparaissent pas.</span>
         </div>
 
         <div className="grille g4">
