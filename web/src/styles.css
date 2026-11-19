@@ -44,11 +44,6 @@ body {
   color: #fff; display: flex; flex-direction: column; padding: 22px 14px;
 }
 .logo { display: flex; align-items: center; gap: 10px; padding: 0 10px 26px; }
-.logo-mark {
-  width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center;
-  background: linear-gradient(135deg, var(--blue-400), var(--blue-600));
-  box-shadow: 0 4px 14px rgba(42, 120, 214, 0.45); font-weight: 700;
-}
 .logo-text { font-size: 19px; font-weight: 700; letter-spacing: -0.3px; }
 .logo-text span { color: var(--blue-200); font-weight: 500; }
 .nav { display: flex; flex-direction: column; gap: 4px; }

@@ -26,7 +26,6 @@ export default function App() {
     <div className="app">
       <aside className="sidebar">
         <div className="logo">
-          <div className="logo-mark">U</div>
           <div className="logo-text">Urban<span>Hub</span></div>
         </div>
         <nav className="nav">
