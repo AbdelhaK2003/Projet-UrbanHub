@@ -195,7 +195,13 @@ Remarques :
 
 ## 4. Lancer tout le projet (le plus simple)
 
-Il faut 4 terminaux (tous avec `.venv\Scripts\activate`).
+**En un double-clic :** `demarrer.bat`. Il lance Silo et ClickHouse, ouvre une fenetre pour chaque programme (collecteur velos, collecteur pollution, pipeline toutes les heures, interface) et ouvre http://localhost:8000. L'interface se met alors a jour toute seule : une nouvelle collecte velos toutes les 3 minutes, pollution toutes les 15 minutes, indicateurs gold toutes les heures. Pour arreter, fermer les fenetres.
+
+Attention : ne lancer `demarrer.bat` qu'une fois. Deux collecteurs velos en meme temps depassent la limite de CityBikes et bloquent la collecte.
+
+Avant le tout premier lancement, il faut recuperer l'historique (terminal 1 ci-dessous).
+
+**A la main**, il faut 4 terminaux (tous avec `.venv\Scripts\activate`).
 
 **Terminal 1 : l'historique (une seule fois, environ 20 minutes)**
 
