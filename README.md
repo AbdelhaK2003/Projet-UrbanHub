@@ -37,7 +37,7 @@ Le sujet demande trois flux de donnees, comme dans une vraie plateforme Big Data
 | Flux | Source | Rythme | Ce qu'on recupere |
 |---|---|---|---|
 | Batch | NOAA | une fois | 5 ans de meteo horaire de toutes les stations francaises |
-| Streaming | CityBikes | toutes les 2 min 30 | l'etat de chaque station de velos (velos dispo, places libres) |
+| Streaming | CityBikes | toutes les 3 min | l'etat de chaque station de velos (velos dispo, places libres) |
 | IoT | OpenAQ | toutes les 15 min | les mesures des capteurs de pollution |
 
 Les trois flux suivent exactement le meme chemin, celui de l'architecture cible du sujet :
@@ -105,7 +105,7 @@ Projet UrbanHub/
       recente.py              meteo recente Open-Meteo (pour la partie 4)
 
     velos/                    PARTIE 2
-      collecter.py            collecte CityBikes toutes les 2 min 30 -> bronze
+      collecter.py            collecte CityBikes toutes les 3 min -> bronze
       nettoyer.py             bronze -> silver
       analyser.py             silver -> gold (5 questions)
 
@@ -405,7 +405,7 @@ python -m urbanhub.velos.collecter
 ```
 
 Options :
-- `--intervalle 150` : secondes entre deux collectes, a garder entre 120 et 180
+- `--intervalle 180` : secondes entre deux collectes, a garder entre 120 et 180. CityBikes limite a 300 requetes par heure et on fait une requete par reseau : le script allonge donc tout seul l'intervalle si besoin, et fait une pause si l'API repond "trop de requetes"
 - `--une-fois` : une seule collecte, pour tester
 - `--toutes-villes` : tous les reseaux francais, pas seulement les 11 grandes villes
 
@@ -431,11 +431,11 @@ On obtient 12 reseaux, dont Velib (Paris), Velo'v (Lyon), V3 (Bordeaux) et V'Lil
 - Elle collecte, puis attend le temps qu'il faut pour respecter l'intervalle.
 - En cas d'erreur (coupure reseau, API en panne), elle affiche l'erreur et reessaie au tour suivant. Le script ne s'arrete pas.
 
-**Resultat attendu**, une ligne toutes les 2 min 30 :
+**Resultat attendu**, une ligne toutes les 3 min :
 
 ```
 08:48:06 UTC  12 reseaux, 3352 stations
-08:50:35 UTC  12 reseaux, 3352 stations
+08:51:06 UTC  12 reseaux, 3352 stations
 ```
 
 **Important.** L'API ne donne que l'etat du moment, sans historique. L'historique se construit en laissant tourner la collecte : une semaine minimum, pour voir la difference entre semaine et week-end.
@@ -472,7 +472,7 @@ python -m urbanhub.velos.analyser
 
 Code : [urbanhub/velos/analyser.py](urbanhub/velos/analyser.py)
 
-**L'idee cle : les "mouvements".** On ne voit pas les trajets, seulement le nombre de velos dans chaque station. Mais entre deux photos (2 min 30 d'ecart) :
+**L'idee cle : les "mouvements".** On ne voit pas les trajets, seulement le nombre de velos dans chaque station. Mais entre deux photos (3 min d'ecart) :
 - si une station passe de 10 a 7 velos, 3 velos ont ete pris
 - si elle passe de 7 a 9, 2 velos ont ete deposes
 
