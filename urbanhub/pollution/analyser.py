@@ -9,13 +9,14 @@ Q2 Variation de la pollution dans la journee
 Q3 Polluants dominants par ville
 Q4 Episodes de pollution anormale
 
+Chaque resultat est un tableau range dans gold/pollution/ puis affiche par l'interface.
+
 Lancer : python -m urbanhub.pollution.analyser
 """
 import pandas as pd
-import matplotlib.pyplot as plt
 
 from urbanhub import datalake
-from urbanhub.rapport import sauver_figure, sauver_table, titre
+from urbanhub.gold import sauver_table, titre
 
 P = "pollution"
 # valeurs guides OMS 2021 en microgrammes par m3 (moyenne sur 24 h, 8 h pour l'ozone)
@@ -25,126 +26,110 @@ NOMS = {"pm25": "PM2.5", "pm10": "PM10", "no2": "NO2", "o3": "O3", "co": "CO"}
 
 
 def charger():
-    df = datalake.get_parquet("silver", "pollution/pollution.parquet")
+    df = datalake.lire_parquets("silver", "pollution/")
+    for c in ["city", "pollutant", "location_name"]:
+        df[c] = df[c].astype("category")
     df["heure_locale"] = df["timestamp"].dt.tz_convert("Europe/Paris")
-    df["ratio_oms"] = df["value"] / df["pollutant"].map(OMS)
+    df["date"] = df["heure_locale"].dt.tz_localize(None).dt.normalize()
+    df["ratio_oms"] = df["value"] / df["pollutant"].map(OMS).astype(float)
     return df
+
+
+def series_journalieres(df):
+    """Moyenne par ville, polluant et jour : sert aux courbes de tendance et aux jours de depassement."""
+    j = df.groupby(["city", "pollutant", "date"], observed=True)["value"].mean().rename("valeur").reset_index()
+    j["depasse_oms"] = j["valeur"] > j["pollutant"].map(OMS).astype(float)
+    sauver_table(j, P, "pollution_journaliere")
+    dep = j.groupby(["city", "pollutant", j["date"].dt.year.rename("annee")], observed=True).agg(
+        nb_jours=("valeur", "count"), jours_depassement=("depasse_oms", "sum")).reset_index()
+    dep["part_jours_depassement"] = dep["jours_depassement"] / dep["nb_jours"]
+    sauver_table(dep, P, "jours_depassement_oms")
 
 
 def q1_zones(df):
     titre("Q1 - Zones les plus polluees")
-    zones = df.groupby(["city", "location_name", "pollutant"])["value"].mean().unstack("pollutant").round(1)
-    sauver_table(zones.reset_index(), P, "q1_niveaux_par_zone")
-
-    fig, axes = plt.subplots(1, 2, figsize=(15, 6))
-    for ax, pol in zip(axes, ["pm25", "no2"]):
-        if pol not in zones:
-            continue
-        top = zones[pol].dropna().sort_values(ascending=False).head(15)
-        etiquettes = [f"{loc[:28]} ({ville})" for ville, loc in top.index]
-        ax.barh(etiquettes[::-1], top.values[::-1], color="tab:brown")
-        ax.axvline(OMS[pol], color="red", ls="--", label="valeur guide OMS 24 h")
-        ax.set_title(f"{NOMS[pol]} : 15 stations les plus polluees (moyenne)")
-        ax.set_xlabel("microgrammes par m3")
-        ax.legend()
-        print(f"{NOMS[pol]} - zone la plus polluee : {top.index[0][1]} ({top.index[0][0]}) {top.iloc[0]}")
-    sauver_figure(fig, P, "q1_zones_polluees")
+    zones = df.groupby(["city", "location_id", "pollutant"], observed=True).agg(
+        location_name=("location_name", "first"), latitude=("latitude", "median"),
+        longitude=("longitude", "median"), moyenne=("value", "mean"), ratio_oms=("ratio_oms", "mean"),
+        nb_heures=("value", "count")).reset_index()
+    zones = zones[zones["nb_heures"] >= 24 * 30]  # au moins un mois de mesures
+    sauver_table(zones, P, "q1_niveaux_par_zone")
+    for pol in ["pm25", "no2"]:
+        top = zones[zones["pollutant"] == pol].nlargest(3, "moyenne")
+        print(f"{NOMS[pol]} - stations les plus polluees :",
+              "; ".join(f"{r.location_name} ({r.city}) {r.moyenne:.1f}" for r in top.itertuples()))
 
 
 def q2_journee(df):
     titre("Q2 - Variation dans la journee")
-    df = df.assign(heure=df["heure_locale"].dt.hour)
-    profil = df.groupby(["pollutant", "heure"])["value"].mean().unstack(0)
-    relatif = profil / profil.mean() * 100  # 100 = moyenne de la journee
-    sauver_table(profil.round(2).reset_index(), P, "q2_profil_horaire")
-    amplitude = (relatif.max() - relatif.min()).round(0)
+    df = df.assign(heure=df["heure_locale"].dt.hour, weekend=df["heure_locale"].dt.day_of_week >= 5)
+    profil = df.groupby(["pollutant", "heure"], observed=True)["value"].mean().rename("valeur").reset_index()
+    profil["indice"] = profil["valeur"] / profil.groupby("pollutant", observed=True)["valeur"].transform("mean") * 100
+    profil["polluant"] = profil["pollutant"].map(NOMS)
+    sauver_table(profil, P, "q2_profil_horaire")
+    amplitude = profil.groupby("polluant")["indice"].agg(lambda s: s.max() - s.min()).round(0)
+    heure_max = profil.loc[profil.groupby("polluant")["indice"].idxmax()].set_index("polluant")["heure"]
     print("Amplitude dans la journee (en % de la moyenne) :", amplitude.to_dict())
-    print("Heure du maximum :", relatif.idxmax().to_dict())
+    print("Heure du maximum :", heure_max.to_dict())
 
-    fig, axes = plt.subplots(1, 2, figsize=(15, 5))
-    relatif.rename(columns=NOMS).plot(ax=axes[0], marker=".")
-    axes[0].axhline(100, color="black", lw=0.8)
-    axes[0].set_title("Profil horaire moyen (100 = moyenne de la journee)")
-    axes[0].set_xticks(range(24))
-    jour = df.assign(we=df["heure_locale"].dt.day_of_week >= 5)
-    no2 = jour[jour["pollutant"] == "no2"].groupby(["we", "heure"])["value"].mean().unstack(0)
-    if not no2.empty:
-        no2.columns = ["semaine" if not c else "week-end" for c in no2.columns]
-        no2.plot(ax=axes[1], marker=".")
-    axes[1].set_title("NO2 (trafic routier) : semaine contre week-end")
-    axes[1].set_xticks(range(24))
-    sauver_figure(fig, P, "q2_variation_journaliere")
+    sem = df[df["pollutant"] == "no2"].groupby(["weekend", "heure"])["value"].mean().rename("no2").reset_index()
+    sem["jour"] = sem.pop("weekend").map({False: "semaine", True: "week-end"})
+    sauver_table(sem, P, "q2_no2_semaine_weekend")
 
 
 def q3_dominants(df):
     titre("Q3 - Polluants dominants")
-    ratio = df.groupby(["city", "pollutant"])["ratio_oms"].mean().unstack(1)
-    ratio["polluant_dominant"] = ratio.apply(lambda r: NOMS[r.idxmax()] if r.notna().any() else None, axis=1)
-    sauver_table(ratio.round(2).reset_index(), P, "q3_polluants_dominants")
-    print(ratio.round(2).to_string())
-
-    fig, ax = plt.subplots()
-    ratio.drop(columns="polluant_dominant").rename(columns=NOMS).plot.bar(ax=ax)
-    ax.axhline(1, color="red", ls="--", label="valeur guide OMS")
-    ax.set_title("Concentration moyenne rapportee a la valeur guide OMS (1 = la limite)")
-    ax.set_xlabel("")
-    ax.legend(ncol=6)
-    sauver_figure(fig, P, "q3_polluants_dominants")
+    ratio = df.groupby(["city", "pollutant"], observed=True)["ratio_oms"].mean().rename("ratio_oms").reset_index()
+    ratio["polluant"] = ratio["pollutant"].map(NOMS)
+    sauver_table(ratio, P, "q3_ratio_oms_par_ville")
+    dominant = ratio.loc[ratio.groupby("city", observed=True)["ratio_oms"].idxmax()]
+    dominant = dominant.rename(columns={"polluant": "polluant_dominant"})[["city", "polluant_dominant", "ratio_oms"]]
+    sauver_table(dominant, P, "q3_polluants_dominants")
+    print(dominant.to_string(index=False))
 
 
 def q4_episodes(df):
     titre("Q4 - Episodes de pollution anormale")
-    ville_heure = df.groupby(["city", "pollutant", "timestamp"])["value"].mean()
+    ville_heure = df.groupby(["city", "pollutant", "timestamp"], observed=True)["value"].mean()
     episodes = []
-    series = {}
-    for (ville, pol), s in ville_heure.groupby(level=["city", "pollutant"]):
+    for (ville, pol), s in ville_heure.groupby(level=["city", "pollutant"], observed=True):
         s = s.droplevel([0, 1]).asfreq("h")
         moy = s.rolling(FENETRE_H[pol], min_periods=int(FENETRE_H[pol] * 0.75)).mean()
-        # episode = depassement de la valeur guide OMS OU valeur exceptionnelle pour cette ville
-        seuil_stat = s.quantile(0.99)
-        anormal = (moy > OMS[pol]) | (s > seuil_stat)
+        # episode = moyenne glissante au-dessus de la valeur guide OMS OU valeur exceptionnelle pour cette ville
+        anormal = (moy > OMS[pol]) | (s > s.quantile(0.99))
         groupes = (anormal != anormal.shift()).cumsum()
         for _, bloc in anormal[anormal].groupby(groupes[anormal]):
             if len(bloc) >= 6:  # au moins 6 heures d'affilee
                 vals = s.loc[bloc.index[0]:bloc.index[-1]]
                 episodes.append({"city": ville, "pollutant": NOMS[pol], "debut": bloc.index[0], "fin": bloc.index[-1],
-                                 "duree_h": len(bloc), "pic": round(vals.max(), 1),
-                                 "pic_vs_oms": round(vals.max() / OMS[pol], 2)})
-        series[(ville, pol)] = (s, moy)
+                                 "duree_h": len(bloc), "pic": vals.max(), "pic_vs_oms": vals.max() / OMS[pol]})
     ep = pd.DataFrame(episodes)
     if ep.empty:
         print("Aucun episode detecte sur la periode")
         return
-    ep = ep.sort_values("pic_vs_oms", ascending=False)
+    ep = ep.sort_values("debut", ascending=False)
     sauver_table(ep, P, "q4_episodes")
+    par_mois = ep.groupby([ep["debut"].dt.tz_convert("Europe/Paris").dt.tz_localize(None).dt.to_period("M")
+                           .dt.to_timestamp().rename("mois"), "pollutant"]).size().rename("nb_episodes")
+    sauver_table(par_mois.reset_index(), P, "q4_episodes_par_mois")
     print(f"{len(ep)} episodes detectes")
     print(ep.groupby(["city", "pollutant"]).size().unstack(fill_value=0).to_string())
-
-    ville = ep["city"].value_counts().index[0]
-    fig, axes = plt.subplots(2, 1, figsize=(13, 7), sharex=True)
-    for ax, pol in zip(axes, ["pm25", "no2"]):
-        if (ville, pol) not in series:
-            continue
-        s, moy = series[(ville, pol)]
-        ax.plot(s.index, s, lw=0.6, color="gray", label="horaire")
-        ax.plot(moy.index, moy, color="tab:purple", label=f"moyenne {FENETRE_H[pol]} h")
-        ax.axhline(OMS[pol], color="red", ls="--", label="OMS")
-        for _, e in ep[(ep["city"] == ville) & (ep["pollutant"] == NOMS[pol])].iterrows():
-            ax.axvspan(e["debut"], e["fin"], color="orange", alpha=0.3)
-        ax.set_title(f"{ville} - {NOMS[pol]} (zones orange = episodes)")
-        ax.legend(fontsize=8)
-    sauver_figure(fig, P, "q4_episodes")
 
 
 def main():
     titre("Chargement des donnees pollution (silver)")
     df = charger()
-    print(f"{len(df):,} mesures, {df['sensor_id'].nunique()} capteurs, {df['city'].nunique()} villes")
+    if df.empty:
+        print("Pas de donnees. Lancer la collecte puis le nettoyage.")
+        return
+    print(f"{len(df):,} mesures, {df['sensor_id'].nunique()} capteurs, {df['city'].nunique()} villes, "
+          f"du {df['timestamp'].min():%Y-%m-%d} au {df['timestamp'].max():%Y-%m-%d}")
+    series_journalieres(df)
     q1_zones(df)
     q2_journee(df)
     q3_dominants(df)
     q4_episodes(df)
-    print("\nPartie 3 terminee. Graphiques dans rapports/figures")
+    print("\nPartie 3 terminee : indicateurs dans gold/pollution/")
 
 
 if __name__ == "__main__":

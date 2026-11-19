@@ -6,6 +6,9 @@ une "photo" de toutes les stations dans bronze :
 
   bronze/velos/citybikes/year=2026/month=11/day=19/snapshot_20261119T143000.json
 
+La meme photo, nettoyee, est aussitot inseree dans ClickHouse (table velos) :
+c'est ce qui permet a l'interface d'afficher l'etat des stations en temps reel.
+
 Lancer : python -m urbanhub.velos.collecter
 Options : --intervalle 180 (secondes)  --une-fois (une seule collecte)  --toutes-villes
 
@@ -20,7 +23,8 @@ from datetime import datetime, timezone
 
 import requests
 
-from urbanhub import config, datalake
+from urbanhub import config, datalake, olap
+from urbanhub.velos.nettoyer import nettoyer_snapshots
 from urbanhub.villes import VILLES
 
 API = "https://api.citybik.es/v2/networks"
@@ -35,8 +39,18 @@ def simplifier(texte):
     return texte.lower()
 
 
+class TropDeRequetes(Exception):
+    """L'API a repondu 429 : on a depasse la limite et il faut attendre."""
+
+    def __init__(self, attente):
+        super().__init__(f"limite de l'API atteinte, attendre {attente} s")
+        self.attente = attente
+
+
 def reseaux_france(toutes_villes=False):
     r = requests.get(API, params={"fields": "id,name,location"}, headers=HEADERS, timeout=30)
+    if r.status_code == 429:
+        raise TropDeRequetes(int(r.headers.get("retry-after", 600)))
     r.raise_for_status()
     reseaux = []
     for n in r.json()["networks"]:
@@ -48,14 +62,6 @@ def reseaux_france(toutes_villes=False):
         if ville or toutes_villes:
             reseaux.append({"id": n["id"], "name": n["name"], "city": ville or loc.get("city")})
     return reseaux
-
-
-class TropDeRequetes(Exception):
-    """L'API a repondu 429 : on a depasse la limite et il faut attendre."""
-
-    def __init__(self, attente):
-        super().__init__(f"limite de l'API atteinte, attendre {attente} s")
-        self.attente = attente
 
 
 def stations_du_reseau(reseau):
@@ -82,11 +88,14 @@ def collecter(reseaux):
             except Exception as e:
                 erreurs.append(f"{n['id']}: {e}")
 
+    envoyees = 0
     if resultats:  # on n'enregistre pas une photo vide
+        snap = {"collected_at": maintenant.isoformat(), "networks": resultats}
         key = maintenant.strftime("velos/citybikes/year=%Y/month=%m/day=%d/snapshot_%Y%m%dT%H%M%S.json")
-        datalake.put_json("bronze", key, {"collected_at": maintenant.isoformat(), "networks": resultats})
+        datalake.put_json("bronze", key, snap)
+        envoyees = olap.inserer("velos", nettoyer_snapshots([snap]))
     nb = sum(len(r["stations"]) for r in resultats)
-    print(f"{maintenant:%H:%M:%S} UTC  {len(resultats)} reseaux, {nb} stations"
+    print(f"{maintenant:%H:%M:%S} UTC  {len(resultats)} reseaux, {nb} stations, {envoyees} lignes vers ClickHouse"
           + (f"  ({len(erreurs)} erreurs, ex : {erreurs[0]})" if erreurs else ""))
     return attente
 
@@ -112,6 +121,8 @@ def main():
                 if intervalle > args.intervalle:
                     print(f"Intervalle porte a {intervalle:.0f} s pour respecter la limite de l'API")
             attente = collecter(reseaux)
+        except TropDeRequetes as e:
+            attente = e.attente
         except Exception as e:  # une panne reseau ne doit pas arreter la collecte
             print("Erreur, nouvelle tentative au prochain tour :", e)
         if args.une_fois:

@@ -3,8 +3,8 @@
 Pour chaque jour collecte, on lit toutes les photos et on produit un fichier Parquet :
   silver/velos/date=2026-11-19/velos.parquet
 
-Variables gardees : station_id, station_name, latitude, longitude, timestamp,
-bikes_available, free_slots (+ city, network_id, collected_at, capacity, fill_rate)
+Variables gardees : station_id, station_name, latitude, longitude, collected_at (l'heure
+de la photo), bikes_available, free_slots (+ city, network_id, capacity, fill_rate)
 
 Lancer : python -m urbanhub.velos.nettoyer
 Option : --jour 2026-11-19 (un seul jour)
@@ -19,8 +19,8 @@ from urbanhub import datalake
 PREFIXE = "velos/citybikes/"
 
 
-def lignes_snapshot(key):
-    snap = datalake.get_json("bronze", key)
+def lignes_snapshot(snap):
+    """Une photo (reponse brute de l'API) -> une ligne par station."""
     lignes = []
     for reseau in snap["networks"]:
         for s in reseau["stations"]:
@@ -39,16 +39,13 @@ def lignes_snapshot(key):
     return lignes
 
 
-def nettoyer_jour(prefixe_jour):
-    keys = [k for k in datalake.lister("bronze", prefixe_jour) if k.endswith(".json")]
-    with ThreadPoolExecutor(max_workers=16) as pool:
-        lignes = [l for morceau in pool.map(lignes_snapshot, keys) for l in morceau]
-    df = pd.DataFrame(lignes)
+def nettoyer_snapshots(snaps):
+    """Regles de nettoyage, utilisees par le nettoyage du jour ET par le collecteur (temps reel)."""
+    df = pd.DataFrame([l for snap in snaps for l in lignes_snapshot(snap)])
     if df.empty:
         return df
 
     df["collected_at"] = pd.to_datetime(df["collected_at"], utc=True).dt.floor("min")
-    df["timestamp"] = pd.to_datetime(df["timestamp"], utc=True, errors="coerce", format="ISO8601")
     for c in ["latitude", "longitude", "bikes_available", "free_slots"]:
         df[c] = pd.to_numeric(df[c], errors="coerce")
 
@@ -65,7 +62,13 @@ def nettoyer_jour(prefixe_jour):
     df["station_id"] = df["station_id"].astype(str)
     for c in ["bikes_available", "free_slots", "capacity"]:
         df[c] = df[c].astype("Int16")
-    return df
+    return df.drop(columns="timestamp")
+
+
+def nettoyer_jour(prefixe_jour):
+    keys = [k for k in datalake.lister("bronze", prefixe_jour) if k.endswith(".json")]
+    with ThreadPoolExecutor(max_workers=16) as pool:
+        return nettoyer_snapshots(list(pool.map(lambda k: datalake.get_json("bronze", k), keys)))
 
 
 def main():

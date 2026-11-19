@@ -16,24 +16,9 @@ VILLES = {
     "Rennes": (48.1173, -1.6778),
 }
 
-# Une station meteo ou un capteur est rattache a une ville s'il est a moins de RAYON_KM
-RAYON_KM = 30
-
-
 def distance_km(lat1, lon1, lat2, lon2):
-    """Distance a vol d'oiseau (formule de haversine). Marche aussi sur des colonnes."""
+    """Distance a vol d'oiseau en km (formule de haversine)."""
     lat1, lon1, lat2, lon2 = map(np.radians, (lat1, lon1, lat2, lon2))
     a = np.sin((lat2 - lat1) / 2) ** 2 + np.cos(lat1) * np.cos(lat2) * np.sin((lon2 - lon1) / 2) ** 2
     return 6371 * 2 * np.arcsin(np.sqrt(a))
 
-
-def ville_proche(lat, lon, rayon_km=RAYON_KM):
-    """Renvoie la ville la plus proche si elle est a moins de rayon_km, sinon None."""
-    if lat is None or lon is None or np.isnan(lat) or np.isnan(lon):
-        return None
-    meilleure, dmin = None, rayon_km
-    for nom, (vlat, vlon) in VILLES.items():
-        d = distance_km(lat, lon, vlat, vlon)
-        if d <= dmin:
-            meilleure, dmin = nom, d
-    return meilleure

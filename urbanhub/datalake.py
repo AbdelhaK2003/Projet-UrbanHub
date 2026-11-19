@@ -60,11 +60,6 @@ def put_parquet(bucket, key, df):
     put_bytes(bucket, key, buf.getvalue(), "application/vnd.apache.parquet")
 
 
-def put_fichier(bucket, key, chemin, content_type):
-    with open(chemin, "rb") as f:
-        put_bytes(bucket, key, f.read(), content_type)
-
-
 # ---------- lecture ----------
 
 def get_bytes(bucket, key):

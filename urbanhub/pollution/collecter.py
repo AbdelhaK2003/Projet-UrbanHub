@@ -1,28 +1,37 @@
-"""Partie 3 - etape 1 : collecte des capteurs de pollution OpenAQ (flux IoT).
+"""Partie 3 - etape 1 : collecte des capteurs de pollution OpenAQ (IoT).
 
 1. On cherche les capteurs autour de chaque grande ville (rayon 25 km)
    et on garde les 5 polluants demandes : PM2.5, PM10, O3, NO2, CO
-2. Mode flux (par defaut) : toutes les 15 min on lit la derniere mesure de chaque
-   capteur, comme si les capteurs nous envoyaient leurs donnees en direct
-3. Mode historique : on recupere les mesures horaires des N derniers jours
-   (utile pour avoir tout de suite assez de donnees a analyser)
+2. Mode historique : les mesures horaires des 3 dernieres annees jusqu'a aujourd'hui.
+   OpenAQ publie tout son historique dans un depot public (AWS S3, un fichier par
+   station et par jour). On telecharge ces fichiers en parallele et on les regroupe
+   par mois dans bronze :
+     bronze/pollution/openaq/historique/location=2681/year=2024/month=05.csv.gz
+3. Mode flux (par defaut) : toutes les 15 min on lit la derniere mesure de chaque
+   station via l'API, comme si les capteurs nous envoyaient leurs donnees en direct.
+   Chaque collecte va dans bronze ET directement dans ClickHouse (interface temps reel).
 
-Une cle API gratuite est necessaire (fichier .env, variable OPENAQ_API_KEY).
+Une cle API gratuite est necessaire pour l'API (fichier .env, variable OPENAQ_API_KEY).
 
 Lancer :
-  python -m urbanhub.pollution.collecter --historique 60   (une fois, 60 derniers jours)
-  python -m urbanhub.pollution.collecter                    (flux continu)
+  python -m urbanhub.pollution.collecter --historique 3   (une fois, 3 dernieres annees)
+  python -m urbanhub.pollution.collecter                   (flux continu)
 """
 import argparse
 import time
-from datetime import datetime, timedelta, timezone
+from concurrent.futures import ThreadPoolExecutor
+from datetime import date, datetime, timedelta, timezone
 
+import boto3
 import requests
+from botocore import UNSIGNED
+from botocore.client import Config
 
-from urbanhub import config, datalake
+from urbanhub import config, datalake, olap
 from urbanhub.villes import VILLES
 
 API = "https://api.openaq.org/v3"
+ARCHIVE = "openaq-data-archive"  # depot public OpenAQ sur AWS S3 (lecture libre)
 POLLUANTS = {"pm25", "pm10", "o3", "no2", "co"}
 _dernier_appel = [0.0]
 
@@ -53,10 +62,10 @@ def appel(chemin, params=None):
     raise RuntimeError(f"Echec apres plusieurs essais : {chemin}")
 
 
-def chercher_capteurs():
+def chercher_capteurs(jours_activite=30):
     """Liste des capteurs (sensor) utiles autour des grandes villes."""
     capteurs, brut = [], {}
-    limite_activite = datetime.now(timezone.utc) - timedelta(days=30)
+    limite_activite = datetime.now(timezone.utc) - timedelta(days=jours_activite)
     for ville, (lat, lon) in VILLES.items():
         res = appel("/locations", {"coordinates": f"{lat},{lon}", "radius": 25000, "limit": 1000})["results"]
         brut[ville] = res
@@ -79,8 +88,75 @@ def chercher_capteurs():
     return capteurs
 
 
+# ---------- historique (depot public OpenAQ) ----------
+
+def depot_public():
+    return boto3.client("s3", config=Config(signature_version=UNSIGNED, max_pool_connections=64),
+                        region_name="us-east-1")
+
+
+def cle_bronze(location_id, annee, mois):
+    return f"pollution/openaq/historique/location={location_id}/year={annee}/month={mois:02d}.csv.gz"
+
+
+def recuperer_mois(pub, location_id, annee, mois, debut):
+    """Telecharge les fichiers jour d'une station pour un mois et les depose en un seul fichier.
+    Des fichiers gzip mis bout a bout forment un gzip valide : pas besoin de decompresser."""
+    prefixe = f"records/csv.gz/locationid={location_id}/year={annee}/month={mois:02d}/"
+    cles = []
+    for page in pub.get_paginator("list_objects_v2").paginate(Bucket=ARCHIVE, Prefix=prefixe):
+        cles += [o["Key"] for o in page.get("Contents", []) if o["Key"][-15:-7] >= f"{debut:%Y%m%d}"]
+    if not cles:
+        return 0
+    morceaux = []
+    for k in sorted(cles):
+        for essai in range(4):
+            try:
+                morceaux.append(pub.get_object(Bucket=ARCHIVE, Key=k)["Body"].read())
+                break
+            except Exception:
+                time.sleep(2 * (essai + 1))
+    datalake.put_bytes("bronze", cle_bronze(location_id, annee, mois), b"".join(morceaux), "application/gzip")
+    return len(morceaux)
+
+
+def collecte_historique(capteurs, annees, workers=24):
+    aujourdhui = date.today()
+    debut = aujourdhui.replace(year=aujourdhui.year - annees)
+    lieux = sorted({c["location_id"] for c in capteurs})
+    mois = []
+    a, m = debut.year, debut.month
+    while (a, m) <= (aujourdhui.year, aujourdhui.month):
+        mois.append((a, m))
+        a, m = (a + 1, 1) if m == 12 else (a, m + 1)
+
+    taches = []
+    for loc in lieux:
+        for a, m in mois:
+            en_cours = (a, m) == (aujourdhui.year, aujourdhui.month)
+            if not en_cours and datalake.existe("bronze", cle_bronze(loc, a, m)):
+                continue  # mois termine deja recupere
+            taches.append((loc, a, m))
+    print(f"Historique du {debut} au {aujourdhui} : {len(lieux)} stations x {len(mois)} mois, "
+          f"{len(taches)} mois a telecharger ({workers} en parallele)")
+
+    pub = depot_public()
+    fichiers, fait = 0, 0
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        for n in pool.map(lambda t: recuperer_mois(pub, *t, debut), taches):
+            fichiers += n
+            fait += 1
+            if fait % 200 == 0 or fait == len(taches):
+                print(f"  {fait}/{len(taches)} mois traites, {fichiers:,} fichiers jour recuperes")
+    print("Historique dans bronze. Etape suivante : python -m urbanhub.pollution.nettoyer")
+
+
+# ---------- flux temps reel (API) ----------
+
 def collecte_flux(capteurs):
     """Une collecte : derniere valeur de chaque station de mesure."""
+    from urbanhub.pollution.nettoyer import lignes_flux, nettoyer_mesures
+
     maintenant = datetime.now(timezone.utc)
     lieux = sorted({c["location_id"] for c in capteurs})
     resultats = []
@@ -89,33 +165,18 @@ def collecte_flux(capteurs):
             resultats.extend(appel(f"/locations/{loc_id}/latest")["results"])
         except (requests.RequestException, RuntimeError) as e:
             print(f"  station {loc_id} ignoree : {e}")
+    snapshot = {"collected_at": maintenant.isoformat(), "results": resultats}
     key = maintenant.strftime("pollution/openaq/flux/year=%Y/month=%m/day=%d/snapshot_%Y%m%dT%H%M%S.json")
-    datalake.put_json("bronze", key, {"collected_at": maintenant.isoformat(), "results": resultats})
-    print(f"{maintenant:%H:%M:%S} UTC  {len(resultats)} mesures recues de {len(lieux)} stations")
-
-
-def collecte_historique(capteurs, jours):
-    """Mesures horaires des N derniers jours pour chaque capteur."""
-    fin = datetime.now(timezone.utc).replace(minute=0, second=0, microsecond=0)
-    debut = fin - timedelta(days=jours)
-    for i, c in enumerate(capteurs, 1):
-        mesures, page = [], 1
-        while True:
-            res = appel(f"/sensors/{c['sensor_id']}/hours", {
-                "datetime_from": debut.isoformat(), "datetime_to": fin.isoformat(),
-                "limit": 1000, "page": page})["results"]
-            mesures.extend(res)
-            if len(res) < 1000:
-                break
-            page += 1
-        key = f"pollution/openaq/historique/sensor={c['sensor_id']}/{debut:%Y%m%d}_{fin:%Y%m%d}.json"
-        datalake.put_json("bronze", key, {"sensor": c, "results": mesures})
-        print(f"  [{i}/{len(capteurs)}] {c['city']} {c['pollutant']} capteur {c['sensor_id']} : {len(mesures)} heures")
+    datalake.put_json("bronze", key, snapshot)
+    # vitesse : les mesures nettoyees partent tout de suite dans ClickHouse
+    n = olap.inserer("pollution", nettoyer_mesures(lignes_flux(snapshot, {c["sensor_id"]: c for c in capteurs})))
+    print(f"{maintenant:%H:%M:%S} UTC  {len(resultats)} mesures recues de {len(lieux)} stations, "
+          f"{n} envoyees a ClickHouse")
 
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--historique", type=int, metavar="JOURS", help="recuperer les N derniers jours puis s'arreter")
+    p.add_argument("--historique", type=int, metavar="ANNEES", help="recuperer les N dernieres annees puis s'arreter")
     p.add_argument("--intervalle", type=int, default=900, help="secondes entre deux collectes du flux")
     p.add_argument("--une-fois", action="store_true")
     args = p.parse_args()

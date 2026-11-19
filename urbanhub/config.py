@@ -17,9 +17,5 @@ CLICKHOUSE_PASSWORD = os.getenv("CLICKHOUSE_PASSWORD", "urbanhub123")
 
 OPENAQ_API_KEY = os.getenv("OPENAQ_API_KEY", "")
 
-# Dossier local ou sont enregistres les graphiques
-FIGURES = RACINE / "rapports" / "figures"
-FIGURES.mkdir(parents=True, exist_ok=True)
-
 # En-tete HTTP envoye aux API publiques
 USER_AGENT = "UrbanHub-projet-etudiant/1.0"

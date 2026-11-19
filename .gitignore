@@ -3,3 +3,5 @@
 __pycache__/
 minio_data/
 clickhouse_data/
+web/node_modules/
+web/dist/

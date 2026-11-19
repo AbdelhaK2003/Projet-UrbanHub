@@ -1,145 +1,84 @@
-"""Partie 1 - etape 2 : nettoyage des fichiers NOAA (bronze -> silver).
+"""Partie 1 - etape 2 : nettoyage de la meteo (bronze -> silver).
 
-Les fichiers NOAA sont codes. Exemple de colonne TMP : "+0123,1"
-  -> 0123 = temperature en dixiemes de degre, donc 12.3 degres
-  -> 1    = code qualite de la mesure
-  -> +9999 veut dire "valeur manquante"
+Pour chaque fichier JSON de bronze (une ville x une annee) :
+- on remet les colonnes de l'API sous des noms simples
+  (station_id, timestamp, temperature, wind_speed, wind_direction, pressure,
+  precipitation, visibility, + humidity, wind_gusts, cloud_cover)
+- visibilite en km (l'API donne des metres)
+- on enleve les valeurs impossibles (ex : temperature a 70 C)
+- on bouche les petits trous (3 heures maximum) par interpolation
+- on enleve les heures futures et les doublons
 
-Nettoyages faits ici
-- decodage des colonnes et conversion des unites (dixiemes -> vraies unites, m -> km, m/s -> km/h)
-- valeurs manquantes (9999, 99999...) remplacees par du vide
-- mesures marquees "douteuses" ou "fausses" par la NOAA supprimees
-- valeurs impossibles supprimees (ex : 70 degres)
-- timestamp converti en date UTC et arrondi a l'heure (une ligne par station et par heure)
-- petits trous (3 h max) combles par interpolation pour la temperature et la pression
+Resultat, un fichier Parquet par annee :
+  silver/meteo/year=2024/meteo.parquet
 
 Lancer : python -m urbanhub.meteo.nettoyer
 """
-import argparse
-import io
 from concurrent.futures import ThreadPoolExecutor
 
 import pandas as pd
-from tqdm import tqdm
 
 from urbanhub import datalake
-from urbanhub.villes import ville_proche
+from urbanhub.villes import VILLES
 
-COLONNES = ["STATION", "DATE", "LATITUDE", "LONGITUDE", "NAME", "WND", "TMP", "SLP", "VIS", "AA1"]
-QUALITE_MAUVAISE = {"2", "3", "6", "7"}  # codes NOAA : douteux / faux
-
-# bornes physiques acceptees
+COLONNES = {
+    "temperature_2m": "temperature",
+    "relative_humidity_2m": "humidity",
+    "precipitation": "precipitation",
+    "wind_speed_10m": "wind_speed",
+    "wind_direction_10m": "wind_direction",
+    "wind_gusts_10m": "wind_gusts",
+    "pressure_msl": "pressure",
+    "cloud_cover": "cloud_cover",
+}
+# valeurs possibles en France (en dehors : erreur)
 BORNES = {
-    "temperature": (-40, 50),       # degres C
-    "wind_speed": (0, 75),          # m/s
-    "pressure": (900, 1080),        # hPa
-    "visibility": (0, 100),         # km
-    "precipitation": (0, 100),      # mm par heure
+    "temperature": (-40, 50), "humidity": (0, 100), "precipitation": (0, 200),
+    "wind_speed": (0, 250), "wind_gusts": (0, 300), "pressure": (900, 1100),
+    "cloud_cover": (0, 100), "visibility": (0, 100),
 }
 
 
-def champ(serie, i):
-    return serie.astype("string").str.split(",").str[i]
+def lire(key):
+    brut = datalake.get_json("bronze", key)
+    ville = brut["ville"]
+    a = pd.DataFrame(brut["archive"]["hourly"]).rename(columns=COLONNES)
+    v = pd.DataFrame(brut["visibilite"]["hourly"])
+    df = a.merge(v, on="time", how="left")
+    df["timestamp"] = pd.to_datetime(df.pop("time"), utc=True)
+    df["visibility"] = df["visibility"] / 1000  # metres -> km
+    df.insert(0, "city", ville)
+    df.insert(0, "station_id", "openmeteo-" + ville.lower())
+    df["latitude"], df["longitude"] = VILLES[ville]
+    return df
 
 
-def valeur(serie, i_val, i_qual, manquant, echelle):
-    """Extrait une valeur numerique d'une colonne codee NOAA."""
-    v = pd.to_numeric(champ(serie, i_val), errors="coerce")
-    q = champ(serie, i_qual)
-    v = v.where((v != manquant) & ~q.isin(QUALITE_MAUVAISE))
-    return v / echelle
-
-
-def nettoyer_fichier(contenu):
-    df = pd.read_csv(io.BytesIO(contenu), dtype=str, usecols=lambda c: c in COLONNES)
-    df = df.reindex(columns=COLONNES)
-    if df.empty:
-        return None
-
-    # precipitations : AA1 = "periode_en_heures,hauteur_en_dixiemes_mm,condition,qualite"
-    periode = pd.to_numeric(champ(df["AA1"], 0), errors="coerce")
-    hauteur = valeur(df["AA1"], 1, 3, 9999, 10)
-    precip = (hauteur / periode.where((periode > 0) & (periode < 99)))  # ramene en mm par heure
-
-    out = pd.DataFrame({
-        "station_id": df["STATION"].str.zfill(11),
-        "timestamp": pd.to_datetime(df["DATE"], utc=True, errors="coerce").dt.floor("h"),
-        "temperature": valeur(df["TMP"], 0, 1, 9999, 10),
-        "wind_direction": valeur(df["WND"], 0, 1, 999, 1),
-        "wind_speed": valeur(df["WND"], 3, 4, 9999, 10),
-        "pressure": valeur(df["SLP"], 0, 1, 99999, 10),
-        "visibility": valeur(df["VIS"], 0, 1, 999999, 1000),
-        "precipitation": precip,
-    })
-    out = out.dropna(subset=["timestamp"])
-    for col, (bas, haut) in BORNES.items():
-        out[col] = out[col].where(out[col].between(bas, haut))
-
-    # plusieurs releves dans la meme heure -> une seule ligne (moyenne)
-    agg = {c: "mean" for c in BORNES}
-    agg["wind_direction"] = "first"  # on ne fait pas la moyenne d'un angle
-    out = out.groupby(["station_id", "timestamp"], as_index=False).agg(agg)
-    if out.empty:
-        return None
-
-    # grille horaire complete, puis on comble les trous de 3 h maximum
-    out = out.set_index("timestamp").sort_index()
-    station = out["station_id"].iloc[0]
-    out = out.drop(columns="station_id").asfreq("h")
-    for col in ["temperature", "pressure"]:
-        out[col] = out[col].interpolate(method="time", limit=3, limit_area="inside")
-    out = out.dropna(how="all", subset=list(BORNES)).reset_index()
-
-    out["wind_speed_kmh"] = out["wind_speed"] * 3.6
-    out["station_id"] = station
-    out["station_name"] = df["NAME"].dropna().iloc[0] if df["NAME"].notna().any() else None
-    lat = pd.to_numeric(df["LATITUDE"], errors="coerce").median()
-    lon = pd.to_numeric(df["LONGITUDE"], errors="coerce").median()
-    out["latitude"], out["longitude"] = lat, lon
-    out["city"] = ville_proche(lat, lon)
-
-    for col in list(BORNES) + ["wind_direction", "wind_speed_kmh"]:
-        out[col] = out[col].astype("float32")
-    colonnes = ["station_id", "station_name", "city", "latitude", "longitude", "timestamp",
-                "temperature", "wind_speed", "wind_speed_kmh", "wind_direction",
-                "pressure", "precipitation", "visibility"]
-    return out[colonnes]
-
-
-def traiter(key):
-    try:
-        return nettoyer_fichier(datalake.get_bytes("bronze", key))
-    except Exception as e:  # un fichier abime ne doit pas bloquer toute l'annee
-        print(f"  fichier ignore {key} : {e}")
-        return None
+def nettoyer(df):
+    maintenant = pd.Timestamp.now(tz="UTC")
+    df = df[df["timestamp"] <= maintenant].copy()  # pas de prevision dans l'historique
+    for col, (mini, maxi) in BORNES.items():
+        df[col] = pd.to_numeric(df[col], errors="coerce").astype("float64")
+        df.loc[(df[col] < mini) | (df[col] > maxi), col] = None
+    df = df.drop_duplicates(["station_id", "timestamp"]).sort_values(["station_id", "timestamp"])
+    continues = ["temperature", "humidity", "pressure", "wind_speed", "visibility"]
+    df[continues] = df.groupby("station_id")[continues].transform(lambda s: s.interpolate(limit=3))
+    return df.reset_index(drop=True)
 
 
 def main():
-    p = argparse.ArgumentParser()
-    p.add_argument("--workers", type=int, default=8)
-    args = p.parse_args()
-
-    annees = sorted({k.split("year=")[1].split("/")[0] for k in datalake.lister("bronze", "meteo/noaa/")})
-    if not annees:
-        print("Rien dans bronze/meteo/noaa. Lancer d'abord : python -m urbanhub.meteo.telecharger")
+    cles = [k for k in datalake.lister("bronze", "meteo/openmeteo/") if k.endswith(".json")]
+    if not cles:
+        print("Rien dans bronze. Lancer d'abord : python -m urbanhub.meteo.telecharger")
         return
-
-    stations = []
-    for annee in annees:
-        keys = list(datalake.lister("bronze", f"meteo/noaa/year={annee}/"))
-        with ThreadPoolExecutor(max_workers=args.workers) as pool:
-            morceaux = list(tqdm(pool.map(traiter, keys), total=len(keys), desc=f"Nettoyage {annee}"))
-        morceaux = [m for m in morceaux if m is not None and not m.empty]
-        if not morceaux:
-            continue
-        df = pd.concat(morceaux, ignore_index=True)
-        datalake.put_parquet("silver", f"meteo/year={annee}/meteo.parquet", df)
-        stations.append(df[["station_id", "station_name", "city", "latitude", "longitude"]].drop_duplicates("station_id"))
-        print(f"  {annee} : {len(df):,} lignes horaires, {df['station_id'].nunique()} stations")
-
-    ref = pd.concat(stations).drop_duplicates("station_id")
-    datalake.put_parquet("silver", "meteo/stations.parquet", ref)
-    print(f"Silver pret. {len(ref)} stations, dont {ref['city'].notna().sum()} rattachees a une grande ville.")
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        df = pd.concat(pool.map(lire, cles), ignore_index=True)
+    df = nettoyer(df)
+    for annee, morceau in df.groupby(df["timestamp"].dt.year):
+        datalake.put_parquet("silver", f"meteo/year={annee}/meteo.parquet", morceau)
+        print(f"  {annee} : {len(morceau):,} heures, {morceau['city'].nunique()} villes")
+    manquants = df[["temperature", "visibility"]].isna().mean().round(4).to_dict()
+    print(f"Silver pret : {len(df):,} lignes du {df['timestamp'].min():%Y-%m-%d} au "
+          f"{df['timestamp'].max():%Y-%m-%d %H:%M}. Part de valeurs manquantes : {manquants}")
 
 
 if __name__ == "__main__":

@@ -1,6 +1,0 @@
-variable,temperature,wind_speed,pressure,precipitation,visibility
-temperature,1.0,0.096,-0.255,-0.088,0.198
-wind_speed,0.096,1.0,-0.226,0.106,0.067
-pressure,-0.255,-0.226,1.0,-0.233,-0.098
-precipitation,-0.088,0.106,-0.233,1.0,-0.214
-visibility,0.198,0.067,-0.098,-0.214,1.0
