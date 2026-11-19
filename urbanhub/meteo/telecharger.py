@@ -61,7 +61,7 @@ def telecharger_un(annee, station):
             r.raise_for_status()
             datalake.put_bytes("bronze", key, r.content, "text/csv")
             return "ok"
-        except requests.RequestException:
+        except Exception:  # coupure reseau cote NOAA ou cote MinIO : on reessaie
             time.sleep(2 * (essai + 1))
     return "erreur"
 

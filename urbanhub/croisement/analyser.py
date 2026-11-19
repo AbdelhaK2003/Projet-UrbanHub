@@ -239,9 +239,16 @@ def main():
             print(f"  heures avec {col} : {t[col].notna().sum():,}")
     if "temperature" in t:
         q1_meteo_pollution(t)
-        d = q2_meteo_velos(t) if "indice_usage" in t else None
+
+    # Q2 a Q4 ont besoin de velos : au moins 24 heures de collecte, sinon les resultats ne veulent rien dire
+    heures_velos = t.loc[t["indice_usage"].notna(), "timestamp"].nunique() if "indice_usage" in t else 0
+    if heures_velos < 24:
+        print(f"\nQ2, Q3 et Q4 : seulement {heures_velos} heures de collecte velos, il en faut au moins 24 "
+              "(idealement une semaine). Laisser tourner : python -m urbanhub.velos.collecter")
+    else:
+        d = q2_meteo_velos(t) if "temperature" in t else None
         q3_favorables(d)
-    q4_interactions(t)
+        q4_interactions(t)
     print("\nPartie 4 terminee. Graphiques dans rapports/figures")
 
 

@@ -741,7 +741,8 @@ Code : [dashboard/app.py](dashboard/app.py)
 
 Il s'ouvre dans le navigateur (http://localhost:8501) et contient :
 - **onglet "Temps reel"** : la derniere photo des velos, lue directement dans bronze. On choisit une ville et on voit une carte (vert = velos disponibles, rouge = station vide), 3 chiffres cles et la liste des stations. Les donnees se rafraichissent toutes les 2 minutes.
-- **onglets "1 Meteo" a "4 Croisement"** : tous les graphiques de chaque partie.
+- **onglets "1 Meteo" a "4 Croisement"** : chaque question avec son explication, son graphique et son tableau de resultats (a deplier).
+- **onglet "Data Lake"** : le nombre de fichiers et la taille de chaque dossier dans bronze, silver et gold. Pratique pour montrer l'architecture dans la video.
 
 
 ---
@@ -787,43 +788,68 @@ python
 
 ### Partie 1 - Meteo
 
-Premier passage sur les 26 stations proches des grandes villes (option `--grandes-villes`), de 2021 a aout 2025. Pour le rendu, relancer sans cette option pour avoir les 210 stations.
+Donnees : 1 026 fichiers NOAA telecharges en parallele, 208 stations de France metropolitaine, de janvier 2021 a aout 2025, soit 7,1 millions de lignes horaires apres nettoyage.
 
-**1. Periodes anormales.** La methode trouve 20 vagues de chaleur, 16 vagues de froid, 3 periodes tres seches et 7 tres humides. Elles correspondent a des evenements reels, ce qui montre que la methode fonctionne :
-- la secheresse de l'ete 2022 (du 25 juillet au 15 aout, 22 jours)
-- l'automne tres pluvieux de 2023 (novembre, tempete Ciaran)
-- l'automne tres pluvieux de 2024 (octobre-novembre)
-- les chaleurs de fin juin 2025
+**1. Periodes anormales.** La methode trouve 19 vagues de chaleur, 17 vagues de froid, 4 periodes tres seches et 8 tres humides. Elles correspondent a des evenements reels, ce qui montre que la methode fonctionne :
+- l'automne 2023 tres pluvieux (du 30 octobre au 3 decembre, 35 jours : tempetes Ciaran et Domingos)
+- l'automne 2024 tres pluvieux (du 9 octobre au 4 novembre)
+- la secheresse de l'ete 2022 (du 26 juillet au 15 aout)
+- la vague de froid de debut janvier 2021 (4,4 degres sous la normale pendant 11 jours)
 
 **2. Visibilite.** Elle baisse nettement avec la pluie :
 
 | Pluie | Visibilite mediane |
 |---|---|
-| aucune | 14,6 km |
-| faible | 11,7 km |
+| aucune | 13,3 km |
+| faible | 12,0 km |
 | moderee | 8,3 km |
-| forte | 6,3 km |
+| forte | 6,7 km |
 
-Elle augmente un peu avec la temperature (correlation de 0,21), car le brouillard se forme surtout par temps froid. Les correlations restent faibles : la visibilite depend aussi de l'humidite et de la pollution, que l'on n'a pas ici.
+Elle augmente un peu avec la temperature (correlation de 0,20), car le brouillard se forme surtout par temps froid. Les correlations restent faibles : la visibilite depend aussi de l'humidite et de la pollution, que l'on n'a pas ici.
 
 **3. Saisons.** Toutes les villes suivent le meme cycle : minimum en janvier, maximum en juillet-aout.
 - L'ecart ete / hiver est plus grand a l'interieur des terres (Lyon 18,4 degres, Strasbourg 17,2) que pres de l'Atlantique (Nantes 13,6, Rennes 12,9). C'est l'effet de l'ocean, qui adoucit le climat.
 - Nice et Marseille sont les plus chaudes toute l'annee.
 
 **4. Jours extremes.** Les 10 jours les plus extremes sont tous des jours de chaleur :
-- le 1er juillet 2025, 83 % des stations ont depasse 35 degres
-- le 18 juillet 2022, 82 %
+- le 18 juillet 2022, 75 % des stations francaises ont depasse 35 degres
+- le 1er juillet 2025, 65 %
+- les 11 a 15 aout 2025, entre 45 et 61 %
 
 Les autres extremes sont plus rares et plus locaux : pluies fortes en octobre 2024, brouillard en hiver.
 
-### Parties 2, 3 et 4
+### Partie 3 - Pollution
 
-A completer quand la collecte aura tourne plusieurs jours. Les chiffres sont affiches par chaque script d'analyse et enregistres en CSV dans `rapports/`.
+Donnees : 60 jours (du 20 septembre au 19 novembre 2026), 269 capteurs dans les 11 villes, environ 300 000 mesures horaires.
 
-Ce qu'il faut regarder :
+**1. Zones les plus polluees.**
+- **NO2 :** la station la plus touchee est Feyzin Stade, au sud de Lyon, avec 62 µg/m3 en moyenne, soit 2,5 fois la valeur OMS. C'est le "couloir de la chimie" (raffinerie, industrie) le long de l'autoroute A7.
+- **PM2.5 :** la plus touchee est le boulevard Ornano a Paris (18e), avec 16 µg/m3, juste au-dessus de la valeur OMS. C'est un grand axe tres circule.
+
+Les zones les plus polluees sont donc les grands axes routiers et les zones industrielles.
+
+**2. Variation dans la journee.** Oui, elle est forte :
+- **NO2 :** deux pics, vers 9 h et 21 h, aux heures de pointe du trafic. L'ecart entre le minimum et le maximum vaut 75 % de la moyenne. En semaine, le pic du matin est presque deux fois plus haut que le week-end (30 contre 17 µg/m3), ce qui prouve le lien avec les trajets domicile-travail.
+- **Ozone :** il fait l'inverse. Il est au plus bas le matin et culmine vers 16 h, car il se forme sous l'effet du soleil a partir des gaz d'echappement du matin.
+- **Particules (PM2.5) :** elles montent le soir et la nuit (chauffage au bois en automne, air plus stable la nuit).
+
+**3. Polluant dominant.** Rapporte a la valeur OMS, le NO2 domine dans 8 villes sur 11 (Paris 0,95, Marseille 0,99, Strasbourg 0,91). Le PM2.5 domine a Lille, Nantes et Rennes. Le CO est partout tres loin de sa limite (moins de 0,1) : il n'est plus un probleme en ville.
+
+**4. Episodes anormaux.** 149 episodes detectes, surtout du NO2 : Montpellier 16, Marseille 14, Paris 13. Les episodes de NO2 durent souvent plusieurs jours : ce sont des periodes sans vent, ou la pollution s'accumule (voir partie 4). Les episodes d'ozone touchent surtout le Sud (Marseille, Nice), plus ensoleille.
+
+### Partie 4 - Croisement (premiers resultats)
+
+**1. Meteo et pollution.** Oui, la relation est nette (correlations de Spearman, heure par heure) :
+- **Le vent disperse la pollution :** -0,51 avec le NO2, -0,46 avec le CO, -0,35 avec les PM2.5. Quand le vent tombe, la pollution s'accumule.
+- **La chaleur et le soleil fabriquent l'ozone :** +0,63 entre temperature et O3.
+- **La pluie lave un peu l'air :** correlation faiblement negative avec tous les polluants.
+- **La haute pression va avec plus de pollution** (+0,14 a +0,21) : c'est le temps calme et stable des anticyclones.
+
+**Questions 2 a 4 (velos).** Il faut plusieurs jours de collecte velos. A completer ensuite.
+
+Ce qu'il faudra regarder :
 - **Velos :** les heures de pointe (on attend 8 h et 18 h en semaine), et si le centre se remplit le matin puis se vide le soir.
-- **Pollution :** le NO2 suit le trafic, avec deux pics par jour en semaine. L'ozone monte l'apres-midi avec le soleil.
-- **Croisement :** le vent disperse la pollution (correlation negative attendue), et la pluie fait baisser l'indice d'usage des velos.
+- **Croisement :** la pluie et le froid devraient faire baisser l'indice d'usage des velos.
 
 
 ---
@@ -851,6 +877,8 @@ Ce qu'il faut regarder :
 | `Cle OpenAQ manquante` | `.env` vide | remplir `OPENAQ_API_KEY` |
 | `No module named urbanhub` | lance depuis le mauvais dossier ou sans `-m` | se placer a la racine du projet et utiliser `python -m urbanhub....` |
 | `No module named boto3` (ou autre) | environnement non active | `.venv\Scripts\activate` |
+| `Connection was closed before we received a valid response` | coupure passagere de Docker Desktop sous Windows quand il y a beaucoup d'envois en meme temps | boto3 reessaie deja 10 fois tout seul. Si ca arrive encore, relancer le script : il reprend ou il s'etait arrete |
+| `Q2, Q3 et Q4 : seulement N heures de collecte velos` | pas assez de collecte velos pour le croisement | laisser tourner le collecteur velos au moins 24 h, idealement une semaine |
 | `Pas de donnees` dans une analyse | l'etape precedente n'a pas ete lancee | lancer collecter puis nettoyer avant analyser |
 
 Pour tout arreter : `docker compose down`. Les donnees restent dans le volume Docker. `docker compose down -v` efface aussi les donnees, a eviter.

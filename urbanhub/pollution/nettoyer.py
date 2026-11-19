@@ -22,16 +22,19 @@ def lire_historique(key):
     d = datalake.get_json("bronze", key)
     c = d["sensor"]
     return [{**c, "value": m.get("value"),
-             "timestamp": ((m.get("period") or {}).get("datetimeTo") or {}).get("utc")} for m in d["results"]]
+             "timestamp": ((m.get("period") or {}).get("datetimeFrom") or {}).get("utc")} for m in d["results"]]
 
 
 def lire_flux(key, capteurs):
     d = datalake.get_json("bronze", key)
+    collecte = pd.Timestamp(d["collected_at"])
     lignes = []
     for m in d["results"]:
         meta = capteurs.get(m.get("sensorsId"))
-        if meta:
-            lignes.append({**meta, "value": m.get("value"), "timestamp": (m.get("datetime") or {}).get("utc")})
+        quand = (m.get("datetime") or {}).get("utc")
+        # un capteur en panne renvoie sa "derniere" mesure, parfois vieille de plusieurs annees : on l'ignore
+        if meta and quand and collecte - pd.Timestamp(quand) < pd.Timedelta(days=2):
+            lignes.append({**meta, "value": m.get("value"), "timestamp": quand})
     return lignes
 
 

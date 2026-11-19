@@ -1,939 +1,1148 @@
 city,station_name,action,bikes_available,free_slots,capacity,part_temps_vide,part_temps_plein,latitude,longitude
-Lyon,BERLIOZ / CHALINEL,a remplir,0.0,15.0,15.0,1.0,0.0,45.801,4.825
-Lille,Blanchemaille,a remplir,0.0,8.0,8.0,1.0,0.0,50.697,3.169
-Toulouse,PLACE SAINT-PIERRE,a vider,20.0,0.0,20.0,0.0,1.0,43.603,1.436
-Paris,Charonne - Alexandre Dumas,a remplir,0.0,34.0,34.0,1.0,0.0,48.856,2.395
-Toulouse,BD DES MINIMES - PASSERELLE,a remplir,0.0,26.0,26.0,1.0,0.0,43.615,1.443
-Paris,Pernety - Raymond Losserand,a remplir,0.0,32.0,32.0,1.0,0.0,48.834,2.318
-Strasbourg,République,a remplir,0.0,9.0,9.0,1.0,0.0,48.588,7.755
-Lyon,VAILLANT / PERRONCEL,a remplir,0.0,13.0,13.0,1.0,0.0,45.775,4.88
-Lyon,CHILDEBERT / RIVIÈRE,a vider,23.0,0.0,23.0,0.0,1.0,45.76,4.836
-Paris,Saint-Gilles - Turenne,a vider,13.0,0.0,13.0,0.0,1.0,48.858,2.365
-Toulouse,LOIS - CAPITOLE,a vider,18.0,0.0,18.0,0.0,1.0,43.605,1.442
-Lyon,PLACE SATHONAY,a remplir,0.0,19.0,19.0,1.0,0.0,45.769,4.83
-Bordeaux,Ilot Les Hangars,a remplir,0.0,10.0,10.0,1.0,0.0,44.858,-0.558
-Paris,Ney - Porte de Clignancourt,a remplir,0.0,25.0,25.0,1.0,0.0,48.898,2.346
-Bordeaux,Stalingrad Lion Bleu Mobile,a remplir,0.0,20.0,20.0,1.0,0.0,44.84,-0.56
-Paris,Ivry - Baudricourt,a remplir,0.0,19.0,19.0,1.0,0.0,48.825,2.363
-Paris,Ségur - d'Estrées,a vider,19.0,0.0,19.0,0.0,1.0,48.851,2.31
-Lyon,VALDO / RIVET,a remplir,0.0,17.0,17.0,1.0,0.0,45.75,4.789
-Paris,Stalingrad - Rigollots,a remplir,0.0,51.0,51.0,1.0,0.0,48.85,2.456
-Paris,Quai du Président Roosevelt - Pont Aval,a vider,30.0,0.0,30.0,0.0,1.0,48.834,2.266
-Paris,Dunkerque - Trudaine,a remplir,0.0,11.0,11.0,1.0,0.0,48.882,2.346
-Paris,Place de la Bastille - Bourdon,a remplir,0.0,35.0,35.0,1.0,0.0,48.852,2.368
-Paris,Boyer - Ménilmontant,a remplir,0.0,18.0,18.0,1.0,0.0,48.869,2.392
-Paris,Westermeyer - Paul Vaillant-Couturier,a vider,32.0,0.0,32.0,0.0,1.0,48.819,2.397
-Lyon,8053 - LUMIERE / TROUILHET,a remplir,0.0,13.0,13.0,1.0,0.0,45.744,4.87
-Montpellier,Parvis Jules Ferry - Gare Saint-Roch,a remplir,0.0,8.0,8.0,1.0,0.0,43.604,3.879
-Toulouse,REVEL - BAJAC,a remplir,0.0,16.0,16.0,1.0,0.0,43.577,1.488
-Paris,Marcelle - Thalie,a remplir,0.0,19.0,19.0,1.0,0.0,48.884,2.414
-Paris,Place Nelson Mandela,a remplir,0.0,20.0,20.0,1.0,0.0,48.862,2.196
-Montpellier,Observatoire,a remplir,0.0,8.0,8.0,1.0,0.0,43.606,3.877
-Paris,Champs-Elysees - Bassano,a remplir,0.0,25.0,25.0,1.0,0.0,48.872,2.3
-Lyon,PÊCHERIE,a remplir,0.0,13.0,13.0,1.0,0.0,45.766,4.831
-Toulouse,MAL CLABEL - AUDE,a remplir,0.0,17.0,17.0,1.0,0.0,43.583,1.482
-Paris,Faubourg Poissonniere - Delta,a remplir,0.0,36.0,36.0,1.0,0.0,48.883,2.35
-Paris,Square des Epinettes,a remplir,0.0,39.0,39.0,1.0,0.0,48.894,2.326
-Toulouse,VELASQUEZ - TAMARIS,a vider,16.0,0.0,16.0,0.0,1.0,43.621,1.39
-Montpellier,Les Arceaux,a remplir,0.0,8.0,8.0,1.0,0.0,43.613,3.868
-Lyon,BOURBONNAIS,a remplir,0.0,12.0,12.0,1.0,0.0,45.773,4.8
-Lyon,MONTGOLFIER / CHATEAU GAILLARD,a remplir,0.0,17.0,17.0,1.0,0.0,45.772,4.89
-Toulouse,LAGANNE - TEINTURIERS,a remplir,0.0,18.0,18.0,1.0,0.0,43.597,1.436
-Lyon,CHARCOT / RÉSIDENCE UNIVERSITAIRE,a remplir,0.0,32.0,32.0,1.0,0.0,45.755,4.808
-Paris,Gare de Chaville Rive Gauche,a remplir,0.0,18.0,18.0,1.0,0.0,48.805,2.188
-Montpellier,Jean de Beins,a remplir,0.0,15.0,15.0,1.0,0.0,43.61,3.884
-Lyon,PLACE HENRI,a remplir,0.0,13.0,13.0,1.0,0.0,45.748,4.881
-Bordeaux,Ilot CAPC,a remplir,0.0,5.0,5.0,1.0,0.0,44.85,-0.57
-Bordeaux,Hopital Pellegrin,a remplir,0.0,26.0,26.0,1.0,0.0,44.83,-0.604
-Lyon,SALENGRO / DESCARTES,a vider,11.0,0.0,11.0,0.0,1.0,45.776,4.872
-Lille,Jardin Vauban,a remplir,0.0,18.0,18.0,1.0,0.0,50.636,3.05
-Paris,Borrégo - Gambetta,a remplir,0.0,25.0,25.0,1.0,0.0,48.873,2.401
-Paris,Porte de la Muette,a vider,36.0,0.0,36.0,0.0,1.0,48.863,2.269
-Toulouse,HÔPITAL PURPAN,a vider,13.0,0.0,13.0,0.0,1.0,43.608,1.402
-Toulouse,COLONNE - REILLE,a remplir,0.0,13.0,13.0,1.0,0.0,43.609,1.46
-Lyon,11 NOVEMBRE,a vider,35.0,0.0,35.0,0.0,1.0,45.78,4.86
-Lyon,WITKOWSKI/VALDO,a remplir,0.0,15.0,15.0,1.0,0.0,45.75,4.785
-Lyon,VÉNISSIEUX - JOLIOT CURIE / SEMBAT,a vider,25.0,0.0,25.0,0.0,1.0,45.715,4.878
-Paris,Pyrénées - Maraîchers,a remplir,0.0,33.0,33.0,1.0,0.0,48.857,2.404
-Paris,Ménilmontant - Pelleport,a remplir,0.0,31.0,31.0,1.0,0.0,48.871,2.399
-Lyon,REBATEL / SAINT-MAXIMIN,a remplir,0.0,29.0,29.0,1.0,0.0,45.748,4.872
-Paris,Bellefond - Maubeuge,a remplir,0.0,27.0,27.0,1.0,0.0,48.878,2.345
-Paris,Concorde - Place de la Madeleine,a remplir,0.0,400.0,400.0,1.0,0.0,48.871,2.324
-Paris,Jardin Modèle - Pierre Boudou,a remplir,0.0,17.0,17.0,1.0,0.0,48.915,2.306
-Paris,Pierre et Marie Curie - Julien Grimau,a remplir,0.0,18.0,18.0,1.0,0.0,48.871,2.424
-Toulouse,CHIRAC - HEREDIA,a remplir,0.0,12.0,12.0,1.0,0.0,43.613,1.468
-Paris,Colonel Fabien - Sallnave,a remplir,0.0,29.0,29.0,1.0,0.0,48.815,2.407
-Toulouse,REYNERIE - LONDRES,a remplir,0.0,13.0,12.0,1.0,0.0,43.569,1.408
-Paris,Mairie du 3ème,a remplir,0.0,32.0,32.0,1.0,0.0,48.864,2.362
-Paris,Londres - Place d'Estienne d'Orves,a vider,24.0,0.0,24.0,0.0,1.0,48.877,2.331
-Lille,Buisson,a remplir,0.0,15.0,15.0,1.0,0.0,50.656,3.088
-Lille,Esplanade,a remplir,0.0,24.0,24.0,1.0,0.0,50.645,3.051
-Lille,Jemmapes,a remplir,0.0,22.0,22.0,1.0,0.0,50.645,3.058
-Lyon,JEAN JAURÈS,a vider,15.0,0.0,15.0,0.0,1.0,45.738,4.837
-Paris,Haxo - Darcy,a remplir,0.0,22.0,22.0,1.0,0.0,48.87,2.405
-Lyon,LYCÉE MARIE CURIE,a remplir,0.0,13.0,13.0,1.0,0.0,45.762,4.896
-Toulouse,ÉTATS-UNIS - FERRY,a remplir,0.0,14.0,13.0,1.0,0.0,43.633,1.432
-Paris,Gare du Stade,a remplir,0.0,20.0,20.0,1.0,0.0,48.931,2.26
-Lyon,BERTHELOT / ROUTE DE VIENNE,a remplir,0.0,12.0,12.0,1.0,0.0,45.743,4.851
-Lyon,PLACE PUVIS DE CHAVANNES,a remplir,0.0,9.0,9.0,1.0,0.0,45.772,4.845
-Paris,Dareau - Broussais,a remplir,0.0,23.0,23.0,1.0,0.0,48.831,2.336
-Paris,Messine - Place Du Pérou,a vider,12.0,0.0,12.0,0.0,1.0,48.875,2.316
-Toulouse,BRIENNE - CHAPOU,a remplir,0.0,24.0,24.0,1.0,0.0,43.61,1.42
-Lyon,CALUIRE - BRANLY / PASTEUR,a remplir,0.0,15.0,15.0,1.0,0.0,45.792,4.843
-Paris,Nanterre - Université,a vider,17.0,0.0,17.0,0.0,1.0,48.901,2.213
-Paris,Square d'Anvers,a remplir,0.0,33.0,33.0,1.0,0.0,48.883,2.345
-Paris,Rougemont - Poissonnière,a remplir,0.0,44.0,44.0,1.0,0.0,48.872,2.346
-Lyon,4011 - PLACE JOANNÈS AMBRE,a remplir,0.0,20.0,20.0,1.0,0.0,45.782,4.833
-Lyon,ALBÉRIC PONT,a remplir,0.0,16.0,16.0,1.0,0.0,45.753,4.804
-Paris,Chartres - La Charbonnière,a remplir,0.0,32.0,32.0,1.0,0.0,48.885,2.353
-Toulouse,AV. DE MURET - DUBOUL,a remplir,0.0,12.0,12.0,1.0,0.0,43.58,1.424
-Lille,Fulton,a remplir,0.0,12.0,12.0,1.0,0.0,50.623,3.038
-Toulouse,SALADE PONSAN - CÔTEAUX,a remplir,0.0,12.0,12.0,1.0,0.0,43.568,1.452
-Lyon,BERTHELOT / CAZENEUVE,a remplir,0.0,17.0,17.0,1.0,0.0,45.737,4.866
-Lyon,PLACE DE LA FERRANDIÈRE,a remplir,0.0,16.0,16.0,1.0,0.0,45.759,4.869
-Paris,Guy Môquet - Saint-Ouen,a remplir,0.0,53.0,53.0,1.0,0.0,48.893,2.327
-Nantes,FOCH,a vider,14.0,0.0,14.0,0.0,1.0,47.219,-1.55
-Paris,Balard - Montagne de la Fage,a vider,36.0,0.0,36.0,0.0,1.0,48.839,2.278
-Lyon,ST GENIS L. - MÉDIATHÈQUE,a remplir,0.0,11.0,11.0,1.0,0.0,45.698,4.795
-Lille,Alsace,a remplir,0.0,16.0,16.0,1.0,0.0,50.7,3.161
-Lille,Notebart,a remplir,0.0,20.0,20.0,1.0,0.0,50.631,3.013
-Paris,Oratoire - Rivoli,a vider,15.0,0.0,15.0,0.0,1.0,48.861,2.34
-Lille,Centre Nautique,a remplir,0.0,10.0,10.0,1.0,0.0,50.691,3.163
-Paris,Édouard Vaillant - Place Jean Jaurès,a remplir,0.0,23.0,23.0,1.0,0.0,48.863,2.209
-Paris,Sadi Carnot - François Mitterrand ,a remplir,0.0,27.0,27.0,1.0,0.0,48.875,2.424
-Lyon,PRÉFECTURE / SARRAIL,a remplir,0.0,17.0,17.0,1.0,0.0,45.765,4.842
-Paris,Gare de Bellevue,a remplir,0.0,20.0,20.0,1.0,0.0,48.819,2.23
-Toulouse,GONIN - GÉNIN,a remplir,0.0,16.0,15.0,1.0,0.0,43.574,1.484
-Lyon,PLACE DU PORT MOUTON,a remplir,0.0,15.0,15.0,1.0,0.0,45.774,4.81
-Paris,Boyer-Barret - Raymond Losserand,a remplir,0.0,21.0,21.0,1.0,0.0,48.833,2.317
-Toulouse,DEMOISELLES - BÉGUÉ-DAVID,a remplir,0.0,14.0,14.0,1.0,0.0,43.59,1.456
-Toulouse,RTE DE SEYSSES - C. DE VIÇOSE,a vider,12.0,0.0,12.0,0.0,1.0,43.572,1.418
-Lyon,PLACE ENNEMOND FOUSSERET,a remplir,0.0,14.0,14.0,1.0,0.0,45.765,4.829
-Lyon,HOPITAL NEUROLOGIQUE,a vider,19.0,0.0,19.0,0.0,1.0,45.748,4.897
-Lyon,ST ANTOINE / GRENETTE,a remplir,0.0,22.0,22.0,1.0,0.0,45.763,4.832
-Montpellier,Pont de Lattes - Gare Saint-Roch,a remplir,0.0,12.0,12.0,1.0,0.0,43.606,3.882
-Paris,Assas - Luxembourg,a vider,33.0,0.0,33.0,0.0,1.0,48.844,2.333
-Lyon,MUSÉE DES CONFLUENCES,a vider,18.0,0.0,18.0,0.0,1.0,45.733,4.819
-Lyon,MAISONS NEUVES,a remplir,0.0,21.0,21.0,1.0,0.0,45.756,4.877
-Toulouse,SAINT-SERNIN - MERLY,a vider,15.0,0.0,15.0,0.0,1.0,43.609,1.443
-Toulouse,ST-BERNARD - BERALDI,a vider,15.0,0.0,15.0,0.0,1.0,43.609,1.444
-Paris,Pyrénées - Charles Renouvier,a remplir,0.0,29.0,29.0,1.0,0.0,48.861,2.4
-Paris,Pelleport - Belgrand,a remplir,0.0,13.0,13.0,1.0,0.0,48.865,2.404
-Paris,Halles - Bourdonnais,a vider,19.0,0.0,19.0,0.0,1.0,48.86,2.346
-Lyon,MARTINIÈRE,a remplir,0.0,9.0,9.0,1.0,0.0,45.768,4.828
-Paris,Sorbier - Ménilmontant,a remplir,0.0,24.0,24.0,1.0,0.0,48.869,2.39
-Toulouse,STE-LUCIE - ARCS ST-CYPRIEN,a remplir,0.0,18.0,18.0,1.0,0.0,43.594,1.43
-Paris,Quai Marcel Boyer - Victor Hugo,a vider,29.0,0.0,29.0,0.0,1.0,48.823,2.392
-Paris,Vivienne - Petits Champs,a vider,28.0,0.0,28.0,0.0,1.0,48.867,2.339
-Lille,Place Trichon,a remplir,0.0,12.0,12.0,1.0,0.0,50.69,3.169
-Paris,Boulard - Daguerre,a remplir,0.0,45.0,45.0,1.0,0.0,48.834,2.329
-Lyon,PHILIPPE DE LASSALLE / PILLEMENT,a remplir,0.0,13.0,13.0,1.0,0.0,45.777,4.821
-Lyon,PARC BLANDAN,a remplir,0.0,23.0,23.0,1.0,0.0,45.746,4.851
-Paris,Etienne Dolet - Place Maurice Chevalier,a remplir,0.0,45.0,45.0,1.0,0.0,48.868,2.385
-Paris,Rome - Provence,a vider,30.0,0.0,30.0,0.0,1.0,48.874,2.326
-Toulouse,PLACE ROUAIX,a vider,18.0,0.0,18.0,0.0,1.0,43.6,1.446
-Paris,Rochechouart lamartine,a remplir,0.0,24.0,24.0,1.0,0.0,48.877,2.344
-Paris,Botzaris - Parc des Buttes Chaumont,a remplir,0.0,20.0,20.0,1.0,0.0,48.878,2.381
-Lyon,GORGE DE LOUP,a remplir,0.0,38.0,38.0,1.0,0.0,45.767,4.806
-Paris,Place Mongolfier,a vider,38.0,0.0,38.0,0.0,1.0,48.815,2.459
-Lille,Delesalle Mediatheque,a remplir,0.0,18.0,18.0,1.0,0.0,50.632,3.066
-Paris,Victor Massé - Jean-Baptiste Pigalle,a remplir,0.0,17.0,17.0,1.0,0.0,48.881,2.337
-Paris,Belleville - Couronnes,a remplir,0.0,48.0,48.0,1.0,0.0,48.869,2.381
-Paris,Hôtel de Ville de Nanterre,a vider,38.0,0.0,38.0,0.0,1.0,48.892,2.206
-Toulouse,LASCROSSES - LECLERC,a vider,25.0,0.0,25.0,0.0,1.0,43.609,1.432
-Lille,Artois,a remplir,0.0,18.0,18.0,1.0,0.0,50.626,3.061
-Lyon,MÉNIVAL / EISENHOWER,a remplir,0.0,11.0,11.0,1.0,0.0,45.757,4.783
-Lille,Eugene Jacquet,a remplir,0.0,21.0,21.0,1.0,0.0,50.637,3.085
-Toulouse,COLONNE - SALONIQUE,a remplir,0.0,13.0,13.0,1.0,0.0,43.611,1.465
-Paris,Choisy - Tolbiac,a remplir,0.0,20.0,20.0,1.0,0.0,48.826,2.36
-Lyon,DESAIX,a remplir,0.0,28.0,28.0,1.0,0.0,45.757,4.855
-Paris,Belleville -  Pré Saint-Gervais,a remplir,0.0,35.0,35.0,1.0,0.0,48.876,2.393
-Lyon,AVENUE VERGUIN,a vider,20.0,0.0,20.0,0.0,1.0,45.773,4.856
-Paris,Stephenson - Doudeauville,a remplir,0.0,35.0,35.0,1.0,0.0,48.889,2.356
-Paris,Rossini - Laffitte,a vider,32.0,0.0,32.0,0.0,1.0,48.873,2.338
-Toulouse,00226 - CASSELARDIT - FONTAINES,a vider,17.0,0.0,17.0,0.0,1.0,43.604,1.407
-Paris,République - Danton,a remplir,0.0,20.0,20.0,1.0,0.0,48.852,2.462
-Paris,Perrault - Place du Louvre,a vider,27.0,0.0,27.0,0.0,1.0,48.86,2.341
-Lille,Rue Saint Blaise,a remplir,0.0,6.0,6.0,1.0,0.0,50.729,3.159
-Paris,Filles Saint-Thomas - Place de la Bourse,a remplir,0.0,54.0,54.0,1.0,0.0,48.869,2.34
-Toulouse,LAVAUR - DALOU,a remplir,0.0,12.0,12.0,1.0,0.0,43.623,1.463
-Paris,Pont Neuf - Rivoli,a vider,25.0,0.0,25.0,0.0,1.0,48.86,2.344
-Bordeaux,Patinoire,a remplir,0.0,20.0,20.0,1.0,0.0,44.834,-0.588
-Lyon,ROUVILLE,a remplir,0.0,17.0,17.0,1.0,0.0,45.77,4.825
-Lyon,MARTINIÈRE / MONPLAISIR,a remplir,0.0,16.0,16.0,1.0,0.0,45.741,4.868
-Lyon,GRANDCLÉMENT,a remplir,0.0,17.0,17.0,1.0,0.0,45.76,4.89
-Lyon,PLACE DE LA RECONNAISSANCE,a remplir,0.0,28.0,28.0,1.0,0.0,45.754,4.885
-Lyon,LES HALLES,a vider,16.0,0.0,16.0,0.0,1.0,45.762,4.85
-Lyon,SAINT-PAUL,a remplir,0.0,21.0,21.0,1.0,0.0,45.766,4.827
-Lyon,SAINT-JUST,a remplir,0.0,18.0,18.0,1.0,0.0,45.756,4.819
-Lyon,PLACE DES TAPIS,a remplir,0.0,15.0,15.0,1.0,0.0,45.776,4.83
-Toulouse,CORIOLIS - DUPOUY,a vider,13.0,0.0,13.0,0.0,1.0,43.579,1.38
-Paris,Saint-Fargeau - Mortier,a remplir,0.0,29.0,29.0,1.0,0.0,48.873,2.408
-Toulouse,AV. DE MURET - BOUTINON,a remplir,0.0,18.0,18.0,1.0,0.0,43.582,1.426
-Lyon,GAMBETTA / JUSSERAND,a remplir,0.0,10.0,10.0,1.0,0.0,45.751,4.856
-Paris,Porte de Ménilmontant,a remplir,0.0,15.0,15.0,1.0,0.0,48.869,2.409
-Toulouse,PARC DE LA VIOLETTE,a remplir,0.0,13.0,13.0,1.0,0.0,43.654,1.438
-Lyon,TERREAUX / BEAUX ARTS,a remplir,0.0,6.0,6.0,1.0,0.0,45.767,4.834
-Lyon,VIENNE / MONTAGNY,a remplir,0.0,20.0,20.0,1.0,0.0,45.732,4.853
-Lyon,GUILLOTIÈRE / MADELEINE,a remplir,0.0,10.0,10.0,1.0,0.0,45.751,4.848
-Rennes,TNB,a remplir,0.0,28.0,28.0,1.0,0.0,48.108,-1.674
-Toulouse,ÎLE DU RAMIER TRAMWAY,a remplir,0.0,12.0,12.0,1.0,0.0,43.592,1.44
-Lyon,PLACE D'HELVÉTIE,a remplir,0.0,27.0,27.0,1.0,0.0,45.773,4.842
-Lyon,VIABERT / THIERS,a vider,13.0,0.0,13.0,0.0,1.0,45.766,4.862
-Lyon,PLACE LEBRET,a remplir,0.0,12.0,12.0,1.0,0.0,45.736,4.853
-Lyon,PLACE DE L'ECOLE,a vider,27.0,0.0,27.0,0.0,1.0,45.73,4.828
-Toulouse,PUJOL - CHAUBET,a remplir,0.0,15.0,15.0,1.0,0.0,43.601,1.467
-Paris,Gergovie - Alésia,a remplir,0.0,54.0,54.0,1.0,0.0,48.831,2.319
-Paris,Charles Robin - Grange aux Belles,a remplir,0.0,23.0,23.0,1.0,0.0,48.877,2.37
-Lille,Saint Jean-Baptiste,a remplir,0.0,12.0,12.0,1.0,0.0,50.679,3.179
-Bordeaux,Bagatelle,a remplir,0.0,18.0,18.0,1.0,0.0,44.809,-0.574
-Lyon,IUT / FEYSSINE,a vider,29.0,0.0,29.0,0.0,1.0,45.786,4.882
-Lyon,HÉNON,a remplir,0.0,18.0,18.0,1.0,0.0,45.78,4.828
-Paris,Saint Pères - Saint Germain,a remplir,0.0,22.0,22.0,1.0,0.0,48.854,2.33
-Lyon,BUYER / APOLLINAIRE,a remplir,0.0,18.0,18.0,1.0,0.0,45.762,4.803
-Lille,Tisserand,a remplir,0.0,20.0,20.0,1.0,0.0,50.631,3.008
-Lille,Victor Provo,a remplir,0.0,16.0,16.0,1.0,0.0,50.681,3.167
-Paris,Cimetière de Fontenay-sous-Bois,a remplir,0.0,15.0,15.0,1.0,0.0,48.847,2.479
-Paris,Lassus - Delouvain,a remplir,0.0,20.0,20.0,1.0,0.0,48.876,2.389
-Lyon,CHAMPVERT,a remplir,0.0,15.0,15.0,1.0,0.0,45.76,4.798
-Toulouse,BONNEFOY - ARAGO,a remplir,0.0,22.0,21.0,1.0,0.0,43.617,1.454
-Toulouse,00158 - URSS - MARAN,a remplir,0.0,20.0,20.0,1.0,0.0,43.581,1.449
-Paris,Legendre - Nollet,a remplir,0.0,28.0,28.0,1.0,0.0,48.888,2.32
-Paris,Mairie de Sceaux,a remplir,0.0,32.0,32.0,1.0,0.0,48.779,2.289
-Paris,Pierre Grenier - Pont de Billancourt,a remplir,0.0,21.0,21.0,1.0,0.0,48.826,2.249
-Lyon,MEISSONNIER,a remplir,0.0,13.0,13.0,1.0,0.0,45.766,4.833
-Toulouse,ST-MICHEL - MAGENDIE,a remplir,0.0,15.0,15.0,1.0,0.0,43.59,1.446
-Bordeaux,Ilot Place du Maucaillou,a remplir,0.0,5.0,5.0,1.0,0.0,44.833,-0.567
-Lille,Voltaire,a remplir,0.0,14.0,14.0,1.0,0.0,50.643,3.056
-Lyon,HALLE TONY GARNIER,a vider,19.0,0.0,19.0,0.0,1.0,45.731,4.824
-Lyon,ANATOLE FRANCE / ZOLA,a vider,11.0,0.0,11.0,0.0,1.0,45.769,4.884
-Paris,Belliard - Damrémont,a remplir,0.0,33.0,33.0,1.0,0.0,48.897,2.338
-Lyon,ALSACE ANATOLE FRANCE,a remplir,0.0,18.0,18.0,1.0,0.0,45.767,4.87
-Paris,Italie - Vistule,a remplir,0.0,24.0,24.0,1.0,0.0,48.823,2.358
-Paris,François Truffaut - Saint Emilion,a vider,63.0,0.0,63.0,0.0,1.0,48.834,2.387
-Paris,Jules Guesdes - Général de Gaulle,a remplir,0.0,24.0,24.0,1.0,0.0,48.819,2.279
-Paris,Jeanne Hornet - Girardot,a remplir,0.0,26.0,26.0,1.0,0.0,48.874,2.428
-Lyon,DOUA / GASTON BERGER,a vider,30.0,0.0,30.0,0.0,1.0,45.781,4.871
-Paris,Place De Fontenoy - Saxe,a vider,18.0,0.0,18.0,0.0,1.0,48.85,2.307
-Lyon,PLACE COMMANDANT  ARNAUD,a remplir,0.0,14.0,14.0,1.0,0.0,45.78,4.835
-Paris,Jean Monnet - Iles,a remplir,0.0,32.0,32.0,1.0,0.0,48.823,2.25
-Paris,Roger Salengro - Fontainebleau,a remplir,0.0,24.0,24.0,1.0,0.0,48.815,2.361
-Toulouse,PLACE DU FER À CHEVAL,a remplir,0.0,15.0,15.0,1.0,0.0,43.592,1.434
-Paris,Monte Cristo - Bagnolet,a remplir,0.0,36.0,36.0,1.0,0.0,48.857,2.397
-Paris,Sèvres - Maréchal Juin,a vider,18.0,0.0,18.0,0.0,1.0,48.832,2.229
-Paris,Bercy.,a vider,64.0,0.0,64.0,0.0,1.0,48.84,2.379
-Paris,Lucien Bossoutrot - Général Martial Vallin,a vider,38.0,0.0,38.0,0.0,1.0,48.837,2.274
-Lyon,TERREAUX / CHENAVARD,a remplir,0.0,16.0,16.0,1.0,0.0,45.767,4.833
-Lyon,BOUSSANGES / AUSTERLITZ,a remplir,0.0,17.0,17.0,1.0,0.0,45.775,4.835
-Paris,Ouest - Château ,a remplir,0.0,41.0,41.0,1.0,0.0,48.836,2.319
-Lille,Rue du Parc,a remplir,0.0,12.0,12.0,1.0,0.0,50.651,3.068
-Paris,Marcelin Berthelot,a remplir,0.0,27.0,27.0,1.0,0.0,48.842,2.233
-Paris,Lepic - Armée d'Orient,a remplir,0.0,24.0,24.0,1.0,0.0,48.888,2.334
-Paris,Froidevaux - Boulard,a remplir,0.0,35.0,35.0,1.0,0.0,48.835,2.329
-Lyon,CONFLUENCE / DARSE,a vider,21.0,0.0,21.0,0.0,1.0,45.743,4.816
-Lyon,AVEYRON,a remplir,0.0,17.0,17.0,1.0,0.0,45.774,4.833
-Paris,Botzaris - Crimée,a remplir,0.0,20.0,20.0,1.0,0.0,48.88,2.389
-Toulouse,DUPORTAL - CANAL DE BRIENNE,a vider,16.0,0.0,16.0,0.0,1.0,43.605,1.434
-Paris,Buzenval - Vignoles,a remplir,0.0,17.0,17.0,1.0,0.0,48.854,2.4
-Lyon,DOMER / CHEVREUL,a remplir,0.0,11.0,11.0,1.0,0.0,45.747,4.844
-Toulouse,00013 - LOIS - ESQUILE,a vider,11.0,0.0,11.0,0.0,1.0,43.606,1.441
-Strasbourg,Bischheim Gare,a remplir,0.0,5.0,5.0,1.0,0.0,48.612,7.742
-Paris,Frères Flavien - Porte des Lilas,a remplir,0.0,23.0,23.0,1.0,0.0,48.878,2.411
-Lyon,PLACE MENDÈS FRANCE,a remplir,0.0,19.0,19.0,1.0,0.0,45.74,4.859
-Paris,Fontenay - Libération,a remplir,0.0,24.0,24.0,1.0,0.0,48.848,2.445
-Lyon,PATINOIRE BARABAN,a remplir,0.0,14.0,14.0,1.0,0.0,45.762,4.868
-Paris,Franquet - Labrouste,a remplir,0.0,37.0,37.0,1.0,0.0,48.833,2.307
-Lyon,ECULLY - MAIRIE,a remplir,0.0,12.0,12.0,1.0,0.0,45.775,4.779
-Paris,Maine - Liancourt,a remplir,0.0,27.0,27.0,1.0,0.0,48.835,2.324
-Lyon,MARSEILLE / FÉLISSENT,a remplir,0.0,28.0,28.0,1.0,0.0,45.753,4.841
-Bordeaux,Buttiniere,a remplir,0.0,20.0,20.0,1.0,0.0,44.864,-0.524
-Paris,Victoire - Laffitte,a vider,19.0,0.0,19.0,0.0,1.0,48.875,2.338
-Paris,Invalides - Quai d'Orsay,a remplir,0.0,400.0,400.0,1.0,0.0,48.863,2.31
-Lille,Rue Bonte-Pollet,a remplir,0.0,16.0,16.0,1.0,0.0,50.625,3.034
-Lyon,CITÉ SCOLAIRE INTERNATIONALE,a vider,24.0,0.0,24.0,0.0,1.0,45.728,4.824
-Lille,Croix Centre,a remplir,0.0,16.0,16.0,1.0,0.0,50.674,3.147
-Paris,Square Raymond Souplex,a remplir,0.0,51.0,51.0,1.0,0.0,48.892,2.335
-Toulouse,COLLIGNON - RAISIN,a remplir,0.0,18.0,17.0,1.0,0.0,43.618,1.445
-Paris,Place des Ardoines,a vider,45.0,0.0,45.0,0.0,1.0,48.783,2.407
-Paris,Station Tour de France,a remplir,0.0,200.0,200.0,1.0,0.0,48.883,2.334
-Paris,Square Louise Michel,a remplir,0.0,34.0,34.0,1.0,0.0,48.885,2.344
-Toulouse,BORDEROUGE - MÉTRO,a vider,29.0,0.0,29.0,0.0,1.0,43.64,1.453
-Paris,Pierre-Simon Girard  - Paris,a remplir,0.0,35.0,35.0,1.0,0.0,48.901,2.456
-Bordeaux,Victoire,a remplir,0.0,39.0,39.0,1.0,0.0,44.831,-0.573
-Paris,Guy Môquet - Compoint,a remplir,0.0,35.0,35.0,1.0,0.0,48.892,2.323
-Paris,Sérurier - Alphonse Aulard,a remplir,0.0,15.0,15.0,1.0,0.0,48.881,2.398
-Paris,Gare Saint-Lazare - Isly,a vider,26.0,0.0,26.0,0.0,1.0,48.875,2.327
-Paris,Hôtel de ville de Fontenay-sous-Bois,a remplir,0.0,20.0,20.0,1.0,0.0,48.849,2.475
-Toulouse,MUSEE SAINT-RAYMOND,a vider,12.0,0.0,12.0,0.0,1.0,43.608,1.441
-Lyon,10035 - BOIRON GRANGER,a remplir,0.0,15.0,15.0,1.0,0.0,45.763,4.9
-Paris,Place de la Paix - Abbé Saint-Pierre,a remplir,0.0,24.0,24.0,1.0,0.0,48.865,2.205
-Paris,Tertres - Fontaine,a remplir,0.0,27.0,27.0,1.0,0.0,48.788,2.306
-Lyon,VAULX - LA SOIE,a vider,13.0,0.0,13.0,0.0,1.0,45.761,4.921
-Toulouse,LESPINET - MARINE,a remplir,0.0,20.0,20.0,1.0,0.0,43.583,1.464
-Lyon,BELLECOUR / RÉPUBLIQUE,a vider,17.0,0.0,17.0,0.0,1.0,45.758,4.835
-Lyon,CONFLUENCE / DOCKS,a vider,26.0,0.0,26.0,0.0,1.0,45.739,4.815
-Paris,Gérando - Rochechouart,a remplir,0.0,20.0,20.0,1.0,0.0,48.883,2.346
-Lille,Poste,a remplir,0.0,6.0,6.0,1.0,0.0,50.719,3.163
-Lyon,SISLEY / DAUPHINE,a remplir,0.0,17.0,17.0,1.0,0.0,45.752,4.869
-Montpellier,Charles Flahault,a remplir,0.0,8.0,8.0,1.0,0.0,43.622,3.867
-Lille,Solferino Nationale,a vider,18.0,0.0,18.0,0.0,1.0,50.633,3.052
-Lyon,10025 - TOTEM,a remplir,0.0,12.0,12.0,1.0,0.0,45.764,4.873
-Lyon,ETATS-UNIS / VIVIANI,a remplir,0.0,18.0,18.0,1.0,0.0,45.725,4.871
-Paris,Alger - Rivoli,a vider,19.0,0.0,19.0,0.0,1.0,48.865,2.329
-Paris,Javel - André Citroën,a vider,44.0,0.0,44.0,0.0,1.0,48.846,2.279
-Lyon,CROIX ROUSSE / PERFETTI,a remplir,0.0,15.0,15.0,1.0,0.0,45.772,4.819
-Toulouse,LASCROSSES - ARNAUD BERNARD,a remplir,0.0,25.0,25.0,1.0,0.0,43.611,1.438
-Paris,Guichet - Jean Jaurès,a remplir,0.0,27.0,27.0,1.0,0.0,48.905,2.302
-Paris,Mairie du 18ème,a remplir,0.0,39.0,39.0,1.0,0.0,48.893,2.345
-Lille,Louis Braille,a remplir,0.0,12.0,12.0,1.0,0.0,50.637,3.098
-Paris,Gambetta - Père Lachaise,a remplir,0.0,29.0,29.0,1.0,0.0,48.864,2.398
-Lyon,SAXE / GAMBETTA,a remplir,0.0,25.0,25.0,1.0,0.0,45.754,4.848
-Paris,Jourdain - Place des Grandes Rigoles,a remplir,0.0,18.0,18.0,1.0,0.0,48.874,2.39
-Bordeaux,Ilot Cap Sciences,a remplir,0.0,5.0,5.0,1.0,0.0,44.86,-0.554
-Lyon,SUCRIERE,a vider,18.0,0.0,18.0,0.0,1.0,45.736,4.815
-Toulouse,MARIN - REBOUL,a remplir,0.0,18.0,18.0,1.0,0.0,43.581,1.38
-Toulouse,00103 - ST-MICHEL - STE-CATHERINE,a remplir,0.0,18.0,19.0,1.0,0.0,43.591,1.445
-Toulouse,NARBONNE - CAUBÈRE,a remplir,0.0,14.0,14.0,1.0,0.0,43.569,1.456
-Toulouse,JARDIN DU PECH,a remplir,0.0,17.0,17.0,1.0,0.0,43.59,1.415
-Toulouse,BALMA GRAMONT MÉTRO,a vider,18.0,0.0,18.0,0.0,1.0,43.629,1.483
-Lyon,ALLEE DE L'EUROPE,a remplir,0.0,12.0,12.0,1.0,0.0,45.784,4.794
-Lille,Charles Fourier,a remplir,0.0,12.0,12.0,1.0,0.0,50.672,3.183
-Paris,Lacépède - Monge,a remplir,0.0,22.0,22.0,1.0,0.0,48.844,2.352
-Paris,Manin - Carrières d'Amérique,a remplir,0.0,20.0,20.0,1.0,0.0,48.885,2.392
-Lyon,PAUL SANTY,a remplir,0.0,14.0,14.0,1.0,0.0,45.729,4.877
-Lille,Parc Barbieux,a remplir,0.0,24.0,24.0,1.0,0.0,50.678,3.162
-Paris,Bara - Henri Farman,a vider,58.0,0.0,58.0,0.0,1.0,48.833,2.268
-Lyon,GARIBALDI / DOMER,a remplir,0.0,15.0,15.0,1.0,0.0,45.748,4.852
-Lyon,BERTHELOT / GARIBALDI,a remplir,0.0,15.0,15.0,1.0,0.0,45.744,4.847
-Montpellier,Saint-Guilhem - Courreau,a remplir,0.0,8.0,8.0,1.0,0.0,43.609,3.873
-Paris,Maxime Gorki - Paul Vaillant-Couturier,a remplir,0.0,19.0,19.0,1.0,0.0,48.797,2.368
-Paris,Larmeroux - Baudelaire,a remplir,0.0,29.0,29.0,1.0,0.0,48.817,2.281
-Paris,Caulaincourt - Place Constantin Pecqueur,a remplir,0.0,42.0,42.0,1.0,0.0,48.89,2.338
-Paris,Henry Farman,a vider,15.0,0.0,15.0,0.0,1.0,48.834,2.271
-Toulouse,RIEUX - COTTAGES,a remplir,0.0,18.0,18.0,1.0,0.0,43.586,1.475
-Lyon,GREGORY COUPET,a remplir,0.0,16.0,16.0,1.0,0.0,45.782,4.821
-Lyon,CARMÉLITES,a remplir,0.0,12.0,12.0,1.0,0.0,45.77,4.829
-Toulouse,PLACE ANATOLE FRANCE,a vider,25.0,0.0,25.0,0.0,1.0,43.606,1.438
-Lyon,GABRIEL PÉRI,a remplir,0.0,23.0,23.0,1.0,0.0,45.772,4.866
-Lyon,CONFLUENCE HÔTEL DE RÉGION,a vider,27.0,0.0,27.0,0.0,1.0,45.741,4.819
-Lyon,CITÉ INTERNATIONALE,a vider,21.0,0.0,21.0,0.0,1.0,45.785,4.854
-Lyon,CHATEAU GAILLARD / BIENVENUS,a remplir,0.0,13.0,13.0,1.0,0.0,45.778,4.884
-Lyon,TECHSUD,a vider,12.0,0.0,12.0,0.0,1.0,45.723,4.843
-Lyon,PATINOIRE CHARLEMAGNE,a vider,34.0,0.0,34.0,0.0,1.0,45.743,4.82
-Paris,Jean Bologne - Passy,a remplir,0.0,18.0,18.0,1.0,0.0,48.858,2.28
-Paris,Madeleine Vionnet,a vider,42.0,0.0,42.0,0.0,1.0,48.903,2.374
-Lyon,FAURE / MEYNIS,a remplir,0.0,29.0,29.0,1.0,0.0,45.755,4.871
-Lyon,HACHETTE,a remplir,0.0,15.0,15.0,1.0,0.0,45.753,4.864
-Montpellier,Gambetta,a remplir,0.0,7.0,7.0,1.0,0.0,43.607,3.871
-Lyon,PLACE STALINGRAD,a remplir,0.0,17.0,17.0,1.0,0.0,45.75,4.853
-Lyon,TABAREAU,a remplir,0.0,6.0,6.0,1.0,0.0,45.774,4.825
-Toulouse,PUJOL - PÉRIGNON,a remplir,0.0,20.0,20.0,1.0,0.0,43.6,1.464
-Paris,Emile Augier - André Joineau,a remplir,0.0,25.0,25.0,1.0,0.0,48.883,2.403
-Paris,Vistule - Choisy,a remplir,0.0,33.0,33.0,1.0,0.0,48.824,2.362
-Montpellier,Plan Cabanes,a remplir,0.0,12.0,12.0,1.0,0.0,43.608,3.868
-Paris,Square des Saint-Simoniens,a remplir,0.0,23.0,23.0,1.0,0.0,48.87,2.397
-Lille,Magasin,a remplir,0.0,16.0,16.0,1.0,0.0,50.646,3.053
-Lyon,MERMOZ / PINEL,a remplir,0.0,21.0,21.0,1.0,0.0,45.731,4.888
-Lyon,ST FONS - 4 CHEMINS,a remplir,0.0,10.0,10.0,1.0,0.0,45.708,4.855
-Paris,Evariste Galois,a remplir,0.0,21.0,21.0,1.0,0.0,48.873,2.413
-Paris,Bastille - Beaumarchais,a vider,23.0,0.0,23.0,0.0,1.0,48.854,2.369
-Paris,Place Balard,a vider,30.0,0.0,30.0,0.0,1.0,48.836,2.278
-Lyon,LUGDUNUM - RADISSON,a remplir,0.0,15.0,15.0,1.0,0.0,45.761,4.82
-Lyon,ST DIDIER,a remplir,0.0,17.0,17.0,1.0,0.0,45.792,4.808
-Paris,Bourse du Travail,a vider,14.0,0.0,14.0,0.0,1.0,48.869,2.362
-Lyon,PLACE FLAMMARION,a remplir,0.0,15.0,15.0,1.0,0.0,45.779,4.82
-Strasbourg,Parc des Romains,a remplir,0.0,12.0,12.0,1.0,0.0,48.581,7.723
-Toulouse,00097 - BONREPOS - RAYMOND IV,a remplir,0.0,21.0,21.0,1.0,0.0,43.612,1.452
-Lyon,10048 - PLACE MARENGO,a remplir,0.0,25.0,25.0,1.0,0.0,45.759,4.876
-Lyon,PLACE DE TRION,a remplir,0.0,15.0,15.0,1.0,0.0,45.758,4.813
-Toulouse,CIMETIÈRE - COMPANS,a remplir,0.0,18.0,18.0,1.0,0.0,43.607,1.458
-Toulouse,PLACE DU PEYROU,a vider,18.0,0.0,17.0,0.0,1.0,43.607,1.439
-Bordeaux,Ilots Quinconces,a remplir,0.0,10.0,10.0,1.0,0.0,44.844,-0.574
-Lyon,GAMBETTA / GARIBALDI,a remplir,0.0,37.0,37.0,1.0,0.0,45.752,4.853
-Bordeaux,Gare de Talence Médoquine,a remplir,0.0,20.0,20.0,1.0,0.0,44.816,-0.603
-Paris,Bagnolet - Place Saint-Blaise,a remplir,0.0,27.0,27.0,1.0,0.0,48.86,2.403
-Paris,Saint-Fiacre - Poissonière,a vider,33.0,0.0,33.0,0.0,1.0,48.871,2.346
-Lyon,CHAMPAGNE - MAIRIE,a remplir,0.0,13.0,13.0,1.0,0.0,45.795,4.792
-Toulouse,CARTOUCHERIE TRAMWAY,a vider,12.0,0.0,11.0,0.0,1.0,43.603,1.408
-Paris,Place d'Italie - Soeur Rosalie,a remplir,0.0,52.0,52.0,1.0,0.0,48.832,2.355
-Paris,Véron - Lepic,a remplir,0.0,23.0,23.0,1.0,0.0,48.885,2.335
-Lyon,CAZENEUVE,a remplir,0.0,16.0,16.0,1.0,0.0,45.734,4.863
-Lyon,MAIRIE DU 4E,a remplir,0.0,17.0,17.0,1.0,0.0,45.774,4.828
-Toulouse,ST-EXUPÉRY - BUTTE,a remplir,0.0,17.0,16.0,1.0,0.0,43.582,1.476
-Montpellier,Hôtel de Ville,a remplir,0.0,16.0,16.0,1.0,0.0,43.599,3.895
-Paris,Général Martial Valin - Pont du Garigliano,a vider,16.0,0.0,16.0,0.0,1.0,48.838,2.271
-Paris,Arsonval - Falguière,a remplir,0.0,25.0,25.0,1.0,0.0,48.84,2.313
-Lyon,MUSÉE D'ART CONTEMPORAIN,a vider,21.0,0.0,21.0,0.0,1.0,45.784,4.852
-Bordeaux,Niel,a remplir,0.0,19.0,19.0,1.0,0.0,44.851,-0.559
-Bordeaux,Rue St Vincent de Paul,a remplir,0.0,43.0,43.0,1.0,0.0,44.826,-0.557
-Paris,Réunion - Avron,a remplir,0.0,26.0,26.0,1.0,0.0,48.853,2.404
-Paris,Estienne d'Orves - Henri Ginoux,a remplir,0.0,31.0,31.0,1.0,0.0,48.815,2.321
-Lille,Theatre Tourcoing,a remplir,0.0,9.0,9.0,1.0,0.0,50.721,3.153
-Montpellier,Rondelet,a remplir,0.0,16.0,16.0,1.0,0.0,43.603,3.876
-Paris,Louis le Grand - Italiens,a vider,32.0,0.0,32.0,0.0,1.0,48.871,2.334
-Paris,Pesaro - Préfecture,a vider,21.0,0.0,21.0,0.0,1.0,48.896,2.224
-Lyon,10060 - SAINT EXUPÉRY,a remplir,0.0,15.0,15.0,1.0,0.0,45.759,4.879
-Paris,Gare du Nord - Hôpital Lariboisière,a remplir,0.0,48.0,48.0,1.0,0.0,48.882,2.352
-Toulouse,NÉGRENEYS - ANGES,a remplir,0.0,13.0,12.0,1.0,0.0,43.62,1.441
-Toulouse,URSS - PEYROUSET,a remplir,0.0,19.0,19.0,1.0,0.0,43.583,1.449
-Lyon,BALMONT,a remplir,0.0,12.0,12.0,1.0,0.0,45.789,4.799
-Paris,Cimetière d'Issy-les-Moulineaux,a remplir,0.0,24.0,24.0,1.0,0.0,48.818,2.261
-Paris,Legendre - Dulong,a remplir,0.0,23.0,23.0,1.0,0.0,48.885,2.316
-Lille,Epeule Montesquieu,a remplir,0.0,16.0,16.0,1.0,0.0,50.684,3.163
-Toulouse,FER À CHEVAL - COURS DILLON,a remplir,0.0,19.0,19.0,1.0,0.0,43.593,1.435
-Montpellier,Tonnelles,a remplir,0.0,8.0,8.0,1.0,0.0,43.615,3.839
-Lyon,ST CYR,a remplir,0.0,12.0,12.0,1.0,0.0,45.8,4.82
-Lyon,VENISSIEUX - HOUEL / GAMBETTA,a remplir,0.0,15.0,15.0,1.0,0.0,45.696,4.884
-Paris,Saint-Germain - Verdun,a remplir,0.0,30.0,30.0,1.0,0.0,48.883,2.433
-Paris,Gambetta - Saint Fargeau,a remplir,0.0,23.0,23.0,1.0,0.0,48.871,2.404
-Lille,Theatre Sebastopol,a remplir,0.0,32.0,32.0,1.0,0.0,50.629,3.058
-Toulouse,VALADE,a vider,18.0,0.0,18.0,0.0,1.0,43.605,1.437
-Lyon,PRIMAT / DECORPS,a vider,11.0,0.0,11.0,0.0,1.0,45.757,4.9
-Lille,Gustave Delory,a remplir,0.0,18.0,18.0,1.0,0.0,50.674,3.175
-Paris,Uzès - Montmartre,a vider,27.0,0.0,27.0,0.0,1.0,48.871,2.343
-Paris,Place de Lévis,a remplir,0.0,45.0,45.0,1.0,0.0,48.884,2.313
-Lille,Mairie de Croix,a remplir,0.0,24.0,24.0,1.0,0.0,50.679,3.156
-Lyon,CHAMPVERT,a remplir,0.0,19.0,19.0,1.0,0.0,45.764,4.793
-Lille,F Roosevelt,a remplir,0.0,12.0,12.0,1.0,0.0,50.727,3.167
+Lille,Linne,a vider,6.0,0.0,6.0,0.0,1.0,50.677,3.188
+Marseille,Duparc - Brossolette,a remplir,0.0,20.0,20.0,1.0,0.0,43.306,5.401
+Paris,Coysevox - Lamarck,a remplir,0.0,39.0,39.0,1.0,0.0,48.891,2.329
+Paris,Alexandre Parodi - Quai de Valmy,a remplir,0.0,24.0,24.0,1.0,0.0,48.879,2.367
+Marseille,Bougainville Lessep Sud,a remplir,0.0,20.0,20.0,1.0,0.0,43.319,5.368
+Marseille,Belle Vue,a remplir,0.0,20.0,20.0,1.0,0.0,43.315,5.38
+Marseille,La Major,a remplir,0.0,20.0,20.0,1.0,0.0,43.299,5.366
 Bordeaux,Pessac Centre,a vider,10.0,0.0,10.0,0.0,1.0,44.804,-0.633
-Lyon,CLOS SAVARON,a remplir,0.0,19.0,19.0,1.0,0.0,45.783,4.826
-Montpellier,Euromédecine,a remplir,0.0,8.0,8.0,1.0,0.0,43.639,3.828
-Lyon,SALENGRO / VAILLANT,a remplir,0.0,23.0,23.0,1.0,0.0,45.778,4.88
-Paris,Bayen - Pereire,a remplir,0.0,22.0,22.0,1.0,0.0,48.882,2.292
-Toulouse,GLOIRE - SAVIGNAC,a remplir,0.0,12.0,13.0,1.0,0.0,43.606,1.464
-Toulouse,FONTAINES - MILHÈS,a remplir,0.0,15.0,15.0,1.0,0.0,43.602,1.415
-Paris,Bastille - Quai de la Rapée,a vider,27.0,0.0,27.0,0.0,1.0,48.847,2.367
-Paris,Cambronne - Mademoiselle,a remplir,0.0,66.0,66.0,1.0,0.0,48.843,2.302
-Paris,Petit - Georges Thill,a remplir,0.0,23.0,23.0,1.0,0.0,48.886,2.39
-Toulouse,NARRADE - FONDEVILLE,a remplir,0.0,12.0,12.0,1.0,0.0,43.549,1.454
+Marseille,La Barasse,a remplir,0.0,30.0,30.0,1.0,0.0,43.285,5.484
+Lille,Parc Barbieux,a remplir,0.0,24.0,24.0,1.0,0.0,50.678,3.162
 Lille,General de Gaulle,a remplir,0.0,20.0,20.0,1.0,0.0,50.645,3.101
 Lyon,PLACE VARILLON (FUNICULAIRE ST JUST),a remplir,0.0,22.0,22.0,1.0,0.0,45.757,4.815
-Lyon,GARE DE VILLEURBANNE,a remplir,0.0,19.0,19.0,1.0,0.0,45.756,4.892
-Paris,Belleville - Pyrénées,a remplir,0.0,42.0,42.0,1.0,0.0,48.874,2.386
+Marseille,Baumettes,a remplir,0.0,30.0,30.0,1.0,0.0,43.234,5.412
 Paris,Gambetta - Tourelles,a remplir,0.0,20.0,20.0,1.0,0.0,48.875,2.406
 Paris,Henri Barbusse - Stalingrad,a remplir,0.0,16.0,16.0,1.0,0.0,48.814,2.287
-Paris,Tardieu - Chappe,a remplir,0.0,18.0,18.0,1.0,0.0,48.884,2.342
-Lille,Linne,a vider,6.0,0.0,6.0,0.0,1.0,50.677,3.188
-Paris,Coysevox - Lamarck,a remplir,0.0,39.0,39.0,1.0,0.0,48.891,2.329
-Lyon,3013 - PLACE ANTOINETTE,a remplir,0.0,19.0,19.0,1.0,0.0,45.754,4.889
-Toulouse,ST-MICHEL - CASTELET,a remplir,0.0,22.0,22.0,1.0,0.0,43.586,1.447
-Toulouse,PASTEUR - LAVOISIER,a vider,16.0,0.0,16.0,0.0,1.0,43.635,1.395
-Toulouse,ANDROMÈDE LYCÉE TRAMWAY,a remplir,0.0,16.0,16.0,1.0,0.0,43.655,1.376
-Paris,Jourdan - Monticelli,a remplir,0.0,30.0,30.0,1.0,0.0,48.822,2.329
-Lille,Saint Maur,a remplir,0.0,24.0,24.0,1.0,0.0,50.652,3.082
-Paris,Tage - Italie,a remplir,0.0,31.0,31.0,1.0,0.0,48.822,2.358
-Lyon,LAFAYETTE / CORNEILLE,a vider,7.0,0.0,7.0,0.0,1.0,45.764,4.844
-Paris,Mairie,a remplir,0.0,20.0,20.0,1.0,0.0,48.879,2.416
+Paris,Invalides - Quai d'Orsay,a remplir,0.0,400.0,400.0,1.0,0.0,48.863,2.31
+Lille,Theatre Tourcoing,a remplir,0.0,9.0,9.0,1.0,0.0,50.721,3.153
 Lille,Alfred Mongy,a remplir,0.0,16.0,16.0,1.0,0.0,50.688,3.175
-Lyon,SAINTE-IRÉNÉE,a remplir,0.0,19.0,19.0,1.0,0.0,45.755,4.812
-Toulouse,FONTAINES - BRUN,a remplir,0.0,11.0,10.0,1.0,0.0,43.6,1.426
-Paris,Bons Raisins - Voltaire,a remplir,0.0,23.0,23.0,1.0,0.0,48.873,2.195
-Paris,Alexandre Parodi - Quai de Valmy,a remplir,0.0,24.0,24.0,1.0,0.0,48.879,2.367
-Toulouse,CHARBONNIÈRE - PALMIERS,a remplir,0.0,18.0,18.0,1.0,0.0,43.574,1.449
-Paris,Choiseul - Quatre Septembre,a vider,10.0,0.0,10.0,0.0,1.0,48.87,2.336
-Toulouse,CHAUSSAS - DAUDET,a remplir,0.0,19.0,19.0,1.0,0.0,43.62,1.429
+Lille,Jemmapes,a remplir,0.0,22.0,22.0,1.0,0.0,50.645,3.058
+Lille,Jardin Vauban,a remplir,0.0,18.0,18.0,1.0,0.0,50.636,3.05
+Paris,Place de la Bastille - Bourdon,a remplir,0.0,35.0,35.0,1.0,0.0,48.852,2.368
+Paris,Boyer - Ménilmontant,a remplir,0.0,18.0,18.0,1.0,0.0,48.869,2.392
+Bordeaux,Hopital Pellegrin,a remplir,0.0,26.0,26.0,1.0,0.0,44.83,-0.604
+Lille,Saint Maur,a remplir,0.0,24.0,24.0,1.0,0.0,50.652,3.082
+Toulouse,REVEL - BAJAC,a remplir,0.0,16.0,16.0,1.0,0.0,43.577,1.488
+Marseille,Augustin Aubert,a remplir,0.0,20.0,20.0,1.0,0.0,43.268,5.403
+Montpellier,Parvis Jules Ferry - Gare Saint-Roch,a remplir,0.0,8.0,8.0,1.0,0.0,43.604,3.879
+Marseille,Notre-Dame - Vauban,a remplir,0.0,10.0,10.0,1.0,0.0,43.284,5.375
+Lyon,CHARCOT / RÉSIDENCE UNIVERSITAIRE,a remplir,0.0,32.0,32.0,1.0,0.0,45.755,4.808
+Marseille,National - Longchamp,a remplir,0.0,20.0,20.0,1.0,0.0,43.301,5.388
+Paris,Gare de Chaville Rive Gauche,a remplir,0.0,18.0,18.0,1.0,0.0,48.805,2.188
+Marseille,Lachamp Le Clos des Iris,a remplir,0.0,30.0,30.0,1.0,0.0,43.246,5.432
+Marseille,Wiesel Vallon de Toulouse,a remplir,0.0,20.0,20.0,1.0,0.0,43.268,5.42
+Marseille,Blancarde - Gare SNCF,a remplir,0.0,20.0,20.0,1.0,0.0,43.296,5.406
+Montpellier,Jean de Beins,a remplir,0.0,15.0,15.0,1.0,0.0,43.61,3.884
+Paris,Place Nelson Mandela,a remplir,0.0,20.0,20.0,1.0,0.0,48.862,2.196
+Montpellier,Observatoire,a remplir,0.0,8.0,8.0,1.0,0.0,43.606,3.877
+Marseille,Place du Terrail,a remplir,0.0,20.0,20.0,1.0,0.0,43.28,5.369
+Montpellier,Rondelet,a remplir,0.0,16.0,16.0,1.0,0.0,43.603,3.876
+Paris,Louis le Grand - Italiens,a vider,32.0,0.0,32.0,0.0,1.0,48.871,2.334
+Marseille,Les Borromées,a remplir,0.0,20.0,20.0,1.0,0.0,43.301,5.431
+Marseille,La Grognarde,a remplir,0.0,20.0,20.0,1.0,0.0,43.295,5.433
+Marseille,Lapin Blanc,a remplir,0.0,30.0,30.0,1.0,0.0,43.247,5.382
+Marseille,Cantini,a remplir,0.0,20.0,20.0,1.0,0.0,43.279,5.396
+Marseille,Faculté Saint Jérôme,a remplir,0.0,30.0,30.0,1.0,0.0,43.336,5.41
+Marseille,Friche Belle de Mai,a remplir,0.0,30.0,30.0,1.0,0.0,43.31,5.39
+Lille,Gustave Delory,a remplir,0.0,18.0,18.0,1.0,0.0,50.674,3.175
+Marseille,Reboul - Argile,a remplir,0.0,20.0,20.0,1.0,0.0,43.281,5.397
+Bordeaux,Ilot Cap Sciences,a remplir,0.0,5.0,5.0,1.0,0.0,44.86,-0.554
+Marseille,IUT Saint Jérôme,a remplir,0.0,20.0,20.0,1.0,0.0,43.341,5.409
+Paris,Colonel Fabien - Sallnave,a remplir,0.0,29.0,29.0,1.0,0.0,48.815,2.407
+Marseille,Rond Point du Prado,a remplir,0.0,40.0,40.0,1.0,0.0,43.273,5.391
+Marseille,La Gaye,a remplir,0.0,20.0,20.0,1.0,0.0,43.257,5.411
+Montpellier,Tonnelles,a remplir,0.0,8.0,8.0,1.0,0.0,43.615,3.839
+Marseille,Bastide Cazaulx,a remplir,0.0,20.0,20.0,1.0,0.0,43.298,5.441
+Marseille,Cours Julien - Frères Barthelemy,a remplir,0.0,10.0,10.0,1.0,0.0,43.293,5.384
+Bordeaux,Buttiniere,a remplir,0.0,20.0,20.0,1.0,0.0,44.864,-0.524
+Marseille,Prado - Michelet,a remplir,0.0,40.0,40.0,1.0,0.0,43.272,5.392
+Marseille,La rouvière,a remplir,0.0,30.0,30.0,1.0,0.0,43.253,5.422
+Marseille,Grand Rue,a remplir,0.0,20.0,20.0,1.0,0.0,43.298,5.371
+Paris,Victoire - Laffitte,a vider,19.0,0.0,19.0,0.0,1.0,48.875,2.338
+Lille,Epeule Montesquieu,a remplir,0.0,16.0,16.0,1.0,0.0,50.684,3.163
+Marseille,Corniche - Endoume,a remplir,0.0,20.0,20.0,1.0,0.0,43.283,5.351
+Marseille,Canebiere - Beauvau,a remplir,0.0,30.0,30.0,1.0,0.0,43.295,5.375
+Marseille,Zoccola,a remplir,0.0,20.0,20.0,1.0,0.0,43.321,5.368
+Marseille,Bastide St Jean,a remplir,0.0,20.0,20.0,1.0,0.0,43.299,5.421
+Paris,Haxo - Darcy,a remplir,0.0,22.0,22.0,1.0,0.0,48.87,2.405
+Paris,Gare du Stade,a remplir,0.0,20.0,20.0,1.0,0.0,48.931,2.26
+Paris,Borrégo - Gambetta,a remplir,0.0,25.0,25.0,1.0,0.0,48.873,2.401
+Marseille,Foch - Boisson,a remplir,0.0,20.0,20.0,1.0,0.0,43.298,5.404
+Paris,Concorde - Place de la Madeleine,a remplir,0.0,400.0,400.0,1.0,0.0,48.871,2.324
+Marseille,Aiguier CNRS,a remplir,0.0,20.0,20.0,1.0,0.0,43.256,5.405
+Paris,Champs-Elysees - Bassano,a remplir,0.0,25.0,25.0,1.0,0.0,48.872,2.3
+Marseille,Coutellerie,a remplir,0.0,20.0,20.0,1.0,0.0,43.297,5.373
+Marseille,Mendès France Huveaune,a remplir,0.0,20.0,20.0,1.0,0.0,43.26,5.375
+Marseille,Base Nautique Roucas Blanc,a remplir,0.0,40.0,40.0,1.0,0.0,43.266,5.373
+Lyon,ST CYR,a remplir,0.0,12.0,12.0,1.0,0.0,45.8,4.82
+Marseille,Pont de Vivaux,a remplir,0.0,20.0,20.0,1.0,0.0,43.28,5.417
+Marseille,Hôpital Européen,a remplir,0.0,20.0,20.0,1.0,0.0,43.309,5.372
+Lyon,ALBÉRIC PONT,a remplir,0.0,16.0,16.0,1.0,0.0,45.753,4.804
+Marseille,Jean Bouin,a remplir,0.0,20.0,20.0,1.0,0.0,43.266,5.403
+Marseille,Chemin de l'armée d'afrique,a remplir,0.0,30.0,30.0,1.0,0.0,43.289,5.425
+Paris,Mairie du 3ème,a remplir,0.0,32.0,32.0,1.0,0.0,48.864,2.362
+Paris,Londres - Place d'Estienne d'Orves,a vider,24.0,0.0,24.0,0.0,1.0,48.877,2.331
+Montpellier,Les Arceaux,a remplir,0.0,8.0,8.0,1.0,0.0,43.613,3.868
+Lyon,ST DIDIER,a remplir,0.0,17.0,17.0,1.0,0.0,45.792,4.808
+Bordeaux,Niel,a remplir,0.0,19.0,19.0,1.0,0.0,44.851,-0.559
+Paris,Pesaro - Préfecture,a vider,21.0,0.0,21.0,0.0,1.0,48.896,2.224
+Marseille,Baille - Hôpital Conception,a remplir,0.0,20.0,20.0,1.0,0.0,43.289,5.396
+Marseille,Place Placide Caffo,a remplir,0.0,20.0,20.0,1.0,0.0,43.314,5.385
+Marseille,Escale Borély,a remplir,0.0,60.0,60.0,1.0,0.0,43.255,5.376
+Lille,Esplanade,a remplir,0.0,24.0,24.0,1.0,0.0,50.645,3.051
+Marseille,Sainte-Marguerite Dromel,a remplir,0.0,29.0,29.0,1.0,0.0,43.271,5.403
+Marseille,Char Jeanne d'Arc - Notre Dame de La Garde,a remplir,0.0,20.0,20.0,1.0,0.0,43.286,5.371
+Marseille,Place de Lenche,a remplir,0.0,20.0,20.0,1.0,0.0,43.297,5.366
+Marseille,Saint-Eugene,a remplir,0.0,20.0,20.0,1.0,0.0,43.285,5.359
+Marseille,Bain des Dames,a remplir,0.0,20.0,20.0,1.0,0.0,43.242,5.364
+Montpellier,Hôtel de Ville,a remplir,0.0,16.0,16.0,1.0,0.0,43.599,3.895
+Bordeaux,Victoire,a remplir,0.0,39.0,39.0,1.0,0.0,44.831,-0.573
+Marseille,Coin Joli,a remplir,0.0,20.0,20.0,1.0,0.0,43.262,5.404
+Lille,Charles Fourier,a remplir,0.0,12.0,12.0,1.0,0.0,50.672,3.183
+Paris,Lacépède - Monge,a remplir,0.0,22.0,22.0,1.0,0.0,48.844,2.352
+Marseille,Eglise des Chartreux,a remplir,0.0,20.0,20.0,1.0,0.0,43.309,5.401
+Lyon,TECHSUD,a vider,12.0,0.0,12.0,0.0,1.0,45.723,4.843
+Marseille,Hambourg Rond Point Guerre,a remplir,0.0,20.0,20.0,1.0,0.0,43.25,5.389
+Paris,Lassus - Delouvain,a remplir,0.0,20.0,20.0,1.0,0.0,48.876,2.389
+Lyon,CHAMPVERT,a remplir,0.0,15.0,15.0,1.0,0.0,45.76,4.798
+Paris,Larmeroux - Baudelaire,a remplir,0.0,29.0,29.0,1.0,0.0,48.817,2.281
+Paris,Caulaincourt - Place Constantin Pecqueur,a remplir,0.0,43.0,42.0,1.0,0.0,48.89,2.338
+Lyon,CHAMPAGNE - MAIRIE,a remplir,0.0,13.0,13.0,1.0,0.0,45.795,4.792
+Marseille,Allar,a remplir,0.0,20.0,20.0,1.0,0.0,43.325,5.366
+Montpellier,Plan Cabanes,a remplir,0.0,12.0,12.0,1.0,0.0,43.608,3.868
+Lyon,VENISSIEUX - HOUEL / GAMBETTA,a remplir,0.0,15.0,15.0,1.0,0.0,45.696,4.884
+Paris,Saint-Germain - Verdun,a remplir,0.0,30.0,30.0,1.0,0.0,48.883,2.433
+Bordeaux,Ilots Quinconces,a remplir,0.0,10.0,10.0,1.0,0.0,44.844,-0.574
+Montpellier,Euromédecine,a remplir,0.0,8.0,8.0,1.0,0.0,43.639,3.828
+Marseille,Stade Bombardière,a remplir,0.0,30.0,30.0,1.0,0.0,43.317,5.437
+Marseille,Jules Guesde,a remplir,0.0,20.0,20.0,1.0,0.0,43.301,5.374
+Lyon,PATINOIRE CHARLEMAGNE,a vider,34.0,0.0,34.0,0.0,1.0,45.743,4.82
+Marseille,Euromediterrannee Gantes,a remplir,0.0,20.0,20.0,1.0,0.0,43.309,5.368
+Marseille,Madrague de Montredon,a remplir,0.0,20.0,20.0,1.0,0.0,43.232,5.356
+Paris,Rochechouart lamartine,a remplir,0.0,24.0,24.0,1.0,0.0,48.877,2.344
+Marseille,Vallon de l’Oriol,a remplir,0.0,20.0,20.0,1.0,0.0,43.276,5.361
+Paris,Pierre et Marie Curie - Julien Grimau,a remplir,0.0,18.0,18.0,1.0,0.0,48.871,2.424
+Lyon,WITKOWSKI/VALDO,a remplir,0.0,15.0,15.0,1.0,0.0,45.75,4.785
+Marseille,Canebiere Reine Elisabeth,a remplir,0.0,20.0,20.0,1.0,0.0,43.296,5.375
+Marseille,Place Dalmas,a remplir,0.0,20.0,20.0,1.0,0.0,43.323,5.383
+Lille,Alsace,a remplir,0.0,16.0,16.0,1.0,0.0,50.7,3.161
+Lille,Notebart,a remplir,0.0,20.0,20.0,1.0,0.0,50.631,3.013
+Lille,Centre Nautique,a remplir,0.0,10.0,10.0,1.0,0.0,50.691,3.163
+Marseille,Paoli Calmettes,a remplir,0.0,20.0,20.0,1.0,0.0,43.264,5.411
+Montpellier,Saint-Guilhem - Courreau,a remplir,0.0,8.0,8.0,1.0,0.0,43.609,3.873
+Paris,Maxime Gorki - Paul Vaillant-Couturier,a remplir,0.0,19.0,19.0,1.0,0.0,48.797,2.368
+Marseille,Quai du Port,a remplir,0.0,20.0,20.0,1.0,0.0,43.296,5.367
+Paris,Lepic - Armée d'Orient,a remplir,0.0,24.0,24.0,1.0,0.0,48.888,2.334
+Marseille,Jean Moulin - Sainte Baume,a remplir,0.0,20.0,20.0,1.0,0.0,43.287,5.4
+Lyon,CONFLUENCE / DARSE,a vider,22.0,0.0,22.0,0.0,1.0,45.743,4.816
+Marseille,Centre Bourse,a remplir,0.0,20.0,20.0,1.0,0.0,43.297,5.377
+Paris,Pierre-Simon Girard  - Paris,a remplir,0.0,35.0,35.0,1.0,0.0,48.901,2.456
+Paris,Jeanne Hornet - Girardot,a remplir,0.0,26.0,26.0,1.0,0.0,48.874,2.428
+Marseille,Sainte-Marthe - Moretti,a remplir,0.0,20.0,20.0,1.0,0.0,43.324,5.389
+Marseille,Bon Secours - Huilerie,a remplir,0.0,20.0,20.0,1.0,0.0,43.32,5.382
+Marseille,Roy d'Espagne - Floralia,a remplir,0.0,20.0,20.0,1.0,0.0,43.242,5.397
+Marseille,Morgiou,a remplir,0.0,40.0,40.0,1.0,0.0,43.226,5.416
+Marseille,Livon - Vieux-Port,a remplir,0.0,20.0,20.0,1.0,0.0,43.292,5.361
+Marseille,Colbert - Sainte Barbe,a remplir,0.0,20.0,20.0,1.0,0.0,43.299,5.375
+Marseille,Chutes Lavie - Dahdah,a remplir,0.0,20.0,20.0,1.0,0.0,43.309,5.397
+Marseille,Canebière Saint-Ferreol,a remplir,0.0,20.0,20.0,1.0,0.0,43.296,5.377
+Lille,Louis Braille,a remplir,0.0,12.0,12.0,1.0,0.0,50.637,3.098
+Marseille,Moretti - Gibbes,a remplir,0.0,30.0,30.0,1.0,0.0,43.323,5.385
+Lille,Poste,a remplir,0.0,6.0,6.0,1.0,0.0,50.719,3.163
+Marseille,La Criée,a remplir,0.0,20.0,20.0,1.0,0.0,43.293,5.368
+Lille,Saint Jean-Baptiste,a remplir,0.0,12.0,12.0,1.0,0.0,50.679,3.179
+Paris,Place de la Paix - Abbé Saint-Pierre,a remplir,0.0,24.0,24.0,1.0,0.0,48.865,2.205
+Paris,Tertres - Fontaine,a remplir,0.0,27.0,27.0,1.0,0.0,48.788,2.306
+Strasbourg,Parc des Romains,a remplir,0.0,12.0,12.0,1.0,0.0,48.581,7.723
+Montpellier,Pont de Lattes - Gare Saint-Roch,a remplir,0.0,12.0,12.0,1.0,0.0,43.606,3.882
+Paris,Rougemont - Poissonnière,a remplir,0.0,44.0,44.0,1.0,0.0,48.872,2.346
+Marseille,MUCEM,a remplir,0.0,30.0,30.0,1.0,0.0,43.298,5.363
+Marseille,Peupliers - Berthelot,a remplir,0.0,20.0,20.0,1.0,0.0,43.337,5.392
+Marseille,Sainte-Marthe - Glacière,a remplir,0.0,20.0,20.0,1.0,0.0,43.318,5.39
+Marseille,Rouet,a remplir,0.0,20.0,20.0,1.0,0.0,43.284,5.386
+Marseille,Entrée du parc national des calanques,a remplir,0.0,30.0,30.0,1.0,0.0,43.231,5.355
+Marseille,Hôpital Sainte-Marguerite,a remplir,0.0,20.0,20.0,1.0,0.0,43.259,5.409
+Paris,Quai du Président Roosevelt - Pont Aval,a vider,30.0,0.0,30.0,0.0,1.0,48.834,2.266
+Paris,Sadi Carnot - François Mitterrand ,a remplir,0.0,27.0,27.0,1.0,0.0,48.875,2.424
+Marseille,Saména,a remplir,0.0,20.0,20.0,1.0,0.0,43.229,5.354
+Montpellier,Charles Flahault,a remplir,0.0,8.0,8.0,1.0,0.0,43.622,3.867
+Marseille,Plage de la Pointe Rouge,a remplir,0.0,40.0,40.0,1.0,0.0,43.244,5.371
+Lille,Rue Saint Blaise,a remplir,0.0,6.0,6.0,1.0,0.0,50.729,3.159
+Lyon,MÉNIVAL / EISENHOWER,a remplir,0.0,11.0,11.0,1.0,0.0,45.757,4.783
+Marseille,Vallon des Auffes,a remplir,0.0,20.0,20.0,1.0,0.0,43.286,5.351
+Paris,Hôtel de Ville de Nanterre,a vider,38.0,0.0,38.0,0.0,1.0,48.892,2.206
+Marseille,Auphan - Vaillant,a remplir,0.0,20.0,20.0,1.0,0.0,43.317,5.377
+Paris,Sérurier - Alphonse Aulard,a remplir,0.0,15.0,15.0,1.0,0.0,48.881,2.398
+Marseille,Baille - Vertus,a remplir,0.0,20.0,20.0,1.0,0.0,43.288,5.393
+Marseille,Jean Moulin - Saint Etienne,a remplir,0.0,30.0,30.0,1.0,0.0,43.286,5.399
+Lille,Croix Centre,a remplir,0.0,16.0,16.0,1.0,0.0,50.674,3.147
+Paris,Emile Augier - André Joineau,a remplir,0.0,25.0,25.0,1.0,0.0,48.883,2.403
+Marseille,Val Plan,a remplir,0.0,20.0,20.0,1.0,0.0,43.335,5.433
+Marseille,Cité Radieuse,a remplir,0.0,20.0,20.0,1.0,0.0,43.265,5.395
+Marseille,Louis Armand,a remplir,0.0,20.0,20.0,1.0,0.0,43.3,5.413
+Paris,Station Tour de France,a remplir,0.0,200.0,200.0,1.0,0.0,48.883,2.334
+Marseille,Livon - Pasteur,a remplir,0.0,20.0,20.0,1.0,0.0,43.292,5.358
+Marseille,Rolland - Platanes,a remplir,0.0,20.0,20.0,1.0,0.0,43.272,5.41
+Marseille,Huveaune - Borely,a remplir,0.0,30.0,30.0,1.0,0.0,43.262,5.379
+Paris,Filles Saint-Thomas - Place de la Bourse,a remplir,0.0,54.0,54.0,1.0,0.0,48.869,2.34
+Montpellier,Gambetta,a remplir,0.0,7.0,7.0,1.0,0.0,43.607,3.871
+Toulouse,NÉGRENEYS - ANGES,a remplir,0.0,13.0,13.0,1.0,0.0,43.62,1.441
+Marseille,Corniche - Malmousque,a remplir,0.0,30.0,30.0,1.0,0.0,43.284,5.35
+Marseille,Carthage - Engaliere,a remplir,0.0,30.0,30.0,1.0,0.0,43.238,5.366
+Marseille,Plage du Prophète,a remplir,0.0,20.0,20.0,1.0,0.0,43.274,5.363
+Marseille,Pierre Paraf,a remplir,0.0,20.0,20.0,1.0,0.0,43.33,5.39
+Lille,Rue du Parc,a remplir,0.0,12.0,12.0,1.0,0.0,50.651,3.068
+Marseille,Parc Pastré,a remplir,0.0,20.0,20.0,1.0,0.0,43.24,5.366
+Marseille,Negresko - Paulet,a remplir,0.0,20.0,20.0,1.0,0.0,43.269,5.389
+Marseille,Sainte - Notre-Dame,a remplir,0.0,20.0,20.0,1.0,0.0,43.292,5.372
+Rennes,TNB,a remplir,0.0,28.0,28.0,1.0,0.0,48.108,-1.674
+Marseille,Sormiou,a remplir,0.0,20.0,20.0,1.0,0.0,43.232,5.4
+Marseille,National - Hoche,a remplir,0.0,20.0,20.0,1.0,0.0,43.311,5.378
+Strasbourg,République,a remplir,0.0,9.0,9.0,1.0,0.0,48.588,7.755
+Marseille,Luminy - Parc National des Calanques,a remplir,0.0,40.0,40.0,1.0,0.0,43.232,5.437
+Marseille,Obélisque de Mazargues,a remplir,0.0,20.0,20.0,1.0,0.0,43.251,5.403
+Marseille,Chutes Lavie - Guigou,a remplir,0.0,20.0,20.0,1.0,0.0,43.313,5.397
+Marseille,Mazargues - Huveaune,a remplir,0.0,20.0,20.0,1.0,0.0,43.266,5.39
+Marseille,Saint-Jean du Désert,a remplir,0.0,10.0,10.0,1.0,0.0,43.299,5.436
+Bordeaux,Ilot Les Hangars,a remplir,0.0,10.0,10.0,1.0,0.0,44.858,-0.558
+Marseille,Michelet - Huveaune,a remplir,0.0,40.0,40.0,1.0,0.0,43.268,5.394
+Paris,Saint-Fargeau - Mortier,a remplir,0.0,29.0,29.0,1.0,0.0,48.873,2.408
+Bordeaux,Stalingrad Lion Bleu Mobile,a remplir,0.0,20.0,20.0,1.0,0.0,44.84,-0.56
+Marseille,Valmont - Redon,a remplir,0.0,20.0,20.0,1.0,0.0,43.245,5.425
+Marseille,Mazargues - Almeras,a remplir,0.0,20.0,20.0,1.0,0.0,43.251,5.395
+Paris,Boyer-Barret - Raymond Losserand,a remplir,0.0,22.0,22.0,1.0,0.0,48.833,2.317
+Paris,Bara - Henri Farman,a vider,58.0,0.0,58.0,0.0,1.0,48.833,2.268
+Marseille,Strasbourg - Leca,a remplir,0.0,20.0,20.0,1.0,0.0,43.308,5.376
+Bordeaux,Ilot Place du Maucaillou,a remplir,0.0,5.0,5.0,1.0,0.0,44.833,-0.567
+Marseille,Boulevard urbain Sud - François Mauriac,a remplir,0.0,10.0,10.0,1.0,0.0,43.271,5.423
+Paris,Saint Pères - Saint Germain,a remplir,0.0,22.0,22.0,1.0,0.0,48.854,2.33
+Lille,Tisserand,a remplir,0.0,20.0,20.0,1.0,0.0,50.631,3.008
+Lille,Place Trichon,a remplir,0.0,12.0,12.0,1.0,0.0,50.69,3.169
+Lyon,AVENUE VERGUIN,a vider,20.0,0.0,20.0,0.0,1.0,45.773,4.856
+Marseille,Gibbes - Calvet,a remplir,0.0,20.0,20.0,1.0,0.0,43.325,5.383
+Marseille,Place aux huiles,a remplir,0.0,20.0,20.0,1.0,0.0,43.293,5.372
+Marseille,Hôtel de Ville,a remplir,0.0,30.0,30.0,1.0,0.0,43.296,5.372
+Lyon,PHILIPPE DE LASSALLE / PILLEMENT,a remplir,0.0,13.0,13.0,1.0,0.0,45.777,4.821
+Lille,Victor Provo,a remplir,0.0,16.0,16.0,1.0,0.0,50.681,3.167
+Marseille,Place Pol Lapeyre,a remplir,0.0,10.0,10.0,1.0,0.0,43.293,5.409
+Marseille,Lyon - Zoccola,a remplir,0.0,20.0,20.0,1.0,0.0,43.323,5.368
+Marseille,Montolivet,a remplir,0.0,20.0,20.0,1.0,0.0,43.317,5.424
+Marseille,Sainte Marguerite Schloesing,a remplir,0.0,20.0,20.0,1.0,0.0,43.269,5.403
+Marseille,Romain Rolland,a remplir,0.0,30.0,30.0,1.0,0.0,43.275,5.416
+Bordeaux,Ilot CAPC,a remplir,0.0,5.0,5.0,1.0,0.0,44.85,-0.57
+Marseille,Schuman - Leca,a remplir,0.0,20.0,20.0,1.0,0.0,43.302,5.366
+Marseille,Promenade Pompidou David,a remplir,0.0,30.0,30.0,1.0,0.0,43.262,5.375
+Lyon,BERLIOZ / CHALINEL,a remplir,0.0,15.0,15.0,1.0,0.0,45.801,4.825
+Marseille,Vieille Chapelle,a remplir,0.0,30.0,30.0,1.0,0.0,43.248,5.374
+Lille,Blanchemaille,a remplir,0.0,8.0,8.0,1.0,0.0,50.697,3.169
+Strasbourg,Bischheim Gare,a remplir,0.0,5.0,5.0,1.0,0.0,48.612,7.742
+Lille,Mairie de Croix,a remplir,0.0,24.0,24.0,1.0,0.0,50.679,3.156
+Lille,F Roosevelt,a remplir,0.0,12.0,12.0,1.0,0.0,50.727,3.167
+Toulouse,MAL CLABEL - AUDE,a remplir,0.0,17.0,17.0,1.0,0.0,43.583,1.482
 Lyon,LA SALETTE,a remplir,0.0,13.0,13.0,1.0,0.0,45.75,4.796
-Paris,Félix Ziem - Armand Gauthier,a remplir,0.0,23.0,23.0,1.0,0.0,48.889,2.333
-Paris,Chevaleret - Tolbiac,a vider,35.0,0.0,35.0,0.0,1.0,48.829,2.376
-Toulouse,HOTEL DE POLICE,a vider,22.0,1.0,23.0,0.0,0.667,43.615,1.433
-Paris,Lorraine - Jean Jaurès,a remplir,0.0,18.0,18.0,0.667,0.0,48.886,2.383
-Toulouse,SUISSE - LAUSANNE,a remplir,2.0,19.0,21.0,0.667,0.0,43.616,1.422
-Paris,Mairie du 20ème,a remplir,0.0,27.0,27.0,0.667,0.0,48.865,2.399
-Toulouse,DUMERIL - SAINT JOSEPH,a remplir,1.0,15.0,16.0,0.667,0.0,43.591,1.452
-Paris,Place Monge,a remplir,0.0,19.0,19.0,0.667,0.0,48.843,2.352
-Paris,Riquet - Marx Dormoy,a remplir,0.0,34.0,34.0,0.667,0.0,48.89,2.36
-Toulouse,SERRES - CABANEL,a remplir,1.0,17.0,18.0,0.667,0.0,43.614,1.438
-Toulouse,00257 - CHÂT. DE L'HERS - FONTANELLES,a remplir,1.0,15.0,16.0,0.667,0.0,43.601,1.484
-Paris,Etienne Jodelle - Saint Ouen,a remplir,0.0,33.0,33.0,0.667,0.0,48.888,2.326
-Toulouse,SAINT-AGNE GARE,a remplir,1.0,17.0,18.0,0.667,0.0,43.579,1.45
-Paris,Place de Rhin et Danube,a remplir,0.0,30.0,30.0,0.667,0.0,48.882,2.393
-Paris,Ranelagh - Mozart,a remplir,0.0,23.0,23.0,0.667,0.0,48.855,2.27
-Toulouse,ONCOPOLE TÉLÉO,a vider,12.0,1.0,12.0,0.0,0.667,43.555,1.428
-Paris,Sèvres-Gallieni,a vider,26.0,0.0,26.0,0.0,0.667,48.838,2.228
-Toulouse,PÉRI - MERCADIER,a remplir,1.0,23.0,24.0,0.667,0.0,43.606,1.455
-Toulouse,LESPINET - HERBETTES,a remplir,1.0,24.0,25.0,0.667,0.0,43.577,1.47
-Paris,Jean Jaurès - Paul Lafargue,a vider,26.0,0.0,26.0,0.0,0.667,48.885,2.248
-Toulouse,MISTRAL - FLEURANCE,a remplir,2.0,17.0,19.0,0.667,0.0,43.594,1.453
-Paris,Place Falguière,a remplir,0.0,23.0,23.0,0.667,0.0,48.836,2.31
-Toulouse,ST-SERNIN - GATIEN-ARNOULT,a vider,14.0,1.0,15.0,0.0,0.667,43.609,1.441
-Paris,Pirogues de Bercy - Libourne,a vider,49.0,0.0,49.0,0.0,0.667,48.832,2.386
-Toulouse,PLACE ROQUELAINE,a remplir,5.0,19.0,23.0,0.667,0.0,43.613,1.448
-Paris,Place de la République - Voltaire,a vider,19.0,0.0,19.0,0.0,0.667,48.867,2.365
-Paris,Saint-Blaise - Mouraud,a remplir,0.0,26.0,26.0,0.667,0.0,48.857,2.409
-Toulouse,CURIE - NÉGRENEYS,a remplir,2.0,22.0,24.0,0.667,0.0,43.625,1.443
-Paris,Porte de Versailles,a vider,28.0,0.0,28.0,0.0,0.667,48.832,2.288
-Paris,Notre-Dame-des-Champs - Stanislas,a vider,18.0,0.0,18.0,0.0,0.667,48.845,2.329
-Paris,Repos - Cimetière du Père Lachaise,a remplir,0.0,33.0,33.0,0.667,0.0,48.859,2.39
-Paris,Auguste Blanqui - Corvisart,a remplir,0.0,25.0,25.0,0.667,0.0,48.83,2.35
-Toulouse,RAYNAL - LOUIN,a remplir,1.0,14.0,15.0,0.667,0.0,43.628,1.451
-Paris,Square de Choisy - Eastman,a remplir,0.0,24.0,24.0,0.667,0.0,48.829,2.358
-Toulouse,SÉJOURNÉ - PT DES CATALANS,a remplir,1.0,20.0,21.0,0.667,0.0,43.606,1.428
-Toulouse,ZÉNITH TRAMWAY,a vider,10.0,3.0,11.0,0.0,0.667,43.601,1.412
-Bordeaux,La Benauge,a remplir,1.0,16.0,17.0,0.667,0.0,44.84,-0.556
-Paris,Bercy - Traversiére,a vider,30.0,0.0,30.0,0.0,0.667,48.846,2.37
-Toulouse,DUPORTAL - RAYMOND V,a vider,20.0,1.0,21.0,0.0,0.667,43.609,1.435
-Toulouse,00269 - PLACE JACQUES SAUVEGRAIN,a remplir,1.0,16.0,17.0,0.667,0.0,43.59,1.378
-Paris,Clignancourt - Sofia,a remplir,0.0,19.0,19.0,0.667,0.0,48.885,2.347
-Toulouse,FAC. DE PHARMACIE MÉTRO,a vider,15.0,2.0,17.0,0.0,0.667,43.568,1.464
-Paris,Clichy - Douai,a remplir,0.0,32.0,32.0,0.667,0.0,48.884,2.328
-Toulouse,CHAUBET - CHIRAC,a remplir,1.0,12.0,12.0,0.667,0.0,43.605,1.474
-Paris,Raspail - Albert Schweitzer,a vider,26.0,0.0,26.0,0.0,0.667,48.81,2.344
-Toulouse,JAURÈS - BONREPOS,a remplir,1.0,23.0,24.0,0.667,0.0,43.609,1.454
-Paris,Manin - Crimée,a remplir,0.0,22.0,22.0,0.667,0.0,48.883,2.386
-Paris,Place du Maquis du Vercors,a remplir,0.0,30.0,30.0,0.667,0.0,48.877,2.408
-Paris,Pierre Ginier - Clichy,a remplir,0.0,14.0,14.0,0.667,0.0,48.887,2.326
-Paris,Olivier de Serres - Leriche,a remplir,0.0,24.0,24.0,0.667,0.0,48.835,2.296
-Paris,Saint-Sulpice,a vider,21.0,0.0,21.0,0.0,0.667,48.852,2.331
-Paris,Miromesnil - La Boétie,a vider,34.0,0.0,34.0,0.0,0.667,48.874,2.316
-Paris,Place Tristan Bernard,a remplir,0.0,26.0,26.0,0.667,0.0,48.879,2.292
-Toulouse,00004 - GAMBETTA - STE-URSULE,a vider,17.0,1.0,18.0,0.0,0.667,43.603,1.442
-Toulouse,AMOUROUX - STE-AUGUSTINE,a remplir,1.0,16.0,16.0,0.667,0.0,43.628,1.462
-Paris,Henri Chevreau - Couronnes,a remplir,0.0,26.0,26.0,0.667,0.0,48.87,2.389
-Paris,Lacuée - Lyon,a vider,15.0,0.0,15.0,0.0,0.667,48.849,2.37
-Paris,Verdun - Pierre et Marie Curie,a remplir,0.0,26.0,26.0,0.667,0.0,48.813,2.371
-Paris,Gare du Nord - Saint-Vincent de Paul,a remplir,0.0,23.0,23.0,0.667,0.0,48.881,2.352
-Toulouse,BARCELONE - LECLERC,a vider,21.0,1.0,21.0,0.0,0.667,43.607,1.431
-Paris,Parvis Corentin Celton,a vider,54.0,0.0,54.0,0.0,0.667,48.827,2.278
-Toulouse,00188 - AV. DE MURET - LAFAGE,a remplir,1.0,18.0,18.0,0.667,0.0,43.584,1.428
-Paris,Michelet - Assas,a vider,18.0,0.0,18.0,0.0,0.667,48.843,2.335
-Paris,Louis Lumière - Porte de Bagnolet,a remplir,0.0,19.0,19.0,0.667,0.0,48.864,2.411
-Paris,Clignancourt - Ordener,a remplir,0.0,35.0,35.0,0.667,0.0,48.891,2.349
-Toulouse,CASTRES - ACHIARY,a remplir,1.0,16.0,16.0,0.667,0.0,43.601,1.474
-Toulouse,JOLIMONT MÉTRO,a remplir,0.0,12.0,12.0,0.333,0.0,43.614,1.462
-Toulouse,METZ - REMPART ST-ÉTIENNE,a vider,15.0,0.0,15.0,0.0,0.333,43.601,1.451
-Paris,Bridaine - Lamandé,a remplir,1.0,27.0,28.0,0.333,0.0,48.886,2.321
-Toulouse,JARDIN DU BARRY,a vider,11.0,0.0,11.0,0.0,0.333,43.601,1.404
-Paris,Bois de Vincennes - Porte Jaune,a remplir,2.0,32.0,34.0,0.333,0.0,48.839,2.461
-Paris,Reuilly - Place Felix Eboue,a remplir,2.0,40.0,42.0,0.333,0.0,48.84,2.395
-Toulouse,PISCINE LÉO LAGRANGE,a remplir,0.0,22.0,21.0,0.333,0.0,43.607,1.454
-Paris,Jean-François Lépine - Stephenson,a remplir,1.0,20.0,21.0,0.333,0.0,48.886,2.357
-Toulouse,THÉÂTRE DES MAZADES,a remplir,0.0,19.0,20.0,0.333,0.0,43.624,1.438
-Paris,Commandant Rivière,a vider,41.0,1.0,42.0,0.0,0.333,48.873,2.31
-Toulouse,PÉRIGORD,a vider,16.0,0.0,17.0,0.0,0.333,43.607,1.445
-Paris,Gare Montparnasse - René Mouchotte,a remplir,1.0,40.0,41.0,0.333,0.0,48.839,2.321
-Toulouse,LAPUJADE - FLANDRES,a remplir,0.0,17.0,18.0,0.333,0.0,43.624,1.455
-Paris,Charonne - Robert et Sonia Delaunay,a remplir,1.0,19.0,20.0,0.333,0.0,48.856,2.393
-Toulouse,05002 - TOLOSANE - POUCIQUOT,a remplir,0.0,15.0,15.0,0.333,0.0,43.551,1.47
-Paris,Belfort - Victor Hugo,a vider,21.0,1.0,22.0,0.0,0.333,48.902,2.317
-Toulouse,RTE DE SEYSSES - BELLEFONTAINE,a remplir,0.0,12.0,13.0,0.333,0.0,43.563,1.407
-Toulouse,BRIENNE - DELORME,a remplir,0.0,21.0,21.0,0.333,0.0,43.608,1.424
-Paris,Pyrénées - Ménilmontant,a remplir,1.0,24.0,25.0,0.333,0.0,48.869,2.395
-Paris,Quai Voltaire,a vider,28.0,1.0,29.0,0.0,0.333,48.859,2.331
-Toulouse,AVIONS - LIBELLULES,a remplir,0.0,15.0,15.0,0.333,0.0,43.577,1.46
-Paris,Le Brix et Mesmin - Jourdan,a remplir,1.0,19.0,20.0,0.333,0.0,48.822,2.328
-Paris,Parmentier - Fontaine au Roi,a remplir,2.0,45.0,47.0,0.333,0.0,48.868,2.373
-Paris,Quai des Célestins - Henri IV,a vider,9.0,1.0,10.0,0.0,0.333,48.851,2.362
-Paris,Convention - Campus de Bobigny,a vider,27.0,1.0,28.0,0.0,0.333,48.915,2.417
-Paris,Ordener - Poissonniers,a remplir,3.0,32.0,35.0,0.333,0.0,48.891,2.351
-Toulouse,THÉÂTRE JULES JULIEN,a remplir,0.0,15.0,15.0,0.333,0.0,43.573,1.452
-Toulouse,CARNOT - ROLAND,a remplir,0.0,18.0,19.0,0.333,0.0,43.603,1.452
-Toulouse,L'ENVOL DES PIONNIERS,a remplir,0.0,11.0,12.0,0.333,0.0,43.575,1.477
-Paris,Enghien - Faubourg Poissonnière,a vider,32.0,1.0,33.0,0.0,0.333,48.872,2.348
-Paris,Francoeur - Marcadet,a remplir,1.0,19.0,20.0,0.333,0.0,48.891,2.34
-Lille,Hotel de Police,a remplir,0.0,17.0,17.0,0.333,0.0,50.616,3.049
-Toulouse,PLACE DE DAMLOUP,a remplir,0.0,18.0,18.0,0.333,0.0,43.606,1.453
-Paris,Saint-Jacques - Soufflot,a vider,15.0,1.0,16.0,0.0,0.333,48.846,2.343
-Toulouse,CONCORDE - PRINTEMPS,a remplir,0.0,17.0,17.0,0.333,0.0,43.613,1.446
-Toulouse,ROUTE DE SEYSSES - RÉGIS,a vider,13.0,0.0,13.0,0.0,0.333,43.548,1.39
-Toulouse,BRUNAUD - BAILLAUD,a remplir,0.0,19.0,20.0,0.333,0.0,43.617,1.465
-Paris,Porte de la Plaine,a remplir,1.0,34.0,35.0,0.333,0.0,48.828,2.292
-Toulouse,00124 - ÉGLISE DES MINIMES,a remplir,0.0,16.0,16.0,0.333,0.0,43.618,1.437
-Toulouse,LOMBEZ - HIPPODROME,a remplir,0.0,19.0,18.0,0.333,0.0,43.594,1.41
-Paris,Navier - Epinettes,a remplir,2.0,51.0,53.0,0.333,0.0,48.896,2.323
-Paris,Danton - Serpente,a vider,33.0,1.0,34.0,0.0,0.333,48.852,2.341
-Paris,Geoffroy - Marie,a vider,16.0,2.0,18.0,0.0,0.333,48.874,2.345
-Toulouse,PLACE BILA,a remplir,0.0,18.0,18.0,0.333,0.0,43.627,1.459
-Toulouse,PLACE SAINT-ÉTIENNE,a vider,22.0,0.0,22.0,0.0,0.333,43.6,1.449
-Toulouse,00088 - LASCROSSES - DUPORTAL,a vider,25.0,0.0,25.0,0.0,0.333,43.61,1.435
-Paris,Douai - Pierre Fontaine,a remplir,1.0,23.0,24.0,0.333,0.0,48.882,2.333
-Paris,Greneta - Sebastopol,a vider,29.0,1.0,30.0,0.0,0.333,48.865,2.352
-Toulouse,RTE DE BLAGNAC - PUCCINI,a remplir,0.0,18.0,18.0,0.333,0.0,43.615,1.411
-Paris,Ménilmontant - Oberkampf,a remplir,2.0,38.0,40.0,0.333,0.0,48.867,2.383
-Paris,Laffitte - Italiens,a vider,32.0,1.0,33.0,0.0,0.333,48.872,2.337
-Paris,Didot - Place de Moro-Giafferi,a remplir,1.0,37.0,38.0,0.333,0.0,48.834,2.322
-Paris,Grande Rue - Europe,a remplir,1.0,23.0,24.0,0.333,0.0,48.822,2.206
-Paris,Erasme - Ulm,a vider,22.0,2.0,24.0,0.0,0.333,48.843,2.345
-Toulouse,ROUBICHOU - ARLES,a remplir,0.0,14.0,15.0,0.333,0.0,43.627,1.466
-Paris,Madame de Sanzillon - Mozart,a vider,20.0,1.0,21.0,0.0,0.333,48.904,2.319
-Paris,Desaix - Edgar Faure,a vider,11.0,1.0,12.0,0.0,0.333,48.853,2.293
-Paris,Bobillot - Moulin des Prés,a remplir,1.0,26.0,27.0,0.333,0.0,48.829,2.353
-Paris,Favart - Italiens,a vider,15.0,1.0,16.0,0.0,0.333,48.871,2.338
-Toulouse,COMPANS CAFFARELLI MÉTRO,a vider,22.0,0.0,22.0,0.0,0.333,43.611,1.437
-Paris,Villiers de l'Isle Adam - Pyrénées,a remplir,2.0,16.0,18.0,0.333,0.0,48.867,2.396
-Paris,Sèvres - Général Leclerc,a vider,26.0,2.0,28.0,0.0,0.333,48.83,2.231
-Paris,Dupont de l'Eure - Gambetta,a remplir,1.0,28.0,29.0,0.333,0.0,48.868,2.4
-Toulouse,PLACE DE LA DAURADE,a vider,21.0,0.0,21.0,0.0,0.333,43.602,1.44
-Toulouse,PLACE ROBERT SCHUMAN,a remplir,0.0,19.0,18.0,0.333,0.0,43.61,1.449
-Toulouse,GLOIRE - ST-BERTRAND,a remplir,0.0,13.0,12.0,0.333,0.0,43.606,1.458
-Toulouse,COMPLEXE SPORTIF CAPITANY,a vider,16.0,0.0,16.0,0.0,0.333,43.615,1.348
-Toulouse,ALSACE-LORRAINE - POMME,a vider,16.0,0.0,16.0,0.0,0.333,43.603,1.445
-Paris,Saint Lambert - Blomet,a remplir,1.0,25.0,26.0,0.333,0.0,48.837,2.293
-Paris,Legendre - Clichy,a remplir,1.0,38.0,39.0,0.333,0.0,48.889,2.323
-Lyon,DECINES - TRAMWAY ROOSEVELT,a vider,14.0,1.0,15.0,0.0,0.0,45.765,4.937
-Lille,Boulevard de Valmy,a remplir,1.0,17.0,18.0,0.0,0.0,50.619,3.127
-Lyon,VAULX - VILLAGE,a vider,19.0,1.0,20.0,0.0,0.0,45.786,4.927
-Lyon,SALA / RUE DU PLAT,a remplir,1.0,12.0,13.0,0.0,0.0,45.757,4.828
-Paris,Plantes - Moulin Vert,a remplir,1.0,43.0,44.0,0.0,0.0,48.83,2.323
-Paris,Porte de Clichy - Place des Nations Unies,a vider,39.0,1.0,40.0,0.0,0.0,48.897,2.311
-Paris,Toudouze - Clauzel,a remplir,1.0,20.0,21.0,0.0,0.0,48.879,2.337
-Paris,Place du 14 Juillet,a remplir,1.0,21.0,22.0,0.0,0.0,48.819,2.301
-Lyon,TERREAUX / TERME,a remplir,1.0,10.0,11.0,0.0,0.0,45.768,4.832
-Paris,Gabriel Lamé,a vider,35.0,1.0,36.0,0.0,0.0,48.835,2.386
-Lyon,CENTRE BERTHELOT,a vider,14.0,1.0,15.0,0.0,0.0,45.747,4.836
-Paris,Pierre Brossolette - Adolphe Pinard,a remplir,1.0,21.0,22.0,0.0,0.0,48.822,2.313
-Bordeaux,Medoquine,a remplir,1.0,18.0,19.0,0.0,0.0,44.819,-0.6
-Paris,Cloys - Ordener,a remplir,1.0,37.0,38.0,0.0,0.0,48.894,2.336
-Paris,Château -République,a remplir,1.0,16.0,17.0,0.0,0.0,48.906,2.253
-Paris,Tremblay - Lac des Minimes,a vider,53.0,1.0,54.0,0.0,0.0,48.834,2.455
-Paris,Alexandre Dumas - Place de la Réunion,a remplir,1.0,44.0,45.0,0.0,0.0,48.855,2.4
-Paris,Liard - Amiral Mouchez,a remplir,1.0,27.0,28.0,0.0,0.0,48.821,2.342
-Paris,Fief - République,a vider,23.0,1.0,24.0,0.0,0.0,48.832,2.256
-Paris,Tourlaque - Damrémont,a remplir,1.0,15.0,16.0,0.0,0.0,48.888,2.333
-Paris,Tanger - Place du Maroc,a remplir,1.0,18.0,19.0,0.0,0.0,48.886,2.369
-Lyon,SAINT-FONS - GARE,a remplir,1.0,11.0,12.0,0.0,0.0,45.706,4.852
-Paris,Lemercier - Cardinet,a remplir,1.0,22.0,23.0,0.0,0.0,48.89,2.317
-Paris,Place Saint-André des Arts,a vider,11.0,1.0,12.0,0.0,0.0,48.853,2.343
-Montpellier,Providence - Ovalie,a remplir,1.0,7.0,8.0,0.0,0.0,43.588,3.853
-Paris,Faustin Hélie - Desbordes-Valmore,a remplir,1.0,32.0,33.0,0.0,0.0,48.859,2.277
-Paris,Louis Rolland - République,a remplir,1.0,25.0,26.0,0.0,0.0,48.817,2.319
-Lyon,PLACE LOUISE,a remplir,1.0,15.0,16.0,0.0,0.0,45.751,4.885
-Lille,Victoire,a remplir,1.0,11.0,12.0,0.0,0.0,50.718,3.157
-Paris,Hôpital Européen Georges Pompidou,a vider,77.0,1.0,78.0,0.0,0.0,48.838,2.275
-Paris,Mazagran - Pierre de Coubertin,a vider,14.0,1.0,15.0,0.0,0.0,48.816,2.344
-Toulouse,HAURIOU - GARONNETTE,a remplir,1.0,22.0,23.0,0.0,0.0,43.594,1.441
-Lille,Place Catinat,a vider,19.0,1.0,20.0,0.0,0.0,50.634,3.041
-Paris,Square Léon,a remplir,1.0,32.0,33.0,0.0,0.0,48.887,2.353
-Lyon,SANS SOUCI,a vider,18.0,1.0,19.0,0.0,0.0,45.747,4.865
-Lyon,CALUIRE - GARE DE CUIRE,a remplir,1.0,13.0,14.0,0.0,0.0,45.785,4.833
-Paris,Schoelcher - Raspail,a remplir,1.0,47.0,48.0,0.0,0.0,48.837,2.331
-Toulouse,PARC DE LA POUDRERIE,a remplir,1.0,15.0,16.0,0.0,0.0,43.577,1.434
-Paris,Place des Arts - Jean Mermoz,a remplir,1.0,19.0,20.0,0.0,0.0,48.88,2.183
-Toulouse,BAYONNE - FLAMBÈRE,a vider,11.0,1.0,12.0,0.0,0.0,43.608,1.39
-Paris,Chemin Vert - Fraternité,a remplir,1.0,19.0,20.0,0.0,0.0,48.877,2.446
-Paris,Camille Groult - Guy Môquet,a vider,21.0,1.0,22.0,0.0,0.0,48.787,2.398
-Paris,Sabot - Rennes,a vider,25.0,1.0,26.0,0.0,0.0,48.853,2.332
-Paris,Cambronne - Villa Croix Nivert,a remplir,1.0,60.0,61.0,0.0,0.0,48.846,2.302
-Paris,Gare de Robinson,a remplir,1.0,28.0,29.0,0.0,0.0,48.78,2.282
-Paris,Emile Blemont - Poteau,a remplir,1.0,38.0,39.0,0.0,0.0,48.894,2.342
-Lille,De Gaulle,a remplir,1.0,17.0,18.0,0.0,0.0,50.651,3.072
-Lyon,POINT DU JOUR / GRANGES,a remplir,1.0,12.0,13.0,0.0,0.0,45.756,4.803
-Montpellier,Aiguelongue,a remplir,1.0,6.0,7.0,0.0,0.0,43.626,3.882
-Paris,Haies - Réunion,a remplir,1.0,21.0,22.0,0.0,0.0,48.854,2.402
-Paris,Paul Barruel - Vaugirard,a remplir,1.0,37.0,38.0,0.0,0.0,48.84,2.304
-Paris,Dora Maar - Nadia Guendouz,a vider,28.0,1.0,29.0,0.0,0.0,48.905,2.322
-Lyon,JACQUARD / DENFERT-ROCHEREAU,a remplir,1.0,12.0,13.0,0.0,0.0,45.776,4.825
-Toulouse,MOULIS - CROIX-BÉNITE,a remplir,1.0,11.0,12.0,0.0,0.0,43.664,1.434
-Paris,Louis Dain - Rosiers,a remplir,1.0,34.0,35.0,0.0,0.0,48.905,2.338
-Paris,Jonquoy - Didot,a remplir,1.0,29.0,30.0,0.0,0.0,48.829,2.316
-Paris,Bichat - Grange aux Belles,a remplir,1.0,29.0,30.0,0.0,0.0,48.874,2.365
-Paris,Calmette,a remplir,1.0,30.0,31.0,0.0,0.0,48.881,2.425
-Toulouse,HERBETTES - BUTTE,a remplir,1.0,15.0,16.0,0.0,0.0,43.579,1.473
-Paris,Pierre Sarrazin - Saint-Michel,a vider,30.0,1.0,31.0,0.0,0.0,48.851,2.342
-Lyon,FARGE / AYASSE,a remplir,1.0,18.0,19.0,0.0,0.0,45.736,4.828
-Paris,Marc Sangnier - Porte de Vanves,a remplir,1.0,20.0,21.0,0.0,0.0,48.825,2.311
-Paris,Place de l'Europe - Quai de Bercy,a remplir,1.0,16.0,17.0,0.0,0.0,48.825,2.395
-Paris,Custine - Ramey,a remplir,1.0,40.0,41.0,0.0,0.0,48.889,2.347
-Lyon,QUAI PAUL SÉDALLIAN,a vider,18.0,1.0,19.0,0.0,0.0,45.788,4.814
-Bordeaux,Francois de Sourdis,a remplir,1.0,14.0,15.0,0.0,0.0,44.831,-0.587
-Lyon,COUZON - CENTRE,a vider,16.0,1.0,17.0,0.0,0.0,45.846,4.832
-Paris,Cléry - Montmartre,a vider,57.0,1.0,58.0,0.0,0.0,48.867,2.345
-Paris,Arcole - Notre-Dame,a vider,12.0,1.0,13.0,0.0,0.0,48.854,2.349
-Paris,Nungesser - Santé,a remplir,1.0,19.0,20.0,0.0,0.0,48.852,2.449
-Lyon,CRÉQUI / LAFAYETTE,a vider,12.0,1.0,13.0,0.0,0.0,45.764,4.847
-Paris,Pré Saint-Gervais - Lilas,a remplir,1.0,25.0,26.0,0.0,0.0,48.878,2.396
-Toulouse,ARCOLE - BALANCE,a remplir,1.0,19.0,20.0,0.0,0.0,43.612,1.44
-Paris,Lucie Aubrac - Fort,a remplir,1.0,29.0,30.0,0.0,0.0,48.818,2.271
-Lyon,ROSA PARKS,a remplir,1.0,13.0,14.0,0.0,0.0,45.787,4.79
-Paris,Molière - République,a remplir,1.0,29.0,30.0,0.0,0.0,48.811,2.315
-Lyon,PIATON / CONDORCET,a remplir,1.0,16.0,17.0,0.0,0.0,45.774,4.868
-Montpellier,Garcia Lorca,a remplir,1.0,7.0,8.0,0.0,0.0,43.591,3.891
-Toulouse,RANGUEIL  MÉTRO,a remplir,1.0,18.0,19.0,0.0,0.0,43.574,1.462
-Paris,Bobillot - Paulin Mery,a remplir,1.0,22.0,23.0,0.0,0.0,48.83,2.354
-Bordeaux,Porte de Bourgogne,a remplir,1.0,35.0,36.0,0.0,0.0,44.838,-0.567
-Paris,Saint-Romain - Cherche-Midi,a remplir,1.0,14.0,15.0,0.0,0.0,48.847,2.321
-Toulouse,DAURAT - CORNEMONT,a vider,10.0,1.0,11.0,0.0,0.0,43.565,1.489
-Paris,Ecole Vétérinaire,a vider,34.0,1.0,35.0,0.0,0.0,48.815,2.422
-Paris,Cimetière de Montmartre,a remplir,1.0,40.0,41.0,0.0,0.0,48.886,2.333
-Paris,Mairie du 14ème,a remplir,1.0,31.0,32.0,0.0,0.0,48.833,2.325
-Paris,Faubourg Poissonnière - Dunkerque,a remplir,1.0,26.0,27.0,0.0,0.0,48.881,2.35
+Paris,Miromesnil - La Boétie,a vider,34.0,0.0,34.0,0.0,0.962,48.874,2.316
+Paris,Rome - Provence,a vider,30.0,0.0,30.0,0.0,0.962,48.874,2.326
+Paris,Square des Saint-Simoniens,a remplir,0.0,25.0,23.0,0.962,0.0,48.87,2.397
+Paris,Clignancourt - Ordener,a remplir,0.0,35.0,35.0,0.962,0.0,48.891,2.349
+Paris,Pirogues de Bercy - Libourne,a vider,49.0,0.0,49.0,0.0,0.962,48.832,2.386
+Toulouse,FER À CHEVAL - COURS DILLON,a remplir,1.0,17.0,19.0,0.96,0.0,43.593,1.435
+Toulouse,ÎLE DU RAMIER TRAMWAY,a remplir,4.0,8.0,12.0,0.96,0.0,43.592,1.44
+Paris,Gambetta - Saint Fargeau,a remplir,0.0,23.0,23.0,0.923,0.0,48.871,2.404
+Paris,Ménilmontant - Pelleport,a remplir,0.0,31.0,31.0,0.923,0.0,48.871,2.399
+Paris,Mairie,a remplir,2.0,18.0,20.0,0.923,0.0,48.879,2.416
+Paris,Gare de Bellevue,a remplir,1.0,19.0,20.0,0.923,0.0,48.819,2.23
+Paris,Édouard Vaillant - Place Jean Jaurès,a remplir,1.0,22.0,23.0,0.923,0.0,48.863,2.209
+Lyon,PLACE DE TRION,a remplir,0.0,15.0,15.0,0.92,0.0,45.758,4.813
+Toulouse,COMPLEXE SPORTIF CAPITANY,a vider,16.0,0.0,16.0,0.0,0.92,43.615,1.348
+Lyon,CONFLUENCE / DOCKS,a vider,26.0,0.0,26.0,0.0,0.92,45.739,4.815
+Toulouse,00177 - BRUNAUD - BAILLAUD,a remplir,0.0,20.0,20.0,0.92,0.0,43.617,1.465
+Bordeaux,Gare de Talence Médoquine,a remplir,1.0,19.0,20.0,0.92,0.0,44.816,-0.603
+Lyon,10060 - SAINT EXUPÉRY,a remplir,0.0,15.0,15.0,0.92,0.0,45.759,4.879
+Lyon,24001 - ECULLY - MAIRIE,a remplir,1.0,10.0,12.0,0.92,0.0,45.775,4.779
+Toulouse,RTE DE BLAGNAC - PUCCINI,a remplir,0.0,18.0,18.0,0.92,0.0,43.615,1.411
+Lyon,SAINTE-IRÉNÉE,a remplir,0.0,19.0,19.0,0.92,0.0,45.755,4.812
+Toulouse,ST-EXUPÉRY - BUTTE,a remplir,0.0,17.0,17.0,0.92,0.0,43.582,1.476
+Lyon,ST FONS - 4 CHEMINS,a remplir,0.0,8.0,10.0,0.92,0.0,45.708,4.855
+Paris,Pierre Grenier - Pont de Billancourt,a remplir,1.0,20.0,21.0,0.885,0.0,48.826,2.249
+Paris,Pasteur - Gambetta,a vider,19.0,0.0,19.0,0.0,0.885,48.846,2.424
+Paris,Boulard - Daguerre,a remplir,0.0,45.0,45.0,0.885,0.0,48.834,2.329
+Paris,Place Balard,a vider,31.0,0.0,31.0,0.0,0.885,48.836,2.278
+Paris,Chartres - La Charbonnière,a remplir,1.0,31.0,32.0,0.885,0.0,48.885,2.353
+Paris,Le Vau - Maurice Bertaux,a remplir,0.0,25.0,25.0,0.885,0.0,48.868,2.411
+Paris,Jean Jaurès - Paul Lafargue,a vider,26.0,0.0,26.0,0.0,0.885,48.885,2.248
+Paris,Gare du Nord - Saint-Vincent de Paul,a remplir,0.0,23.0,23.0,0.885,0.0,48.881,2.352
+Paris,Jean-Jacques Rousseau - Deux Ecus,a vider,19.0,0.0,19.0,0.0,0.885,48.863,2.341
+Paris,Guichet - Jean Jaurès,a remplir,0.0,27.0,27.0,0.885,0.0,48.905,2.302
+Paris,Jourdain - Place des Grandes Rigoles,a remplir,1.0,19.0,18.0,0.885,0.0,48.874,2.39
+Toulouse,PLACE DU PEYROU,a vider,17.0,1.0,18.0,0.0,0.88,43.607,1.439
+Lyon,QUAI LASSAGNE,a remplir,0.0,13.0,13.0,0.88,0.0,45.772,4.838
+Toulouse,05002 - TOLOSANE - POUCIQUOT,a remplir,1.0,14.0,15.0,0.88,0.0,43.551,1.47
+Lyon,PLACE HENRI,a remplir,1.0,12.0,13.0,0.88,0.0,45.748,4.881
+Toulouse,ST-MICHEL - CASTELET,a remplir,0.0,23.0,23.0,0.88,0.0,43.586,1.447
+Marseille,Les Docks - Terrasses du Port,a remplir,0.0,30.0,30.0,0.88,0.0,43.306,5.366
+Lyon,OULLINS - GARE,a vider,39.0,0.0,39.0,0.0,0.88,45.717,4.814
+Toulouse,RIEUX - COTTAGES,a remplir,0.0,18.0,18.0,0.88,0.0,43.586,1.475
+Toulouse,DUPORTAL - RAYMOND V,a vider,21.0,0.0,21.0,0.0,0.88,43.609,1.435
+Toulouse,00188 - AV. DE MURET - LAFAGE,a remplir,0.0,19.0,19.0,0.88,0.0,43.584,1.428
+Lyon,PLACE DE L'ECOLE,a vider,27.0,0.0,27.0,0.0,0.88,45.73,4.828
+Lyon,POINT DU JOUR / GRANGES,a remplir,0.0,13.0,13.0,0.88,0.0,45.756,4.803
+Toulouse,VALADE,a vider,19.0,0.0,18.0,0.0,0.88,43.605,1.437
+Toulouse,CHAUSSAS - DAUDET,a remplir,0.0,19.0,19.0,0.88,0.0,43.62,1.429
+Paris,Madeleine Vionnet,a vider,42.0,0.0,43.0,0.0,0.846,48.903,2.374
+Paris,Balard - Montagne de la Fage,a vider,35.0,1.0,36.0,0.0,0.846,48.839,2.278
+Paris,Matignon - Faubourg Saint-Honoré,a vider,35.0,0.0,35.0,0.0,0.846,48.871,2.314
+Paris,Oratoire - Rivoli,a vider,15.0,0.0,15.0,0.0,0.846,48.861,2.34
+Paris,Assas - Luxembourg,a vider,33.0,0.0,33.0,0.0,0.846,48.844,2.333
+Paris,Raspail - Chomel,a vider,49.0,0.0,49.0,0.0,0.846,48.852,2.327
+Paris,Frères Flavien - Porte des Lilas,a remplir,0.0,23.0,23.0,0.846,0.0,48.878,2.411
+Paris,Greneta - Sebastopol,a vider,30.0,0.0,30.0,0.0,0.846,48.865,2.352
+Paris,Arsonval - Falguière,a remplir,0.0,25.0,25.0,0.846,0.0,48.84,2.313
+Lyon,PARC BLANDAN,a remplir,1.0,23.0,25.0,0.84,0.0,45.746,4.851
+Lyon,HACHETTE,a remplir,1.0,14.0,15.0,0.84,0.0,45.753,4.864
+Toulouse,00103 - ST-MICHEL - STE-CATHERINE,a remplir,0.0,20.0,19.0,0.84,0.0,43.591,1.445
+Lyon,10035 - BOIRON GRANGER,a remplir,0.0,16.0,16.0,0.84,0.0,45.763,4.9
+Toulouse,COLLIGNON - RAISIN,a remplir,1.0,18.0,19.0,0.84,0.0,43.618,1.445
+Lyon,DOUA / GASTON BERGER,a vider,30.0,0.0,30.0,0.0,0.84,45.781,4.871
+Lyon,ST GENIS L. - MÉDIATHÈQUE,a remplir,1.0,10.0,11.0,0.84,0.0,45.698,4.795
+Lyon,VIABERT / THIERS,a vider,14.0,0.0,14.0,0.0,0.84,45.766,4.862
+Paris,Porte de Bagnolet,a remplir,0.0,33.0,33.0,0.808,0.0,48.865,2.408
+Paris,Etienne Jodelle - Saint Ouen,a remplir,0.0,33.0,33.0,0.808,0.0,48.888,2.326
+Paris,Sèvres-Gallieni,a vider,26.0,0.0,26.0,0.0,0.808,48.838,2.228
+Paris,Bagnolet - Place Saint-Blaise,a remplir,0.0,27.0,27.0,0.808,0.0,48.86,2.403
+Paris,Gambetta - Père Lachaise,a remplir,0.0,29.0,29.0,0.808,0.0,48.864,2.398
+Paris,Saint-Fiacre - Poissonière,a vider,33.0,0.0,33.0,0.0,0.808,48.871,2.346
+Paris,Place des Abbesses,a remplir,0.0,11.0,11.0,0.808,0.0,48.885,2.339
+Paris,Dareau - Broussais,a remplir,0.0,23.0,23.0,0.808,0.0,48.831,2.336
+Paris,Bastille - Quai de la Rapée,a vider,27.0,0.0,27.0,0.0,0.808,48.847,2.367
+Paris,Quai de la Gare - Pont de Bercy,a vider,30.0,0.0,30.0,0.0,0.808,48.837,2.374
+Lyon,8010 - PLACE MENDÈS FRANCE,a remplir,1.0,17.0,20.0,0.8,0.0,45.74,4.859
+Lyon,CLOS SAVARON,a remplir,1.0,18.0,19.0,0.8,0.0,45.783,4.826
+Toulouse,FRONTON - HAON,a remplir,0.0,13.0,13.0,0.8,0.0,43.656,1.432
+Lyon,PLACE ADRIEN GODIEN,a remplir,0.0,28.0,28.0,0.8,0.0,45.779,4.841
+Lyon,5002 - PLACE DES COMPAGNONS DE LA CHANSON,a remplir,0.0,17.0,17.0,0.8,0.0,45.757,4.797
+Lyon,MERIEUX / PAVILLONS,a vider,16.0,0.0,16.0,0.0,0.8,45.729,4.83
+Toulouse,CHAUBET - CHIRAC,a remplir,0.0,13.0,13.0,0.8,0.0,43.605,1.474
+Lille,Delecaux,a remplir,0.0,20.0,20.0,0.8,0.0,50.645,3.037
+Lyon,GREGORY COUPET,a remplir,0.0,16.0,16.0,0.8,0.0,45.782,4.821
+Toulouse,MARQUETTE - SÉBASTOPOL,a vider,19.0,0.0,19.0,0.0,0.8,43.612,1.429
+Toulouse,AV. DE MURET - BOUTINON,a remplir,0.0,18.0,18.0,0.8,0.0,43.582,1.426
+Lyon,CONFLUENCE HÔTEL DE RÉGION,a vider,27.0,0.0,27.0,0.0,0.8,45.741,4.819
+Lyon,QUAI SARRAIL,a remplir,0.0,13.0,13.0,0.8,0.0,45.767,4.841
+Lyon,AVEYRON,a remplir,0.0,17.0,17.0,0.8,0.0,45.774,4.833
+Lyon,BERTHELOT / GARIBALDI,a remplir,0.0,15.0,15.0,0.8,0.0,45.744,4.847
+Toulouse,CARTOUCHERIE TRAMWAY,a vider,12.0,0.0,12.0,0.0,0.8,43.603,1.408
+Paris,Laffitte - Italiens,a vider,33.0,0.0,33.0,0.0,0.769,48.872,2.337
+Paris,Faubourg Poissonniere - Delta,a remplir,2.0,34.0,36.0,0.769,0.0,48.883,2.35
+Paris,Buzenval - Vignoles,a remplir,2.0,15.0,17.0,0.769,0.0,48.854,2.4
+Paris,Place d'Italie - Soeur Rosalie,a remplir,2.0,50.0,52.0,0.769,0.0,48.832,2.355
+Paris,Véron - Lepic,a remplir,0.0,23.0,23.0,0.769,0.0,48.885,2.335
+Paris,Belliard - Damrémont,a remplir,1.0,32.0,33.0,0.769,0.0,48.897,2.338
+Paris,Jules Guesdes - Général de Gaulle,a remplir,2.0,22.0,24.0,0.769,0.0,48.819,2.279
+Paris,Hôtel de ville de Fontenay-sous-Bois,a remplir,0.0,20.0,20.0,0.769,0.0,48.849,2.475
+Paris,Hôpital Européen Georges Pompidou,a vider,76.0,2.0,78.0,0.0,0.769,48.838,2.275
+Paris,Vivienne - Petits Champs,a vider,28.0,0.0,28.0,0.0,0.769,48.867,2.339
+Paris,Stalingrad - Rigollots,a remplir,2.0,49.0,51.0,0.769,0.0,48.85,2.456
+Paris,Choiseul - Quatre Septembre,a vider,9.0,1.0,10.0,0.0,0.769,48.87,2.336
+Paris,Petit - Georges Thill,a remplir,1.0,22.0,23.0,0.769,0.0,48.886,2.39
+Paris,République - Danton,a remplir,1.0,19.0,20.0,0.769,0.0,48.852,2.462
+Paris,Victor Massé - Jean-Baptiste Pigalle,a remplir,0.0,17.0,17.0,0.769,0.0,48.881,2.337
+Paris,Perrault - Place du Louvre,a vider,27.0,0.0,27.0,0.0,0.769,48.86,2.341
+Paris,Vistule - Choisy,a remplir,1.0,32.0,33.0,0.769,0.0,48.824,2.362
+Paris,Gare Saint-Lazare - Isly,a vider,24.0,2.0,26.0,0.0,0.769,48.875,2.327
+Paris,Mairie de Sceaux,a remplir,1.0,31.0,32.0,0.769,0.0,48.779,2.289
+Paris,Nanterre - Université,a vider,17.0,0.0,17.0,0.0,0.769,48.901,2.213
+Paris,Evariste Galois,a remplir,3.0,18.0,21.0,0.769,0.0,48.873,2.413
+Paris,Louis Ganne - Davout,a remplir,1.0,29.0,30.0,0.769,0.0,48.863,2.41
+Paris,Gergovie - Alésia,a remplir,1.0,53.0,54.0,0.769,0.0,48.831,2.319
+Paris,Madame de Sanzillon - Mozart,a vider,21.0,0.0,21.0,0.0,0.769,48.904,2.319
+Paris,Place Mongolfier,a vider,36.0,2.0,38.0,0.0,0.769,48.815,2.459
+Paris,Sèvres - Maréchal Juin,a vider,16.0,2.0,18.0,0.0,0.769,48.832,2.229
+Paris,Saint-Sulpice,a vider,20.0,1.0,21.0,0.0,0.769,48.852,2.331
+Paris,Estienne d'Orves - Henri Ginoux,a remplir,1.0,30.0,31.0,0.769,0.0,48.815,2.321
+Paris,Square de Choisy - Eastman,a remplir,2.0,22.0,24.0,0.769,0.0,48.829,2.358
+Paris,Sorbier - Ménilmontant,a remplir,2.0,22.0,24.0,0.769,0.0,48.869,2.39
+Paris,Marcelle - Thalie,a remplir,1.0,18.0,19.0,0.769,0.0,48.884,2.414
+Paris,Riquet - Marx Dormoy,a remplir,1.0,33.0,34.0,0.769,0.0,48.89,2.36
+Paris,Joseph Dijon - Ornano,a remplir,1.0,35.0,36.0,0.769,0.0,48.894,2.348
+Paris,Gare du Nord - Hôpital Lariboisière,a remplir,0.0,49.0,49.0,0.769,0.0,48.882,2.352
+Toulouse,PLACE DE DAMLOUP,a remplir,2.0,16.0,18.0,0.76,0.0,43.606,1.453
+Toulouse,ANDROMÈDE LYCÉE TRAMWAY,a remplir,1.0,15.0,16.0,0.76,0.0,43.655,1.376
+Toulouse,THÉÂTRE JULES JULIEN,a remplir,1.0,14.0,15.0,0.76,0.0,43.573,1.452
+Toulouse,PÉRIGORD,a vider,16.0,1.0,16.0,0.0,0.76,43.607,1.445
+Lyon,MARTINIÈRE,a remplir,2.0,7.0,9.0,0.76,0.0,45.768,4.828
+Lyon,VALDO / RIVET,a remplir,1.0,17.0,17.0,0.76,0.0,45.75,4.789
+Lyon,PLACE LOUISE,a remplir,0.0,16.0,16.0,0.76,0.0,45.751,4.885
+Lyon,ALLEE DE L'EUROPE,a remplir,7.0,5.0,12.0,0.76,0.0,45.784,4.794
+Lyon,VENISSIEUX - MOULIN A VENT,a remplir,0.0,21.0,20.0,0.76,0.0,45.73,4.854
+Lille,Rue Bonte-Pollet,a remplir,2.0,14.0,16.0,0.76,0.0,50.625,3.034
+Lyon,LUGDUNUM - RADISSON,a remplir,0.0,15.0,15.0,0.76,0.0,45.761,4.82
+Lyon,CARMÉLITES,a remplir,0.0,14.0,14.0,0.76,0.0,45.77,4.829
+Toulouse,COLONNE - SALONIQUE,a remplir,1.0,12.0,13.0,0.76,0.0,43.611,1.465
+Toulouse,STE-LUCIE - ARCS ST-CYPRIEN,a remplir,0.0,18.0,18.0,0.76,0.0,43.594,1.43
+Toulouse,NARRADE - FONDEVILLE,a remplir,1.0,11.0,12.0,0.76,0.0,43.549,1.454
+Lyon,BERTHELOT / ROUTE DE VIENNE,a remplir,2.0,11.0,12.0,0.76,0.0,45.743,4.851
+Toulouse,HÔPITAL PURPAN,a vider,12.0,1.0,13.0,0.0,0.76,43.608,1.402
+Lyon,LYCÉE MARIE CURIE,a remplir,0.0,13.0,13.0,0.76,0.0,45.762,4.896
+Toulouse,LOIS - CAPITOLE,a vider,17.0,1.0,18.0,0.0,0.76,43.605,1.442
+Lille,Delesalle Mediatheque,a remplir,1.0,17.0,18.0,0.76,0.0,50.632,3.066
+Toulouse,COLONNE - REILLE,a remplir,4.0,9.0,13.0,0.76,0.0,43.609,1.46
+Lyon,FAURE / MEYNIS,a remplir,3.0,25.0,29.0,0.76,0.0,45.755,4.871
+Lyon,PLACE LEBRET,a remplir,3.0,10.0,13.0,0.76,0.0,45.736,4.853
+Paris,Gérando - Rochechouart,a remplir,1.0,20.0,20.0,0.731,0.0,48.883,2.346
+Paris,Sorbier - Gasnier-Guy,a remplir,0.0,34.0,34.0,0.731,0.0,48.865,2.394
+Paris,Mairie du 20ème,a remplir,0.0,27.0,27.0,0.731,0.0,48.865,2.399
+Paris,Place Falguière,a remplir,0.0,23.0,23.0,0.731,0.0,48.836,2.31
+Paris,Uzès - Montmartre,a vider,26.0,1.0,27.0,0.0,0.731,48.871,2.343
+Paris,Tardieu - Chappe,a remplir,0.0,18.0,18.0,0.731,0.0,48.884,2.342
+Paris,Général Martial Valin - Pont du Garigliano,a vider,16.0,0.0,16.0,0.0,0.731,48.838,2.271
+Paris,Messine - Place Du Pérou,a vider,12.0,0.0,12.0,0.0,0.731,48.875,2.316
+Paris,Commandant Rivière,a vider,41.0,1.0,42.0,0.0,0.731,48.873,2.31
+Paris,Square Louise Michel,a remplir,1.0,34.0,35.0,0.731,0.0,48.885,2.344
+Paris,Froidevaux - Boulard,a remplir,0.0,35.0,35.0,0.731,0.0,48.835,2.329
+Paris,Place du Maquis du Vercors,a remplir,0.0,30.0,30.0,0.731,0.0,48.877,2.408
+Paris,Chabanais - Petits Champs,a vider,26.0,1.0,27.0,0.0,0.731,48.867,2.337
+Paris,Goutte d'or - Barbès,a remplir,0.0,20.0,20.0,0.731,0.0,48.885,2.35
+Paris,Jean-François Lépine - Stephenson,a remplir,1.0,20.0,21.0,0.731,0.0,48.886,2.357
+Lyon,SALENGRO / VAILLANT,a remplir,1.0,22.0,23.0,0.72,0.0,45.778,4.88
+Bordeaux,Bagatelle,a remplir,0.0,18.0,18.0,0.72,0.0,44.809,-0.574
+Toulouse,PLACE ROUAIX,a vider,17.0,1.0,18.0,0.0,0.72,43.6,1.446
+Toulouse,ST-MICHEL - MAGENDIE,a remplir,0.0,13.0,15.0,0.72,0.0,43.59,1.446
+Toulouse,PLACE ANATOLE FRANCE,a vider,18.0,7.0,25.0,0.0,0.72,43.606,1.438
+Lyon,PLACE DE LA CROIX-ROUSSE,a remplir,4.0,17.0,21.0,0.72,0.0,45.776,4.833
+Lyon,VÉNISSIEUX - JOLIOT CURIE / SEMBAT,a vider,24.0,1.0,25.0,0.0,0.72,45.715,4.878
+Lyon,GARDE / AQUEDUCS,a remplir,0.0,15.0,15.0,0.72,0.0,45.76,4.791
+Toulouse,RAYNAL - LOUIN,a remplir,4.0,11.0,15.0,0.72,0.0,43.628,1.451
+Toulouse,RTE DE SEYSSES - C. DE VIÇOSE,a vider,11.0,1.0,12.0,0.0,0.72,43.572,1.418
+Toulouse,FONTAINES - BRUN,a remplir,0.0,11.0,11.0,0.72,0.0,43.6,1.426
+Lille,Theatre Sebastopol,a remplir,0.0,32.0,32.0,0.72,0.0,50.629,3.058
+Lille,Trevise,a remplir,0.0,20.0,20.0,0.72,0.0,50.621,3.072
+Bordeaux,Palais Gallien,a remplir,0.0,11.0,11.0,0.72,0.0,44.847,-0.582
+Paris,Bercy.,a vider,62.0,2.0,64.0,0.0,0.692,48.84,2.379
+Paris,Tage - Italie,a remplir,0.0,31.0,31.0,0.692,0.0,48.822,2.358
+Paris,Westermeyer - Paul Vaillant-Couturier,a vider,32.0,0.0,34.0,0.0,0.692,48.819,2.397
+Paris,Roger Salengro - Fontainebleau,a remplir,1.0,23.0,24.0,0.692,0.0,48.815,2.361
+Paris,François Truffaut - Saint Emilion,a vider,62.0,1.0,63.0,0.0,0.692,48.834,2.387
+Paris,Belleville -  Pré Saint-Gervais,a remplir,0.0,35.0,35.0,0.692,0.0,48.876,2.393
+Paris,Thérèse - Opéra,a vider,23.0,0.0,23.0,0.0,0.692,48.866,2.334
+Paris,Chastenet de Géry - Marcel Paul,a remplir,1.0,24.0,25.0,0.692,0.0,48.8,2.357
+Paris,Bobillot - Moulin des Prés,a remplir,0.0,27.0,27.0,0.692,0.0,48.829,2.353
+Paris,Saint-Amand - Labrouste,a remplir,0.0,35.0,35.0,0.692,0.0,48.834,2.309
+Paris,Marcadet - Ramey,a remplir,0.0,38.0,38.0,0.692,0.0,48.891,2.345
+Paris,Sibelle - Alésia,a remplir,1.0,35.0,36.0,0.692,0.0,48.827,2.338
+Paris,Maine - Liancourt,a remplir,0.0,27.0,27.0,0.692,0.0,48.835,2.324
+Toulouse,JOLIMONT MÉTRO,a remplir,0.0,13.0,12.0,0.68,0.0,43.614,1.462
+Toulouse,CIMETIÈRE - COMPANS,a remplir,2.0,16.0,18.0,0.68,0.0,43.607,1.458
+Toulouse,GLOIRE - ST-BERTRAND,a remplir,1.0,12.0,13.0,0.68,0.0,43.606,1.458
+Toulouse,PLACE SAINT-PIERRE,a vider,20.0,1.0,20.0,0.0,0.68,43.603,1.436
+Lille,Rousseau,a remplir,0.0,20.0,20.0,0.68,0.0,50.645,3.03
+Toulouse,00004 - GAMBETTA - STE-URSULE,a vider,16.0,2.0,18.0,0.0,0.68,43.603,1.442
+Lyon,BUYER / APOLLINAIRE,a remplir,0.0,18.0,18.0,0.68,0.0,45.762,4.803
+Lyon,BALMONT,a remplir,6.0,6.0,12.0,0.68,0.0,45.789,4.799
+Lyon,BOUSSANGES / AUSTERLITZ,a remplir,0.0,16.0,17.0,0.68,0.0,45.775,4.835
+Toulouse,DUPORTAL - CANAL DE BRIENNE,a vider,17.0,0.0,17.0,0.0,0.68,43.605,1.434
+Lille,De Gaulle,a remplir,0.0,18.0,18.0,0.68,0.0,50.651,3.072
+Toulouse,00124 - ÉGLISE DES MINIMES,a remplir,2.0,14.0,16.0,0.68,0.0,43.618,1.437
+Toulouse,PLACE VICTOR HUGO,a vider,25.0,0.0,25.0,0.0,0.68,43.606,1.447
+Lyon,MUSÉE DES CONFLUENCES,a vider,17.0,1.0,18.0,0.0,0.68,45.733,4.819
+Toulouse,RTE DE SEYSSES - BELLEFONTAINE,a remplir,2.0,11.0,13.0,0.68,0.0,43.563,1.407
+Lyon,PLACE DE LA RECONNAISSANCE,a remplir,0.0,29.0,29.0,0.68,0.0,45.754,4.885
+Lyon,SUCRIERE,a vider,10.0,8.0,18.0,0.0,0.68,45.736,4.815
+Lyon,MUSÉE D'ART CONTEMPORAIN,a vider,20.0,3.0,22.0,0.0,0.68,45.784,4.852
+Toulouse,ALSACE-LORRAINE - POMME,a vider,14.0,2.0,16.0,0.0,0.68,43.603,1.445
+Paris,Mairie du 2ème,a vider,23.0,1.0,24.0,0.0,0.654,48.867,2.34
+Paris,Plantes - Moulin Vert,a remplir,1.0,43.0,44.0,0.654,0.0,48.83,2.323
+Paris,Seine - Flandre,a remplir,1.0,17.0,18.0,0.654,0.0,48.887,2.375
+Paris,Quai de l'Horloge - Pont Neuf,a vider,14.0,1.0,15.0,0.0,0.654,48.857,2.342
+Paris,Lacuée - Lyon,a vider,15.0,0.0,15.0,0.0,0.654,48.849,2.37
+Paris,Alexandre Dumas - Place de la Réunion,a remplir,0.0,45.0,45.0,0.654,0.0,48.855,2.4
+Paris,Villiers de l'Isle Adam - Pyrénées,a remplir,0.0,18.0,18.0,0.654,0.0,48.867,2.396
+Paris,Bons Raisins - Voltaire,a remplir,0.0,23.0,23.0,0.654,0.0,48.873,2.195
+Paris,Bargue -  Dutot,a remplir,2.0,17.0,19.0,0.654,0.0,48.838,2.309
+Paris,Théâtre des Amandiers - Palais des sports,a vider,21.0,0.0,21.0,0.0,0.654,48.893,2.214
+Paris,Place De Fontenoy - Saxe,a vider,16.0,2.0,18.0,0.0,0.654,48.85,2.307
+Paris,Halles - Bourdonnais,a vider,18.0,1.0,19.0,0.0,0.654,48.86,2.346
+Paris,Mairie du 9ème,a vider,24.0,0.0,24.0,0.0,0.654,48.873,2.341
+Paris,Dupont de l'Eure - Gambetta,a remplir,1.0,28.0,29.0,0.654,0.0,48.868,2.4
+Paris,Pont Neuf - Rivoli,a vider,24.0,1.0,25.0,0.0,0.654,48.86,2.344
+Paris,Clignancourt - Sofia,a remplir,2.0,17.0,19.0,0.654,0.0,48.885,2.347
+Paris,Convention - Campus de Bobigny,a vider,28.0,0.0,28.0,0.0,0.654,48.915,2.417
+Paris,Créteil Pointe du Lac,a vider,27.0,1.0,28.0,0.0,0.654,48.769,2.463
+Lyon,3013 - PLACE ANTOINETTE,a remplir,3.0,15.0,19.0,0.64,0.0,45.754,4.889
+Lyon,INSTITUT LUMIERE,a remplir,2.0,16.0,18.0,0.64,0.0,45.746,4.871
+Toulouse,00354 - DAURAT - CORNEMONT,a vider,2.0,8.0,11.0,0.0,0.64,43.565,1.489
+Lyon,SAINTE-BLANDINE,a vider,13.0,3.0,16.0,0.0,0.64,45.744,4.822
+Toulouse,GONIN - GÉNIN,a remplir,0.0,16.0,16.0,0.64,0.0,43.574,1.484
+Lyon,MARSEILLE / FÉLISSENT,a remplir,1.0,29.0,29.0,0.64,0.0,45.753,4.841
+Toulouse,LAFAYETTE,a vider,22.0,1.0,23.0,0.0,0.64,43.605,1.445
+Lyon,JAURES SAINT EXUPERY,a remplir,0.0,24.0,24.0,0.64,0.0,45.758,4.883
+Toulouse,LOMBEZ - HIPPODROME,a remplir,0.0,20.0,20.0,0.64,0.0,43.594,1.41
+Lyon,6035 - CITÉ INTERNATIONALE,a vider,20.0,1.0,21.0,0.0,0.64,45.785,4.854
+Toulouse,SÉJOURNÉ - PT DES CATALANS,a remplir,8.0,12.0,21.0,0.64,0.0,43.606,1.428
+Lyon,PLACE STALINGRAD,a remplir,0.0,18.0,17.0,0.64,0.0,45.75,4.853
+Toulouse,DEMOISELLES - BÉGUÉ-DAVID,a remplir,3.0,12.0,14.0,0.64,0.0,43.59,1.456
+Toulouse,00097 - BONREPOS - RAYMOND IV,a remplir,7.0,14.0,21.0,0.64,0.0,43.612,1.452
+Toulouse,AV. DE MURET - DUBOUL,a remplir,0.0,11.0,12.0,0.64,0.0,43.58,1.424
+Toulouse,CHARBONNIÈRE - PALMIERS,a remplir,1.0,16.0,18.0,0.64,0.0,43.574,1.449
+Lyon,SAINT-ROMAIN / BERLIET,a remplir,4.0,14.0,20.0,0.64,0.0,45.742,4.86
+Lyon,MONTEE DE L'OBSERVANCE,a remplir,0.0,15.0,15.0,0.64,0.0,45.768,4.809
+Toulouse,PLACE DU FER À CHEVAL,a remplir,1.0,15.0,15.0,0.64,0.0,43.592,1.434
+Toulouse,REYNERIE - LONDRES,a remplir,2.0,11.0,13.0,0.64,0.0,43.569,1.408
+Lyon,PLACE SATHONAY,a remplir,0.0,21.0,21.0,0.64,0.0,45.769,4.83
+Lille,Nationale Rue du Port,a vider,24.0,0.0,24.0,0.0,0.64,50.631,3.048
+Paris,Mairie du 14ème,a remplir,0.0,32.0,32.0,0.615,0.0,48.833,2.325
+Paris,Pelleport - Belgrand,a remplir,3.0,11.0,14.0,0.615,0.0,48.865,2.404
+Paris,Charles Robin - Grange aux Belles,a remplir,1.0,22.0,23.0,0.615,0.0,48.877,2.37
+Paris,Rossini - Laffitte,a vider,30.0,2.0,32.0,0.0,0.615,48.873,2.338
+Paris,Mouton Duvernet - Général Leclerc,a remplir,1.0,27.0,28.0,0.615,0.0,48.832,2.329
+Paris,Clichy - Douai,a remplir,1.0,31.0,32.0,0.615,0.0,48.884,2.328
+Paris,Jean Bologne - Passy,a remplir,1.0,17.0,18.0,0.615,0.0,48.858,2.28
+Paris,Quai Voltaire,a vider,28.0,1.0,29.0,0.0,0.615,48.859,2.331
+Paris,Haies - Réunion,a remplir,1.0,21.0,22.0,0.615,0.0,48.854,2.402
+Paris,Italie - Vistule,a remplir,1.0,23.0,24.0,0.615,0.0,48.823,2.358
+Paris,Porte de Versailles,a vider,27.0,1.0,28.0,0.0,0.615,48.832,2.288
+Paris,Batignolles - Place de Clichy,a remplir,0.0,47.0,47.0,0.615,0.0,48.883,2.326
+Paris,Raspail - Albert Schweitzer,a vider,26.0,0.0,26.0,0.0,0.615,48.81,2.344
+Paris,Censier - Jardin des Plantes,a vider,26.0,0.0,26.0,0.0,0.615,48.841,2.355
+Paris,Legendre - Nollet,a remplir,0.0,28.0,28.0,0.615,0.0,48.888,2.32
+Nantes,FOCH,a vider,13.0,1.0,14.0,0.0,0.615,47.219,-1.55
+Lyon,BERTHELOT / CAZENEUVE,a remplir,0.0,19.0,18.0,0.6,0.0,45.737,4.866
+Lyon,BIOPARC,a vider,22.0,1.0,23.0,0.0,0.6,45.74,4.888
+Toulouse,BD DES MINIMES - PASSERELLE,a remplir,1.0,25.0,26.0,0.6,0.0,43.615,1.443
+Lyon,DECINES - TRAMWAY ROOSEVELT,a vider,15.0,0.0,15.0,0.0,0.6,45.765,4.937
+Lyon,CHILDEBERT / RIVIÈRE,a vider,23.0,0.0,23.0,0.0,0.6,45.76,4.836
+Toulouse,URSS - PEYROUSET,a remplir,0.0,18.0,19.0,0.6,0.0,43.583,1.449
+Toulouse,CASTRES - ACHIARY,a remplir,1.0,16.0,17.0,0.6,0.0,43.601,1.474
+Lille,St Sebastien,a remplir,1.0,27.0,28.0,0.6,0.0,50.647,3.059
+Lyon,DOCTEUR DAMIDOT,a remplir,2.0,14.0,16.0,0.6,0.0,45.762,4.886
+Lyon,MÉNIVAL / JOLIOT CURIE,a remplir,0.0,20.0,20.0,0.6,0.0,45.755,4.788
+Lyon,VIENNE / MONTAGNY,a remplir,1.0,18.0,20.0,0.6,0.0,45.732,4.853
+Lyon,9042 - VAISE DOCKS,a vider,17.0,0.0,18.0,0.0,0.6,45.787,4.811
+Lyon,DELORE / AUDIBERT ET LAVIROTTE,a remplir,3.0,14.0,17.0,0.6,0.0,45.736,4.857
+Lyon,CROUS,a remplir,0.0,16.0,17.0,0.6,0.0,45.745,4.848
+Lyon,CALUIRE - BRANLY / PASTEUR,a remplir,1.0,14.0,15.0,0.6,0.0,45.792,4.843
+Toulouse,CURIE - NÉGRENEYS,a remplir,6.0,18.0,24.0,0.6,0.0,43.625,1.443
+Toulouse,TASSIGNY - MOMBIOLA,a remplir,0.0,13.0,13.0,0.6,0.0,43.579,1.438
+Toulouse,AVIONS - LIBELLULES,a remplir,4.0,11.0,15.0,0.6,0.0,43.577,1.46
+Toulouse,SAINT-AGNE GARE,a remplir,0.0,18.0,18.0,0.6,0.0,43.579,1.45
+Toulouse,GLOIRE - SAVIGNAC,a remplir,0.0,12.0,13.0,0.6,0.0,43.606,1.464
+Paris,Marcel Monge - Marcel Dassault,a vider,41.0,0.0,41.0,0.0,0.577,48.861,2.225
+Paris,Petites Ecuries - Faubourg Poissonnière,a vider,15.0,1.0,16.0,0.0,0.577,48.874,2.348
+Paris,Pyrénées - Maraîchers,a remplir,0.0,33.0,33.0,0.577,0.0,48.857,2.404
+Paris,Parc Georges Brassens - Brancion,a remplir,2.0,27.0,29.0,0.577,0.0,48.832,2.302
+Paris,Demi-Lune - Aristide Briand,a remplir,0.0,19.0,19.0,0.577,0.0,48.876,2.456
+Paris,Porte de Clignancourt.,a remplir,2.0,54.0,56.0,0.577,0.0,48.897,2.344
+Paris,Henri Chevreau - Couronnes,a remplir,0.0,26.0,26.0,0.577,0.0,48.87,2.389
+Paris,Square d'Anvers,a remplir,0.0,33.0,33.0,0.577,0.0,48.883,2.345
+Paris,Manin - Crimée,a remplir,0.0,22.0,22.0,0.577,0.0,48.883,2.386
+Paris,Mairie de Bagnolet,a remplir,2.0,25.0,27.0,0.577,0.0,48.868,2.418
+Paris,Charonne - Alexandre Dumas,a remplir,0.0,34.0,34.0,0.577,0.0,48.856,2.395
+Paris,Place de l'Eglise - Vitry-sur-Seine,a vider,25.0,2.0,27.0,0.0,0.577,48.792,2.395
+Paris,Place Monge,a remplir,3.0,16.0,19.0,0.577,0.0,48.843,2.352
+Paris,Saint-Michel - Luxembourg,a vider,25.0,3.0,28.0,0.0,0.577,48.845,2.339
+Paris,Jean Jaurès - Gare de Clamart,a remplir,0.0,16.0,16.0,0.577,0.0,48.813,2.272
+Lyon,PERRACHE / DE PURY,a vider,16.0,2.0,18.0,0.0,0.56,45.739,4.823
+Toulouse,00084 - BRIENNE - MANUFACTURE,a vider,24.0,0.0,24.0,0.0,0.56,43.605,1.432
+Lyon,CONSERVATOIRE,a vider,17.0,0.0,17.0,0.0,0.56,45.77,4.813
+Toulouse,EISENHOWER - LESTANG,a vider,11.0,2.0,12.0,0.0,0.56,43.56,1.394
+Toulouse,PARC DE LA VIOLETTE,a remplir,1.0,12.0,13.0,0.56,0.0,43.654,1.438
+Lyon,DOCTEUR LONG / CAILLE,a remplir,1.0,15.0,16.0,0.56,0.0,45.753,4.894
+Toulouse,EBELOT - PUJIBET,a vider,7.0,6.0,13.0,0.0,0.56,43.638,1.458
+Toulouse,00158 - URSS - MARAN,a remplir,1.0,19.0,20.0,0.56,0.0,43.581,1.449
+Lyon,CALUIRE - GARE DE CUIRE,a remplir,3.0,17.0,17.0,0.56,0.0,45.785,4.833
+Toulouse,SALADE PONSAN - CÔTEAUX,a remplir,2.0,11.0,13.0,0.56,0.0,43.568,1.452
+Lille,Hotel de Police,a remplir,0.0,17.0,17.0,0.56,0.0,50.616,3.049
+Lyon,FELIX FAURE / VIVIER MERLE,a vider,32.0,0.0,31.0,0.0,0.56,45.754,4.86
+Lyon,PLACE BERTONE,a remplir,4.0,6.0,10.0,0.56,0.0,45.778,4.835
+Paris,Enghien - Faubourg Poissonnière,a vider,32.0,1.0,33.0,0.0,0.538,48.872,2.348
+Paris,Cimetière d'Issy-les-Moulineaux,a remplir,1.0,23.0,24.0,0.538,0.0,48.818,2.261
+Paris,Jean Calvin - Tournefort,a vider,27.0,1.0,28.0,0.0,0.538,48.842,2.348
+Paris,Réunion - Avron,a remplir,2.0,24.0,26.0,0.538,0.0,48.853,2.404
+Paris,Square du Carrefour de l'Insurrection,a remplir,0.0,23.0,23.0,0.538,0.0,48.821,2.291
+Paris,Ruisseau - Ordener,a remplir,2.0,50.0,52.0,0.538,0.0,48.893,2.34
+Paris,Félix Ziem - Armand Gauthier,a remplir,0.0,23.0,23.0,0.538,0.0,48.889,2.333
+Paris,Mairie du 7ème,a vider,46.0,0.0,46.0,0.0,0.538,48.858,2.319
+Paris,Square Léon,a remplir,1.0,32.0,33.0,0.538,0.0,48.887,2.353
+Paris,Michelet - Assas,a vider,18.0,0.0,18.0,0.0,0.538,48.843,2.335
+Paris,Bastille - Beaumarchais,a vider,23.0,0.0,23.0,0.0,0.538,48.854,2.369
+Paris,Gabriel Péri - Francisco Ferrer,a remplir,1.0,17.0,18.0,0.538,0.0,48.886,2.407
+Paris,Place Jeanne d'Arc,a remplir,1.0,35.0,36.0,0.538,0.0,48.83,2.369
+Paris,Ranelagh - Mozart,a remplir,0.0,23.0,23.0,0.538,0.0,48.855,2.27
+Toulouse,00013 - LOIS - ESQUILE,a vider,11.0,3.0,11.0,0.0,0.52,43.606,1.441
+Lyon,PRIMAT / DECORPS,a vider,8.0,3.0,11.0,0.0,0.52,45.757,4.9
+Lyon,PAUL SANTY,a remplir,3.0,11.0,14.0,0.52,0.0,45.729,4.877
+Lyon,GARE DE VAISE,a remplir,2.0,19.0,21.0,0.52,0.0,45.78,4.805
+Lyon,REBATEL / SAINT-MAXIMIN,a remplir,2.0,26.0,29.0,0.52,0.0,45.748,4.872
+Toulouse,00257 - CHÂT. DE L'HERS - FONTANELLES,a remplir,2.0,14.0,16.0,0.52,0.0,43.601,1.484
+Lyon,JACQUARD / DENFERT-ROCHEREAU,a remplir,0.0,13.0,13.0,0.52,0.0,45.776,4.825
+Toulouse,RÉCOLLETS - FERETRA,a remplir,0.0,19.0,19.0,0.52,0.0,43.584,1.443
+Toulouse,CONCORDE - PRINTEMPS,a remplir,0.0,17.0,17.0,0.52,0.0,43.613,1.446
+Lyon,SALENGRO / DESCARTES,a vider,8.0,5.0,12.0,0.0,0.52,45.776,4.872
+Lyon,CROIX ROUSSE / PERFETTI,a remplir,0.0,17.0,17.0,0.52,0.0,45.772,4.819
+Lyon,LES HALLES,a vider,17.0,1.0,16.0,0.0,0.52,45.762,4.85
+Toulouse,THÉÂTRE DES MAZADES,a remplir,4.0,16.0,20.0,0.52,0.0,43.624,1.438
+Toulouse,DEMOISELLES - CRAMPEL,a remplir,3.0,18.0,21.0,0.52,0.0,43.588,1.46
+Lyon,CITÉ INTERNATIONALE / RÉSIDENCE HÔTELIÈRE,a vider,17.0,11.0,28.0,0.0,0.52,45.785,4.856
+Lyon,6020 - MUSÉE GUIMET,a remplir,5.0,10.0,14.0,0.52,0.0,45.775,4.848
+Lyon,VAULX - LA SOIE,a vider,11.0,1.0,13.0,0.0,0.52,45.761,4.921
+Lille,Voltaire,a remplir,6.0,8.0,14.0,0.52,0.0,50.643,3.056
+Toulouse,SAINT-SERNIN - MERLY,a vider,15.0,0.0,15.0,0.0,0.52,43.609,1.443
+Lyon,CRÉQUI / VOLTAIRE,a remplir,2.0,28.0,30.0,0.52,0.0,45.757,4.848
+Lyon,PATINOIRE BARABAN,a remplir,0.0,14.0,14.0,0.52,0.0,45.762,4.868
+Lille,Artois,a remplir,0.0,18.0,18.0,0.52,0.0,50.626,3.061
+Lyon,MAISONS NEUVES,a remplir,2.0,17.0,21.0,0.52,0.0,45.756,4.877
+Paris,Bachaumont - Montmartre,a vider,32.0,1.0,33.0,0.0,0.5,48.866,2.345
+Paris,Legendre - Clichy,a remplir,0.0,39.0,39.0,0.5,0.0,48.889,2.323
+Paris,Lieutenant Chauré - Etienne Marey,a remplir,0.0,19.0,19.5,0.5,0.0,48.867,2.406
+Paris,Jacquier - Didot,a remplir,1.0,29.0,30.0,0.5,0.0,48.83,2.318
+Paris,Hôtel de Ville de Fontenay-aux-Roses,a remplir,0.0,33.0,33.0,0.5,0.0,48.791,2.287
+Paris,Favart - Italiens,a vider,16.0,0.0,16.0,0.0,0.5,48.871,2.338
+Paris,Bourse du Travail,a vider,14.0,1.0,15.0,0.0,0.5,48.869,2.362
+Paris,Lucien Bossoutrot - Général Martial Vallin,a vider,38.0,0.0,38.0,0.0,0.5,48.837,2.274
+Paris,Rivoli - Musée du Louvre,a vider,22.0,0.0,22.0,0.0,0.5,48.864,2.334
+Paris,Mairie du 18ème,a remplir,1.0,38.0,39.0,0.5,0.0,48.893,2.345
+Paris,Saint-Séverin - Saint-Michel,a vider,29.0,0.0,29.0,0.0,0.5,48.853,2.344
+Paris,Porte de Ménilmontant,a remplir,1.0,14.0,15.0,0.5,0.0,48.869,2.409
+Toulouse,CHIRAC - HEREDIA,a remplir,1.0,12.0,12.0,0.48,0.0,43.613,1.468
+Lyon,DOUA / AVENUE DES ARTS,a vider,30.0,0.0,30.0,0.0,0.48,45.784,4.871
+Toulouse,CHAÎNE - TIERCERETTES,a vider,17.0,0.0,17.0,0.0,0.48,43.609,1.439
+Lyon,CROIX LUIZET,a remplir,0.0,21.0,20.0,0.48,0.0,45.781,4.884
+Toulouse,ST-MARTIN-DU-TOUCH  GARE,a remplir,2.0,10.0,12.0,0.48,0.0,43.601,1.372
+Toulouse,BRIENNE - CHAPOU,a remplir,3.0,21.0,24.0,0.48,0.0,43.61,1.42
+Lyon,CAZENEUVE,a remplir,1.0,16.0,16.0,0.48,0.0,45.734,4.863
+Bordeaux,Rue St Vincent de Paul,a remplir,1.0,42.0,43.0,0.48,0.0,44.826,-0.557
+Toulouse,ST-BERNARD - BERALDI,a vider,13.0,2.0,15.0,0.0,0.48,43.609,1.444
+Lyon,ROUVILLE,a remplir,0.0,17.0,15.0,0.48,0.0,45.77,4.825
+Lyon,PLACE VALMY,a remplir,1.0,14.0,15.0,0.48,0.0,45.776,4.805
+Toulouse,00226 - CASSELARDIT - FONTAINES,a vider,16.0,1.0,17.0,0.0,0.48,43.604,1.407
+Toulouse,PUJOL - CHAUBET,a remplir,4.0,12.0,16.0,0.48,0.0,43.601,1.467
+Toulouse,BONNEFOY - ARAGO,a remplir,4.0,17.0,22.0,0.48,0.0,43.617,1.454
+Lyon,PRÉFECTURE / SARRAIL,a remplir,0.0,17.0,17.0,0.48,0.0,45.765,4.842
+Lyon,GARIBALDI / DOMER,a remplir,0.0,12.0,15.0,0.48,0.0,45.748,4.852
+Toulouse,LAGANNE - TEINTURIERS,a remplir,2.0,16.0,18.0,0.48,0.0,43.597,1.436
+Toulouse,ARCOLE - MERLY,a vider,9.0,4.0,13.0,0.0,0.48,43.61,1.443
+Toulouse,00008 - VIDAL - SAINT-JÉRÔME,a vider,23.0,1.0,24.0,0.0,0.48,43.603,1.448
+Paris,Raspail - Varenne,a vider,18.0,0.0,18.0,0.0,0.462,48.853,2.326
+Paris,Square Pierre Lazareff,a vider,14.0,1.0,15.0,0.0,0.462,48.867,2.348
+Paris,Ouest - Château ,a remplir,1.0,40.0,41.0,0.462,0.0,48.836,2.319
+Paris,Botzaris - Crimée,a remplir,1.0,19.0,20.0,0.462,0.0,48.88,2.389
+Paris,Bercy - Traversiére,a vider,28.0,2.0,30.0,0.0,0.462,48.846,2.37
+Paris,Sabot - Rennes,a vider,23.0,2.0,26.0,0.0,0.462,48.853,2.332
+Paris,Jessaint - Marx Dormoy,a remplir,0.0,29.0,29.0,0.462,0.0,48.885,2.359
+Paris,Lally-Tollendal - Armand Carrel,a remplir,0.0,28.0,28.0,0.462,0.0,48.883,2.375
+Paris,Erasme - Ulm,a vider,24.0,0.0,24.0,0.0,0.462,48.843,2.345
+Paris,Jean-Baptiste Pigalle - La Bruyere,a remplir,0.0,17.0,17.0,0.462,0.0,48.879,2.334
+Paris,Geoffroy - Marie,a vider,18.0,0.0,18.0,0.0,0.462,48.874,2.345
+Paris,Sarrette - Général Leclerc,a remplir,0.0,21.0,21.0,0.462,0.0,48.825,2.326
+Paris,Decrès - Alésia,a remplir,1.0,27.0,28.0,0.462,0.0,48.832,2.314
+Paris,Belleville - Pyrénées,a remplir,0.0,42.0,42.0,0.462,0.0,48.874,2.386
+Paris,Olympiades,a remplir,3.0,33.0,35.0,0.462,0.0,48.827,2.365
+Paris,Marne - Charles de Gaulle,a remplir,0.0,25.0,26.0,0.462,0.0,48.815,2.412
+Lyon,GORGE DE LOUP,a remplir,2.0,37.0,39.0,0.44,0.0,45.767,4.806
+Lyon,HOPITAL NEUROLOGIQUE,a vider,17.0,2.0,19.0,0.0,0.44,45.748,4.897
+Toulouse,PÉRI - MERCADIER,a remplir,1.0,23.0,24.0,0.44,0.0,43.606,1.455
+Toulouse,SERRES - CABANEL,a remplir,2.0,16.0,18.0,0.44,0.0,43.614,1.438
+Toulouse,COSMONAUTES - GRIFFON,a vider,10.0,3.0,10.0,0.0,0.44,43.559,1.496
+Lyon,CHAMPVERT,a remplir,1.0,18.0,19.0,0.44,0.0,45.764,4.793
+Toulouse,PARC DE LA POUDRERIE,a remplir,1.0,15.0,16.0,0.44,0.0,43.577,1.434
+Lyon,HÉNON,a remplir,1.0,18.0,19.0,0.44,0.0,45.78,4.828
+Lyon,MONTGOLFIER / CHATEAU GAILLARD,a remplir,1.0,15.0,17.0,0.44,0.0,45.772,4.89
+Lyon,4 AOUT / RACINE,a remplir,0.0,25.0,25.0,0.44,0.0,45.764,4.878
+Lyon,GAMBETTA / JUSSERAND,a remplir,2.0,8.0,11.0,0.44,0.0,45.751,4.856
+Toulouse,ST-SERNIN - GATIEN-ARNOULT,a vider,14.0,1.0,15.0,0.0,0.44,43.609,1.441
+Toulouse,ONCOPOLE TÉLÉO,a vider,10.0,2.0,12.0,0.0,0.44,43.555,1.428
+Toulouse,CORIOLIS - DUPOUY,a vider,11.0,2.0,13.0,0.0,0.44,43.579,1.38
+Bordeaux,Gare Saint-Jean,a remplir,0.0,21.0,21.0,0.44,0.0,44.826,-0.557
+Toulouse,LYON - SÉMARD,a remplir,4.0,21.0,25.0,0.44,0.0,43.614,1.451
+Lyon,HALLE TONY GARNIER,a vider,18.0,2.0,19.0,0.0,0.44,45.731,4.824
+Lyon,PLACE DE LA PAIX,a remplir,1.0,13.0,15.0,0.44,0.0,45.768,4.832
+Lyon,4011 - PLACE JOANNÈS AMBRE,a remplir,2.0,14.0,19.0,0.44,0.0,45.782,4.833
+Lille,Ramponneau,a remplir,0.0,20.0,20.0,0.44,0.0,50.64,3.053
+Toulouse,COMPANS CAFFARELLI MÉTRO,a vider,21.0,1.0,22.0,0.0,0.44,43.611,1.437
+Toulouse,LASCROSSE - SÉBASTOPOL,a vider,27.0,0.0,27.0,0.0,0.44,43.61,1.43
+Toulouse,MARIN - REBOUL,a remplir,1.0,16.0,18.0,0.44,0.0,43.581,1.38
+Paris,Louis Lumière - Porte de Bagnolet,a remplir,1.0,18.0,19.0,0.423,0.0,48.864,2.411
+Paris,Quai Marcel Boyer - Victor Hugo,a vider,25.0,4.0,29.0,0.0,0.423,48.823,2.392
+Paris,Place du Palais Royal,a vider,66.0,0.0,66.0,0.0,0.423,48.862,2.338
+Paris,Square de la rue Pixérécourt,a remplir,1.0,43.0,44.0,0.423,0.0,48.874,2.396
+Paris,Provence - Chaussée d'Antin,a vider,21.0,0.0,21.0,0.0,0.423,48.874,2.333
+Paris,Didot - Place de Moro-Giafferi,a remplir,0.0,38.0,38.0,0.423,0.0,48.834,2.322
+Paris,Javel - André Citroën,a vider,42.0,2.0,44.0,0.0,0.423,48.846,2.279
+Paris,Le Brix et Mesmin - Jourdan,a remplir,1.0,19.0,20.0,0.423,0.0,48.822,2.328
+Paris,Pyrénées - Ménilmontant,a remplir,0.0,25.0,25.0,0.423,0.0,48.869,2.395
+Paris,Verdun - Pierre et Marie Curie,a remplir,0.0,26.0,26.0,0.423,0.0,48.813,2.371
+Paris,Bayen - Pereire,a remplir,2.0,20.0,22.0,0.423,0.0,48.882,2.292
+Paris,Ségur - d'Estrées,a vider,14.0,5.0,19.0,0.0,0.423,48.851,2.31
+Paris,Ivry - Baudricourt,a remplir,3.0,17.0,20.0,0.423,0.0,48.825,2.363
+Paris,Square des Epinettes,a remplir,0.0,39.0,39.0,0.423,0.0,48.894,2.326
+Paris,Pyrénées - Emmery,a remplir,0.0,40.0,40.0,0.423,0.0,48.872,2.392
+Paris,Saint-Maur - Roquette,a remplir,2.0,59.0,61.0,0.423,0.0,48.859,2.384
+Paris,Guy Môquet - Saint-Ouen,a remplir,4.0,49.0,53.0,0.423,0.0,48.893,2.327
+Paris,Molière - République,a remplir,2.0,28.0,30.0,0.423,0.0,48.811,2.315
+Paris,Etienne Dolet - Place Maurice Chevalier,a remplir,3.0,43.0,46.0,0.423,0.0,48.868,2.385
+Toulouse,PUJOL - GOUJON,a remplir,1.0,19.0,20.0,0.4,0.0,43.602,1.458
+Lyon,FOURVIERE,a remplir,3.0,12.0,14.0,0.4,0.0,45.762,4.821
+Lyon,PLACE D'HELVÉTIE,a remplir,0.0,28.0,28.0,0.4,0.0,45.773,4.842
+Toulouse,GLOIRE - CHIRAC,a remplir,0.0,13.0,13.0,0.4,0.0,43.607,1.473
+Toulouse,FONTAINES - MILHÈS,a remplir,4.0,11.0,15.0,0.4,0.0,43.602,1.415
+Toulouse,PLACE SAINT-ÉTIENNE,a vider,21.0,1.0,22.0,0.0,0.4,43.6,1.449
+Toulouse,PARGAMINIÈRES - LAKANAL,a vider,8.0,2.0,10.0,0.0,0.4,43.605,1.44
+Lyon,INSTITUT D'ART CONTEMPORAIN,a remplir,0.0,24.0,24.0,0.4,0.0,45.761,4.872
+Toulouse,MUSEE SAINT-RAYMOND,a vider,10.0,2.0,12.0,0.0,0.4,43.608,1.441
+Lyon,1001 - TERREAUX / TERME,a remplir,3.0,11.0,12.0,0.4,0.0,45.768,4.832
+Toulouse,LAVAUR - DALOU,a remplir,3.0,10.0,13.0,0.4,0.0,43.623,1.463
+Toulouse,VELASQUEZ - TAMARIS,a vider,10.0,6.0,16.0,0.0,0.4,43.621,1.39
+Lyon,PLACE FLAMMARION,a remplir,0.0,14.0,15.0,0.4,0.0,45.779,4.82
+Lyon,10025 - TOTEM,a remplir,3.0,11.0,14.0,0.4,0.0,45.764,4.873
+Paris,Desaix - Edgar Faure,a vider,11.0,1.0,12.0,0.0,0.385,48.853,2.293
+Paris,Adolphe Pinard - Victor Hugo,a remplir,0.0,51.0,51.0,0.385,0.0,48.824,2.308
+Paris,Place Alphonse Deville,a vider,22.0,0.0,22.0,0.0,0.385,48.85,2.328
+Paris,Maine - Antoine Bourdelle,a remplir,0.0,17.0,17.0,0.385,0.0,48.843,2.32
+Paris,Fontainebleau - Edmond Michelet,a remplir,0.0,45.0,45.0,0.385,0.0,48.81,2.363
+Paris,Saint-Blaise - Mouraud,a remplir,1.0,25.0,26.0,0.385,0.0,48.857,2.409
+Paris,Châteaudun - Place de la Liberté,a remplir,0.0,26.0,26.0,0.385,0.0,48.91,2.245
+Paris,Cléry - Montmartre,a vider,58.0,0.0,58.0,0.0,0.385,48.867,2.345
+Paris,Vladimir Ilitch Lénine - Andrée Chedid,a remplir,0.0,31.0,31.0,0.385,0.0,48.813,2.332
+Paris,René Coty - Parc Montsouris,a remplir,1.0,53.0,54.0,0.385,0.0,48.825,2.336
+Paris,Place des Droits de l'Enfant,a remplir,1.0,38.0,39.0,0.385,0.0,48.827,2.332
+Paris,Belleville - Télégraphe,a remplir,1.0,40.0,41.0,0.385,0.0,48.876,2.4
+Paris,Pyrénées - Cours de Vincennes,a remplir,0.0,20.0,20.0,0.385,0.0,48.848,2.406
+Paris,Saint-Jacques - Soufflot,a vider,15.0,1.0,16.0,0.0,0.385,48.846,2.343
+Paris,Indre - Prairies,a remplir,0.0,37.0,37.0,0.385,0.0,48.863,2.403
+Rennes,Croix Saint-Hélier,a vider,7.0,0.0,20.0,0.0,0.385,48.103,-1.662
+Paris,Square du Théâtre du Garde-Chasse,a remplir,1.0,49.0,49.5,0.385,0.0,48.881,2.42
+Paris,Repos - Cimetière du Père Lachaise,a remplir,0.0,33.0,33.0,0.385,0.0,48.859,2.39
+Paris,Douai - Pierre Fontaine,a remplir,3.0,21.0,24.0,0.385,0.0,48.882,2.333
+Lille,Buisson,a remplir,4.0,12.0,16.0,0.36,0.0,50.656,3.088
+Lyon,10048 - PLACE MARENGO,a remplir,4.0,22.0,25.0,0.36,0.0,45.759,4.876
+Toulouse,PLACE DE LA DAURADE,a vider,14.0,6.0,21.0,0.0,0.36,43.602,1.44
+Lyon,SAINT-PAUL,a remplir,0.0,21.0,21.0,0.36,0.0,45.766,4.827
+Toulouse,ROUBICHOU - ARLES,a remplir,1.0,14.0,15.0,0.36,0.0,43.627,1.466
+Lille,Fulton,a remplir,0.0,12.0,12.0,0.36,0.0,50.623,3.038
+Lyon,7051 - GUILLOTIERE / NICOLAÏ,a remplir,3.0,24.0,28.0,0.36,0.0,45.748,4.856
+Toulouse,RECLUSANE - PLACE OLIVIER,a vider,11.0,4.0,16.0,0.0,0.36,43.598,1.434
+Lyon,PLACE DE LA FERRANDIÈRE,a remplir,0.0,17.0,17.0,0.36,0.0,45.759,4.869
+Lyon,PLACE DU PORT MOUTON,a remplir,2.0,13.0,16.0,0.36,0.0,45.774,4.81
+Lyon,GABRIEL PÉRI,a remplir,1.0,22.0,23.0,0.36,0.0,45.772,4.866
+Lyon,TRONCHET / ANATOLE FRANCE,a vider,1.0,8.0,10.0,0.0,0.36,45.771,4.857
+Lyon,VAILLANT / PERRONCEL,a remplir,1.0,13.0,14.0,0.36,0.0,45.775,4.88
+Lille,Magasin,a remplir,1.0,15.0,16.0,0.36,0.0,50.646,3.053
+Toulouse,00183 - RUE DE CUGNAUX - GRAVETTE,a remplir,0.0,18.0,18.0,0.36,0.0,43.593,1.424
+Bordeaux,Patinoire,a remplir,1.0,19.0,20.0,0.36,0.0,44.834,-0.588
+Toulouse,MOULIS - CROIX-BÉNITE,a remplir,0.0,12.0,12.0,0.36,0.0,43.664,1.434
+Toulouse,LAPUJADE - FLANDRES,a remplir,0.0,18.0,18.0,0.36,0.0,43.624,1.455
+Toulouse,PLACE ROQUELAINE,a remplir,0.0,24.0,23.0,0.36,0.0,43.613,1.448
+Toulouse,BARCELONE - SANIÈRES,a remplir,2.0,16.0,18.0,0.36,0.0,43.61,1.42
+Lyon,DOMER / CHEVREUL,a remplir,2.0,10.0,10.0,0.36,0.0,45.747,4.844
+Toulouse,SUISSE - LAUSANNE,a remplir,1.0,19.0,21.0,0.36,0.0,43.616,1.422
+Lyon,8053 - LUMIERE / TROUILHET,a remplir,3.0,8.0,13.0,0.36,0.0,45.744,4.87
+Toulouse,PUJOL - PÉRIGNON,a remplir,2.0,18.0,20.0,0.36,0.0,43.6,1.464
+Lyon,CHATEAU GAILLARD / BIENVENUS,a remplir,0.0,14.0,14.0,0.36,0.0,45.778,4.884
+Lyon,3005 - SAXE / GAMBETTA,a remplir,3.0,22.0,26.0,0.36,0.0,45.754,4.848
+Lyon,PLACE AMBROISE COURTOIS,a remplir,3.0,16.0,19.0,0.36,0.0,45.745,4.872
+Paris,Abbé Groult - Convention,a remplir,1.0,25.0,26.0,0.346,0.0,48.836,2.302
+Paris,Manin - Carrières d'Amérique,a remplir,1.0,19.0,20.0,0.346,0.0,48.885,2.392
+Paris,Dunkerque - Trudaine,a remplir,1.0,10.0,11.0,0.346,0.0,48.882,2.346
+Paris,Archives - Rivoli,a vider,21.0,3.0,24.0,0.0,0.346,48.857,2.354
+Paris,Place des Fêtes - Solitaires,a remplir,0.0,29.0,29.0,0.346,0.0,48.877,2.392
+Paris,Francoeur - Marcadet,a remplir,0.0,20.0,20.0,0.346,0.0,48.891,2.34
+Paris,Alexander Fleming - Belvédère,a remplir,5.0,26.0,31.0,0.346,0.0,48.882,2.403
+Paris,Payenne - Square George Caïn,a vider,22.0,2.0,24.0,0.0,0.346,48.858,2.362
+Paris,Alger - Rivoli,a vider,20.0,0.0,19.0,0.0,0.346,48.865,2.329
+Paris,Emile Blemont - Poteau,a remplir,1.0,38.0,39.0,0.346,0.0,48.894,2.342
+Paris,Guy Môquet - Compoint,a remplir,2.0,33.0,35.0,0.346,0.0,48.892,2.323
+Paris,Bienfaisance - Place de Narvik,a vider,34.0,2.0,35.0,0.0,0.346,48.877,2.313
+Paris,Choisy - Pointe d'Ivry,a remplir,1.0,23.0,24.0,0.346,0.0,48.822,2.363
+Lyon,RUE DE LA BALEINE,a remplir,2.0,12.0,14.0,0.32,0.0,45.763,4.829
+Toulouse,NARBONNE - CAUBÈRE,a remplir,5.0,10.0,14.0,0.32,0.0,43.569,1.456
+Toulouse,BARCELONE - LECLERC,a vider,20.0,2.0,22.0,0.0,0.32,43.607,1.431
+Toulouse,HOTEL DE POLICE,a vider,16.0,7.0,23.0,0.0,0.32,43.615,1.433
+Toulouse,BORDEROUGE - MÉTRO,a vider,18.0,11.0,29.0,0.0,0.32,43.64,1.453
+Toulouse,LESPINET - MARINE,a remplir,0.0,20.0,20.0,0.32,0.0,43.583,1.464
+Lyon,LAFAYETTE / CORNEILLE,a vider,6.0,2.0,8.0,0.0,0.32,45.764,4.844
+Lyon,CENTRE BERTHELOT,a vider,10.0,7.0,17.0,0.0,0.32,45.747,4.836
+Toulouse,AMOUROUX - STE-AUGUSTINE,a remplir,0.0,17.0,17.0,0.32,0.0,43.628,1.462
+Toulouse,BRIENNE - DELORME,a remplir,0.0,21.0,21.0,0.32,0.0,43.608,1.424
+Lyon,GRANDCLÉMENT,a remplir,2.0,14.0,18.0,0.32,0.0,45.76,4.89
+Toulouse,MISTRAL - FLEURANCE,a remplir,0.0,18.0,19.0,0.32,0.0,43.594,1.453
+Toulouse,LA CÉPIÈRE - BAYLET,a vider,17.0,1.0,18.0,0.0,0.32,43.584,1.399
+Lyon,PLACE PUVIS DE CHAVANNES,a remplir,2.0,7.0,9.0,0.32,0.0,45.772,4.845
+Toulouse,ESPAGNE-LANGLADE,a vider,9.0,3.0,12.0,0.0,0.32,43.572,1.424
+Lyon,ETATS-UNIS / VIVIANI,a remplir,2.0,18.0,20.0,0.32,0.0,45.725,4.871
+Toulouse,ROUTE DE SEYSSES - RÉGIS,a vider,12.0,1.0,13.0,0.0,0.32,43.548,1.39
+Lille,Eugene Jacquet,a remplir,4.0,17.0,21.0,0.32,0.0,50.637,3.085
+Lyon,DOUA / RUE DES SPORTS,a vider,27.0,3.0,30.0,0.0,0.32,45.785,4.877
+Paris,Sambre et Meuse - Villette,a remplir,2.0,23.0,25.0,0.308,0.0,48.874,2.374
+Paris,Monte Cristo - Bagnolet,a remplir,3.0,33.0,36.0,0.308,0.0,48.857,2.397
+Paris,Ménilmontant - Oberkampf,a remplir,1.0,39.0,40.0,0.308,0.0,48.867,2.383
+Paris,La Jarry - Place Diderot,a remplir,0.0,25.0,25.0,0.308,0.0,48.85,2.452
+Paris,Ramponeau - Belleville,a remplir,2.0,42.0,44.0,0.308,0.0,48.871,2.379
+Paris,Belleville - Porte des Lilas,a remplir,0.0,31.0,31.0,0.308,0.0,48.877,2.405
+Paris,Pernety - Raymond Losserand,a remplir,3.0,29.0,32.0,0.308,0.0,48.834,2.318
+Paris,Bordier - Félix Faure,a remplir,1.0,47.0,48.0,0.308,0.0,48.904,2.383
+Paris,Jean Colly - Tolbiac,a remplir,0.0,35.0,35.0,0.308,0.0,48.828,2.371
+Paris,Pyrénées - Plaine,a remplir,1.0,11.0,12.0,0.308,0.0,48.85,2.406
+Paris,Pyrénées - Charles Renouvier,a remplir,0.0,28.0,29.0,0.308,0.0,48.861,2.4
+Paris,Vincent Auriol - Louise Weiss,a vider,22.0,0.0,22.0,0.0,0.308,48.834,2.37
+Paris,Faubourg Montmartre - La Fayette,a vider,33.0,0.0,33.0,0.0,0.308,48.875,2.341
+Paris,Stephenson - Doudeauville,a remplir,1.0,34.0,35.0,0.308,0.0,48.889,2.356
+Paris,Franquet - Labrouste,a remplir,2.0,35.0,37.0,0.308,0.0,48.833,2.307
+Paris,Notre-Dame-des-Champs - Stanislas,a vider,15.0,3.0,18.0,0.0,0.308,48.845,2.329
+Paris,Place de Lévis,a remplir,0.0,45.0,45.0,0.308,0.0,48.884,2.313
+Bordeaux,Place St Projet,a remplir,0.0,17.0,17.0,0.28,0.0,44.839,-0.575
+Lyon,PLACE ENNEMOND FOUSSERET,a remplir,0.0,13.0,14.0,0.28,0.0,45.765,4.829
+Lyon,SISLEY / DAUPHINE,a remplir,0.0,16.0,17.0,0.28,0.0,45.752,4.869
+Toulouse,DUMERIL - SAINT JOSEPH,a remplir,1.0,17.0,16.0,0.28,0.0,43.591,1.452
+Toulouse,VESTREPAIN - BAGATELLE,a remplir,0.0,13.0,13.0,0.28,0.0,43.584,1.411
+Lyon,BELLECOUR / RÉPUBLIQUE,a vider,17.0,0.0,17.0,0.0,0.28,45.758,4.835
+Lyon,PLACE RASPAIL,a remplir,0.0,21.0,22.0,0.28,0.0,45.756,4.841
+Toulouse,POIDS DE L'HUILE,a vider,19.0,0.0,19.0,0.0,0.28,43.604,1.445
+Lyon,TERREAUX / CHENAVARD,a remplir,1.0,16.0,17.0,0.28,0.0,45.767,4.833
+Lyon,GUILLOTIÈRE / MADELEINE,a remplir,0.0,9.0,10.0,0.28,0.0,45.751,4.848
+Toulouse,LESPINET - HERBETTES,a remplir,1.0,24.0,25.0,0.28,0.0,43.577,1.47
+Toulouse,LYCEE DÉODAT DE SÉVERAC,a remplir,0.0,19.0,19.0,0.28,0.0,43.588,1.424
+Lyon,MARTINIÈRE / MONPLAISIR,a remplir,1.0,17.0,18.0,0.28,0.0,45.741,4.868
+Paris,Charonne - Robert et Sonia Delaunay,a remplir,0.0,20.0,20.0,0.269,0.0,48.856,2.393
+Paris,Ranelagh - Maison de la Radio,a vider,19.0,1.0,20.0,0.0,0.269,48.853,2.28
+Paris,Lallier - Trudaine ,a remplir,0.0,28.0,28.0,0.269,0.0,48.881,2.341
+Paris,Bobillot - Paulin Mery,a remplir,0.0,23.0,23.0,0.269,0.0,48.83,2.354
+Paris,Gare Montparnasse - René Mouchotte,a remplir,0.0,41.0,41.0,0.269,0.0,48.839,2.321
+Paris,Marcelin Berthelot,a remplir,1.0,26.0,27.0,0.269,0.0,48.842,2.233
+Lyon,LYON(01) - CONSERVATOIRE BIS,a vider,20.0,0.0,21.0,0.0,0.24,45.77,4.814
+Lyon,RÉPUBLIQUE / STELLA,a vider,27.0,0.0,27.0,0.0,0.24,45.761,4.836
+Lyon,MERMOZ / PINEL,a remplir,0.0,21.0,21.0,0.24,0.0,45.731,4.888
+Toulouse,RAYNAL - ALLIER,a remplir,0.0,13.0,12.0,0.24,0.0,43.632,1.455
+Toulouse,MONT LOUIS –AV. DE TOULOUSE,a vider,16.0,0.0,16.0,0.0,0.24,43.649,1.473
+Toulouse,LAPUJADE - BARTOLI,a remplir,0.0,13.0,13.0,0.24,0.0,43.622,1.454
+Toulouse,BAYONNE - FLAMBÈRE,a vider,11.0,1.0,12.0,0.0,0.24,43.608,1.39
+Toulouse,SELLIER - MOUETTES,a remplir,0.0,16.0,16.0,0.24,0.0,43.577,1.44
+Lyon,BERTHELOT / VILLON,a remplir,0.0,13.0,13.0,0.24,0.0,45.738,4.863
+Lyon,SANS SOUCI,a vider,18.0,1.0,18.0,0.0,0.24,45.747,4.865
+Toulouse,STRASBOURG - AUSTERLITZ,a vider,23.0,0.0,23.0,0.0,0.24,43.606,1.448
+Lyon,5053 - SAINT-JUST,a remplir,1.0,16.0,17.0,0.24,0.0,45.756,4.819
+Lyon,SERVIENT / GARIBALDI,a vider,31.0,1.0,32.0,0.0,0.24,45.761,4.853
+Lyon,PIZAY,a remplir,0.0,21.0,21.0,0.24,0.0,45.767,4.836
+Toulouse,BOURGÈS-MAUNOURY - SÉGLA,a remplir,0.0,18.0,18.0,0.24,0.0,43.633,1.451
+Toulouse,PLACE DES TIBAOUS,a vider,13.0,0.0,13.0,0.0,0.24,43.55,1.386
+Toulouse,MÉDIATHÈQUE JOSÉ CABANIS,a remplir,0.0,24.0,24.0,0.24,0.0,43.61,1.455
+Lille,Gantois,a remplir,0.0,12.0,12.0,0.24,0.0,50.622,3.06
+Lyon,ROSA PARKS,a remplir,0.0,14.0,14.0,0.24,0.0,45.787,4.79
+Toulouse,SUISSE - CH. D'AUZEVILLE,a remplir,0.0,16.0,16.0,0.24,0.0,43.539,1.478
+Toulouse,SOUPETARD - GENÊTS,a remplir,0.0,13.0,13.0,0.24,0.0,43.61,1.472
+Lyon,JEAN XXIII / MERMOZ,a remplir,0.0,17.0,17.0,0.24,0.0,45.736,4.87
+Lyon,BALDASSINI / GERLAND,a vider,18.0,0.0,19.0,0.0,0.24,45.728,4.837
+Toulouse,ILE DU RAMIER - PASSERELLE CONTI,a remplir,0.0,12.0,12.0,0.24,0.0,43.58,1.434
+Lyon,STALINGRAD,a vider,20.0,1.0,21.0,0.0,0.24,45.774,4.859
+Paris,Gare de Bercy,a vider,35.0,0.0,35.0,0.0,0.231,48.84,2.383
+Paris,Sèvres - Lecourbe,a vider,62.0,0.0,62.0,0.0,0.231,48.845,2.311
+Paris,Gare du Nord - La Chapelle,a remplir,0.0,17.0,17.0,0.231,0.0,48.884,2.356
+Paris,Berri - Haussmann,a vider,48.0,0.0,48.0,0.0,0.231,48.875,2.308
+Paris,Pyrénées - Dagorno,a remplir,0.0,19.0,19.0,0.231,0.0,48.855,2.405
+Paris,Bridaine - Lamandé,a remplir,0.0,28.0,28.0,0.231,0.0,48.886,2.321
+Paris,Edgar Quinet - Gaité,a remplir,1.0,26.0,26.0,0.231,0.0,48.841,2.325
+Paris,Victor Cousin - Cujas,a vider,19.0,0.0,19.0,0.0,0.231,48.848,2.342
+Paris,Beaux-Arts - Bonaparte,a vider,20.0,0.0,20.0,0.0,0.231,48.856,2.335
+Paris,Quai Panhard et Levassor,a vider,57.0,0.0,57.0,0.0,0.231,48.828,2.384
+Paris,Gergovie - Vercingétorix,a remplir,1.0,28.0,29.0,0.231,0.0,48.835,2.313
+Paris,Institut de France,a vider,33.0,0.0,33.0,0.0,0.231,48.858,2.336
+Paris,Place du 8 Mai 1945,a remplir,0.0,18.0,18.0,0.231,0.0,48.872,2.203
+Paris,Esplanade du Foncet - Camille Desmoulins,a vider,28.0,0.0,28.0,0.0,0.231,48.827,2.261
+Paris,Bois de Vincennes - Gare,a remplir,0.0,49.0,49.0,0.231,0.0,48.836,2.471
+Paris,Jonquoy - Didot,a remplir,0.0,30.0,30.0,0.231,0.0,48.829,2.316
+Paris,Manin - Simon Bolivar,a remplir,0.0,26.0,26.0,0.231,0.0,48.876,2.379
+Paris,Place Robert Guillemard,a vider,23.0,0.0,23.0,0.0,0.231,48.836,2.281
+Paris,Ventadour - Opéra,a vider,25.0,0.0,25.0,0.0,0.231,48.867,2.334
+Paris,Place des Victoires,a vider,21.0,1.0,22.0,0.0,0.231,48.866,2.342
+Lyon,MAIRIE DU 4E,a remplir,1.0,15.0,17.0,0.2,0.0,45.774,4.828
+Lyon,SANTY / BEAUVISAGE,a remplir,0.0,15.0,16.0,0.2,0.0,45.732,4.874
+Lyon,CHARMETTES/ZOLA,a remplir,1.0,20.0,22.0,0.2,0.0,45.771,4.867
+Lyon,CHAZETTE LASSAGNE,a remplir,1.0,18.0,18.0,0.2,0.0,45.773,4.837
+Lyon,TABAREAU,a remplir,0.0,7.0,7.0,0.2,0.0,45.774,4.825
+Toulouse,00046 - PLACE DES CARMES,a vider,16.0,1.0,18.0,0.0,0.2,43.597,1.445
+Lyon,PART-DIEU / FRANCFORT,a remplir,0.0,26.0,25.0,0.2,0.0,45.761,4.863
+Lyon,LAFAYETTE / INKERMANN,a remplir,0.0,26.0,28.0,0.2,0.0,45.764,4.866
+Toulouse,JARDIN DU PECH,a remplir,1.0,17.0,17.0,0.2,0.0,43.59,1.415
+Toulouse,LASCROSSES - LECLERC,a vider,24.0,1.0,25.0,0.0,0.2,43.609,1.432
+Lille,Jeanne d'Arc,a remplir,1.0,19.0,20.0,0.2,0.0,50.626,3.064
+Toulouse,JARDIN DU BARRY,a vider,11.0,1.0,11.0,0.0,0.2,43.601,1.404
+Lille,Universite Catholique,a vider,31.0,0.0,31.0,0.0,0.2,50.632,3.046
+Lyon,PHILIPPE DE LASSALLE,a remplir,0.0,20.0,20.0,0.2,0.0,45.773,4.821
+Paris,Carducci - Place Hannah Arendt,a remplir,0.0,27.0,27.0,0.192,0.0,48.877,2.386
+Paris,Pré Saint-Gervais - Lilas,a remplir,0.0,27.0,27.0,0.192,0.0,48.878,2.396
+Paris,Saint-Gilles - Turenne,a vider,12.0,1.0,13.0,0.0,0.192,48.858,2.365
+Paris,Navier - Epinettes,a remplir,1.0,52.0,53.0,0.192,0.0,48.896,2.323
+Paris,Vaugirard - Monsieur le Prince,a vider,26.0,0.0,26.0,0.0,0.192,48.849,2.341
+Paris,Jourdan - Monticelli,a remplir,1.0,29.0,30.0,0.192,0.0,48.822,2.329
+Paris,Place des Ardoines,a vider,44.0,1.0,45.0,0.0,0.192,48.783,2.407
+Paris,Dunois - Clisson,a remplir,0.0,51.0,51.0,0.192,0.0,48.832,2.367
+Paris,Danton - Serpente,a vider,33.0,1.0,34.0,0.0,0.192,48.852,2.341
+Paris,Piat - Parc de Belleville,a remplir,1.0,20.0,21.0,0.192,0.0,48.872,2.385
+Paris,Gare Montparnasse - Edgar Quinet,a remplir,0.0,32.0,32.0,0.192,0.0,48.841,2.323
+Paris,Sablons - Georges Mandel,a remplir,1.0,37.0,38.0,0.192,0.0,48.864,2.282
+Bordeaux,Francois de Sourdis,a remplir,0.0,15.0,15.0,0.16,0.0,44.831,-0.587
+Toulouse,TERRASSE - LEDORMEUR,a remplir,1.0,17.0,18.0,0.16,0.0,43.584,1.488
+Toulouse,CURIE - CAMPISTRON,a remplir,0.0,18.0,18.0,0.16,0.0,43.626,1.44
+Lyon,PLACE REGAUD,a vider,10.0,0.0,10.0,0.08,0.16,45.763,4.834
+Lille,Gare Lille Flandres,a remplir,0.0,32.0,32.0,0.16,0.0,50.636,3.069
+Bordeaux,Eglise St Louis,a vider,19.0,1.0,20.0,0.0,0.16,44.852,-0.572
+Toulouse,MAIRIE  RAMONVILLE,a remplir,0.0,16.0,16.0,0.16,0.0,43.546,1.475
+Toulouse,00005 - MARENGO - LEDUC,a remplir,0.0,19.0,19.0,0.16,0.0,43.611,1.457
+Toulouse,PLACE MARCEL BOUILLOUX,a vider,15.0,0.0,15.0,0.0,0.16,43.572,1.479
+Toulouse,THÉÂTRE GARONNE,a remplir,0.0,22.0,22.0,0.16,0.0,43.602,1.425
+Toulouse,OCCITANE - SIENNE,a vider,16.0,0.0,15.0,0.0,0.16,43.55,1.502
+Paris,Brochant - Clichy,a remplir,1.0,51.0,52.0,0.154,0.0,48.89,2.32
+Paris,Nungesser - Santé,a remplir,1.0,19.0,20.0,0.154,0.0,48.852,2.449
+Paris,Verdier - République,a remplir,1.0,28.0,29.0,0.154,0.0,48.815,2.317
+Paris,Square René Viviani - Montebello,a vider,40.0,0.0,40.0,0.0,0.154,48.852,2.348
+Paris,Saint Lambert - Blomet,a remplir,0.0,26.0,26.0,0.154,0.0,48.837,2.293
+Paris,Square des Amandiers,a remplir,1.0,25.0,26.0,0.154,0.0,48.866,2.389
+Paris,Ménil - Argenteuil,a remplir,1.0,17.0,18.0,0.154,0.0,48.926,2.274
+Paris,Place François Mitterand,a remplir,1.0,33.0,34.0,0.154,0.0,48.865,2.443
+Lyon,CUSSET,a remplir,0.0,18.0,19.0,0.12,0.0,45.765,4.901
+Lyon,PLACE GERSON,a remplir,1.0,19.0,20.0,0.12,0.0,45.767,4.827
+Lyon,DUMONT / JOUVET,a remplir,1.0,16.0,17.0,0.12,0.0,45.744,4.861
+Lyon,GARIBALDI,a remplir,1.0,10.0,11.0,0.12,0.0,45.771,4.85
+Lyon,STADE VUILLERMET,a remplir,1.0,16.0,17.0,0.12,0.0,45.725,4.881
+Lyon,7016 - PLACE SAINT LOUIS,a remplir,0.0,14.0,15.0,0.12,0.0,45.749,4.848
+Lyon,MUSEE AFRICAIN,a remplir,1.0,20.0,20.0,0.12,0.0,45.75,4.858
+Toulouse,CASSELARDIT - DUCIS,a vider,12.0,1.0,13.0,0.0,0.12,43.61,1.406
+Lyon,BLUM / FAYS,a vider,13.0,1.0,15.0,0.0,0.12,45.761,4.906
+Paris,Victor Hugo - Jeanne Jugan,a remplir,0.0,27.0,27.0,0.115,0.0,48.844,2.415
+Paris,Place Lafayette,a vider,62.0,0.0,62.0,0.0,0.115,48.83,2.264
+Paris,Roland Garros - Jean Bouin,a remplir,0.0,27.0,27.0,0.115,0.0,48.809,2.285
+Paris,Place de l'Hôtel de Ville,a vider,12.0,0.0,12.0,0.0,0.115,48.857,2.351
+Paris,Hauteville - Bonne Nouvelle,a vider,15.0,1.0,16.0,0.0,0.115,48.871,2.35
+Paris,Chancé Milly - Cimetière Communal Sud,a remplir,0.0,32.0,32.0,0.115,0.0,48.897,2.304
+Paris,Marché aux fleurs,a vider,18.0,0.0,18.0,0.0,0.115,48.855,2.347
+Paris,Cassini - Denfert-Rochereau,a vider,23.0,0.0,23.0,0.0,0.115,48.838,2.336
+Paris,Champeaux - Gallieni,a remplir,1.0,48.0,49.0,0.115,0.0,48.864,2.416
+Paris,Cambronne - Villa Croix Nivert,a remplir,1.0,60.0,61.0,0.115,0.0,48.846,2.302
+Paris,Jardin Modèle - Pierre Boudou,a remplir,1.0,16.0,17.0,0.115,0.0,48.915,2.306
+Paris,Charonne - Philippe-Auguste,a remplir,0.0,32.0,32.0,0.115,0.0,48.856,2.391
+Paris,Flandrin - Henri Martin,a remplir,0.0,16.0,16.0,0.115,0.0,48.864,2.272
+Paris,Amédée Huon - Fort d'Ivry,a remplir,0.0,30.0,30.0,0.115,0.0,48.805,2.388
+Paris,Cimetière de Fontenay-sous-Bois,a remplir,1.0,14.0,15.0,0.115,0.0,48.847,2.479
+Toulouse,PLACE ROGER ARNAUD,a remplir,1.0,15.0,16.0,0.08,0.0,43.587,1.463
+Lille,Montebello,a remplir,0.0,24.0,24.0,0.08,0.0,50.622,3.045
+Bordeaux,Saint-Michel,a remplir,1.0,19.0,20.0,0.08,0.0,44.835,-0.565
+Lyon,VAULX - HÔTEL DE VILLE,a vider,28.0,1.0,29.0,0.0,0.08,45.778,4.921
+Lille,Bd Victor Hugo,a remplir,1.0,17.0,18.0,0.08,0.0,50.62,3.055
+Lyon,PIATON / CONDORCET,a remplir,1.0,18.0,18.0,0.08,0.0,45.774,4.868
+Lyon,GARE DES BROTTEAUX,a vider,15.0,0.0,16.0,0.0,0.08,45.767,4.859
+Lyon,RAMBAUD / ECOLE DU CINÉMA,a vider,30.0,0.0,30.0,0.0,0.08,45.746,4.817
+Lyon,5015 - FULCHIRON,a remplir,0.0,19.0,18.0,0.08,0.0,45.752,4.822
+Toulouse,SALADE PONSAN - SAHUQUE,a remplir,1.0,12.0,13.0,0.08,0.0,43.564,1.455
+Lyon,PLACE DU CHÂTEAU,a remplir,1.0,23.0,24.0,0.08,0.0,45.75,4.887
+Lyon,10089 - COLIN / PERRONCEL,a remplir,1.0,14.0,15.0,0.08,0.0,45.775,4.874
+Bordeaux,Grand Parc,a vider,19.0,1.0,20.0,0.0,0.08,44.863,-0.576
+Lyon,SUBSISTANCES,a vider,20.0,1.0,22.0,0.0,0.08,45.768,4.82
+Paris,Marcadet - Barbès,a remplir,0.0,33.0,34.0,0.077,0.0,48.89,2.349
+Paris,Caumartin - Provence,a vider,19.0,0.0,19.0,0.0,0.077,48.874,2.328
+Paris,Championnet.,a remplir,1.0,18.0,19.0,0.077,0.0,48.895,2.35
+Paris,Paul Signac - Aristide Briand,a remplir,1.0,34.0,35.0,0.077,0.0,48.87,2.45
+Paris,Vivaldi - Antoine-Julien Hénard,a remplir,0.0,27.0,27.0,0.077,0.0,48.842,2.39
+Paris,Place de la République - Temple,a vider,18.0,0.0,18.0,0.0,0.077,48.867,2.364
+Paris,Saint-Mande - Picpus,a remplir,0.0,34.0,34.0,0.077,0.0,48.845,2.402
+Paris,Pont de Levallois-bécon ,a vider,49.0,0.0,49.0,0.0,0.077,48.898,2.279
+Paris,Place de Rhin et Danube,a remplir,1.0,29.0,30.0,0.077,0.0,48.882,2.393
+Lyon,BRON - PLACE CURIAL,a remplir,0.0,24.0,25.0,0.04,0.0,45.737,4.917
+Toulouse,VOSGES - BEAUCE,a remplir,1.0,8.0,9.0,0.04,0.0,43.582,1.419
+Lille,Jean Sans Peur,a remplir,0.0,14.0,14.0,0.04,0.0,50.632,3.058
+Lille,Ch. des Margueritois,a remplir,0.0,13.0,13.0,0.04,0.0,50.606,3.072
+Lille,Chanzy,a remplir,1.0,11.0,12.0,0.04,0.0,50.625,3.101
+Toulouse,WAGNER - BRUNHES,a remplir,0.0,19.0,20.0,0.04,0.0,43.604,1.42
+Lyon,11005 - CALUIRE - PASSERELLE DE LA PAIX,a remplir,1.0,24.0,25.0,0.04,0.0,45.788,4.853
+Paris,Parmentier - République,a remplir,1.0,49.0,50.0,0.038,0.0,48.864,2.375
+Paris,Square Desnouettes,a vider,21.0,1.0,22.0,0.0,0.038,48.835,2.284
+Paris,Place du Lieutenant Henri Karcher,a vider,27.0,1.0,28.0,0.0,0.038,48.863,2.34
+Paris,Mazagran - Pierre de Coubertin,a vider,14.0,1.0,15.0,0.0,0.038,48.816,2.344
+Paris,Sèvres - Général Leclerc,a vider,27.0,1.0,28.0,0.0,0.038,48.83,2.231
 Strasbourg,Place de Bordeaux,a remplir,1.0,7.0,8.0,0.0,0.0,48.594,7.757
-Paris,Saint-Amand - Labrouste,a remplir,1.0,34.0,35.0,0.0,0.0,48.834,2.309
+Paris,Jean Jaurès - Jules Jacquemin,a remplir,1.0,23.0,24.0,0.0,0.0,48.884,2.408
+Paris,Faubourg St-Antoine - Place de la Nation,a remplir,1.0,15.0,16.0,0.0,0.0,48.849,2.394
+Lyon,QUAI PAUL SÉDALLIAN,a vider,18.0,1.0,19.0,0.0,0.0,45.788,4.814
+Toulouse,POUVOURVILLE - GOSCINNY,a remplir,1.0,12.0,13.0,0.0,0.0,43.55,1.458
+Paris,Siam - La Pompe,a remplir,1.0,13.0,15.0,0.0,0.0,48.862,2.275
+Paris,Brochant - Square des Batignolles,a remplir,1.0,30.0,31.0,0.0,0.0,48.888,2.317
+Lille,Jean Jaures,a remplir,1.0,16.0,17.0,0.0,0.0,50.61,3.075
+Paris,Taitbout - Châteaudun,a vider,53.0,1.0,54.0,0.0,0.0,48.876,2.335
+Toulouse,ESPAGNE - CURIEN,a vider,12.0,1.0,13.0,0.0,0.0,43.558,1.427
+Paris,Morillons - Dantzig,a remplir,1.0,51.0,52.0,0.0,0.0,48.833,2.299
+Lyon,PIERRE BÉNITE - EUROPE,a remplir,1.0,14.0,15.0,0.0,0.0,45.703,4.821
+Lyon,RÉPUBLIQUE / FERRANDIÈRE,a vider,23.0,1.0,24.0,0.0,0.0,45.762,4.836
+Lyon,GARIBALDI / PENSIONNAT,a remplir,1.0,28.0,29.0,0.0,0.0,45.755,4.853
+Bordeaux,Ilot Gare St-Jean,a remplir,1.0,18.0,19.0,0.0,0.0,44.826,-0.557
+Paris,Parc Floral du Bel Air,a vider,23.0,1.0,24.0,0.0,0.0,48.839,2.439
+Bordeaux,Maison Calixte Camelle,a remplir,1.0,19.0,20.0,0.0,0.0,44.837,-0.557
 Paris,Henri Barbusse - Gabriel Péri,a remplir,1.0,26.0,27.0,0.0,0.0,48.802,2.287
 Lille,Jean Moulin,a remplir,1.0,14.0,15.0,0.0,0.0,50.685,3.172
-Montpellier,Médiathèque Emile Zola,a remplir,1.0,14.0,15.0,0.0,0.0,43.608,3.893
-Toulouse,SUISSE - POLITKOVSKAIA,a remplir,1.0,10.0,11.0,0.0,0.0,43.613,1.42
-Toulouse,ILE DU RAMIER - PASSERELLE CONTI,a remplir,1.0,11.0,12.0,0.0,0.0,43.58,1.434
-Montpellier,Père Soulas,a remplir,1.0,7.0,8.0,0.0,0.0,43.622,3.856
-Paris,Championnet - Vauvenargues,a remplir,1.0,31.0,32.0,0.0,0.0,48.894,2.332
-Lyon,QUAI LASSAGNE,a remplir,1.0,11.0,12.0,0.0,0.0,45.772,4.838
-Lyon,PERRACHE / DE PURY,a vider,17.0,1.0,18.0,0.0,0.0,45.739,4.823
-Paris,Parc Floral du Bel Air,a vider,23.0,1.0,24.0,0.0,0.0,48.839,2.439
-Toulouse,ESPAGNE - CURIEN,a vider,11.0,1.0,12.0,0.0,0.0,43.558,1.427
-Montpellier,Celleneuve,a remplir,1.0,7.0,8.0,0.0,0.0,43.615,3.833
-Toulouse,CHALETS - DOUVILLÉ,a remplir,1.0,14.0,15.0,0.0,0.0,43.613,1.441
-Lyon,PLACE GERSON,a remplir,1.0,19.0,20.0,0.0,0.0,45.767,4.827
-Toulouse,CHAÎNE - TIERCERETTES,a vider,16.0,1.0,17.0,0.0,0.0,43.609,1.439
-Paris,Chernoviz - Raynouard,a remplir,1.0,35.0,36.0,0.0,0.0,48.857,2.282
-Bordeaux,Gare Saint-Jean,a remplir,1.0,20.0,21.0,0.0,0.0,44.826,-0.557
-Paris,Thouin - Cardinal Lemoine,a remplir,1.0,16.0,17.0,0.0,0.0,48.845,2.349
-Paris,Pereire - Ternes,a remplir,1.0,47.0,48.0,0.0,0.0,48.88,2.288
-Bordeaux,Ilot Gare St-Jean,a remplir,1.0,18.0,19.0,0.0,0.0,44.826,-0.557
-Paris,Porte des Lilas - Faidherbe,a remplir,1.0,37.0,38.0,0.0,0.0,48.879,2.412
-Paris,Roland Garros - Jean Bouin,a remplir,1.0,26.0,27.0,0.0,0.0,48.809,2.285
-Lyon,10089 - COLIN / PERRONCEL,a remplir,1.0,13.0,14.0,0.0,0.0,45.775,4.874
-Paris,Château - République,a remplir,1.0,24.0,25.0,0.0,0.0,48.863,2.416
-Paris,Place Jeanne d'Arc,a remplir,1.0,35.0,36.0,0.0,0.0,48.83,2.369
-Paris,Centre Hospitalier Intercommunal de Créteil,a remplir,1.0,16.0,17.0,0.0,0.0,48.797,2.464
 Montpellier,Les Aubes,a remplir,1.0,7.0,8.0,0.0,0.0,43.619,3.894
-Paris,Mûriers - Père Lachaise,a remplir,1.0,19.0,20.0,0.0,0.0,48.864,2.392
-Lille,Avenue de Mormal,a remplir,1.0,17.0,18.0,0.0,0.0,50.651,3.089
-Lyon,SANTY / BEAUVISAGE,a remplir,1.0,15.0,16.0,0.0,0.0,45.732,4.874
-Lyon,MÉNIVAL / JOLIOT CURIE,a remplir,1.0,18.0,19.0,0.0,0.0,45.755,4.788
-Bordeaux,Ilot Capucins,a remplir,1.0,4.0,5.0,0.0,0.0,44.83,-0.568
-Paris,Marché aux fleurs,a vider,17.0,1.0,18.0,0.0,0.0,48.855,2.347
-Paris,Clapeyron - Moscou,a remplir,1.0,13.0,14.0,0.0,0.0,48.881,2.325
-Lille,St Sebastien,a remplir,1.0,27.0,28.0,0.0,0.0,50.647,3.059
-Bordeaux,Place Amedee Larrieu,a remplir,1.0,17.0,18.0,0.0,0.0,44.83,-0.581
-Lyon,PIERRE BÉNITE - EUROPE,a remplir,1.0,14.0,15.0,0.0,0.0,45.703,4.821
-Lyon,OULLINS - GARE,a vider,38.0,1.0,39.0,0.0,0.0,45.717,4.814
-Lyon,RÉPUBLIQUE / FERRANDIÈRE,a vider,23.0,1.0,24.0,0.0,0.0,45.762,4.836
-Paris,Piat - Parc de Belleville,a remplir,1.0,20.0,21.0,0.0,0.0,48.872,2.385
-Paris,Square de la rue Pixérécourt,a remplir,1.0,43.0,44.0,0.0,0.0,48.874,2.396
-Toulouse,EISENHOWER - LESTANG,a vider,11.0,1.0,12.0,0.0,0.0,43.56,1.394
-Paris,Villette - Belleville,a remplir,1.0,47.0,48.0,0.0,0.0,48.873,2.376
-Paris,Charonne - Bureau,a remplir,1.0,45.0,46.0,0.0,0.0,48.854,2.396
-Paris,Championnet.,a remplir,1.0,18.0,19.0,0.0,0.0,48.895,2.35
-Paris,Indre - Prairies,a remplir,1.0,36.0,37.0,0.0,0.0,48.863,2.403
-Bordeaux,Xaintrailles,a remplir,1.0,14.0,15.0,0.0,0.0,44.828,-0.593
-Bordeaux,Stalingrad,a remplir,1.0,17.0,18.0,0.0,0.0,44.84,-0.56
 Toulouse,RTE DE LAUNAGUET - DELBO,a remplir,1.0,12.0,13.0,0.0,0.0,43.651,1.438
+Montpellier,Celleneuve,a remplir,1.0,7.0,8.0,0.0,0.0,43.615,3.833
 Paris,Square Simon Bolivar,a remplir,1.0,23.0,24.0,0.0,0.0,48.875,2.383
-Paris,Paul Signac - Aristide Briand,a remplir,1.0,34.0,35.0,0.0,0.0,48.87,2.45
-Lyon,PERRIN / JEAN JAURÈS,a remplir,1.0,33.0,34.0,0.0,0.0,45.758,4.885
-Toulouse,LYON - SÉMARD,a remplir,1.0,24.0,25.0,0.0,0.0,43.614,1.451
-Paris,Place du 17 Octobre,a vider,16.0,1.0,17.0,0.0,0.0,48.92,2.298
-Paris,Saint-Marc - Feydeau,a vider,31.0,1.0,32.0,0.0,0.0,48.87,2.342
-Lyon,LAENNEC / PINEL,a remplir,1.0,14.0,15.0,0.0,0.0,45.735,4.89
-Bordeaux,Ilot Parc aux Angéliques,a remplir,1.0,4.0,5.0,0.0,0.0,44.846,-0.565
-Toulouse,ROSTAND - EIDENBENZ,a remplir,1.0,12.0,13.0,0.0,0.0,43.644,1.464
-Paris,Roquette - Folie Regnault,a remplir,1.0,51.0,52.0,0.0,0.0,48.859,2.387
-Bordeaux,Eglise St Louis,a vider,19.0,1.0,20.0,0.0,0.0,44.852,-0.572
-Paris,Jules Guesde - Pont du Port à l'Anglais,a vider,28.0,1.0,29.0,0.0,0.0,48.796,2.417
-Bordeaux,St Nicolas,a remplir,1.0,12.0,13.0,0.0,0.0,44.828,-0.576
-Paris,Montmartre - Etienne Marcel,a vider,15.0,1.0,16.0,0.0,0.0,48.865,2.345
-Paris,Leibniz - Jean Dollfus,a remplir,1.0,30.0,31.0,0.0,0.0,48.896,2.333
-Paris,Place François Mitterand,a remplir,1.0,33.0,34.0,0.0,0.0,48.865,2.443
-Paris,Matignon - Faubourg Saint-Honoré,a vider,34.0,1.0,35.0,0.0,0.0,48.871,2.314
-Paris,Brochant - Clichy,a remplir,1.0,51.0,52.0,0.0,0.0,48.89,2.32
-Paris,Quai de la Seine,a remplir,1.0,23.0,24.0,0.0,0.0,48.884,2.37
-Paris,Square Louis XVI,a vider,28.0,1.0,29.0,0.0,0.0,48.873,2.324
-Lyon,QUAI ROMAIN ROLLAND,a remplir,1.0,14.0,15.0,0.0,0.0,45.762,4.829
-Paris,Raspail - Chomel,a vider,48.0,1.0,49.0,0.0,0.0,48.852,2.327
+Toulouse,FITTE -  MAGNÉ,a remplir,1.0,19.0,20.0,0.0,0.0,43.595,1.433
+Paris,Duhamel - André Gide,a remplir,1.0,19.0,20.0,0.0,0.0,48.837,2.313
+Paris,Square Etienne Jarousse,a remplir,1.0,24.0,25.0,0.0,0.0,48.825,2.293
+Bordeaux,Promis,a vider,15.0,1.0,16.0,0.0,0.0,44.839,-0.552
+Paris,Moulin de la Pointe,a remplir,1.0,21.0,22.0,0.0,0.0,48.821,2.356
+Lille,Marcq Mairie,a remplir,1.0,11.0,12.0,0.0,0.0,50.672,3.092
+Paris,Barbès - Monique Maunoury,a remplir,1.0,39.0,40.0,0.0,0.0,48.816,2.369
+Montpellier,Albert 1er - Cathédrale,a remplir,1.0,11.0,12.0,0.0,0.0,43.614,3.873
+Paris,Cimetière de Montrouge,a remplir,1.0,57.0,58.0,0.0,0.0,48.821,2.322
+Paris,Wurtz - Tolbiac,a remplir,1.0,26.0,27.0,0.0,0.0,48.826,2.345
+Lyon,PLACE DE L'HIPPODROME,a vider,22.0,1.0,23.0,0.0,0.0,45.746,4.824
+Paris,Bas du Mont-Mesly,a vider,26.0,1.0,27.0,0.0,0.0,48.78,2.461
+Paris,Rochechouart - Martyrs,a remplir,1.0,17.0,18.0,0.0,0.0,48.882,2.341
+Paris,Saint-Honoré - Musée du Louvre,a vider,30.0,1.0,31.0,0.0,0.0,48.863,2.335
 Lyon,TONKIN,a remplir,1.0,9.0,10.0,0.0,0.0,45.776,4.863
-Lyon,QUAI SARRAIL,a remplir,1.0,12.0,13.0,0.0,0.0,45.767,4.841
-Paris,Douai - Bruxelles,a remplir,1.0,25.0,26.0,0.0,0.0,48.883,2.331
-Paris,Archives - Rivoli,a vider,23.0,1.0,24.0,0.0,0.0,48.857,2.354
-Paris,Youri Gagarine - Karl Marx,a remplir,1.0,21.0,22.0,0.0,0.0,48.784,2.359
-Paris,Italie - Tolbiac,a remplir,1.0,20.0,21.0,0.0,0.0,48.826,2.358
-Toulouse,COSMONAUTES - GRIFFON,a vider,9.0,1.0,10.0,0.0,0.0,43.559,1.496
-Lyon,FOURVIERE,a remplir,1.0,13.0,14.0,0.0,0.0,45.762,4.821
-Lyon,OULLINS - MAIRIE,a remplir,1.0,15.0,16.0,0.0,0.0,45.714,4.807
-Paris,Lieutenant Chauré - Etienne Marey,a remplir,1.0,19.0,20.0,0.0,0.0,48.867,2.406
-Paris,Ruisseau - Ordener,a remplir,1.0,51.0,52.0,0.0,0.0,48.893,2.34
-Montpellier,Vert Bois,a remplir,1.0,15.0,16.0,0.0,0.0,43.635,3.871
-Paris,Place Jean Delay,a remplir,1.0,34.0,35.0,0.0,0.0,48.823,2.354
-Bordeaux,Ilot Grosse Cloche,a remplir,1.0,4.0,5.0,0.0,0.0,44.835,-0.572
-Lille,Place de la Garonne,a remplir,1.0,11.0,12.0,0.0,0.0,50.613,3.059
-Lyon,CROUS,a remplir,1.0,15.0,16.0,0.0,0.0,45.745,4.848
-Toulouse,EBELOT - PUJIBET,a vider,12.0,1.0,13.0,0.0,0.0,43.638,1.458
+Toulouse,PARC DE LA SALADE,a remplir,1.0,10.0,11.0,0.0,0.0,43.628,1.437
+Bordeaux,Ilot Parc aux Angéliques,a remplir,1.0,4.0,5.0,0.0,0.0,44.846,-0.565
+Paris,Terroirs de France - Lheureux,a vider,50.0,1.0,51.0,0.0,0.0,48.832,2.389
+Toulouse,AUCAMVILLE MAIRIE,a remplir,1.0,15.0,16.0,0.0,0.0,43.668,1.429
+Lille,Canon d'Or,a remplir,1.0,15.0,16.0,0.0,0.0,50.65,3.042
+Paris,Parc Pierre Lagravère,a vider,26.0,1.0,27.0,0.0,0.0,48.927,2.239
 Strasbourg,Musée d'Art Moderne,a remplir,1.0,14.0,15.0,0.0,0.0,48.58,7.736
-Lyon,INSTITUT D'ART CONTEMPORAIN,a remplir,1.0,23.0,24.0,0.0,0.0,45.761,4.872
-Bordeaux,Palais Gallien,a remplir,1.0,10.0,11.0,0.0,0.0,44.847,-0.582
-Lyon,PIERRE DELORE,a remplir,1.0,15.0,16.0,0.0,0.0,45.739,4.852
-Paris,Demi-Lune - Aristide Briand,a remplir,1.0,18.0,19.0,0.0,0.0,48.876,2.456
+Paris,Youri Gagarine - Karl Marx,a remplir,1.0,21.0,22.0,0.0,0.0,48.784,2.359
+Paris,Hélène et François Missoffe - Emile Borel,a vider,30.0,1.0,31.0,0.0,0.0,48.9,2.322
+Paris,Paradis - Hauteville,a vider,29.0,1.0,30.0,0.0,0.0,48.875,2.352
+Paris,Square Louis XVI,a vider,28.0,1.0,29.0,0.0,0.0,48.873,2.324
+Bordeaux,Bourranville,a remplir,1.0,18.0,19.0,0.0,0.0,44.839,-0.629
+Bordeaux,Ilot Capucins,a remplir,1.0,4.0,5.0,0.0,0.0,44.83,-0.568
+Montpellier,Sabines,a remplir,1.0,7.0,8.0,0.0,0.0,43.584,3.86
+Paris,Cours de l'Ile Seguin - Parc Billancourt,a vider,28.0,1.0,29.0,0.0,0.0,48.827,2.234
+Paris,Abbé Carton - Plantes,a remplir,1.0,22.0,23.0,0.0,0.0,48.828,2.321
+Toulouse,POUVOURVILLE - BOURDETTE,a remplir,1.0,12.0,13.0,0.0,0.0,43.555,1.457
+Lille,Boulevard de Valmy,a remplir,1.0,17.0,18.0,0.0,0.0,50.619,3.127
+Paris,Billancourt - Général Leclerc ,a vider,21.0,1.0,22.0,0.0,0.0,48.832,2.238
+Toulouse,BAROUX - LIMAYRAC,a remplir,1.0,17.0,18.0,0.0,0.0,43.592,1.479
+Bordeaux,Medoquine,a remplir,1.0,18.0,19.0,0.0,0.0,44.819,-0.6
+Toulouse,MAFFRE - BASSO CAMBO,a vider,12.0,1.0,13.0,0.0,0.0,43.561,1.385
+Paris,Gabriel Lamé,a vider,35.0,1.0,36.0,0.0,0.0,48.835,2.386
+Toulouse,RTE DE BLAGNAC - ROQUES,a vider,12.0,1.0,13.0,0.0,0.0,43.622,1.406
+Paris,Sainte-Elisabeth - Turbigo,a vider,31.0,1.0,32.0,0.0,0.0,48.866,2.36
 Paris,Quai de l'Oise - Aisne,a remplir,1.0,28.0,29.0,0.0,0.0,48.891,2.383
 Paris,Noisy le Sec - Jean-Baptiste Clément,a remplir,1.0,21.0,22.0,0.0,0.0,48.875,2.415
-Lyon,PART-DIEU / DERUELLE,a vider,28.0,1.0,29.0,0.0,0.0,45.763,4.855
-Lille,Ferme d'en haut,a remplir,1.0,17.0,18.0,0.0,0.0,50.639,3.132
-Paris,Batignolles - Beudant,a remplir,1.0,41.0,42.0,0.0,0.0,48.882,2.32
-Paris,Wurtz - Tolbiac,a remplir,1.0,26.0,27.0,0.0,0.0,48.826,2.345
-Lyon,VINATIER,a vider,19.0,1.0,20.0,0.0,0.0,45.742,4.894
-Paris,Pierre Demours - Laugier,a remplir,1.0,33.0,34.0,0.0,0.0,48.881,2.295
-Toulouse,PARC DE LA SALADE,a remplir,1.0,10.0,11.0,0.0,0.0,43.628,1.437
-Lyon,MUSEE AFRICAIN,a remplir,1.0,18.0,19.0,0.0,0.0,45.75,4.858
-Toulouse,MÉDIATHÈQUE JOSÉ CABANIS,a remplir,1.0,22.0,24.0,0.0,0.0,43.61,1.455
-Lille,Pont de Bois,a remplir,1.0,29.0,30.0,0.0,0.0,50.624,3.128
-Paris,Créteil Pointe du Lac,a vider,27.0,1.0,28.0,0.0,0.0,48.769,2.463
-Lille,Ch. des Margueritois,a remplir,1.0,12.0,13.0,0.0,0.0,50.606,3.072
-Lille,Bd Victor Hugo,a remplir,1.0,17.0,18.0,0.0,0.0,50.62,3.055
-Paris,Hélène et François Missoffe - Emile Borel,a vider,30.0,1.0,31.0,0.0,0.0,48.9,2.322
-Paris,Dunkerque - Rocroy,a remplir,1.0,23.0,24.0,0.0,0.0,48.881,2.351
-Toulouse,CASSELARDIT - DUCIS,a vider,12.0,1.0,13.0,0.0,0.0,43.61,1.406
-Paris,Mairie du 19ème,a remplir,1.0,24.0,25.0,0.0,0.0,48.883,2.381
-Paris,Jules Guesde - Alsace,a vider,21.0,1.0,22.0,0.0,0.0,48.891,2.295
-Paris,Butte aux Cailles - Esperance,a remplir,1.0,32.0,33.0,0.0,0.0,48.828,2.349
-Montpellier,Albert 1er - Cathédrale,a remplir,1.0,11.0,12.0,0.0,0.0,43.614,3.873
-Paris,Rivoli - Musée du Louvre,a vider,21.0,1.0,22.0,0.0,0.0,48.864,2.334
-Paris,Montgallet - Reuilly,a remplir,1.0,14.0,15.0,0.0,0.0,48.844,2.39
-Paris,Brochant - Square des Batignolles,a remplir,1.0,30.0,31.0,0.0,0.0,48.888,2.317
-Paris,Pyrénées - Plaine,a remplir,1.0,11.0,12.0,0.0,0.0,48.85,2.406
-Toulouse,FRONTON - HAON,a remplir,1.0,12.0,13.0,0.0,0.0,43.656,1.432
-Paris,Place du 8 Mai 1945,a remplir,1.0,17.0,18.0,0.0,0.0,48.872,2.203
-Paris,Charonne - Philippe-Auguste,a remplir,1.0,31.0,32.0,0.0,0.0,48.856,2.391
-Lyon,BERTHELOT / VILLON,a remplir,1.0,12.0,13.0,0.0,0.0,45.738,4.863
-Lyon,PLACE ROUGET DE L'ISLE,a remplir,1.0,15.0,16.0,0.0,0.0,45.754,4.867
-Bordeaux,Parc Sourreil,a remplir,1.0,19.0,20.0,0.0,0.0,44.792,-0.582
-Paris,Moulin de la Pointe,a remplir,1.0,21.0,22.0,0.0,0.0,48.821,2.356
-Paris,Marcadet - Ramey,a remplir,1.0,37.0,38.0,0.0,0.0,48.891,2.345
-Lyon,PLACE ADRIEN GODIEN,a remplir,1.0,26.0,27.0,0.0,0.0,45.779,4.841
-Lyon,PLACE VALMY,a remplir,1.0,14.0,15.0,0.0,0.0,45.776,4.805
-Lille,Jean Sans Peur,a remplir,1.0,13.0,14.0,0.0,0.0,50.632,3.058
-Paris,Louis Lumière.,a remplir,1.0,20.0,21.0,0.0,0.0,48.862,2.411
-Paris,Orteaux - Mouraud,a remplir,1.0,23.0,24.0,0.0,0.0,48.856,2.409
-Paris,Place Charles Vallin,a remplir,1.0,23.0,24.0,0.0,0.0,48.836,2.303
-Toulouse,RUE DE FENOUILLET - VERNE,a vider,12.0,1.0,13.0,0.0,0.0,43.628,1.426
-Toulouse,TASSIGNY - MOMBIOLA,a remplir,1.0,12.0,13.0,0.0,0.0,43.579,1.438
-Paris,Bellefond - Poissonnière,a remplir,1.0,15.0,16.0,0.0,0.0,48.878,2.348
-Lille,Rue de Londres,a vider,13.0,1.0,14.0,0.0,0.0,50.617,3.023
-Lyon,CITÉ INTERNATIONALE / RÉSIDENCE HÔTELIÈRE,a vider,27.0,1.0,28.0,0.0,0.0,45.785,4.856
-Paris,Edouard Pailleron - Simon Bolivar ,a remplir,1.0,23.0,24.0,0.0,0.0,48.88,2.375
-Paris,Mairie du 9ème,a vider,23.0,1.0,24.0,0.0,0.0,48.873,2.341
-Lyon,ANDREI SAKHAROV,a remplir,1.0,11.0,12.0,0.0,0.0,45.787,4.797
-Lyon,DOCTEUR DAMIDOT,a remplir,1.0,15.0,16.0,0.0,0.0,45.762,4.886
-Paris,Quai de la Gare - Pont de Bercy,a vider,29.0,1.0,30.0,0.0,0.0,48.837,2.374
-Paris,Rochechouart - Martyrs,a remplir,1.0,17.0,18.0,0.0,0.0,48.882,2.341
-Nantes,DELORME,a vider,19.0,1.0,20.0,0.0,0.0,47.215,-1.564
-Lille,Marcq Mairie,a remplir,1.0,11.0,12.0,0.0,0.0,50.672,3.092
-Toulouse,GUILLAUMET - CEAT,a remplir,1.0,12.0,13.0,0.0,0.0,43.614,1.47
-Paris,Dr Calmette,a vider,17.0,1.0,18.0,0.0,0.0,48.745,2.409
-Lyon,CHAZETTE LASSAGNE,a remplir,1.0,17.0,18.0,0.0,0.0,45.773,4.837
-Paris,Jacques Kellner - Saint-Ouen,a remplir,1.0,44.0,45.0,0.0,0.0,48.896,2.328
-Paris,Abbé Groult - Convention,a remplir,1.0,24.0,25.0,0.0,0.0,48.836,2.302
-Bordeaux,Lycée Camille Julian,a vider,10.0,1.0,11.0,0.0,0.0,44.844,-0.589
-Paris,Sarrette - Général Leclerc,a remplir,1.0,21.0,22.0,0.0,0.0,48.825,2.326
-Bordeaux,Ilot Gambetta,a vider,4.0,1.0,5.0,0.0,0.0,44.841,-0.581
-Paris,Tombe Issoire - René Coty,a remplir,1.0,35.0,36.0,0.0,0.0,48.831,2.334
-Montpellier,Malbosc,a remplir,1.0,6.0,7.0,0.0,0.0,43.634,3.833
-Paris,Victor Hugo - Jeanne Jugan,a remplir,1.0,26.0,27.0,0.0,0.0,48.844,2.415
-Paris,Saint-Benoît - Jacob,a vider,22.0,1.0,23.0,0.0,0.0,48.855,2.333
-Lyon,VENISSIEUX - PAUL / PICARD,a remplir,1.0,14.0,15.0,0.0,0.0,45.7,4.882
+Paris,Dutot - Place Alleray,a remplir,1.0,55.0,56.0,0.0,0.0,48.837,2.307
+Lyon,COUZON - CENTRE,a vider,16.0,1.0,17.0,0.0,0.0,45.846,4.832
+Paris,Dora Maar - Nadia Guendouz,a vider,28.0,1.0,29.0,0.0,0.0,48.905,2.322
+Paris,Estrapade - Ulm,a vider,15.0,1.0,16.0,0.0,0.0,48.845,2.345
+Montpellier,Aiguelongue,a remplir,1.0,6.0,7.0,0.0,0.0,43.626,3.882
+Lille,Gambetta Utrecht,a remplir,1.0,17.0,18.0,0.0,0.0,50.629,3.054
+Lyon,LA MULATIERE - AQUARIUM,a remplir,1.0,22.0,23.0,0.0,0.0,45.727,4.815
 Montpellier,Sud De France,a remplir,1.0,7.0,8.0,0.0,0.0,43.596,3.924
-Paris,Place de l'Eglise - Vitry-sur-Seine,a vider,26.0,1.0,27.0,0.0,0.0,48.792,2.395
-Paris,Sambre et Meuse - Villette,a remplir,1.0,24.0,25.0,0.0,0.0,48.874,2.374
-Lyon,MONTEE DE L'OBSERVANCE,a remplir,1.0,13.0,14.0,0.0,0.0,45.768,4.809
-Paris,Jean Moulin - Paul Doumer,a remplir,1.0,18.0,19.0,0.0,0.0,48.862,2.455
-Paris,Square du Théâtre du Garde-Chasse,a remplir,1.0,48.0,49.0,0.0,0.0,48.881,2.42
-Toulouse,DELTOUR - RIEUX,a remplir,1.0,21.0,22.0,0.0,0.0,43.591,1.47
-Paris,Sibelle - Alésia,a remplir,1.0,35.0,36.0,0.0,0.0,48.827,2.338
-Paris,Louis Ganne - Davout,a remplir,1.0,29.0,30.0,0.0,0.0,48.863,2.41
-Lyon,DUMONT / JOUVET,a remplir,1.0,15.0,16.0,0.0,0.0,45.744,4.861
-Bordeaux,Montaigne Montesquieu,a remplir,1.0,38.0,39.0,0.0,0.0,44.797,-0.617
-Lyon,RUE DE LA BALEINE,a remplir,1.0,11.0,12.0,0.0,0.0,45.763,4.829
-Lyon,CRÉQUI / VOLTAIRE,a remplir,1.0,29.0,30.0,0.0,0.0,45.757,4.848
-Paris,Gare Montparnasse - Edgar Quinet,a remplir,1.0,31.0,32.0,0.0,0.0,48.841,2.323
-Lyon,RACLET / GERLAND,a vider,13.0,1.0,14.0,0.0,0.0,45.734,4.84
-Paris,Porte de Bagnolet,a remplir,1.0,32.0,33.0,0.0,0.0,48.865,2.408
-Toulouse,ALBI - AVRANCHES,a remplir,1.0,15.0,16.0,0.0,0.0,43.633,1.463
-Paris,Musée d'Orsay,a vider,64.0,1.0,65.0,0.0,0.0,48.86,2.326
-Paris,Candale - Mehul,a remplir,1.0,23.0,24.0,0.0,0.0,48.889,2.414
-Toulouse,AV. DU PARC - GUYENNE,a remplir,1.0,15.0,16.0,0.0,0.0,43.632,1.388
-Paris,Bas du Mont-Mesly,a vider,26.0,1.0,27.0,0.0,0.0,48.78,2.461
-Paris,Théâtre des Amandiers - Palais des sports,a vider,20.0,1.0,21.0,0.0,0.0,48.893,2.214
-Paris,Charonne - Pierre Bayle,a remplir,1.0,21.0,22.0,0.0,0.0,48.858,2.39
-Paris,Paul Vaillant-Couturier - Victor Hugo,a vider,31.0,1.0,32.0,0.0,0.0,48.898,2.294
-Lyon,CONDORCET,a vider,22.0,1.0,23.0,0.0,0.0,45.779,4.867
-Lyon,PLACE DE LA PAIX,a remplir,1.0,15.0,16.0,0.0,0.0,45.768,4.832
-Toulouse,PLACE ROSINE BET,a remplir,1.0,12.0,13.0,0.0,0.0,43.623,1.468
-Lyon,MARSEILLE / UNIVERSITÉ,a vider,38.0,1.0,39.0,0.0,0.0,45.751,4.839
-Toulouse,LA CÉPIÈRE - BAYLET,a vider,17.0,1.0,18.0,0.0,0.0,43.584,1.399
-Paris,Hôtel de Ville de Créteil,a vider,35.0,1.0,36.0,0.0,0.0,48.777,2.455
-Paris,Louis Pasteur - Albert Petit,a remplir,1.0,29.0,30.0,0.0,0.0,48.796,2.317
-Bordeaux,Hotel de Ville,a remplir,1.0,30.0,31.0,0.0,0.0,44.838,-0.576
-Lyon,9042 - VAISE DOCKS,a vider,17.0,1.0,18.0,0.0,0.0,45.787,4.811
-Paris,Departement - Pajol,a remplir,1.0,16.0,17.0,0.0,0.0,48.887,2.361
-Lyon,PLACE RASPAIL,a remplir,1.0,20.0,21.0,0.0,0.0,45.756,4.841
+Toulouse,EGLISE DE LALANDE,a remplir,1.0,12.0,13.0,0.0,0.0,43.647,1.431
+Lille,Pont de Bois,a remplir,1.0,29.0,30.0,0.0,0.0,50.624,3.128
 Bordeaux,Bougnard,a remplir,1.0,19.0,20.0,0.0,0.0,44.794,-0.635
-Toulouse,00258 - ATLANTA - CAMBARD,a remplir,1.0,17.0,18.0,0.0,0.0,43.629,1.476
-Toulouse,TERRASSE - LEDORMEUR,a remplir,1.0,17.0,18.0,0.0,0.0,43.584,1.488
+Paris,Marc Sangnier - Porte de Vanves,a remplir,1.0,20.0,21.0,0.0,0.0,48.825,2.311
+Paris,Pierre Sarrazin - Saint-Michel,a vider,30.0,1.0,31.0,0.0,0.0,48.851,2.342
+Lille,Fraternite,a remplir,1.0,15.0,16.0,0.0,0.0,50.682,3.194
+Paris,Dom-Pérignon - Gravelle,a remplir,1.0,47.0,48.0,0.0,0.0,48.825,2.41
+Toulouse,PLACE DU RELAIS TRAMWAY,a remplir,1.0,15.0,16.0,0.0,0.0,43.637,1.391
+Paris,Les Halles - Saint-Eustache,a vider,30.0,1.0,31.0,0.0,0.0,48.864,2.343
+Paris,Bracion - Périphérique,a remplir,1.0,28.0,29.0,0.0,0.0,48.826,2.3
+Paris,Amaury Duval - Gabriel Péri,a remplir,1.0,35.0,36.0,0.0,0.0,48.817,2.324
+Bordeaux,Pont du Guit,a remplir,1.0,19.0,19.0,0.0,0.0,44.824,-0.558
+Paris,Candale - Mehul,a remplir,1.0,23.0,24.0,0.0,0.0,48.889,2.414
+Paris,Centquatre,a remplir,1.0,39.0,40.0,0.0,0.0,48.889,2.371
+Montpellier,Garcia Lorca,a remplir,1.0,7.0,8.0,0.0,0.0,43.591,3.891
+Toulouse,TRENTIN - VERNE,a remplir,1.0,15.0,16.0,0.0,0.0,43.624,1.428
+Paris,Louis Lumière.,a remplir,1.0,20.0,21.0,0.0,0.0,48.862,2.411
+Toulouse,ALBI - NICOL,a remplir,1.0,16.0,17.0,0.0,0.0,43.636,1.464
+Paris,Musée d'Orsay,a vider,64.0,1.0,65.0,0.0,0.0,48.86,2.326
+Paris,Île de la Jatte,a vider,21.0,1.0,22.0,0.0,0.0,48.894,2.267
+Bordeaux,Mandron Godard,a vider,13.0,1.0,14.0,0.0,0.0,44.86,-0.589
+Paris,Louis Blanc - La Chapelle,a remplir,1.0,19.0,20.0,0.0,0.0,48.884,2.36
+Paris,Francoeur - Caulaincourt,a remplir,1.0,33.0,34.0,0.0,0.0,48.89,2.343
+Paris,Dunkerque - Rocroy,a remplir,1.0,23.0,24.0,0.0,0.0,48.881,2.351
+Toulouse,PORT ST-SAUVEUR - SABATIER,a remplir,1.0,19.0,20.0,0.0,0.0,43.597,1.456
+Paris,Flandre - Ourcq,a remplir,1.0,29.0,30.0,0.0,0.0,48.893,2.379
+Lille,Rue de Londres,a vider,13.0,1.0,14.0,0.0,0.0,50.617,3.023
+Paris,Charonne - Pierre Bayle,a remplir,1.0,21.0,22.0,0.0,0.0,48.858,2.39
+Montpellier,Malbosc,a remplir,1.0,6.0,7.0,0.0,0.0,43.634,3.833
+Paris,Edouard Pailleron - Simon Bolivar ,a remplir,1.0,23.0,24.0,0.0,0.0,48.88,2.375
+Paris,Verdun - Carnot,a remplir,1.0,27.0,28.0,0.0,0.0,48.808,2.374
+Bordeaux,Ilot Eglise St Louis,a vider,4.0,1.0,5.0,0.0,0.0,44.852,-0.572
+Lille,Place Catinat,a vider,19.0,1.0,20.0,0.0,0.0,50.634,3.041
+Paris,Custine - Ramey,a remplir,1.0,40.0,41.0,0.0,0.0,48.889,2.347
+Paris,Jean Moulin - Paul Doumer,a remplir,1.0,18.0,19.0,0.0,0.0,48.862,2.455
+Paris,Prague - Théophile Roussel,a vider,32.0,1.0,33.0,0.0,0.0,48.85,2.376
+Lyon,3090 - VINATIER,a vider,19.0,1.0,20.0,0.0,0.0,45.742,4.894
+Paris,Palais des Sports,a vider,21.0,1.0,22.0,0.0,0.0,48.833,2.286
+Paris,Leibniz - Jean Dollfus,a remplir,1.0,30.0,31.0,0.0,0.0,48.896,2.333
+Paris,Montmartre - Etienne Marcel,a vider,15.0,1.0,16.0,0.0,0.0,48.865,2.345
+Bordeaux,Archives,a remplir,1.0,19.0,20.0,0.0,0.0,44.847,-0.554
 Paris,Jardin de l'Hospice Debrousse,a remplir,1.0,22.0,23.0,0.0,0.0,48.861,2.406
-Lyon,PHILIPPE DE LASSALLE,a remplir,1.0,19.0,20.0,0.0,0.0,45.773,4.821
-Bordeaux,Saint-Michel,a remplir,1.0,19.0,20.0,0.0,0.0,44.835,-0.565
-Paris,Place Jean-Spire-Lemaître,a remplir,1.0,49.0,50.0,0.0,0.0,48.847,2.452
-Lille,Rue des Anges,a remplir,1.0,5.0,6.0,0.0,0.0,50.72,3.156
-Paris,Grenelle - Dr Finlay,a vider,66.0,1.0,67.0,0.0,0.0,48.851,2.292
+Paris,Faustin Hélie - Desbordes-Valmore,a remplir,1.0,32.0,33.0,0.0,0.0,48.859,2.277
+Montpellier,Providence - Ovalie,a remplir,1.0,7.0,8.0,0.0,0.0,43.588,3.853
+Bordeaux,CAPC,a vider,16.0,1.0,17.0,0.0,0.0,44.85,-0.57
+Lyon,PLACE RHODIACETA,a remplir,1.0,10.0,11.0,0.0,0.0,45.771,4.808
+Paris,Paul Vaillant Couturier - Chaptal,a vider,37.0,1.0,38.0,0.0,0.0,48.893,2.278
+Paris,Maréchal Joffre - Verdun,a remplir,1.0,19.0,20.0,0.0,0.0,48.854,2.47
+Montpellier,Vert Bois,a remplir,1.0,15.0,16.0,0.0,0.0,43.635,3.871
+Paris,Vigée-Lebrun - Anselme Payen,a remplir,1.0,22.0,23.0,0.0,0.0,48.839,2.311
+Paris,Italie - Tolbiac,a remplir,1.0,19.0,21.0,0.0,0.0,48.826,2.358
+Paris,Place de l'Europe - Quai de Bercy,a remplir,1.0,16.0,17.0,0.0,0.0,48.825,2.395
 Toulouse,MICHOUN - HYÈRES,a remplir,1.0,19.0,20.0,0.0,0.0,43.627,1.469
-Montpellier,Foch,a remplir,1.0,7.0,8.0,0.0,0.0,43.611,3.873
-Lyon,GARDE / AQUEDUCS,a remplir,1.0,14.0,15.0,0.0,0.0,45.76,4.791
-Paris,Choron - Martyrs,a remplir,1.0,28.0,29.0,0.0,0.0,48.878,2.34
-Lyon,GARIBALDI / BUGEAUD,a remplir,1.0,18.0,19.0,0.0,0.0,45.767,4.852
-Lyon,DOCTEUR LONG / CAILLE,a remplir,1.0,13.0,14.0,0.0,0.0,45.753,4.894
-Paris,Village Saint-Paul,a vider,27.0,1.0,28.0,0.0,0.0,48.853,2.361
-Paris,Epi d'Or - Chevilly,a remplir,1.0,19.0,20.0,0.0,0.0,48.781,2.355
-Paris,Tour d'Auvergne - Rodier,a remplir,1.0,15.0,16.0,0.0,0.0,48.879,2.344
-Paris,Gergovie - Vercingétorix,a remplir,1.0,28.0,29.0,0.0,0.0,48.835,2.313
-Bordeaux,Pont du Guit,a remplir,1.0,18.0,19.0,0.0,0.0,44.824,-0.558
-Paris,René Coty - Parc Montsouris,a remplir,1.0,53.0,54.0,0.0,0.0,48.825,2.336
 Paris,Carpeaux - Place Jacques Froment,a remplir,1.0,18.0,19.0,0.0,0.0,48.891,2.331
-Paris,Petites Ecuries - Faubourg Poissonnière,a vider,15.0,1.0,16.0,0.0,0.0,48.874,2.348
-Lyon,MARIETTON OUEST,a remplir,1.0,18.0,19.0,0.0,0.0,45.776,4.8
-Paris,Auguste Cain - Jean Moulin,a remplir,1.0,38.0,39.0,0.0,0.0,48.826,2.321
-Lyon,PLACE DE LA CROIX-ROUSSE,a remplir,1.0,20.0,21.0,0.0,0.0,45.776,4.833
-Paris,Place aux Étoiles,a vider,39.0,1.0,40.0,0.0,0.0,48.918,2.352
-Paris,Pajol - Place Herbert,a remplir,1.0,37.0,38.0,0.0,0.0,48.893,2.364
-Paris,Neuve Saint-Pierre - Beautreillis,a vider,16.0,1.0,17.0,0.0,0.0,48.854,2.364
-Paris,Goutte d'or - Barbès,a remplir,1.0,19.0,20.0,0.0,0.0,48.885,2.35
-Paris,Sorbier - Gasnier-Guy,a remplir,1.0,33.0,34.0,0.0,0.0,48.865,2.394
-Paris,Clichy - Place Blanche,a remplir,1.0,18.0,19.0,0.0,0.0,48.884,2.333
-Paris,Jean Jaurès - Gare de Clamart,a remplir,1.0,15.0,16.0,0.0,0.0,48.813,2.272
-Toulouse,MONT LOUIS –AV. DE TOULOUSE,a vider,15.0,1.0,16.0,0.0,0.0,43.649,1.473
-Toulouse,ST-MARTIN-DU-TOUCH  GARE,a remplir,1.0,11.0,12.0,0.0,0.0,43.601,1.372
-Paris,Bassano -  Iéna,a vider,14.0,1.0,15.0,0.0,0.0,48.868,2.296
-Lille,Delecaux,a remplir,1.0,19.0,20.0,0.0,0.0,50.645,3.037
-Lyon,CÉLESTINS,a remplir,1.0,20.0,21.0,0.0,0.0,45.76,4.832
-Paris,Pasteur - Gambetta,a vider,18.0,1.0,19.0,0.0,0.0,48.846,2.424
-Toulouse,MAIRIE  RAMONVILLE,a remplir,1.0,15.0,16.0,0.0,0.0,43.546,1.475
-Paris,Gare du Nord - La Chapelle,a remplir,1.0,16.0,17.0,0.0,0.0,48.884,2.356
-Lyon,PLACE CRÉPU,a remplir,1.0,19.0,20.0,0.0,0.0,45.758,4.826
-Paris,Constant Coquelin - Invalides,a vider,29.0,1.0,30.0,0.0,0.0,48.848,2.316
-Montpellier,Place Viala,a remplir,1.0,7.0,8.0,0.0,0.0,43.617,3.855
-Lyon,LHERMINIER / PRESSENSÉ,a remplir,1.0,14.0,15.0,0.0,0.0,45.771,4.885
-Paris,Olympiades,a remplir,1.0,34.0,35.0,0.0,0.0,48.827,2.365
-Paris,Parc Georges Brassens - Brancion,a remplir,1.0,28.0,29.0,0.0,0.0,48.832,2.302
+Bordeaux,Ilot Gambetta,a vider,4.0,1.0,5.0,0.0,0.0,44.841,-0.581
+Paris,Eylau - Trocadéro,a remplir,1.0,23.0,24.0,0.0,0.0,48.863,2.286
 Paris,Pergolèse - Marbeau,a remplir,1.0,26.0,27.0,0.0,0.0,48.874,2.282
-Toulouse,SELLIER - MOUETTES,a remplir,1.0,15.0,16.0,0.0,0.0,43.577,1.44
-Lyon,PLACE AMBROISE COURTOIS,a remplir,1.0,18.0,19.0,0.0,0.0,45.745,4.872
-Lyon,GARE DE VAISE,a remplir,1.0,20.0,21.0,0.0,0.0,45.78,4.805
+Paris,Epi d'Or - Chevilly,a remplir,1.0,19.0,20.0,0.0,0.0,48.781,2.355
+Paris,Louis Blanc - Aqueduc,a remplir,1.0,35.0,36.0,0.0,0.0,48.882,2.364
+Lille,Rue des Anges,a remplir,1.0,5.0,6.0,0.0,0.0,50.72,3.156
+Paris,Place Jean-Baptiste Clément,a remplir,1.0,23.0,24.0,0.0,0.0,48.812,2.362
+Paris,Fief - République,a vider,23.0,1.0,24.0,0.0,0.0,48.832,2.256
+Paris,Liard - Amiral Mouchez,a remplir,1.0,27.0,28.0,0.0,0.0,48.821,2.342
+Paris,Jules Guesde - Pont du Port à l'Anglais,a vider,28.0,1.0,29.0,0.0,0.0,48.796,2.417
+Paris,Chaussée d'Antin - Haussmann,a vider,37.0,1.0,38.0,0.0,0.0,48.872,2.334
+Paris,Gare du Nord - Demarquay,a remplir,1.0,26.0,27.0,0.0,0.0,48.881,2.358
+Toulouse,CITÉ DE L'HERS - ROTONDE,a remplir,1.0,17.0,18.0,0.0,0.0,43.597,1.484
+Paris,Place Jean-Spire-Lemaître,a remplir,1.0,49.0,50.0,0.0,0.0,48.847,2.452
+Paris,Place du 17 Octobre,a vider,16.0,1.0,17.0,0.0,0.0,48.92,2.298
+Paris,Place Saint-André des Arts,a vider,11.0,1.0,12.0,0.0,0.0,48.853,2.343
+Toulouse,LA VACHE MÉTRO,a remplir,1.0,17.0,18.0,0.0,0.0,43.633,1.436
+Paris,Lemercier - Cardinet,a remplir,1.0,22.0,23.0,0.0,0.0,48.89,2.317
 Lyon,NEUVILLE - STADE,a remplir,1.0,14.0,15.0,0.0,0.0,45.871,4.84
-Paris,Gare SNCF Vanves-Malakoff,a remplir,1.0,49.0,50.0,0.0,0.0,48.819,2.292
-Toulouse,AMIDONNIERS - DEBAT-PONSAN,a remplir,1.0,12.0,13.0,0.0,0.0,43.606,1.421
-Paris,Mouton Duvernet - Général Leclerc,a remplir,1.0,26.0,27.0,0.0,0.0,48.832,2.329
+Montpellier,Place Viala,a remplir,1.0,7.0,8.0,0.0,0.0,43.617,3.855
+Paris,Vitruve - Davout,a remplir,1.0,21.0,22.0,0.0,0.0,48.861,2.409
+Paris,LCL Campus - Place Oscar Niemeyer,a remplir,1.0,36.0,37.0,0.0,0.0,48.805,2.364
+Paris,Colisée - Champs-Elysées,a vider,21.0,1.0,22.0,0.0,0.0,48.87,2.308
+Lyon,CALUIRE - SAINT-CLAIR,a remplir,1.0,18.0,18.0,0.0,0.0,45.785,4.848
+Paris,Auguste Cain - Jean Moulin,a remplir,1.0,38.0,39.0,0.0,0.0,48.826,2.321
+Montpellier,Foch,a remplir,1.0,7.0,8.0,0.0,0.0,43.611,3.873
+Bordeaux,Ilot Grosse Cloche,a remplir,1.0,4.0,5.0,0.0,0.0,44.835,-0.572
+Paris,Bourdon - Pont Morland,a vider,49.0,1.0,50.0,0.0,0.0,48.848,2.366
+Paris,Château - République,a remplir,1.0,24.0,25.0,0.0,0.0,48.863,2.416
+Paris,Melun - Jean Jaurès,a remplir,1.0,26.0,27.0,0.0,0.0,48.884,2.376
+Paris,Place Marcel Cachin,a vider,31.0,1.0,32.0,0.0,0.0,48.814,2.391
+Paris,Jourdan - Cité Universitaire,a remplir,1.0,36.0,37.0,0.0,0.0,48.82,2.34
+Paris,Place Nelson Mandela,a vider,29.0,1.0,30.0,0.0,0.0,48.898,2.218
+Lille,Victoire,a remplir,1.0,11.0,12.0,0.0,0.0,50.718,3.157
+Lyon,VENISSIEUX - COBLOD,a remplir,1.0,14.0,15.0,0.0,0.0,45.697,4.896
+Paris,Manin - Secrétan,a remplir,1.0,18.0,19.0,0.0,0.0,48.879,2.379
+Toulouse,CARNOT - LABÉDA,a vider,22.0,1.0,24.0,0.0,0.0,43.604,1.45
+Toulouse,AV. DE REYNERIE - VAUQUELIN,a vider,19.0,1.0,20.0,0.0,0.0,43.576,1.406
+Paris,Pierre Brossolette - Adolphe Pinard,a remplir,1.0,21.0,22.0,0.0,0.0,48.822,2.313
+Paris,Place André Malraux,a vider,34.0,1.0,35.0,0.0,0.0,48.864,2.336
+Paris,Division Leclerc - Kléber,a remplir,1.0,23.0,24.0,0.0,0.0,48.799,2.283
+Paris,Place du Moulin de Javel,a vider,45.0,1.0,45.0,0.0,0.0,48.84,2.272
+Toulouse,PLACE ESQUIROL,a vider,43.0,1.0,42.0,0.0,0.0,43.6,1.445
+Paris,Lucie Aubrac - Fort,a remplir,1.0,29.0,30.0,0.0,0.0,48.818,2.271
+Paris,Gare de Robinson,a remplir,1.0,28.0,29.0,0.0,0.0,48.78,2.282
+Lyon,VEYRON / TCHEKOSLOVAQUES,a remplir,1.0,14.0,15.0,0.0,0.0,45.745,4.858
+Lille,Station Provisoire 1,a remplir,1.0,19.0,20.0,0.0,0.0,50.647,3.058
+Paris,Villersexel - Saint-Germain,a vider,15.0,1.0,16.0,0.0,0.0,48.858,2.324
+Paris,Centre Hospitalier Intercommunal de Créteil,a remplir,1.0,16.0,17.0,0.0,0.0,48.797,2.464
+Paris,Dugommier,a remplir,1.0,51.0,52.0,0.0,0.0,48.839,2.39
+Montpellier,Père Soulas,a remplir,1.0,7.0,8.0,0.0,0.0,43.622,3.856
+Paris,Bézout - Général Leclerc,a remplir,1.0,28.0,29.0,0.0,0.0,48.829,2.329
+Paris,Charonne - Avron,a remplir,1.0,25.0,26.0,0.0,0.0,48.852,2.398
+Paris,Tremblay - Lac des Minimes,a vider,68.0,1.0,61.0,0.0,0.0,48.834,2.455
+Lille,Marbrerie,a vider,17.0,1.0,18.0,0.0,0.0,50.63,3.097
 Paris,Champs de Manoeuvre - Cartoucherie,a vider,32.0,1.0,33.0,0.0,0.0,48.835,2.448
-Paris,Adolphe Pinard - Victor Hugo,a remplir,1.0,50.0,51.0,0.0,0.0,48.824,2.308
-Paris,Gravelle - Route du Bac,a remplir,1.0,50.0,51.0,0.0,0.0,48.824,2.418
-Paris,Quai de l'Horloge - Pont Neuf,a vider,14.0,1.0,15.0,0.0,0.0,48.857,2.342
-Paris,Ramponeau - Belleville,a remplir,1.0,43.0,44.0,0.0,0.0,48.871,2.379
-Paris,Place du Moulin de Javel,a vider,43.0,1.0,44.0,0.0,0.0,48.84,2.272
-Paris,La Jarry - Place Diderot,a remplir,1.0,24.0,25.0,0.0,0.0,48.85,2.452
-Paris,Epée de Bois - Mouffetard,a remplir,1.0,61.0,62.0,0.0,0.0,48.842,2.35
-Paris,Romainville - Vaillant-Couturier,a remplir,1.0,36.0,37.0,0.0,0.0,48.868,2.447
+Paris,Place de la Division Leclerc,a remplir,1.0,32.0,33.0,0.0,0.0,48.794,2.273
+Paris,Chemin Vert - Saint-Maur,a remplir,1.0,44.0,45.0,0.0,0.0,48.861,2.381
+Paris,Bertie Albrecht - Hoche,a vider,29.0,1.0,30.0,0.0,0.0,48.876,2.301
+Toulouse,PADER - FRONTON,a remplir,1.0,15.0,16.0,0.0,0.0,43.636,1.433
 Toulouse,PLACE SAINT-JULIEN,a vider,22.0,1.0,23.0,0.0,0.0,43.609,1.437
-Paris,Marcadet - Barbès,a remplir,1.0,33.0,34.0,0.0,0.0,48.89,2.349
-Montpellier,Sabines,a remplir,1.0,7.0,8.0,0.0,0.0,43.584,3.86
-Toulouse,PADER - FRONTON,a remplir,1.0,14.0,15.0,0.0,0.0,43.636,1.433
-Paris,Philippe-Auguste,a remplir,1.0,45.0,46.0,0.0,0.0,48.852,2.393
-Paris,Le Vau - Maurice Bertaux,a remplir,1.0,24.0,25.0,0.0,0.0,48.868,2.411
-Lyon,PLACE MARÉCHAL LYAUTEY,a remplir,1.0,17.0,18.0,0.0,0.0,45.769,4.842
-Lyon,STE FOY - PLACE ST LUC,a remplir,1.0,12.0,13.0,0.0,0.0,45.75,4.801
-Paris,Place Ginette Hamelin,a vider,48.0,1.0,49.0,0.0,0.0,48.838,2.382
-Toulouse,HÉRACLÈS - BÉARNAIS,a remplir,1.0,19.0,20.0,0.0,0.0,43.608,1.429
-Bordeaux,Place St Projet,a remplir,1.0,16.0,17.0,0.0,0.0,44.839,-0.575
-Paris,Ney - Porte de Montmartre,a remplir,1.0,23.0,24.0,0.0,0.0,48.898,2.336
-Rennes,Cucillé - Frac,a remplir,1.0,24.0,25.0,0.0,0.0,48.129,-1.698
-Paris,Condorcet - Turgot,a remplir,1.0,16.0,17.0,0.0,0.0,48.88,2.345
-Paris,Institut du Monde Arabe - Saint-Germain,a vider,36.0,1.0,37.0,0.0,0.0,48.849,2.356
-Lyon,PLACE BERTONE,a remplir,1.0,8.0,9.0,0.0,0.0,45.778,4.835
-Paris,Montgallet - Charenton,a remplir,1.0,15.0,16.0,0.0,0.0,48.843,2.386
-Lyon,5002 - PLACE DES COMPAGNONS DE LA CHANSON,a remplir,1.0,16.0,17.0,0.0,0.0,45.757,4.797
-Paris,Croulebarde - Corvisart,a remplir,1.0,33.0,34.0,0.0,0.0,48.831,2.348
-Lyon,CONSERVATOIRE,a vider,16.0,1.0,17.0,0.0,0.0,45.77,4.813
-Paris,Belleville - Télégraphe,a remplir,1.0,40.0,41.0,0.0,0.0,48.876,2.4
+Paris,Claude Decaen - Cannebière,a remplir,1.0,43.0,44.0,0.0,0.0,48.838,2.397

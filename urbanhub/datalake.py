@@ -25,7 +25,10 @@ def client():
         endpoint_url=config.MINIO_URL,
         aws_access_key_id=config.MINIO_USER,
         aws_secret_access_key=config.MINIO_PASSWORD,
-        config=Config(signature_version="s3v4", max_pool_connections=50),
+        # retries : si la connexion est coupee (frequent avec Docker Desktop sous Windows
+        # quand il y a beaucoup d'envois en parallele), boto3 reessaie tout seul
+        config=Config(signature_version="s3v4", max_pool_connections=50,
+                      retries={"max_attempts": 10, "mode": "standard"}),
         region_name="us-east-1",
     )
 
