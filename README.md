@@ -11,6 +11,29 @@ Ce document explique chaque etape en detail :
 - comment regarder les resultats
 
 
+## Apercu de l'interface
+
+### Vue d'ensemble
+![Vue d'ensemble](docs/captures/accueil.png)
+
+### Meteo
+![Meteo](docs/captures/meteo.png)
+
+### Mobilite velo
+![Mobilite velo](docs/captures/mobilite.png)
+
+### Qualite de l'air
+![Qualite de l'air](docs/captures/air.png)
+
+### Analyse croisee
+![Analyse croisee](docs/captures/croisement.png)
+
+### Data Lake
+![Data Lake](docs/captures/lac.png)
+
+
+---
+
 ## Sommaire
 
 1. Vue d'ensemble
@@ -183,8 +206,8 @@ python -m urbanhub.init_datalake
 ```
 
 Cela lance deux conteneurs :
-- `urbanhub-minio` : API S3 sur le port 9010, console web sur http://localhost:9011
-- `urbanhub-clickhouse` : port 8123, interface SQL sur http://localhost:8123/play
+- `urbanhub-minio` : API S3 sur le port 9010, console web sur http://127.0.0.1:9011
+- `urbanhub-clickhouse` : port 8123, interface SQL sur http://127.0.0.1:8123/play
 
 Remarques :
 - Ports 9010 et 9011 (et non 9000 et 9001) pour ne pas gener le stockage des TP s'il tourne encore.
@@ -403,10 +426,10 @@ La table horaire fait des dizaines de millions de lignes : l'analyse la lit fich
 | Question | Fonction | Tableaux gold |
 |---|---|---|
 | Q1 stations les plus utilisees | `q1_utilisation` (rotations = mouvements / capacite / jour) | `q1_top_stations`, `q1_utilisation_par_ville` |
-| Q2 offre insuffisante | `q2_offre_insuffisante` (carres de 500 m vides plus de 25 % du temps) | `q2_zones_insuffisantes` |
+| Q2 offre insuffisante | `q2_offre_insuffisante` (carres de 500 m vides plus de 25 % du temps, stations hors service exclues) | `q2_zones_insuffisantes` |
 | Q3 pics dans la journee | `q3_pics` | `q3_profil_horaire`, `q3_heure_de_pointe`, `q3_semaine_weekend` |
 | Q4 desequilibres geographiques | `q4_desequilibres` (remplissage selon la distance au centre, matin contre soir) | `q4_remplissage_par_distance`, `q4_matin_soir` |
-| Q5 stations a reequilibrer | `q5_critiques` (vides ou pleines plus de 30 % du temps sur les 30 derniers jours) | `q5_stations_critiques` |
+| Q5 stations a reequilibrer | `q5_critiques` (vides ou pleines plus de 30 % du temps sur les 30 derniers jours de donnees de chaque ville) | `q5_stations_critiques` |
 | tendance | `usage_journalier` | `velos_journalier` (mouvements par ville et par jour) |
 
 
@@ -518,7 +541,7 @@ Code : [urbanhub/charger_clickhouse.py](urbanhub/charger_clickhouse.py). ClickHo
 - `silver/velos_horaire` devient la table `urbanhub.velos_horaire` (l'historique velos station x heure)
 - chaque tableau gold devient une table : `gold/meteo/q1_periodes_anormales.parquet` donne `urbanhub.gold_meteo_q1_periodes_anormales`
 
-Il y a 33 tables gold. Pour les voir : `SHOW TABLES FROM urbanhub` dans http://localhost:8123/play. Des exemples de requetes sont dans [sql/requetes.sql](sql/requetes.sql).
+Il y a 39 tables gold. Pour les voir : `SHOW TABLES FROM urbanhub` dans http://127.0.0.1:8123/play. Des exemples de requetes sont dans [sql/requetes.sql](sql/requetes.sql).
 
 ### L'API
 
@@ -544,7 +567,7 @@ On peut ouvrir ces adresses dans le navigateur pour voir le JSON, ex : http://lo
 
 ### L'interface
 
-Code : [web/src](web/src). Six pages dans le menu de gauche :
+Code : [web/src](web/src). Six pages dans le menu en haut (captures au debut de ce document) :
 
 | Page | Contenu |
 |---|---|
@@ -567,8 +590,8 @@ Pour modifier l'interface, lancer `npm run dev` dans `web/` (en plus de l'API) e
 | Ou | Adresse | Ce qu'on y voit |
 |---|---|---|
 | Interface UrbanHub | http://localhost:8000 | tout, en graphiques et KPI |
-| Console Silo | http://localhost:9011 (urbanhub / urbanhub123) | les fichiers bronze, silver, gold |
-| ClickHouse | http://localhost:8123/play (urbanhub / urbanhub123) | les tables, en SQL |
+| Console Silo | http://127.0.0.1:9011 (urbanhub / urbanhub123) | les fichiers bronze, silver, gold |
+| ClickHouse | http://127.0.0.1:8123/play (urbanhub / urbanhub123) | les tables, en SQL |
 | API | http://localhost:8000/docs | les donnees brutes envoyees a l'interface |
 | Terminaux des collecteurs | | une ligne par collecte, ex : `14:41:00 UTC  12 reseaux, 3352 stations, 3352 lignes vers ClickHouse` |
 
@@ -593,13 +616,13 @@ Pour voir le temps reel en action : laisser l'interface ouverte sur "Mobilite ve
 
 **Q1 stations les plus utilisees.** Lyon et Toulouse ont les velos les plus sollicites (6,4 et 5,6 rotations par place et par jour en moyenne), devant Paris (3,7). Strasbourg et Montpellier tournent beaucoup moins (moins de 1). Les stations les plus actives sont pres des noeuds de transport et des centres : Part-Dieu et Guillotiere a Lyon, Palais de Justice a Toulouse, Cours Julien a Marseille.
 
-**Q2 offre insuffisante.** 175 zones de 500 m ont des stations vides plus d'un quart du temps, surtout a Paris (47), Toulouse (39) et Lille (35). Ce sont les endroits ou il manque des velos ou des stations.
+**Q2 offre insuffisante.** 119 zones de 500 m ont des stations vides plus d'un quart du temps, surtout a Paris (32), Toulouse (31) et Lyon (24). Ce sont les endroits ou il manque des velos. Les stations vides 99 % du temps ou plus sont considerees hors service et ne sont pas comptees.
 
 **Q3 pics.** Deux pics nets en semaine : le matin vers 8-9 h et surtout le soir vers 17-18 h (trajets domicile-travail). Le week-end, l'usage est plus etale sur l'apres-midi.
 
 **Q4 desequilibres.** A Paris, les stations du centre (0-2 km) sont remplies a 52 % en moyenne contre 32 % entre 2 et 6 km : les velos s'accumulent au centre. A Lyon c'est l'inverse, la peripherie est plus pleine. Strasbourg a des stations tres remplies partout (velos peu utilises).
 
-**Q5 a reequilibrer.** Sur les 30 derniers jours, plusieurs centaines de stations sont vides ou pleines plus de 30 % du temps, dont 257 a Paris. Le tableau de l'interface donne la liste, avec l'action (remplir ou vider).
+**Q5 a reequilibrer.** Sur les 30 derniers jours de donnees de chaque ville (l'archive CityBikes s'arrete pour l'instant fin septembre 2026, on y ajoute la collecte en direct), 339 stations sont vides ou pleines plus de 30 % du temps : 298 a remplir et 41 a vider, dont 79 a Paris. Les stations hors service sont exclues. Le tableau de l'interface donne la liste, avec l'action (remplir ou vider) et la periode utilisee.
 
 ### Partie 3 - Pollution (novembre 2023 a novembre 2026)
 
@@ -615,7 +638,7 @@ Pour voir le temps reel en action : laisser l'interface ouverte sur "Mobilite ve
 
 **Q1 meteo et pollution (3 ans, 11 villes).** Le vent est le meilleur "nettoyeur" de l'air : correlation -0,43 avec le NO2 et -0,32 avec les PM2.5. Par vent faible, le NO2 moyen est environ 3 fois plus eleve que par vent fort. La temperature favorise l'ozone (+0,59) : il passe de 20 microgrammes par m3 sous 0 C a 114 au-dessus de 30 C. L'air humide va avec peu d'ozone (-0,63).
 
-**Q2 meteo et velos.** La temperature est le facteur le plus fort (+0,34). L'usage passe de 0,74 (moins de 5 C) a 1,21 (20 a 25 C), soit 60 % de velos en plus. La pluie fait chuter l'usage de 30 % (indice 0,72) et le vent fort de 20 % (0,80).
+**Q2 meteo et velos.** La temperature est le facteur le plus fort (+0,34). L'usage passe de 0,74 (moins de 5 C) a 1,21 (20 a 25 C), soit 64 % de velos en plus. La pluie fait chuter l'usage d'environ 30 % (indice 0,72) et le vent fort de 20 % (0,80).
 
 **Q3 conditions favorables.** Le meilleur temps pour le velo : 20 a 25 C, sec et sans vent (24 % d'usage en plus que d'habitude), puis 15 a 20 C sec et calme. Au-dela de 25 C, l'usage baisse un peu.
 

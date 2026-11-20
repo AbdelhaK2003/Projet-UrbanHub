@@ -30,7 +30,7 @@ export default function Croisement() {
 
   return (
     <>
-      <Hero titre="Analyse croisée" puces={["Météo × Pollution × Vélos", "Ville × heure"]} />
+      <Hero titre="Analyse croisée" puces={["Ville × heure", "Q1 : nov. 2023 → aujourd'hui", "Q2 à Q4 : nov. 2024 → aujourd'hui"]} />
       <div className="contenu">
         <div className="grille g4">
           <Kpi icone={Icones.vent} label="Vent et NO2" valeur={fmt(val("wind_speed", "no2"), 2)} detail="Corrélation" />
@@ -93,7 +93,7 @@ export default function Croisement() {
           <Carte titre="Q2 · Météo et usage des vélos" sousTitre="Indice d'usage (1 = habituel)">
             {usage?.length ? (
               <ResponsiveContainer width="100%" height={260}>
-                <BarChart data={[...usage].sort((a, b) => a.facteur.localeCompare(b.facteur) || a.ordre - b.ordre).map((u) => ({ ...u, nom: `${u.facteur === "temperature (C)" ? "" : u.facteur + " "}${u.classe}${u.facteur === "temperature (C)" ? " °C" : ""}` }))} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
+                <BarChart data={[...usage].sort((a, b) => a.facteur.localeCompare(b.facteur) || a.ordre - b.ordre).map((u) => ({ ...u, nom: u.facteur === "temperature (C)" ? `${u.classe} °C` : u.facteur === "vent" ? `vent ${u.classe}` : u.classe }))} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
                   <CartesianGrid stroke={GRILLE} vertical={false} />
                   <XAxis dataKey="nom" tick={{ ...AXE, fontSize: 11 }} axisLine={false} tickLine={false} interval={0} angle={-30} textAnchor="end" height={60} />
                   <YAxis tick={AXE} axisLine={false} tickLine={false} width={40} />
@@ -123,7 +123,7 @@ export default function Croisement() {
         <Carte titre="Q4 · Interactions fortes" sousTitre={`${fmt(interactions?.length)} jours détectés · les plus récents`}>
           {interactions?.length ? (
             <div className="defile"><table className="tableau">
-              <thead><tr><th>Date</th><th>Ville</th><th className="nb">Usage vélo</th><th className="nb">Pollution</th><th className="nb">Température</th><th className="nb">Pluie</th></tr></thead>
+              <thead><tr><th>Date</th><th>Ville</th><th className="nb">Indice vélo</th><th className="nb">NO2 (µg/m³)</th><th className="nb">Température</th><th className="nb">Pluie</th></tr></thead>
               <tbody>
                 {[...interactions].sort((a, b) => String(b.date).localeCompare(String(a.date))).slice(0, 30).map((d, i) => (
                   <tr key={i}><td>{date(d.date)}</td><td>{d.city}</td><td className="nb">{fmt(d.usage, 2)}</td><td className="nb">{fmt(d.pollution, 1)}</td>

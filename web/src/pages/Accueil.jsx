@@ -1,5 +1,5 @@
-import { Area, AreaChart, Bar, BarChart, CartesianGrid, Cell, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import { AXE, BLEU, Bulle, Carte, GRILLE, Hero, Icones, Kpi, Vide, dateHeure, fmt, heure, useApi } from "../outils.jsx";
+import { Bar, BarChart, CartesianGrid, Cell, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { AXE, Bulle, Carte, CourbeTemps, GRILLE, Hero, Icones, Kpi, Vide, dateHeure, fmt, heure, useApi } from "../outils.jsx";
 
 export default function Accueil({ aller }) {
   const { data: k } = useApi("/api/kpis", 30);
@@ -25,23 +25,10 @@ export default function Accueil({ aller }) {
         </div>
 
         <div className="grille g3">
-          <Carte className="large" titre="Vélos disponibles · 24 h">
+          <Carte className="large" titre="Vélos disponibles · en direct">
             {evolution?.length ? (
-              <ResponsiveContainer width="100%" height={260}>
-                <AreaChart data={evolution} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
-                  <defs>
-                    <linearGradient id="degradeVelos" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor={BLEU} stopOpacity={0.35} />
-                      <stop offset="100%" stopColor={BLEU} stopOpacity={0.02} />
-                    </linearGradient>
-                  </defs>
-                  <CartesianGrid stroke={GRILLE} vertical={false} />
-                  <XAxis dataKey="collected_at" tickFormatter={heure} tick={AXE} axisLine={false} tickLine={false} minTickGap={40} />
-                  <YAxis tick={AXE} axisLine={false} tickLine={false} tickFormatter={(v) => fmt(v)} width={56} domain={["auto", "auto"]} />
-                  <Tooltip content={<Bulle formatLabel={dateHeure} formatValeur={(v) => fmt(v)} />} />
-                  <Area isAnimationActive={false} type="monotone" dataKey="velos" name="Vélos disponibles" stroke={BLEU} strokeWidth={2} fill="url(#degradeVelos)" />
-                </AreaChart>
-              </ResponsiveContainer>
+              <CourbeTemps data={evolution} cle="collected_at" valeur="velos" nom="Vélos disponibles" id="degradeVelos"
+                           hauteur={240} formatX={heure} formatLabel={dateHeure} />
             ) : <Vide>La collecte vélos n'a pas encore commencé.</Vide>}
           </Carte>
 

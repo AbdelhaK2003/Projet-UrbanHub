@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Icones, useApi, heure } from "./outils.jsx";
+import { Icones } from "./outils.jsx";
 import Accueil from "./pages/Accueil.jsx";
 import Meteo from "./pages/Meteo.jsx";
 import Mobilite from "./pages/Mobilite.jsx";
@@ -19,7 +19,6 @@ const PAGES = [
 export default function App() {
   const [page, setPage] = useState(() => location.hash.slice(1) || "accueil");
   useEffect(() => { location.hash = page; window.scrollTo(0, 0); }, [page]);
-  const { data: etat } = useApi("/api/etat", 60);
   const Page = (PAGES.find((p) => p[0] === page) || PAGES[0])[3];
 
   return (
@@ -34,10 +33,6 @@ export default function App() {
               </button>
             ))}
           </nav>
-          <div className="statut">
-            <span className="point" />
-            {etat?.velos ? `Direct · ${heure(etat.velos.derniere)}` : "Connexion…"}
-          </div>
         </div>
       </header>
       <main className="main">

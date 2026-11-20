@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { CircleMarker, MapContainer, TileLayer, Tooltip as InfoCarte, useMap } from "react-leaflet";
-import { Area, AreaChart, Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import { AXE, BLEU, Bulle, Carte, ChoixVille, GRILLE, Hero, Icones, Kpi, Legende, Vide, date, dateHeure, fmt, heure, mois, pct, useApi } from "../outils.jsx";
+import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { AXE, BLEU, Bulle, Carte, ChoixVille, CourbeTemps, GRILLE, Hero, Icones, Kpi, Legende, Vide, date, dateHeure, fmt, heure, mois, pct, useApi } from "../outils.jsx";
 
 const ETAT = { vide: "#d13b3b", pleine: "#eda100", normale: "#2a78d6" };
 
@@ -33,7 +33,7 @@ export default function Mobilite() {
   const pic = pointe?.find((d) => d.city === ville);
   const bandes = (distance || []).filter((d) => d.city === ville);
   const crit = (critiques || []).filter((d) => d.city === ville);
-  const nbZones = (zones || []).filter((d) => d.city === ville).length;
+  const zonesVille = (zones || []).filter((d) => d.city === ville);
   const etat = (s) => (s.bikes_available === 0 ? "vide" : s.free_slots === 0 ? "pleine" : "normale");
 
   return (
@@ -73,46 +73,54 @@ export default function Mobilite() {
             ) : <Vide>Pas encore de collecte pour cette ville.</Vide>}
           </Carte>
 
-          <Carte titre="Vélos disponibles · 24 h">
+          <Carte titre="Vélos disponibles · en direct">
             {evolution?.length ? (
-              <ResponsiveContainer width="100%" height={380}>
-                <AreaChart data={evolution} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
-                  <defs>
-                    <linearGradient id="degradeVille" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor={BLEU} stopOpacity={0.35} />
-                      <stop offset="100%" stopColor={BLEU} stopOpacity={0.02} />
-                    </linearGradient>
-                  </defs>
-                  <CartesianGrid stroke={GRILLE} vertical={false} />
-                  <XAxis dataKey="collected_at" tickFormatter={heure} tick={AXE} axisLine={false} tickLine={false} minTickGap={40} />
-                  <YAxis tick={AXE} axisLine={false} tickLine={false} width={56} domain={["auto", "auto"]} tickFormatter={(x) => fmt(x)} />
-                  <Tooltip content={<Bulle formatLabel={dateHeure} formatValeur={(x) => fmt(x)} />} />
-                  <Area isAnimationActive={false} type="monotone" dataKey="velos" name="Vélos disponibles" stroke={BLEU} strokeWidth={2} fill="url(#degradeVille)" />
-                </AreaChart>
-              </ResponsiveContainer>
+              <CourbeTemps data={evolution} cle="collected_at" valeur="velos" nom="Vélos disponibles" id="degradeVille"
+                           hauteur={355} formatX={heure} formatLabel={dateHeure} />
             ) : <Vide />}
           </Carte>
         </div>
 
-        <Carte titre={`Usage quotidien · ${ville}`} sousTitre="Vélos pris ou rendus par jour">
+        <Carte titre={`Usage quotidien · ${ville}`} sousTitre="Vélos pris ou rendus par jour · plus longue période sans mois manquant dans l'archive CityBikes">
           {journalier?.length ? (
-            <ResponsiveContainer width="100%" height={260}>
-              <AreaChart data={journalier} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
-                <defs>
-                  <linearGradient id="degradeJour" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor={BLEU} stopOpacity={0.3} />
-                    <stop offset="100%" stopColor={BLEU} stopOpacity={0.02} />
-                  </linearGradient>
-                </defs>
-                <CartesianGrid stroke={GRILLE} vertical={false} />
-                <XAxis dataKey="date" tickFormatter={mois} tick={AXE} axisLine={false} tickLine={false} minTickGap={50} />
-                <YAxis tick={AXE} axisLine={false} tickLine={false} width={64} tickFormatter={(x) => fmt(x)} />
-                <Tooltip content={<Bulle formatLabel={date} formatValeur={(x) => fmt(x)} />} />
-                <Area isAnimationActive={false} type="monotone" dataKey="mouvements" name="Mouvements" stroke={BLEU} strokeWidth={1.5} fill="url(#degradeJour)" />
-              </AreaChart>
-            </ResponsiveContainer>
+            <CourbeTemps data={journalier} cle="date" valeur="mouvements" nom="Mouvements" id="degradeJour"
+                         formatX={mois} formatLabel={date} trouMinutes={4 * 24 * 60} largeurY={64} choix="longue" formatPeriode={date} />
           ) : <Vide />}
         </Carte>
+
+        <div className="grille g2">
+          <Carte titre="Q1 · Stations les plus utilisées" sousTitre="Rotations par place et par jour · toutes villes">
+            {top?.length ? (
+              <div className="defile">
+                <table className="tableau">
+                  <thead><tr><th>Station</th><th>Ville</th><th className="nb">Places</th><th className="nb">Rotations / jour</th></tr></thead>
+                  <tbody>
+                    {top.map((s) => (
+                      <tr key={s.city + s.station_name}><td>{s.station_name}</td><td>{s.city}</td>
+                        <td className="nb">{fmt(s.capacity)}</td><td className="nb"><b>{fmt(s.rotations_par_jour, 1)}</b></td></tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : <Vide />}
+          </Carte>
+
+          <Carte titre={`Q2 · Zones où l'offre manque · ${ville}`} sousTitre={`${fmt(zonesVille.length)} zones de 500 m où les stations sont vides plus de 25 % du temps`}>
+            {zonesVille.length ? (
+              <div className="defile">
+                <table className="tableau">
+                  <thead><tr><th>Stations de la zone</th><th className="nb">Stations</th><th className="nb">Temps vide</th></tr></thead>
+                  <tbody>
+                    {zonesVille.map((z) => (
+                      <tr key={`${z.zone_lat}|${z.zone_lon}`}><td>{z.stations}</td><td className="nb">{fmt(z.nb_stations)}</td>
+                        <td className="nb"><b>{pct(z.part_temps_vide)}</b></td></tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : <Vide>Aucune zone en manque de vélos à {ville}.</Vide>}
+          </Carte>
+        </div>
 
         <div className="grille g2">
           <Carte titre="Q3 · Pics d'utilisation" sousTitre="Part des mouvements par heure">
@@ -144,28 +152,13 @@ export default function Mobilite() {
           </Carte>
         </div>
 
-        <div className="grille g2">
-          <Carte titre="Q1 · Stations les plus utilisées" sousTitre="Rotations par place et par jour">
-            {top?.length ? (
-              <div className="defile">
-                <table className="tableau">
-                  <thead><tr><th>Station</th><th>Ville</th><th className="nb">Places</th><th className="nb">Rotations / jour</th></tr></thead>
-                  <tbody>
-                    {top.map((s) => (
-                      <tr key={s.city + s.station_name}><td>{s.station_name}</td><td>{s.city}</td>
-                        <td className="nb">{fmt(s.capacity)}</td><td className="nb"><b>{fmt(s.rotations_par_jour, 1)}</b></td></tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            ) : <Vide />}
-          </Carte>
-
-          <Carte titre="Q5 · Stations à rééquilibrer" sousTitre="30 derniers jours">
+        <div className="grille">
+          <Carte titre={`Q5 · Stations à rééquilibrer · ${ville}`}
+                 sousTitre={crit.length ? `30 derniers jours de données · du ${date(crit[0].periode_debut)} au ${date(crit[0].periode_fin)}` : "30 derniers jours de données"}>
             {crit.length ? (
               <div className="defile">
                 <table className="tableau">
-                  <thead><tr><th>Station</th><th>Action</th><th className="nb">Vélos</th><th className="nb">Temps vide</th><th className="nb">Temps pleine</th></tr></thead>
+                  <thead><tr><th>Station</th><th>Action</th><th className="nb">Vélos maintenant</th><th className="nb">Temps vide</th><th className="nb">Temps pleine</th></tr></thead>
                   <tbody>
                     {crit.slice(0, 60).map((s) => (
                       <tr key={s.station_name}><td>{s.station_name}</td>

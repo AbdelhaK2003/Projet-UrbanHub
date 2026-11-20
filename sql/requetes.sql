@@ -1,5 +1,5 @@
 -- Exemples de requetes ClickHouse sur les donnees UrbanHub
--- A lancer dans http://localhost:8123/play (utilisateur urbanhub / urbanhub123)
+-- A lancer dans http://127.0.0.1:8123/play (utilisateur urbanhub / urbanhub123)
 -- Tables detaillees : urbanhub.meteo, urbanhub.velos, urbanhub.pollution
 -- Indicateurs : urbanhub.gold_<partie>_<nom> (liste : SHOW TABLES FROM urbanhub)
 

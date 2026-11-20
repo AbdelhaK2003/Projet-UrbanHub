@@ -57,8 +57,8 @@ export default function Meteo() {
       <Hero titre="Météo" puces={["Open-Meteo", "Nov. 2021 → aujourd'hui", "Horaire"]} />
       <div className="contenu">
         <div className="grille g4">
-          <Kpi icone={Icones.thermo} label="Vagues de chaleur" valeur={fmt(compte("vague de chaleur"))} detail="≥ 3 jours au-dessus de la normale" />
-          <Kpi icone={Icones.meteo} label="Vagues de froid" valeur={fmt(compte("vague de froid"))} detail="≥ 3 jours sous la normale" />
+          <Kpi icone={Icones.thermo} label="Vagues de chaleur" valeur={fmt(compte("vague de chaleur"))} detail="≥ 3 jours nettement au-dessus de la normale" />
+          <Kpi icone={Icones.meteo} label="Vagues de froid" valeur={fmt(compte("vague de froid"))} detail="≥ 3 jours nettement sous la normale" />
           <Kpi icone={Icones.alerte} label="Jours-ville extrêmes" valeur={fmt((parVille || []).reduce((s, d) => s + d.nb_jours, 0))} detail="Chaleur, gel, tempête, pluie, brouillard" />
           <Kpi icone={Icones.jauge} label="Plus fort écart été / hiver" valeur={fmt(max?.ecart, 1)} unite="°C" detail={max?.city} />
         </div>

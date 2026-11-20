@@ -54,6 +54,9 @@ def velos_horaire():
     if not datalake.existe("silver", "velos_ville_heure/velos_ville_heure.parquet"):
         return pd.DataFrame()
     h = datalake.get_parquet("silver", "velos_ville_heure/velos_ville_heure.parquet").rename(columns={"heure": "timestamp"})
+    # heure ou presque toutes les stations d'une ville sont "vides" : le reseau ne publie pas
+    # le nombre de velos (ex : Marseille en direct), ce n'est pas un vrai usage nul
+    h = h[h["part_vide"] < 0.95]
     h["mouv_par_station"] = h["mouvements"] / h["stations"].where(h["stations"] > 0)
     local = h["timestamp"].dt.tz_convert("Europe/Paris")
     h["h_locale"], h["we"] = local.dt.hour, local.dt.day_of_week >= 5

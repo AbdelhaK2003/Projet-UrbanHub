@@ -176,6 +176,8 @@ def velos_evolution(city: str | None = None, heures: int = 24):
     # si un reseau manque a une collecte (API en panne), on garde sa derniere valeur connue
     # au lieu de faire chuter le total
     large = d.pivot_table(index="collected_at", columns="network_id", values=["velos", "stations_vides"]).ffill()
+    # debut de la fenetre : on attend que chaque reseau ait au moins une valeur (sinon total trop bas)
+    large = large[large["velos"].notna().all(axis=1)]
     res = pd.DataFrame({"velos": large["velos"].sum(axis=1), "stations_vides": large["stations_vides"].sum(axis=1)})
     return json(res.reset_index())
 

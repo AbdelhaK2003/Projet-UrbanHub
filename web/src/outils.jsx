@@ -1,5 +1,6 @@
 // Petits outils partages par toutes les pages : appels a l'API, formats, cartes, graphiques.
 import { useEffect, useState } from "react";
+import { Area, CartesianGrid, ComposedChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 
 // Couleurs des series (ordre fixe : une serie garde toujours la meme couleur)
 export const COULEURS = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#6250d6"];
@@ -30,7 +31,46 @@ export function useApi(chemin, secondes = 60) {
 }
 
 const nf = (d) => new Intl.NumberFormat("fr-FR", { maximumFractionDigits: d, minimumFractionDigits: 0 });
-export const fmt = (v, d = 0) => (v === null || v === undefined || Number.isNaN(v) ? "–" : nf(d).format(v));
+// Courbe dans le temps, uniquement avec des valeurs mesurees et sans trou : la serie est coupee la ou il
+// manque des mesures (PC eteint, API en panne, mois absent de l'archive) et on affiche une seule periode
+// continue. choix = "recente" (la derniere periode, si elle dure au moins dureeMin heures) ou "longue".
+export function CourbeTemps({ data, cle, valeur, nom, hauteur = 260, formatX, formatLabel, formatValeur = (v) => fmt(v),
+  trouMinutes = 15, id, largeurY = 56, choix = "recente", dureeMin = 3, formatPeriode = dateHeure }) {
+  const pts = (data || []).map((d) => ({ t: new Date(d[cle]).getTime(), v: d[valeur] ?? null }))
+    .filter((p) => p.v !== null).sort((a, b) => a.t - b.t);
+  const morceaux = [];
+  pts.forEach((p, i) => {
+    if (i === 0 || p.t - pts[i - 1].t > trouMinutes * 60000) morceaux.push([]);
+    morceaux[morceaux.length - 1].push(p);
+  });
+  const duree = (m) => m[m.length - 1].t - m[0].t;
+  const plusLong = morceaux.reduce((a, m) => (!a || duree(m) > duree(a) ? m : a), null);
+  const dernier = morceaux[morceaux.length - 1];
+  const serie = (choix === "recente" && dernier && duree(dernier) >= dureeMin * 3600000 ? dernier : plusLong) || [];
+  const lignes = serie.map((p) => ({ t: p.t, mesure: p.v }));
+  return (
+    <>
+      <ResponsiveContainer width="100%" height={hauteur}>
+        <ComposedChart data={lignes} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
+          <defs>
+            <linearGradient id={id} x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor={BLEU} stopOpacity={0.3} />
+              <stop offset="100%" stopColor={BLEU} stopOpacity={0.02} />
+            </linearGradient>
+          </defs>
+          <CartesianGrid stroke={GRILLE} vertical={false} />
+          <XAxis dataKey="t" type="number" scale="time" domain={["dataMin", "dataMax"]} tickFormatter={formatX} tick={AXE}
+                 axisLine={false} tickLine={false} minTickGap={40} />
+          <YAxis tick={AXE} axisLine={false} tickLine={false} width={largeurY} domain={["auto", "auto"]} tickFormatter={(x) => fmt(x)} />
+          <Tooltip content={<Bulle formatLabel={formatLabel} formatValeur={formatValeur} />} />
+          <Area isAnimationActive={false} type="monotone" dataKey="mesure" name={nom} stroke={BLEU} strokeWidth={2} fill={`url(#${id})`} />
+        </ComposedChart>
+      </ResponsiveContainer>
+      {serie.length > 0 && <p className="note">Période affichée : du {formatPeriode(serie[0].t)} au {formatPeriode(serie[serie.length - 1].t)}</p>}
+    </>
+  );
+}
+export const fmt =(v, d = 0) => (v === null || v === undefined || Number.isNaN(v) ? "–" : nf(d).format(v));
 export const pct = (v, d = 0) => (v === null || v === undefined ? "–" : `${nf(d).format(v * 100)} %`);
 export const date = (iso) => (iso ? new Date(iso).toLocaleDateString("fr-FR", { day: "numeric", month: "short", year: "numeric" }) : "–");
 export const heure = (iso) => (iso ? new Date(iso).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" }) : "–");
